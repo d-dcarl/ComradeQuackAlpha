@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     bool isGrounded;
     int currentJumps;
+    bool isZoomedIn = false;
 
     float turnSmoothVelocity;
 
@@ -39,6 +40,15 @@ public class PlayerMovement : MonoBehaviour
             currentJumps++;
             anim.Play("flap");
         }
+
+        if (Input.GetButton("Fire2"))
+        {
+            isZoomedIn = true;
+        }
+        else
+        {
+            isZoomedIn = false;
+        }
     }
 
     void FixedUpdate()
@@ -51,7 +61,8 @@ public class PlayerMovement : MonoBehaviour
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            if (!isZoomedIn)
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
