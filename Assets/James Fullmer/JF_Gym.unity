@@ -191,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  sprintSpeed: 12
   jumpForce: 5
   numberOfJumps: 3
   cam: {fileID: 6309702}

@@ -39,7 +39,10 @@ public class CameraMovement : MonoBehaviour
     {
         mouseX += Input.GetAxisRaw("Mouse X") * rotationSpeed;
         mouseY -= Input.GetAxisRaw("Mouse Y") * rotationSpeed;
-        mouseY = Mathf.Clamp(mouseY, -35, 60);
+        if (isZoomedIn)
+            mouseY = Mathf.Clamp(mouseY, -75, 60);
+        else
+            mouseY = Mathf.Clamp(mouseY, -35, 60);
 
         if (!isZoomedIn)
             transform.LookAt(target);

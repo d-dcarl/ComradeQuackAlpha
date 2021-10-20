@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //Public
     public float speed = 6f;
+    public float sprintSpeed = 12f;
     public float jumpForce = 100f;
     public int numberOfJumps = 3;
     public Transform cam;
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     int currentJumps;
     bool isZoomedIn = false;
+    float moveSpeed;
 
     float turnSmoothVelocity;
 
@@ -32,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (currentJumps < numberOfJumps && Input.GetButtonDown("Jump"))
+        if (/*currentJumps < numberOfJumps && */Input.GetButtonDown("Jump"))
         {
             Debug.Log("I jump");
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
@@ -49,6 +51,16 @@ public class PlayerMovement : MonoBehaviour
         {
             isZoomedIn = false;
         }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = sprintSpeed;
+        }
+        else
+        {
+            moveSpeed = speed;
+        }
+
     }
 
     void FixedUpdate()
@@ -65,7 +77,17 @@ public class PlayerMovement : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
+            rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * moveSpeed);
+        }
+
+        if (Input.GetButton("Jump"))
+        {
+            rb.useGravity = false;
+            rb.AddForce(Physics.gravity * rb.mass * .5f);
+        }
+        else 
+        {
+            rb.useGravity = true;
         }
         
         
