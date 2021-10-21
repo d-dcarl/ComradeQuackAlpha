@@ -12,6 +12,8 @@ public class TurretController : MonoBehaviour
     private bool resetting = true;
     private Quaternion targetRotation;
     private bool HasTarget;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,14 @@ public class TurretController : MonoBehaviour
     private void LateUpdate()
     {
         AimAtTarget();
+        if(HasTarget)
+        {
+            if(TryGetComponent<LaunchProjectile>(out LaunchProjectile p))
+            {
+                Debug.Log("spawning_bullet");
+                p.SpawnProjectile();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
