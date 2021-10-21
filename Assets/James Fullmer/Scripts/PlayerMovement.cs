@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Private
     Rigidbody rb;
-    bool isGrounded;
+    //bool isGrounded;
     int currentJumps;
     bool isZoomedIn = false;
     float moveSpeed;
@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        isGrounded = true;
         currentJumps = 0;
         numberOfJumps--;
         anim = gameObject.GetComponent<Animator>();
@@ -38,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("I jump");
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
             currentJumps++;
             anim.Play("flap");
         }
@@ -97,8 +95,7 @@ public class PlayerMovement : MonoBehaviour
         float DisstanceToTheGround = GetComponent<Collider>().bounds.extents.y;
         if (Physics.Raycast(transform.position, Vector3.down, DisstanceToTheGround + 0.05f))
         {
-            Debug.Log("Is grounded");
-            isGrounded = true;
+            //Debug.Log("Is grounded");
             currentJumps = 0;
         }
     }
