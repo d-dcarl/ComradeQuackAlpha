@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     public GameObject impactEffect;
     public Vector3 gunRotation;
     public LayerMask PlayerLayerMask;
+    public ParticleSystem muzzleFlash;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,13 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        // weapon switching handling
+        //if 9gun.name.Equals())
+
+        // play flash animation
+        muzzleFlash.Play();
+
+        // get raycast from mouse position
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
