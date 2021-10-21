@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject objectToSpawn;
+    public GameObject enemyPrefab;
     public int spawnCount = 0;
     public int spawnAmount = 10;
     public float timeBetweenSpawns = 1.0f;
+    public List<GameObject> path;
 
     float spawnTimer;
 
@@ -26,7 +28,8 @@ public class EnemySpawner : MonoBehaviour
             if (spawnCount < spawnAmount)
             {
                 spawnCount++;
-                Instantiate(objectToSpawn, new Vector3(this.transform.position.x + Random.Range(-1.0f,1.0f), transform.position.y, transform.position.z + Random.Range(-1.0f, 1.0f)), Quaternion.identity, transform);
+                var e = Instantiate(enemyPrefab, new Vector3(transform.position.x + Random.Range(-1.0f,1.0f), transform.position.y, transform.position.z + Random.Range(-1.0f, 1.0f)), Quaternion.identity, transform);
+                e.GetComponent<EnemyMovement>().path = path;
             }
             
             spawnTimer = timeBetweenSpawns;

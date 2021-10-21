@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Vector3[] path;
+    public List<GameObject> path;
     public int speed;
 
     private Vector3 targetPoint;
@@ -13,32 +13,25 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        path = new[]
-        {
-            new Vector3(50, 5, 0),
-            new Vector3(0, 5, 0),
-            new Vector3(0, -5, 0)
-        };
-        
         speed = 10;
-        targetPoint = path[0];
+        targetPoint = path[0].transform.position;
         targetPointIndex = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, targetPoint) < 1)
+        if (Vector3.Distance(transform.position, targetPoint) < 0.1f)
         {
             targetPointIndex++;
-            if (targetPointIndex >= path.Length)
+            if (targetPointIndex >= path.Count)
             {
                 HurtBase();
                 Destroy(this);
             }
             else
             {
-                targetPoint = path[targetPointIndex];
+                targetPoint = path[targetPointIndex].transform.position;
             }
         }
         
