@@ -5,8 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject objectToSpawn;
-    public GameObject parent;
-    public int spawnGroupCount;
+    public int spawnCount = 0;
     public int spawnAmount = 10;
     public float timeBetweenSpawns = 1.0f;
 
@@ -21,19 +20,31 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < spawnAmount; i++)
+        spawnTimer -= Time.deltaTime;
+        if (spawnTimer <= 0f)
         {
-            spawnTimer -= Time.deltaTime;
-            if (spawnTimer <= 0f)
+            if (spawnCount < spawnAmount)
             {
-                for (int j = 0; j < spawnGroupCount; j++)
-                {
-                    Instantiate(objectToSpawn, new Vector3(this.transform.position.x + Random.Range(-1.0f,1.0f), this.transform.position.y, 
-                        this.transform.position.z + Random.Range(-1.0f, 1.0f)), Quaternion.identity, parent.transform);
-                }
-                spawnTimer = timeBetweenSpawns;
+                spawnCount++;
+                Instantiate(objectToSpawn, new Vector3(this.transform.position.x + Random.Range(-1.0f,1.0f), transform.position.y, transform.position.z + Random.Range(-1.0f, 1.0f)), Quaternion.identity, transform);
             }
+            
+            spawnTimer = timeBetweenSpawns;
         }
-        
+
+        // for(int i = 0; i < spawnAmount; i++)
+        // {
+        //     spawnTimer -= Time.deltaTime;
+        //     if (spawnTimer <= 0f)
+        //     {
+        //         for (int j = 0; j < spawnGroupCount; j++)
+        //         {
+        //             Instantiate(objectToSpawn, new Vector3(this.transform.position.x + Random.Range(-1.0f,1.0f), transform.position.y, 
+        //                 transform.position.z + Random.Range(-1.0f, 1.0f)), Quaternion.identity, transform);
+        //         }
+        //         spawnTimer = timeBetweenSpawns;
+        //     }
+        // }
+
     }
 }
