@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // check for shooting input
         if (Input.GetButtonDown("Fire1") && Input.GetButton("Fire2"))
         {
             Shoot();
