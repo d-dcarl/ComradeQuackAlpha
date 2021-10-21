@@ -46,7 +46,7 @@ public class Gun : MonoBehaviour
         {
             //Transform objectHit = hit.transform;
             Debug.Log(hit.transform.name);
-            //Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            
 
             // find what we hit and apply damage
             Target t = hit.transform.GetComponent<Target>();
@@ -54,6 +54,7 @@ public class Gun : MonoBehaviour
             {
                 Debug.Log(t.name + " was hit!");
                 t.TakeDamage(damage);
+                Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             }
 
             // Do something with the object that was hit by the raycast.
