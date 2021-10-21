@@ -14,12 +14,17 @@ public class PlayerMovement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     public Animator anim;
 
+    public bool isMounted = false;
+    
+
     //Private
     Rigidbody rb;
     //bool isGrounded;
     int currentJumps;
     bool isZoomedIn = false;
     float moveSpeed;
+    Transform mount;
+    MountTrigger mountTrigger;
 
     float turnSmoothVelocity;
 
@@ -35,7 +40,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (/*currentJumps < numberOfJumps && */Input.GetButtonDown("Jump"))
         {
-            Debug.Log("I jump");
+            //Debug.Log("I jump");
+            if (isMounted && mountTrigger)
+            {
+                isMounted = false;
+                mountTrigger.Dismount();
+                mountTrigger = null;
+            }
+            
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             currentJumps++;
             anim.Play("flap");
@@ -63,29 +75,38 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Movement
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(h, 0, v).normalized;
-        if (direction.magnitude >= 0.1f)
+        if (!isMounted)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            //Movement
+            float h = Input.GetAxisRaw("Horizontal");
+            float v = Input.GetAxisRaw("Vertical");
+            Vector3 direction = new Vector3(h, 0, v).normalized;
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                if (!isZoomedIn)
+                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * moveSpeed);
+            }
+
+            if (Input.GetButton("Jump"))
+            {
+                rb.useGravity = false;
+                rb.AddForce(Physics.gravity * rb.mass * .5f);
+            }
+            else
+            {
+                rb.useGravity = true;
+            }
+        }
+        if (isMounted)
+        {
+            transform.position = mount.position;
             if (!isZoomedIn)
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * moveSpeed);
-        }
-
-        if (Input.GetButton("Jump"))
-        {
-            rb.useGravity = false;
-            rb.AddForce(Physics.gravity * rb.mass * .5f);
-        }
-        else 
-        {
-            rb.useGravity = true;
+                transform.rotation = mount.rotation;
         }
         
         
@@ -98,5 +119,12 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log("Is grounded");
             currentJumps = 0;
         }
+    }
+
+    public void MountDuck(Transform mount, MountTrigger mt)
+    {
+        isMounted = true;
+        mountTrigger = mt;
+        this.mount = mount;
     }
 }
