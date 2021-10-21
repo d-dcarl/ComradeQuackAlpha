@@ -30,7 +30,6 @@ public class TurretController : MonoBehaviour
         {
             if(TryGetComponent<LaunchProjectile>(out LaunchProjectile p))
             {
-                Debug.Log("spawning_bullet");
                 p.SpawnProjectile();
             }
         }
@@ -38,7 +37,6 @@ public class TurretController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Entered");
         if(HasTarget)
         {
             //we return if we want the turret to focus on an enemy until they die or leave range
@@ -57,7 +55,6 @@ public class TurretController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Trigger Exited");
         if (!HasTarget)
         {
             return;

@@ -6,9 +6,10 @@ public class LaunchProjectile : MonoBehaviour
 {
     [SerializeField] private GameObject Projectile = null;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private Vector3 velocity = new Vector3();
     [SerializeField] public float fireRate = 1;
-     private float firingTimer;
+    [SerializeField] public float bulletLifetime = 5;
+    private float firingTimer;
+    [SerializeField] private Vector3 relativeVelocity = new Vector3();
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +39,11 @@ public class LaunchProjectile : MonoBehaviour
             if (projectile.TryGetComponent(out Rigidbody body))
             {
                 
-                body.velocity = body.transform.TransformDirection(velocity);
-                Debug.Log("velocity:" + velocity);
+                body.velocity = transform.TransformDirection(relativeVelocity);
+                Debug.Log("velocity:" + relativeVelocity);
             }
             firingTimer = fireRate;
+            Destroy(projectile, bulletLifetime);
         }
 
     }
