@@ -17,8 +17,7 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(gun.transform.rotation);
-        //gunRotation = new Vector3(0, 0, 90);
+
     }
 
     // Update is called once per frame
@@ -28,23 +27,10 @@ public class Gun : MonoBehaviour
         {
             Shoot();
         }
-
-        //gun.transform.Rotate(90,0,0);
     }
 
     void Shoot()
     {
-        /*RaycastHit hitInfo;
-        //if (Physics.Raycast(gun.transform.position, gun.transform.rotation * gun.transform.forward, out hitInfo, range))
-        if (Physics.Raycast(gun.transform.position, gun.transform.forward, out hitInfo, range))
-        {
-            Debug.Log(hitInfo.transform.name);
-            //Debug.Log(gun.transform.rotation);
-
-            // particle effect on hit
-            Instantiate(impactEffect, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
-        }*/
-
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         
