@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    // ***CONTROLS*** //
+    //-------------------
+    // right-click: aim
+    // right-click + left-click: shoot
+    // left-shift: switch weapon
+
+
     // Reference: https://youtu.be/THnivyG0Mvo
 
     public float damage = 10;
@@ -33,9 +40,6 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
-        // weapon switching handling
-        //if 9gun.name.Equals())
-
         // play flash animation
         muzzleFlash.Play();
 
@@ -57,8 +61,6 @@ public class Gun : MonoBehaviour
                 t.TakeDamage(damage);
                 Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             }
-
-            // Do something with the object that was hit by the raycast.
         }
     }
 }

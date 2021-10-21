@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class WeaponSwitching : MonoBehaviour
 {
+    //Reference: https://youtu.be/Dn_BUIVdAPg
+
     public int selectedWeapon = 0;
 
     // Start is called before the first frame update
