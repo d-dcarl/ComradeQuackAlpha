@@ -48,6 +48,10 @@ public class TurretController : MonoBehaviour
             resetting = true;
             return;
         }
+        if (other.tag != "Enemy")
+        {
+            return;
+        }
         CurrentTarget = target;
         HasTarget = true;
         resetting = false;

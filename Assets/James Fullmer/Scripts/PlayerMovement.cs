@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Public
+    [SerializeField] public GameObject placeableTurret;
+    [SerializeField] public float placementCooldown = 5.0f;
+    [SerializeField] public float placementDistance = 2.0f;
     public float speed = 6f;
     public float sprintSpeed = 12f;
     public float jumpForce = 100f;
@@ -15,9 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public Animator anim;
 
     public bool isMounted = false;
-    
+
 
     //Private
+    private float cooldown = 0;
+    
     Rigidbody rb;
     //bool isGrounded;
     int currentJumps;
@@ -47,8 +52,7 @@ public class PlayerMovement : MonoBehaviour
                 mountTrigger.Dismount();
                 mountTrigger = null;
             }
-            
-            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(this.transform.up * jumpForce, ForceMode.Impulse);
             currentJumps++;
             anim.Play("flap");
         }
@@ -62,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             isZoomedIn = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             moveSpeed = sprintSpeed;
         }
@@ -70,11 +74,34 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = speed;
         }
+        
+        //Input for placing a turret
+        if(Input.GetKey(KeyCode.E))
+        {
+            if(cooldown <= 0)
+            {
+                Vector3 newPosition = new Vector3(transform.position.x + (placementDistance * this.transform.forward.x), transform.position.y, transform.position.z +(placementDistance * this.transform.forward.z));
+                Instantiate<GameObject>(placeableTurret, newPosition, this.transform.rotation);
+                cooldown = placementCooldown;
+            }
+                
+        }
 
     }
 
     void FixedUpdate()
     {
+        //update placement cooldown
+        if (cooldown < 0)
+        {
+            cooldown = 0;
+        }
+        else
+        { 
+            cooldown -= Time.deltaTime;
+        }
+        
+
         if (!isMounted)
         {
             //Movement
@@ -108,15 +135,19 @@ public class PlayerMovement : MonoBehaviour
             if (!isZoomedIn)
                 transform.rotation = mount.rotation;
         }
-        
-        
+
+        var velocity = this.GetComponent<Rigidbody>().velocity;
+        this.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x * 0.99f, velocity.y, velocity.z * 0.99f);
+
+
+
     }
     private void LateUpdate()
     {
         float DisstanceToTheGround = GetComponent<Collider>().bounds.extents.y;
         if (Physics.Raycast(transform.position, Vector3.down, DisstanceToTheGround + 0.05f))
         {
-            //Debug.Log("Is grounded");
+            Debug.Log("Is grounded");
             currentJumps = 0;
         }
     }
