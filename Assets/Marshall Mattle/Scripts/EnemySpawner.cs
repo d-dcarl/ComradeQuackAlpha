@@ -29,25 +29,11 @@ public class EnemySpawner : MonoBehaviour
             {
                 spawnCount++;
                 var e = Instantiate(enemyPrefab, new Vector3(transform.position.x + Random.Range(-1.0f,1.0f), transform.position.y, transform.position.z + Random.Range(-1.0f, 1.0f)), Quaternion.identity, transform);
-                e.GetComponent<EnemyMovement>().path = path;
+                e.GetComponent<EnemyController>().path = path;
             }
             
             spawnTimer = timeBetweenSpawns;
         }
-
-        // for(int i = 0; i < spawnAmount; i++)
-        // {
-        //     spawnTimer -= Time.deltaTime;
-        //     if (spawnTimer <= 0f)
-        //     {
-        //         for (int j = 0; j < spawnGroupCount; j++)
-        //         {
-        //             Instantiate(objectToSpawn, new Vector3(this.transform.position.x + Random.Range(-1.0f,1.0f), transform.position.y, 
-        //                 transform.position.z + Random.Range(-1.0f, 1.0f)), Quaternion.identity, transform);
-        //         }
-        //         spawnTimer = timeBetweenSpawns;
-        //     }
-        // }
 
     }
 }

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public List<GameObject> path;
     public int speed;
@@ -26,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
             targetPointIndex++;
             if (targetPointIndex >= path.Count)
             {
-                HurtBase();
+                // hurt the base
                 Destroy(this);
             }
             else
@@ -34,14 +35,12 @@ public class EnemyMovement : MonoBehaviour
                 targetPoint = path[targetPointIndex].transform.position;
             }
         }
+
+        var targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+        var targetForward = targetRotation * Vector3.forward;
         
-        transform.LookAt(targetPoint);
-        transform.position += transform.forward * (speed * Time.deltaTime);
-    }
-    
-    private void HurtBase()
-    {
-        //TODO: logic for damaging the base
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.01f);
+        transform.position += targetForward * (speed * Time.deltaTime);
     }
 }
 
