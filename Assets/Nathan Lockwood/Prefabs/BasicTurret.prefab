@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d616b1f3ba84754c82e73cc7b671da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 5012688984212686867}
+  Projectile: {fileID: 343858680451813178, guid: 4309db41860453545b80b14f0175ec84, type: 3}
   spawnPoint: {fileID: 3366806272546765215}
   fireRate: 0.1
   bulletLifetime: 5
