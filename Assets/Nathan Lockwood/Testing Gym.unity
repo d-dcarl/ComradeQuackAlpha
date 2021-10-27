@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 377324203}
   - component: {fileID: 377324202}
   - component: {fileID: 377324201}
+  - component: {fileID: 377324208}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -341,11 +342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4925c3a9917b86744a3456f8aab43e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeableTurret: {fileID: 3366806272190339506, guid: 4aea769fbc100eb4f9c036dbfb6f0d81, type: 3}
-  placementTurret: {fileID: 8071964418508513826, guid: 872a5e4c003480c4dac9be39889238ea, type: 3}
-  placementCooldown: 5
-  placementPreviewCooldown: 0.7
-  placementDistance: 2
   speed: 6
   sprintSpeed: 12
   jumpForce: 5
@@ -450,8 +446,26 @@ Transform:
   - {fileID: 1876329088}
   - {fileID: 1140722728}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &377324208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377324200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad08414f44bb1bc43999f04d57efedbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeableTurret: {fileID: 3366806272190339506, guid: 4aea769fbc100eb4f9c036dbfb6f0d81, type: 3}
+  placementTurret: {fileID: 8071964418508513826, guid: 872a5e4c003480c4dac9be39889238ea, type: 3}
+  placementCooldown: 5
+  placementPreviewCooldown: 0.7
+  placementDistance: 2
+  turnSmoothTime: 0.1
 --- !u!1 &412565134
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +591,7 @@ Transform:
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &530006806
 MonoBehaviour:
@@ -1128,7 +1142,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1263279518
 Rigidbody:
@@ -1190,7 +1204,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4850247956453413704, guid: a86d8d3f977ec4f24b1e6d71cd5dc262, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4850247956453413704, guid: a86d8d3f977ec4f24b1e6d71cd5dc262, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1320,7 +1334,7 @@ PrefabInstance:
       objectReference: {fileID: 917526580}
     - target: {fileID: 3366806272190339509, guid: 4aea769fbc100eb4f9c036dbfb6f0d81, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3366806272190339509, guid: 4aea769fbc100eb4f9c036dbfb6f0d81, type: 3}
       propertyPath: m_LocalPosition.x

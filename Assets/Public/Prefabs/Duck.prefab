@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 3244874808531811609}
   - component: {fileID: 3244874808531811610}
   - component: {fileID: 3244874808531811612}
+  - component: {fileID: 1052245086555632108}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Player
@@ -501,11 +502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4925c3a9917b86744a3456f8aab43e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeableTurret: {fileID: 0}
-  placementTurret: {fileID: 0}
-  placementCooldown: 5
-  placementPreviewCooldown: 0.7
-  placementDistance: 2
   speed: 6
   sprintSpeed: 12
   jumpForce: 5
@@ -533,6 +529,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1052245086555632108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3244874808531811611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad08414f44bb1bc43999f04d57efedbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeableTurret: {fileID: 3366806272190339506, guid: 4aea769fbc100eb4f9c036dbfb6f0d81, type: 3}
+  placementTurret: {fileID: 8071964418508513826, guid: ff1a83a496528c549ac16d7a65236f97, type: 3}
+  placementCooldown: 5
+  placementPreviewCooldown: 0.7
+  placementDistance: 2
+  turnSmoothTime: 0.1
 --- !u!1 &3244874808620377741
 GameObject:
   m_ObjectHideFlags: 0
