@@ -342,7 +342,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeableTurret: {fileID: 3366806272190339506, guid: 4aea769fbc100eb4f9c036dbfb6f0d81, type: 3}
+  placementTurret: {fileID: 8071964418508513826, guid: 872a5e4c003480c4dac9be39889238ea, type: 3}
   placementCooldown: 5
+  placementPreviewCooldown: 0.7
   placementDistance: 2
   speed: 6
   sprintSpeed: 12
@@ -440,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377324200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.94, z: 0}
+  m_LocalPosition: {x: 0, y: 1.063, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963641698}
