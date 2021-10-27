@@ -11,6 +11,7 @@ public class PigController : MonoBehaviour
     public float attackDelay;
     public float attackRadius;
     public int attackDamage;
+    public float health;
     private float attackTimer;
 
     private Rigidbody rb;
@@ -18,6 +19,7 @@ public class PigController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = 10;
         target = GameManager.ponds[0];
         attackTimer = attackDelay;
 

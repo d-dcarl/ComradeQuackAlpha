@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         float DisstanceToTheGround = GetComponent<Collider>().bounds.extents.y;
         if (Physics.Raycast(transform.position, Vector3.down, DisstanceToTheGround + 0.05f))
         {
-            Debug.Log("Is grounded");
+            //Debug.Log("Is grounded");
             currentJumps = 0;
         }
     }

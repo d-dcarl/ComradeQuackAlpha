@@ -19,7 +19,7 @@ public class LaunchProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(firingTimer);
+        //Debug.Log(firingTimer);
         if(firingTimer > 0)
         {
             firingTimer -= Time.deltaTime;
@@ -34,13 +34,13 @@ public class LaunchProjectile : MonoBehaviour
     {
         if(firingTimer == 0)
         {
-            Debug.Log("Instantiation");
+            //Debug.Log("Instantiation");
             var projectile = Instantiate(Projectile, spawnPoint.position, Quaternion.LookRotation(spawnPoint.transform.forward));
             if (projectile.TryGetComponent(out Rigidbody body))
             {
                 
                 body.velocity = transform.TransformDirection(relativeVelocity);
-                Debug.Log("velocity:" + relativeVelocity);
+                //Debug.Log("velocity:" + relativeVelocity);
             }
             firingTimer = fireRate;
             Destroy(projectile, bulletLifetime);

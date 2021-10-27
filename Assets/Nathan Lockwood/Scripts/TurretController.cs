@@ -23,6 +23,21 @@ public class TurretController : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        Debug.Log(HasTarget);
+        if(!HasTarget)
+        {
+            CurrentTarget = FindTarget(transform.position, 6.0f);
+            if (CurrentTarget != transform)
+            {
+                HasTarget = true;
+                resetting = false;
+            }
+        }
+
+    }
+
     private void LateUpdate()
     {
         AimAtTarget();
@@ -91,5 +106,34 @@ public class TurretController : MonoBehaviour
             targetRotation = resetting ? initialRotation : Quaternion.LookRotation(CurrentTarget.position - transform.position);
         }
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+    }
+
+    private Transform FindTarget(Vector3 center, float radius)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+        Debug.Log(hitColliders.Length);
+        float smallest_dist = radius;
+        Collider nearest = new Collider();
+        foreach (var hitCollider in hitColliders)
+        {
+            if(hitCollider.tag == "Enemy")
+            {
+                //Place logic here for different targeting
+                //default is closest
+                float dist = Vector3.Distance(hitCollider.transform.position, transform.position);
+                if (dist < smallest_dist)
+                {
+                    smallest_dist = dist;
+                    nearest = hitCollider;
+                }
+            }
+            
+
+        }
+        if(nearest == null)
+        {
+            return this.transform;
+        }
+        return nearest.transform;
     }
 }
