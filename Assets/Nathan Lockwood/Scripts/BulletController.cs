@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
+    [SerializeField] public float damage = 3;
     [SerializeField] public float lifetime = 5;
     private float lifeTimer;
     // Start is called before the first frame update
@@ -16,7 +17,7 @@ public class BulletController : MonoBehaviour
     void Update()
     {
         lifeTimer -= Time.deltaTime;
-        Debug.Log(lifeTimer);
+       // Debug.Log(lifeTimer);
         if(lifeTimer <= 0)
         {
             this.enabled = false;
@@ -27,7 +28,7 @@ public class BulletController : MonoBehaviour
     {
         if(other.tag == "Enemy")
         {
-            Destroy(this);
+            // Destroy(this);
         }
     }
 }
