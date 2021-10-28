@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Projectile: {fileID: 5012688984212686867}
   spawnPoint: {fileID: 3366806272546765215}
-  fireRate: 0.1
+  fireRate: 0.5
   bulletLifetime: 5
   relativeVelocity: {x: 0, y: 0, z: 25}
 --- !u!1 &3366806272546765214

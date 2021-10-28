@@ -11,7 +11,7 @@ public class PigController : MonoBehaviour
     public float attackDelay;
     public float attackRadius;
     public int attackDamage;
-    public float health;
+    public float health = 10;
     private float attackTimer;
 
     private Rigidbody rb;
@@ -19,7 +19,6 @@ public class PigController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
         target = GameManager.ponds[0];
         attackTimer = attackDelay;
 
@@ -29,6 +28,11 @@ public class PigController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (health <= 0)
+        {
+            this.enabled = false;
+            Destroy(this.gameObject);
+        }
         if(target != null)
         {
             Vector3 toTarget = target.transform.position - transform.position;
@@ -44,6 +48,15 @@ public class PigController : MonoBehaviour
                 target.TakeDamage(attackDamage);
                 attackTimer = attackDelay;
             }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Projectile")
+        {
+            Debug.Log("Health: " + health);
+            health -= other.gameObject.GetComponent<BulletController>().damage;
         }
     }
 }

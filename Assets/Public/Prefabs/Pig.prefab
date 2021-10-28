@@ -131,3 +131,4 @@ MonoBehaviour:
   attackDelay: 3
   attackRadius: 3
   attackDamage: 1
+  health: 10

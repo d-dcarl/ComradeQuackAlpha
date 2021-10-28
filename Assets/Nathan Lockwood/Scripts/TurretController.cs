@@ -5,6 +5,8 @@ using UnityEngine;
 public class TurretController : MonoBehaviour
 {
     public Transform CurrentTarget = null;
+
+    private Collider Other;
     
     public float rotationSpeed;
     public Quaternion initialRotation;
@@ -25,7 +27,12 @@ public class TurretController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(HasTarget);
+        // Checks to see if the other collider being targeted is destroyed
+       if (HasTarget && !Other)
+        {
+            HasTarget = false;
+            resetting = true;
+        }
         if(!HasTarget)
         {
             CurrentTarget = FindTarget(transform.position, 6.0f);
@@ -67,6 +74,8 @@ public class TurretController : MonoBehaviour
         {
             return;
         }
+
+        Other = other;
         CurrentTarget = target;
         HasTarget = true;
         resetting = false;
@@ -86,6 +95,8 @@ public class TurretController : MonoBehaviour
         {
             return;
         }
+
+        Other = null;
         CurrentTarget = null;
         HasTarget = false;
         resetting = true;
