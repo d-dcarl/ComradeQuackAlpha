@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PV_Gym.unity
+    path: Assets/Public/Scenes/PV_Gym.unity
     guid: 65f6853b726824f4e80a4395898c1ea2
   m_configObjects: {}
