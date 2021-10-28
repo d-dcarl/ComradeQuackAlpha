@@ -16,10 +16,17 @@ public class PigController : MonoBehaviour
 
     private Rigidbody rb;
 
+    private GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
-        target = GameManager.ponds[0];
+        gm = GameManager.Instance;
+
+
+        SelectTarget();
+
+
         attackTimer = attackDelay;
 
         rb = GetComponent<Rigidbody>();
@@ -33,12 +40,12 @@ public class PigController : MonoBehaviour
             this.enabled = false;
             Destroy(this.gameObject);
         }
-        if(target != null)
+        if(target != null && !target.isSty)
         {
             Vector3 toTarget = target.transform.position - transform.position;
             toTarget.y = 0;
             toTarget = toTarget.normalized;
-            rb.AddForce(toTarget * speed, ForceMode.Force);
+            rb.AddForce(toTarget * speed * Time.deltaTime, ForceMode.Force);
 
             if(attackTimer > 0f)
             {
@@ -48,6 +55,9 @@ public class PigController : MonoBehaviour
                 target.TakeDamage(attackDamage);
                 attackTimer = attackDelay;
             }
+        } else
+        {
+            SelectTarget();
         }
     }
 
@@ -57,6 +67,21 @@ public class PigController : MonoBehaviour
         {
             Debug.Log("Health: " + health);
             health -= other.gameObject.GetComponent<BulletController>().damage;
+        }
+    }
+
+    void SelectTarget()
+    {
+        // TODO: Pathfind to nearest pond
+        if (gm.ponds.Count > 0)
+        {
+            foreach (PondController pc in gm.ponds)
+            {
+                if (!pc.isSty)
+                {
+                    target = pc;
+                }
+            }
         }
     }
 }

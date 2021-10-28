@@ -310,8 +310,30 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &460915359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+  m_PrefabInstance: {fileID: 4269608604632740597}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &469025526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+  m_PrefabInstance: {fileID: 1104583292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &530981648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321,7 +343,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -367,8 +389,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pigsty (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: isSty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 460915359}
+    m_RemovedComponents:
+    - {fileID: 228835854620260443, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+--- !u!114 &720030486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+  m_PrefabInstance: {fileID: 1791319441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1013958122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+  m_PrefabInstance: {fileID: 1044949493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1044949493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -378,7 +435,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -424,7 +481,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pigsty (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 469025526}
+    m_RemovedComponents:
+    - {fileID: 228835854620260443, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
 --- !u!1001 &1104583292
 PrefabInstance:
@@ -435,7 +501,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -481,8 +547,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pigsty (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 1013958122}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 460915359}
+    m_RemovedComponents:
+    - {fileID: 228835854620260443, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+--- !u!114 &1105932889 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+  m_PrefabInstance: {fileID: 228835854129948932}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1316155947
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1316155948}
+  - component: {fileID: 1316155949}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -511,8 +602,26 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1316155949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316155947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c8ec4024d0d8e47ad9e022ae0fea22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pigPrefab: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
+  pondHealth: 10
+  styHealth: 5
+  water: {fileID: 2100000, guid: fce90641f23d0884c86cee770b3f0cab, type: 2}
+  mud: {fileID: 2100000, guid: 195b4c002637b4349b9f7edd1719e818, type: 2}
+  ponds: []
 --- !u!1 &1493508450
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +717,7 @@ Transform:
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1504150947
 GameObject:
@@ -727,7 +836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3244874808531811613, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3244874808531811613, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -876,7 +985,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -922,7 +1031,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pigsty (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 460915359}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 1105932889}
+    m_RemovedComponents:
+    - {fileID: 228835854620260443, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
 --- !u!1 &1872048684
 GameObject:
@@ -1114,8 +1236,19 @@ Transform:
   m_LocalScale: {x: 15, y: 0.05, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -15.31, z: 0}
+--- !u!114 &1978123988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+  m_PrefabInstance: {fileID: 530981648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2077547376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1354,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1267,7 +1400,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pigsty
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 460915359}
+    - target: {fileID: 3249839835167512836, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 720030486}
+    m_RemovedComponents:
+    - {fileID: 228835854620260443, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
 --- !u!1001 &4269608604632740597
 PrefabInstance:
@@ -1278,7 +1424,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4269608605772788580, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4269608605772788580, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1321,9 +1467,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: spawnDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: offsetAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
       propertyPath: pigstyPrefab
       value: 
       objectReference: {fileID: 228835854620260446, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: neighbors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 469025526}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 720030486}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: neighbors.Array.data[2]
+      value: 
+      objectReference: {fileID: 1105932889}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: neighbors.Array.data[3]
+      value: 
+      objectReference: {fileID: 1978123988}
     - target: {fileID: 4269608605772788600, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
       propertyPath: m_Name
       value: Pond

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 228835854620260441}
   - component: {fileID: 228835854620260440}
   - component: {fileID: 228835854620260447}
-  - component: {fileID: 228835854620260443}
+  - component: {fileID: 3249839835167512836}
   m_Layer: 0
   m_Name: Pigsty
   m_TagString: Untagged
@@ -98,7 +98,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &228835854620260443
+--- !u!114 &3249839835167512836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,9 +107,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 228835854620260446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c2f45d096fad34f8005cbf2f401010, type: 3}
+  m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pigPrefab: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
-  spawnDelay: 3
+  isSty: 1
+  neighbors: []
+  spawnDelay: 10
   offsetAmount: 3
