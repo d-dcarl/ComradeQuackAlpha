@@ -19,20 +19,16 @@ public class PondController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameManager.Instance;
-        if(gm.ponds == null)
-        {
-            gm.ponds = new List<PondController>();
-        }
-        gm.ponds.Add(this);
-
-        health = isSty ? gm.styHealth : gm.pondHealth;
-        GetComponent<Renderer>().material = isSty ? gm.mud : gm.water;
+        SetGM();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(gm == null)
+        {
+            SetGM();
+        }
         if(isSty)
         {
             spawnTimer -= Time.deltaTime;
@@ -43,8 +39,26 @@ public class PondController : MonoBehaviour
                 Vector3 randomOffset = Random.onUnitSphere;
                 randomOffset.y = 0;
                 randomOffset = randomOffset.normalized;
-                Instantiate(gm.pigPrefab, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity);
+                if(gm != null)
+                {
+                    Instantiate(gm.pigPrefab, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity);
+                }
             }
+        }
+    }
+
+    void SetGM()
+    {
+        gm = GameManager.Instance;
+        if (gm != null)
+        {
+            if (gm.ponds == null)
+            {
+                gm.ponds = new List<PondController>();
+            }
+            gm.ponds.Add(this);
+            health = isSty ? gm.styHealth : gm.pondHealth;
+            GetComponent<Renderer>().material = isSty ? gm.mud : gm.water;
         }
     }
 
