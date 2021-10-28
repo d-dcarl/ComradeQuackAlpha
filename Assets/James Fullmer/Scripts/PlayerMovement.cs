@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 6f;
     public float sprintSpeed = 12f;
     public float jumpForce = 100f;
+    public float glideGravityCap = 2f;
+    public float glideSpeed = 10f;
     public int numberOfJumps = 3;
     public Transform cam;
 
@@ -20,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     //Private
 
     Rigidbody rb;
-    //bool isGrounded;
+    bool isGrounded;
     int currentJumps;
     bool isZoomedIn = false;
     float moveSpeed;
@@ -48,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
                 mountTrigger.Dismount();
                 mountTrigger = null;
             }
+            isGrounded = false;
             rb.AddForce(this.transform.up * jumpForce, ForceMode.Impulse);
             currentJumps++;
             anim.Play("flap");
@@ -62,7 +65,11 @@ public class PlayerMovement : MonoBehaviour
             isZoomedIn = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (!isGrounded)
+        {
+            moveSpeed = glideSpeed;
+        }
+        else if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             moveSpeed = sprintSpeed;
         }
@@ -95,12 +102,19 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetButton("Jump"))
             {
-                rb.useGravity = false;
-                rb.AddForce(Physics.gravity * rb.mass * .5f);
+                //rb.useGravity = false;
+                //rb.AddForce(Physics.gravity * rb.mass * .5f);
+                if (rb.velocity.y < -glideGravityCap)
+                {
+                    rb.velocity = new Vector3(rb.velocity.x, -glideGravityCap, rb.velocity.z);
+                }
+                anim.SetBool("isGliding", true);
             }
             else
             {
                 rb.useGravity = true;
+                anim.SetBool("isGliding", false);
+
             }
         }
         if (isMounted)
@@ -123,6 +137,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //Debug.Log("Is grounded");
             currentJumps = 0;
+            isGrounded = true;
         }
     }
 
