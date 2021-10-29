@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 7f41fef2df0590a48bf70f1dfabcd978
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - placeableTurret: {fileID: 3366806272190339506, guid: 85fd36f6c4cfd3e45abb0487686a5030, type: 3}
+  - placementTurret: {fileID: 8071964418508513826, guid: 4add3b18062bb3b48b6b2f09d0560e55, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
