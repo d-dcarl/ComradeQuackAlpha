@@ -13,7 +13,9 @@ public class TurretController : MonoBehaviour
 
     private bool resetting = true;
     private Quaternion targetRotation;
-    private bool HasTarget;
+
+    //can public see but only set here
+    public bool HasTarget { get; private set; }
 
     
     // Start is called before the first frame update

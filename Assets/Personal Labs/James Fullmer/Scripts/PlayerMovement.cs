@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isMounted = false;
 
+    //movespeed can be seen by other classes, but can only be set here
+    public float moveSpeed { get; private set; }
 
     //Private
 
@@ -25,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     int currentJumps;
     bool isZoomedIn = false;
-    float moveSpeed;
     Transform mount;
     MountTrigger mountTrigger;
 
