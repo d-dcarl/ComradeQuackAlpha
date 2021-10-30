@@ -23,7 +23,7 @@ public class TurretController : MonoBehaviour
     {
         HasTarget = false;
         initialRotation = transform.rotation;
-        rotationSpeed = 10.0f;
+        //rotationSpeed = 10.0f;
         
     }
 

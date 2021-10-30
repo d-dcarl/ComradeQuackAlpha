@@ -1280,6 +1280,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: spawnDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+      propertyPath: offsetAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
       propertyPath: neighbors.Array.size
       value: 1
       objectReference: {fileID: 0}
