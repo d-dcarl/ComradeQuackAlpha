@@ -38,27 +38,31 @@ public class followPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //update the speed, and how far we step every frame
-        speed = Player.GetComponent<PlayerMovement>().moveSpeed - moveSpeedDelay;
-        step = speed * Time.deltaTime;
-
-        //find who the player we are following
-        target = Player.transform;
-        //Player = GameObject.Find("Duck");
-
-        //if we are far enough away follow the player
-        if (Vector3.Distance(this.transform.position, target.position) > distanceAway)
+        //only follow in follow mode, is not a turret
+        if (!this.gameObject.GetComponent<comradDuckController>().isTurret)
         {
-            //move ya booty
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+            //update the speed, and how far we step every frame
+            speed = Player.GetComponent<PlayerMovement>().moveSpeed - moveSpeedDelay;
+            step = speed * Time.deltaTime;
 
-            //transform.position = Vector3.Lerp(transform.position, Vector3.MoveTowards(transform.position, target.transform.position, step), step);
+            //find who the player we are following
+            target = Player.transform;
+            //Player = GameObject.Find("Duck");
 
-            //transform.Translate((target.position - transform.position).normalized * speed * Time.deltaTime);
+            //if we are far enough away follow the player
+            if (Vector3.Distance(this.transform.position, target.position) > distanceAway)
+            {
+                //move ya booty
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
+
+                //transform.position = Vector3.Lerp(transform.position, Vector3.MoveTowards(transform.position, target.transform.position, step), step);
+
+                //transform.Translate((target.position - transform.position).normalized * speed * Time.deltaTime);
+            }
+
+            //rotato happens in TurretController
+            targetRotation = Quaternion.LookRotation(target.position - this.transform.position);
+            this.GetComponent<TurretController>().initialRotation = targetRotation;
         }
-
-        //rotato happens in TurretController
-        targetRotation = Quaternion.LookRotation(target.position - this.transform.position);
-        this.GetComponent<TurretController>().initialRotation = targetRotation;
     }
 }

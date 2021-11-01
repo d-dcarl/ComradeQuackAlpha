@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4269608605772788602}
   - component: {fileID: 4269608605772788603}
   - component: {fileID: 4269608605772788583}
+  - component: {fileID: 6703566289733463933}
   m_Layer: 0
   m_Name: Pond
   m_TagString: Untagged
@@ -93,7 +94,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4269608605772788600}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -110,5 +111,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
-  pigstyPrefab: {fileID: 0}
+  isSty: 0
+  neighbors: []
+  spawnDelay: 10
+  offsetAmount: 3
+  maxComrads: 3
+  comrad: {fileID: 3366806272190339506, guid: 85fd36f6c4cfd3e45abb0487686a5030, type: 3}
+--- !u!65 &6703566289733463933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4269608605772788600}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 50, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 25, z: -0.00000008940697}

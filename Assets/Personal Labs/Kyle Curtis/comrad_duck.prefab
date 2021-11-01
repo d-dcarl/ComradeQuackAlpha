@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 2923285221538486692}
   - component: {fileID: 1345119429914357905}
   - component: {fileID: -8169376280678002792}
+  - component: {fileID: -6715589420308500062}
   m_Layer: 0
   m_Name: comrad_duck
   m_TagString: Untagged
@@ -453,6 +454,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.044270024, y: 0.09337953, z: 0.07772266}
   m_Center: {x: 0.00003625732, y: 0.0009087082, z: 0.007429477}
+--- !u!114 &-6715589420308500062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3366806272190339506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb0a63d3dcabb346a79abc12eab419b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pondParent: {fileID: 4269608605772788600, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
 --- !u!1 &3511421378647553479
 GameObject:
   m_ObjectHideFlags: 0

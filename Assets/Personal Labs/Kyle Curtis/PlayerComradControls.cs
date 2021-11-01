@@ -7,7 +7,7 @@ public class PlayerComradControls : MonoBehaviour
     //Public
     [SerializeField] public GameObject placeableTurret;
     [SerializeField] public GameObject placementTurret;
-    [SerializeField] public float placementCooldown = 5.0f;
+    [SerializeField] public float placementCooldown = 1.0f;
     [SerializeField] public float placementPreviewCooldown = 0.7f;
     [SerializeField] public float placementDistance = 2.0f;
 
@@ -47,9 +47,13 @@ public class PlayerComradControls : MonoBehaviour
                     //delete the placement turret
                     Destroy(placeholder);
 
+                    /*
                     //instantiate the actual turret
                     Vector3 newPosition = new Vector3(transform.position.x + (placementDistance * this.transform.forward.x), transform.position.y, transform.position.z + (placementDistance * this.transform.forward.z));
                     Instantiate<GameObject>(placeableTurret, newPosition, this.transform.rotation);
+                    */
+
+                    //TODO get a comrad from game manager and tell it to stand here.
 
                     //set the cooldown for placing a turret
                     cooldown = placementCooldown;
