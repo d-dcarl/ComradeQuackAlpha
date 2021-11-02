@@ -5,15 +5,25 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Public
+    [Header("Speed")]
     public float speed = 6f;
     public float sprintSpeed = 12f;
+    [Header("Jump and Gliding")]
     public float jumpForce = 100f;
     public float glideGravityCap = 2f;
     public float glideSpeed = 10f;
+    [Tooltip("Currently not used")]
     public int numberOfJumps = 3;
-    public Transform cam;
+    [Header("Stamina")]
+    public float stamina = 100f;
+    public float staminaRecovery = 10f;
+    public float staminaUsedPerJump = 10f;
+    public float staminaUsedPerGlideSecond = 5f;
+    [Header("Other")]
+    public Transform cam; //Camera Holder
     public Transform respawnPosition;
 
+    [Tooltip("Used to smoothly rotate when moving in a different direction")]
     public float turnSmoothTime = 0.1f;
     public Animator anim;
 
@@ -43,9 +53,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (/*currentJumps < numberOfJumps && */Input.GetButtonDown("Jump"))
+        //When jumped and has stamina
+        if (/*currentJumps < numberOfJumps && */Input.GetButtonDown("Jump") && stamina >= staminaUsedPerJump)
         {
             //Debug.Log("I jump");
+            //If you jump and is mounted on the bear
             if (isMounted && mountTrigger)
             {
                 isMounted = false;
@@ -53,21 +65,24 @@ public class PlayerMovement : MonoBehaviour
                 mountTrigger = null;
             }
             isGrounded = false;
+            //The force that is added when jumped
             rb.AddForce(this.transform.up * jumpForce, ForceMode.Impulse);
             currentJumps++;
+            stamina -= staminaUsedPerJump;
             anim.Play("flap");
         }
-
+        //Zooming in
         if (Input.GetButton("Fire2"))
         {
             isZoomedIn = true;
         }
-        else
+        else //Not zoomed in
         {
             isZoomedIn = false;
         }
 
-        if (!isGrounded)
+        //If you are in the air and it's not your first jump
+        if (!isGrounded && currentJumps > 1)
         {
             moveSpeed = glideSpeed;
         }
@@ -79,12 +94,13 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = speed;
         }
-
+        //Debug.Log(stamina);
     }
 
+    //Used to handle movement, gliding, and general physics
     void FixedUpdate()
     {
-
+        //If you are not mounted
         if (!isMounted)
         {
             //Movement
@@ -101,8 +117,8 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                 rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * moveSpeed);
             }
-
-            if (Input.GetButton("Jump"))
+            //If jump is held down and stamina is greater than zero
+            if (Input.GetButton("Jump") && stamina > 0)
             {
                 //rb.useGravity = false;
                 //rb.AddForce(Physics.gravity * rb.mass * .5f);
@@ -110,9 +126,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     rb.velocity = new Vector3(rb.velocity.x, -glideGravityCap, rb.velocity.z);
                 }
+                stamina -= staminaUsedPerGlideSecond * Time.deltaTime;
                 anim.SetBool("isGliding", true);
             }
-            else
+            else //If you are not gliding
             {
                 rb.useGravity = true;
                 anim.SetBool("isGliding", false);
@@ -132,27 +149,42 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+    //Used to calculate if on the ground
     private void LateUpdate()
     {
+        //Calculates if you are on the ground
         float DisstanceToTheGround = GetComponent<Collider>().bounds.extents.y;
         if (Physics.Raycast(transform.position, Vector3.down, DisstanceToTheGround + 0.05f))
         {
             //Debug.Log("Is grounded");
             currentJumps = 0;
             isGrounded = true;
+            if (stamina < 100)
+                stamina += staminaRecovery * Time.deltaTime;
+
+            
         }
     }
 
+    /// <summary>
+    /// Calls this if you are mounting the bear
+    /// </summary>
+    /// <param name="mount">The bear</param>
+    /// <param name="mt">The Mount Trigger script to call later to dismount</param>
     public void MountDuck(Transform mount, MountTrigger mt)
     {
         isMounted = true;
         mountTrigger = mt;
         this.mount = mount;
     }
-
+    /// <summary>
+    /// If player dies, respawn back at respawn position
+    /// </summary>
     public void playerDeath()
     {
-        transform.position = respawnPosition.position;
+        //If there is a respawn position
+        if (respawnPosition)
+            transform.position = respawnPosition.position;
     }
 
 }
