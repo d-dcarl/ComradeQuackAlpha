@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0ff804cda9d91d04d98e48a3ec411ee7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - RigorMortis
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d400badf1fd0c58488b3871e678708cc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
