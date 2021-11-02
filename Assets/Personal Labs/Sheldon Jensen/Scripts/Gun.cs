@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     //-------------------
     // right-click: aim
     // right-click + left-click: shoot
-    // left-shift: switch weapon
+    // Q: switch weapon
 
 
     // Reference: https://youtu.be/THnivyG0Mvo
@@ -21,11 +21,12 @@ public class Gun : MonoBehaviour
     public Vector3 gunRotation;
     public LayerMask PlayerLayerMask;
     public ParticleSystem muzzleFlash;
+    public GameObject crosshair;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        crosshair.SetActive(false);
     }
 
     // Update is called once per frame
@@ -35,6 +36,16 @@ public class Gun : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && Input.GetButton("Fire2"))
         {
             Shoot();
+        }
+
+        // show crosshair
+        if (Input.GetButton("Fire2"))
+        {
+            ShowCrosshair();
+        }
+        else
+        {
+            crosshair.SetActive(false);
         }
     }
 
@@ -62,5 +73,11 @@ public class Gun : MonoBehaviour
                 Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             }
         }
+    }
+
+    void ShowCrosshair()
+    {
+        crosshair.SetActive(true);
+        crosshair.transform.position = Input.mousePosition;
     }
 }

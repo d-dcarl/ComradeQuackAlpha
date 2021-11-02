@@ -16,7 +16,7 @@ public class WeaponSwitching : MonoBehaviour
     void Update()
     {
         // iterate through weapons if leftShift was pressed
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             selectedWeapon++;
             if(selectedWeapon > transform.childCount - 1)
