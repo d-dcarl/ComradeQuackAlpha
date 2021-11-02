@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     public int currentScene;
+    public int maxScenes;
     void Awake()
     {
         if (Object.FindObjectsOfType<SceneTransition>().Length > 1)
@@ -28,16 +29,26 @@ public class SceneTransition : MonoBehaviour
         {
             currentScene--;
             if (currentScene < 0)
-                currentScene = SceneManager.sceneCount - 1;
+                currentScene = maxScenes - 1;
+            Debug.Log(currentScene);
             SceneManager.LoadScene(currentScene);
         }
         //next scene
         else if (Input.GetKeyDown(KeyCode.Period))
         {
             currentScene++;
-            if (currentScene >= SceneManager.sceneCount)
+            if (currentScene >= maxScenes)
                 currentScene = 0;
+            Debug.Log(currentScene);
             SceneManager.LoadScene(currentScene);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
