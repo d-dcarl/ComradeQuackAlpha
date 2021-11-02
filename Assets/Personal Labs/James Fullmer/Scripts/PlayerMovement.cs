@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float glideSpeed = 10f;
     public int numberOfJumps = 3;
     public Transform cam;
+    public Transform respawnPosition;
 
     public float turnSmoothTime = 0.1f;
     public Animator anim;
@@ -148,4 +149,10 @@ public class PlayerMovement : MonoBehaviour
         mountTrigger = mt;
         this.mount = mount;
     }
+
+    public void playerDeath()
+    {
+        transform.position = respawnPosition.position;
+    }
+
 }
