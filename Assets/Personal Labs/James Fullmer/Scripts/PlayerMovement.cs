@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Other")]
     public Transform cam; //Camera Holder
     public Transform respawnPosition;
+    public GameObject dialogueManager;
+    public bool enterDialogue = false;
 
     [Tooltip("Used to smoothly rotate when moving in a different direction")]
     public float turnSmoothTime = 0.1f;
@@ -95,6 +97,8 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = speed;
         }
         //Debug.Log(stamina);
+      
+
     }
 
     //Used to handle movement, gliding, and general physics
@@ -145,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
 
         var velocity = this.GetComponent<Rigidbody>().velocity;
         this.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x * 0.99f, velocity.y, velocity.z * 0.99f);
+       
 
 
 
@@ -164,6 +169,14 @@ public class PlayerMovement : MonoBehaviour
 
             
         }
+        if (enterDialogue)
+        {
+            if (Input.GetButtonDown("Enter"))
+            {
+                dialogueManager.GetComponent<DialogueManager>().DisplayNextSentence();
+            }
+        }
+
     }
 
     /// <summary>
