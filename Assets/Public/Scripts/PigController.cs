@@ -6,7 +6,8 @@ public class PigController : MonoBehaviour
 {
     [HideInInspector]
     public PondController target;
-    public float speed;
+    public float acceleration;
+    public float maxSpeed;
 
     public float attackDelay;
     public float attackRadius;
@@ -42,10 +43,23 @@ public class PigController : MonoBehaviour
         }
         if(target != null && !target.isSty)
         {
+            // Look at target but stay horizontal
+            transform.LookAt(target.transform);
+            Vector3 angles = transform.localEulerAngles;
+            transform.localEulerAngles = new Vector3(0f, angles.y, angles.z);
+
+            // Apply force in direction of target
             Vector3 toTarget = target.transform.position - transform.position;
             toTarget.y = 0;
             toTarget = toTarget.normalized;
-            rb.AddForce(toTarget * speed * Time.deltaTime, ForceMode.Force);
+            rb.AddForce(toTarget * acceleration * Time.deltaTime, ForceMode.Force);
+
+            // Enfore max speed only in x and z direction.
+            Vector3 flatSpeed = rb.velocity;
+            flatSpeed.y = 0f;
+            flatSpeed = Vector3.ClampMagnitude(flatSpeed, maxSpeed);
+            rb.velocity = new Vector3(flatSpeed.x, rb.velocity.y, flatSpeed.z);
+
 
             if(attackTimer > 0f)
             {
