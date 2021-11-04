@@ -7,6 +7,10 @@ public class PondController : MonoBehaviour
     public bool isSty;
     public List<PondController> neighbors;
 
+    private float nearestPondDist;
+    [HideInInspector]
+    public PondController pointTo;
+
     private int health;
 
     public float spawnDelay;
@@ -36,7 +40,6 @@ public class PondController : MonoBehaviour
     void Start()
     {
         SetGM();
-
         numComrads = 0;
         playerTouching = false;
 
@@ -56,13 +59,14 @@ public class PondController : MonoBehaviour
             if (spawnTimer <= 0)
             {
                 spawnTimer = spawnDelay;
-                Debug.Log("Spawn Pig!");
                 Vector3 randomOffset = Random.onUnitSphere;
                 randomOffset.y = 0;
                 randomOffset = randomOffset.normalized;
                 if(gm != null)
                 {
-                    Instantiate(gm.pigPrefab, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity);
+                    PigController pig = Instantiate(gm.pigPrefab, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity).GetComponent<PigController>();
+                    pig.homeSty = this;
+                    pig.target = pointTo;
                 }
             }
         }
@@ -130,6 +134,56 @@ public class PondController : MonoBehaviour
         }
     }
 
+    public static void setPolicy()
+    {
+        foreach (PondController pond in GameManager.Instance.ponds)
+        {
+            pond.pointTo = null;
+            pond.nearestPondDist = -1;
+        }
+
+        // Iterate V times, where V is the number of ponds
+        for(int v = 0; v < GameManager.Instance.ponds.Count; v++)
+        {
+            foreach (PondController pond in GameManager.Instance.ponds)
+            {
+                if (!pond.isSty)
+                {
+                    pond.nearestPondDist = 0f;
+                    pond.pointTo = pond;
+                }
+                else
+                {
+                    PondController bestNeighbor = null;
+                    float bestDist = -1;
+
+                    for (int i = 0; i < pond.neighbors.Count; i++)
+                    {
+                        // Look for neighbors that already know their nearest distance
+                        PondController neighbor = pond.neighbors[i];
+                        if (neighbor.nearestPondDist >= 0f)
+                        {
+                            float dist = Vector3.Distance(neighbor.transform.position, pond.transform.position);
+                            float totalDist = dist + neighbor.nearestPondDist;
+
+                            if (bestDist < 0f || dist < bestDist)
+                            {
+                                bestNeighbor = neighbor;
+                                bestDist = dist;
+                            }
+                        }
+
+                    }
+                    if (bestNeighbor != null)
+                    {
+                        pond.pointTo = bestNeighbor;
+                        pond.nearestPondDist = bestDist;
+                    }
+                }
+            }
+        }
+    }
+
     //decrement the number of ducks
     public void duckIsDestoryed()
     {
@@ -146,6 +200,8 @@ public class PondController : MonoBehaviour
                 gm.ponds = new List<PondController>();
             }
             gm.ponds.Add(this);
+            PondController.setPolicy();
+
             health = isSty ? gm.styHealth : gm.pondHealth;
             GetComponent<Renderer>().material = isSty ? gm.mud : gm.water;
         }
@@ -164,12 +220,14 @@ public class PondController : MonoBehaviour
     {
         isSty = true;
         GetComponent<Renderer>().material = gm.mud;
+        PondController.setPolicy();
     }
 
     public void ConvertToPond()
     {
         isSty = false;
         GetComponent<Renderer>().material = gm.water;
+        PondController.setPolicy();
     }
 
     public void SwitchTeams()

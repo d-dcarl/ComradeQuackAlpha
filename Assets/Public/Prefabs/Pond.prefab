@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6703566289733463933}
   m_Layer: 0
   m_Name: Pond
-  m_TagString: Untagged
+  m_TagString: Pond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,10 +113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSty: 0
   neighbors: []
+  pointTo: {fileID: 0}
   spawnDelay: 10
   offsetAmount: 3
   maxComrads: 3
   comrad: {fileID: 3366806272190339506, guid: 85fd36f6c4cfd3e45abb0487686a5030, type: 3}
+  recruitCooldown: 1
 --- !u!65 &6703566289733463933
 BoxCollider:
   m_ObjectHideFlags: 0
