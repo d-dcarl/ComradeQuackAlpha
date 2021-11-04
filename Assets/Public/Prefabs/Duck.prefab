@@ -509,7 +509,14 @@ MonoBehaviour:
   glideGravityCap: 2
   glideSpeed: 10
   numberOfJumps: 3
+  stamina: 100
+  staminaRecovery: 10
+  staminaUsedPerJump: 10
+  staminaUsedPerGlideSecond: 5
   cam: {fileID: 3244874808312631021}
+  respawnPosition: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  enterDialogue: 0
   turnSmoothTime: 0.1
   anim: {fileID: 3244874808531811612}
   isMounted: 0
@@ -544,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad08414f44bb1bc43999f04d57efedbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeableTurret: {fileID: 3366806272190339506, guid: 4aea769fbc100eb4f9c036dbfb6f0d81, type: 3}
+  placeableTurret: {fileID: 3366806272190339506, guid: 7729dbb53c21773418a9078d05410dea, type: 3}
   placementTurret: {fileID: 8071964418508513826, guid: ff1a83a496528c549ac16d7a65236f97, type: 3}
   placementCooldown: 5
   placementPreviewCooldown: 0.7

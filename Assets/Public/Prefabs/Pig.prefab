@@ -523,7 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   acceleration: 5000
-  maxSpeed: 10
+  maxSpeed: 5
   attackDelay: 3
   attackRadius: 3
   attackDamage: 1
