@@ -32,20 +32,23 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // check for shooting input
-        if (Input.GetButtonDown("Fire1") && Input.GetButton("Fire2"))
+        if (!GameManager.Instance.isOverheadView)
         {
-            Shoot();
-        }
+            // check for shooting input
+            if (Input.GetButtonDown("Fire1") && Input.GetButton("Fire2"))
+            {
+                Shoot();
+            }
 
-        // show crosshair
-        if (Input.GetButton("Fire2"))
-        {
-            ShowCrosshair();
-        }
-        else
-        {
-            crosshair.SetActive(false);
+            // show crosshair
+            if (Input.GetButton("Fire2"))
+            {
+                ShowCrosshair();
+            }
+            else
+            {
+                crosshair.SetActive(false);
+            }
         }
     }
 

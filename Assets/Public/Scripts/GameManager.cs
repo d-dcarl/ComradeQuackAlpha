@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public Material water;
     public Material mud;
 
+    public bool cameraTransitioning = false;
+    public bool isOverheadView = false;
+
     [HideInInspector]
     public List<PondController> ponds;
 

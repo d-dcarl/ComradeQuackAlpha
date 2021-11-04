@@ -37,20 +37,23 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        mouseX += Input.GetAxisRaw("Mouse X") * rotationSpeed;
-        mouseY -= Input.GetAxisRaw("Mouse Y") * rotationSpeed;
-        if (isZoomedIn)
-            mouseY = Mathf.Clamp(mouseY, -75, 60);
-        else
-            mouseY = Mathf.Clamp(mouseY, -35, 60);
-
-        if (!isZoomedIn)
-            transform.LookAt(target);
-
-        target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
-        if (isZoomedIn)
+        if (!GameManager.Instance.cameraTransitioning)
         {
-            player.rotation = Quaternion.Euler(0, mouseX, 0);
+            mouseX += Input.GetAxisRaw("Mouse X") * rotationSpeed;
+            mouseY -= Input.GetAxisRaw("Mouse Y") * rotationSpeed;
+            if (isZoomedIn)
+                mouseY = Mathf.Clamp(mouseY, -75, 60);
+            else
+                mouseY = Mathf.Clamp(mouseY, -35, 60);
+
+            if (!isZoomedIn)
+                transform.LookAt(target);
+
+            target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+            if (isZoomedIn)
+            {
+                player.rotation = Quaternion.Euler(0, mouseX, 0);
+            }
         }
     }
 }

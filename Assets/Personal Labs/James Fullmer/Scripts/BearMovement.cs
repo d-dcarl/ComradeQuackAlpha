@@ -15,25 +15,28 @@ public class BearMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        rb = gameObject.GetComponent<Rigidbody>();  
     }
 
     void FixedUpdate()
     {
-        if (isMounted)
+        if (!GameManager.Instance.isOverheadView)
         {
-            //Movement
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
-            Vector3 direction = new Vector3(h, 0, v).normalized;
-            if (direction.magnitude >= 0.1f)
+            if (isMounted)
             {
-                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                //Movement
+                float h = Input.GetAxisRaw("Horizontal");
+                float v = Input.GetAxisRaw("Vertical");
+                Vector3 direction = new Vector3(h, 0, v).normalized;
+                if (direction.magnitude >= 0.1f)
+                {
+                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
+                    Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                    rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * speed);
+                }
             }
         }
     }
