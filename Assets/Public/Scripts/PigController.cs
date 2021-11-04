@@ -18,14 +18,9 @@ public class PigController : MonoBehaviour
 
     private Rigidbody rb;
 
-    private GameManager gm;
-
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameManager.Instance;
-
-
         // SelectTarget();
 
 
@@ -76,7 +71,16 @@ public class PigController : MonoBehaviour
             }
         } else
         {
-            target = homeSty.pointTo;
+            if(GameManager.Instance != null)
+            {
+                if (homeSty == null)
+                {
+                    // Placeholder. Eventually choose nearest sty.
+                    homeSty = GameManager.Instance.ponds[0];
+                }
+                target = homeSty.pointTo;
+            }
+            
         }
     }
 

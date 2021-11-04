@@ -20,7 +20,7 @@ public class BearMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GameManager.Instance.isOverheadView)
+        if (GameManager.Instance != null && !GameManager.Instance.isOverheadView)
         {
             if (isMounted)
             {

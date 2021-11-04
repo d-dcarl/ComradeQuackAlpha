@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
     //Used to handle movement, gliding, and general physics
     void FixedUpdate()
     {
-        if (!GameManager.Instance.isOverheadView)
+        if (GameManager.Instance != null && !GameManager.Instance.isOverheadView)
         {
 
             //If you are not mounted

@@ -37,7 +37,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (!GameManager.Instance.cameraTransitioning)
+        if (GameManager.Instance != null && !GameManager.Instance.cameraTransitioning) 
         {
             mouseX += Input.GetAxisRaw("Mouse X") * rotationSpeed;
             mouseY -= Input.GetAxisRaw("Mouse Y") * rotationSpeed;
