@@ -12,14 +12,13 @@ public class comradDuckController : MonoBehaviour
     private Vector3 destination;
 
     private float quackCooldown;
-    private float speed = 6;
-    private Rigidbody rb;
+    private float speed = 12;
+    private float step = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -52,16 +51,15 @@ public class comradDuckController : MonoBehaviour
         //if traveling go to place its supposed to be, then lock it and stop traveling once there
         if (traveling)
         {
-            if(rb.position != destination)
-            {
-                Vector3 newPosition = Vector3.MoveTowards(rb.position, destination, speed * Time.deltaTime);
-                rb.MovePosition(destination);
-            }
-            else
+            step = speed * Time.deltaTime;
+
+            transform.position = Vector3.MoveTowards(transform.position, destination, step);
+
+            //got there, stop traveling
+            if(transform.position == destination)
             {
                 traveling = false;
             }
-            //got there
         }
     }
 
