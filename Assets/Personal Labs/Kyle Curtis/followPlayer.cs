@@ -8,7 +8,8 @@ public class followPlayer : MonoBehaviour
     private float speed = 0;
     private GameObject Player;
     private float step = 0;
-    private float distanceAway = 0;
+    private const float startDistanceAway = 2.5f;
+    private float distanceAway = 2.5f;
     private Quaternion targetRotation;
     private float moveSpeedDelay = 0;
     // Start is called before the first frame update
@@ -17,7 +18,6 @@ public class followPlayer : MonoBehaviour
         //Player = 
         Player = GameObject.Find("Duck");
         moveSpeedDelay = 2.5f;
-        distanceAway = 2.5f;
         //speed = Player.GetComponent<PlayerMovement>().moveSpeed - 5;
         //target = Player.transform;
         //speed = 6;
@@ -64,5 +64,10 @@ public class followPlayer : MonoBehaviour
             targetRotation = Quaternion.LookRotation(target.position - this.transform.position);
             this.GetComponent<TurretController>().initialRotation = targetRotation;
         }
+    }
+    //change the follow distance by amountDiff more than the starting following distance
+    public void changeFollowDistance(float amountDiff)
+    {
+        distanceAway = startDistanceAway + amountDiff;
     }
 }

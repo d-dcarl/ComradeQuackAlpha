@@ -31,6 +31,7 @@ public class PondController : MonoBehaviour
     private float cooldown = 0;
     [SerializeField] public float recruitCooldown = 1.0f;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,8 @@ public class PondController : MonoBehaviour
 
         numComrads = 0;
         playerTouching = false;
+
+
     }
 
     // Update is called once per frame
@@ -70,21 +73,27 @@ public class PondController : MonoBehaviour
         //it has to not be a sty, and the player has to be touching, and the key G has to be down, and we have to have less than the max number of comrads
         if (!isSty && playerTouching && Input.GetKey(KeyCode.G) && numComrads < maxComrads)
         {
-            //spawn after cooldown
-            if (cooldown <= 0)
+            
+            //can the player have any more following ducks
+            if(GameObject.FindWithTag("Player").GetComponent<PlayerComradControls>().canAddDuck)
             {
-                //spawn the duck
-                //curDuck = Instantiate<GameObject>(comrad, GameObject.Find("Player").transform);
-                Vector3 randomOffset = Random.onUnitSphere;
-                randomOffset.y = 0;
-                randomOffset = randomOffset.normalized;
-                curDuck = Instantiate<GameObject>(comrad, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity);
-                curDuck.GetComponent<comradDuckController>().pondParent = this;
+                //spawn after cooldown
+                if (cooldown <= 0)
+                {
+                    //spawn the duck
+                    //curDuck = Instantiate<GameObject>(comrad, GameObject.Find("Player").transform);
+                    Vector3 randomOffset = Random.onUnitSphere;
+                    randomOffset.y = 0;
+                    randomOffset = randomOffset.normalized;
+                    curDuck = Instantiate<GameObject>(comrad, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity);
+                    curDuck.GetComponent<comradDuckController>().pondParent = this;
 
-                //update data and cooldown
-                numComrads++;
-                cooldown = recruitCooldown;
-                //TODO add curDUck to list of comrads in game manager
+                    //update data and cooldown
+                    numComrads++;
+                    cooldown = recruitCooldown;
+                    GameObject.FindWithTag("Player").GetComponent<PlayerComradControls>().AddFollowingDuck(curDuck);
+                    //
+                }
             }
         
         }

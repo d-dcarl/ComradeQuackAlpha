@@ -8,6 +8,11 @@ public class comradDuckController : MonoBehaviour
 
     //is the comrad in guard mode.
     public bool isTurret = false;
+    private bool traveling = false;
+    private Transform destination;
+
+    private float quackCooldown;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +24,47 @@ public class comradDuckController : MonoBehaviour
     void Update()
     {
         //TODO go to place its supposed to be, then lock it
+        if(traveling)
+        {
+            //got there
+        }
+
+        //QUACK
+        if(quackCooldown <= 0)
+        {
+            //play the quack
+            this.gameObject.GetComponent<AudioSource>().Play();
+            //set the cooldown to some random value
+            //quackCooldown = 2;
+            quackCooldown = Random.Range(3, 50);
+        }
     }
 
-    private void OnDestroy()
+    void FixedUpdate()
     {
+        //update placement cooldown
+        if (quackCooldown < 0)
+        {
+            quackCooldown = 0;
+        }
+        else
+        {
+            quackCooldown -= Time.deltaTime;
+        }
+    }
+
+        private void OnDestroy()
+    {
+        //cover if following and if turret
         pondParent.duckIsDestoryed();
+    }
+
+    //tell this duck to go stand guard somewhere
+    public void standGuard(Transform place)
+    {
+        isTurret = true;
+        traveling = true;
+        destination = place;
     }
 
 }

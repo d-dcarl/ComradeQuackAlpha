@@ -11,7 +11,12 @@ public class PlayerComradControls : MonoBehaviour
     [SerializeField] public float placementPreviewCooldown = 0.7f;
     [SerializeField] public float placementDistance = 2.0f;
 
+
+    [SerializeField] public int maxComrads = 10;
+
     public float turnSmoothTime = 0.1f;
+
+    [SerializeField] public bool canAddDuck = true;
 
 
     //Private
@@ -19,12 +24,19 @@ public class PlayerComradControls : MonoBehaviour
     private float previewCooldown;
     private bool isInPreview = false;
     private GameObject placeholder;
+    private Queue<GameObject> followingComrads;
+
+    //public get private set
+    public int numFollowing { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
         previewCooldown = placementPreviewCooldown;
         placeholder = new GameObject();
+
+        followingComrads = new Queue<GameObject>();
+        numFollowing = 0;
     }
     private void Update()
     {
@@ -65,6 +77,21 @@ public class PlayerComradControls : MonoBehaviour
 
         }
 
+    }
+
+    public void AddFollowingDuck(GameObject duck)
+    {
+        //update the data
+        numFollowing++;
+        followingComrads.Enqueue(duck);
+
+        //change its following distance
+        duck.GetComponent<followPlayer>().changeFollowDistance(numFollowing/2);
+
+        if(numFollowing >= maxComrads)
+        {
+            canAddDuck = false;
+        }
     }
 
     void FixedUpdate()
