@@ -9,25 +9,22 @@ public class comradDuckController : MonoBehaviour
     //is the comrad in guard mode.
     public bool isTurret = false;
     private bool traveling = false;
-    private Transform destination;
+    private Vector3 destination;
 
     private float quackCooldown;
+    private float speed = 6;
+    private Rigidbody rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //TODO go to place its supposed to be, then lock it
-        if(traveling)
-        {
-            //got there
-        }
 
         //QUACK
         if(quackCooldown <= 0)
@@ -51,6 +48,21 @@ public class comradDuckController : MonoBehaviour
         {
             quackCooldown -= Time.deltaTime;
         }
+
+        //if traveling go to place its supposed to be, then lock it and stop traveling once there
+        if (traveling)
+        {
+            if(rb.position != destination)
+            {
+                Vector3 newPosition = Vector3.MoveTowards(rb.position, destination, speed * Time.deltaTime);
+                rb.MovePosition(destination);
+            }
+            else
+            {
+                traveling = false;
+            }
+            //got there
+        }
     }
 
         private void OnDestroy()
@@ -68,9 +80,11 @@ public class comradDuckController : MonoBehaviour
     public void standGuard(Vector3 place)
     {
         isTurret = true;
-        traveling = true;
-        //destination = place;
+        //traveling = true;
+        destination = place;
         //tell the duck to look where it is heading
+        Quaternion targetRotation = Quaternion.LookRotation(place - this.transform.position);
+        this.GetComponent<TurretController>().initialRotation = targetRotation;
     }
 
 }
