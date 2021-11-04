@@ -8,6 +8,7 @@ public class BearMovement : MonoBehaviour
     public Transform cam;
     public float turnSmoothTime = 0.1f;
     public bool isMounted;
+    public Transform respawnPosition;
 
     Rigidbody rb;
     float turnSmoothVelocity;
@@ -39,5 +40,11 @@ public class BearMovement : MonoBehaviour
                 }
             }
         }
+    }
+    public void bearDeath()
+    {
+        //If there is a respawn position
+        if (respawnPosition)
+            transform.position = respawnPosition.position;
     }
 }

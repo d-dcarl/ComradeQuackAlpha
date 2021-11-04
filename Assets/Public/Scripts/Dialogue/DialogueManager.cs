@@ -68,6 +68,8 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of Conversation");
         animator.SetBool("IsOpen", false);
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         player.GetComponent<PlayerMovement>().enterDialogue = false;
     }
 

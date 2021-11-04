@@ -1553,6 +1553,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7729dbb53c21773418a9078d05410dea, type: 3}
+--- !u!1 &663368072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
+  m_PrefabInstance: {fileID: 1581257095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &731532434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2294,11 +2299,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c8ec4024d0d8e47ad9e022ae0fea22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pigPrefab: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
+  pigPrefab: {fileID: 663368072}
   pondHealth: 10
   styHealth: 5
   water: {fileID: 2100000, guid: fce90641f23d0884c86cee770b3f0cab, type: 2}
   mud: {fileID: 2100000, guid: 195b4c002637b4349b9f7edd1719e818, type: 2}
+  cameraTransitioning: 0
+  isOverheadView: 0
   ponds: []
 --- !u!4 &1181354361
 Transform:
