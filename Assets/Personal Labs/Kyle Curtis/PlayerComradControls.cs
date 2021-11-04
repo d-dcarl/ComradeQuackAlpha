@@ -24,7 +24,9 @@ public class PlayerComradControls : MonoBehaviour
     private float previewCooldown;
     private bool isInPreview = false;
     private GameObject placeholder;
-    private Queue<GameObject> followingComrads;
+
+    //a linked list that represents a queue(allows us to delete specific items, and just pick any item)
+    private LinkedList<GameObject> followingComrads;
 
     //public get private set
     public int numFollowing { get; private set; }
@@ -35,7 +37,7 @@ public class PlayerComradControls : MonoBehaviour
         previewCooldown = placementPreviewCooldown;
         placeholder = new GameObject();
 
-        followingComrads = new Queue<GameObject>();
+        followingComrads = new LinkedList<GameObject>();
         numFollowing = 0;
     }
     private void Update()
@@ -66,6 +68,15 @@ public class PlayerComradControls : MonoBehaviour
                     */
 
                     //TODO get a comrad from game manager and tell it to stand here.
+                    if(numFollowing > 0)
+                    {
+                        //remove the duck thats been following the longest
+                        GameObject curDuck = followingComrads.First.Value;
+                        followingComrads.RemoveFirst();
+
+                        Vector3 newPosition = new Vector3(transform.position.x + (placementDistance * this.transform.forward.x), transform.position.y, transform.position.z + (placementDistance * this.transform.forward.z));
+                        curDuck.GetComponent<comradDuckController>().standGuard(newPosition);
+                    }
 
                     //set the cooldown for placing a turret
                     cooldown = placementCooldown;
@@ -79,11 +90,27 @@ public class PlayerComradControls : MonoBehaviour
 
     }
 
+    //if a following duck died remove it from the list
+    public void followingDuckDied(GameObject duck)
+    {
+        //remove the duck from the list, if we did do stuff
+        if (followingComrads.Remove(duck))
+        {
+            //update the data trackers
+            numFollowing--;
+            if (numFollowing < maxComrads)
+            {
+                canAddDuck = true;
+            }
+        }
+    }
+
     public void AddFollowingDuck(GameObject duck)
     {
         //update the data
         numFollowing++;
-        followingComrads.Enqueue(duck);
+        //add to the back of the queue(then when removing take from the front)
+        followingComrads.AddLast(duck);
 
         //change its following distance
         duck.GetComponent<followPlayer>().changeFollowDistance(numFollowing/2);

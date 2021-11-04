@@ -57,14 +57,20 @@ public class comradDuckController : MonoBehaviour
     {
         //cover if following and if turret
         pondParent.duckIsDestoryed();
+        //if following remove from list
+        if(!isTurret)
+        {
+            GameObject.FindWithTag("Player").GetComponent<PlayerComradControls>().followingDuckDied(this.gameObject);
+        }
     }
 
     //tell this duck to go stand guard somewhere
-    public void standGuard(Transform place)
+    public void standGuard(Vector3 place)
     {
         isTurret = true;
         traveling = true;
-        destination = place;
+        //destination = place;
+        //tell the duck to look where it is heading
     }
 
 }
