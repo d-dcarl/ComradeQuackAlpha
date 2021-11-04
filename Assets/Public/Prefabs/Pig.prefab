@@ -521,6 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d15ab16e0a48e84195ff550d4e83975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  homeSty: {fileID: 0}
   target: {fileID: 0}
   acceleration: 5000
   maxSpeed: 5

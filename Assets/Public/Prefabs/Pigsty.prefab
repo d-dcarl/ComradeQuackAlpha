@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3249839835167512836}
   m_Layer: 0
   m_Name: Pigsty
-  m_TagString: Untagged
+  m_TagString: Pond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSty: 1
   neighbors: []
+  pointTo: {fileID: 0}
   spawnDelay: 10
   offsetAmount: 3
   maxComrads: 3
   comrad: {fileID: 3366806272190339506, guid: 85fd36f6c4cfd3e45abb0487686a5030, type: 3}
+  recruitCooldown: 1

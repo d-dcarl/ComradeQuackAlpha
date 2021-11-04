@@ -5,6 +5,7 @@ using UnityEngine;
 public class PigController : MonoBehaviour
 {
     [HideInInspector]
+    public PondController homeSty;
     public PondController target;
     public float acceleration;
     public float maxSpeed;
@@ -25,7 +26,7 @@ public class PigController : MonoBehaviour
         gm = GameManager.Instance;
 
 
-        SelectTarget();
+        // SelectTarget();
 
 
         attackTimer = attackDelay;
@@ -36,8 +37,13 @@ public class PigController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(target != null && !target.isSty)
+        /*
+        Debug.Log("Pig target: " + target);
+        Debug.Log("Pig home Sty: " + homeSty);
+        Debug.Log("Pig home Sty point to: " + homeSty.pointTo);
+        */
+
+        if (target != null)
         {
             // Look at target but stay horizontal
             transform.LookAt(target.transform);
@@ -56,18 +62,21 @@ public class PigController : MonoBehaviour
             flatSpeed = Vector3.ClampMagnitude(flatSpeed, maxSpeed);
             rb.velocity = new Vector3(flatSpeed.x, rb.velocity.y, flatSpeed.z);
 
-
-            if(attackTimer > 0f)
+            if(!target.isSty)
             {
-                attackTimer -= Time.deltaTime;
-            } else if((target.transform.position - transform.position).magnitude <= attackRadius) 
-            {
-                target.TakeDamage(attackDamage);
-                attackTimer = attackDelay;
+                if (attackTimer > 0f)
+                {
+                    attackTimer -= Time.deltaTime;
+                }
+                else if ((target.transform.position - transform.position).magnitude <= attackRadius)
+                {
+                    target.TakeDamage(attackDamage);
+                    attackTimer = attackDelay;
+                }
             }
         } else
         {
-            SelectTarget();
+            target = homeSty.pointTo;
         }
     }
 
@@ -80,21 +89,16 @@ public class PigController : MonoBehaviour
         }
     }
 
-    void SelectTarget()
+    private void OnTriggerStay(Collider other)
     {
-        // TODO: Make each sty keep a record of the quickest way to get to a pond from there, and update every time a pond or sty is converted
-        // TODO: When a pig spawns, have it start walking towards its target node (pond or sty), unless there is a duck or tower closer to it than its destination.
-        // TODO: When a pig reaches its target node, if it is a pond, it should attack, if it is a sty, it should consult the sty to figure out which direction to go next.
-        // TODO: Make comrades spawn at ponds. Make cute duckling comrades for whitebox. Make comrades attack nearby pigs and stys automatically. Make comrades act like towers.
-
-        if (gm.ponds.Count > 0)
+        if(other.CompareTag("Pond"))
         {
-            foreach (PondController pc in gm.ponds)
+            Debug.Log("Pig touched pond");
+            PondController pondTouched = other.GetComponent<PondController>();
+            if (pondTouched.isSty)
             {
-                if (!pc.isSty)
-                {
-                    target = pc;
-                }
+                homeSty = pondTouched;
+                target = homeSty.pointTo;
             }
         }
     }
