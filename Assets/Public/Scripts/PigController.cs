@@ -97,7 +97,6 @@ public class PigController : MonoBehaviour
     {
         if(other.CompareTag("Pond"))
         {
-            Debug.Log("Pig touched pond");
             PondController pondTouched = other.GetComponent<PondController>();
             if (pondTouched.isSty)
             {

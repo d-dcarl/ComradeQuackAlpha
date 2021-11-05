@@ -269,21 +269,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3366806272190339509}
-  - component: {fileID: 3366806272190339505}
+  - component: {fileID: 7657854213996930731}
+  - component: {fileID: 2724967027308673087}
   - component: {fileID: 3366806272190339504}
-  - component: {fileID: 3366806272190339507}
-  - component: {fileID: 2822447757221111299}
+  - component: {fileID: -8169376280678002792}
   - component: {fileID: 4805646739584100269}
   - component: {fileID: 6654247369262750949}
-  - component: {fileID: 2923285221538486692}
   - component: {fileID: 1345119429914357905}
-  - component: {fileID: -8169376280678002792}
-  - component: {fileID: -6715589420308500062}
-  - component: {fileID: 5573621929373693820}
   - component: {fileID: 2341649070578787359}
   m_Layer: 0
-  m_Name: comrad_duck
-  m_TagString: Untagged
+  m_Name: Comrade
+  m_TagString: Comrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +302,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3366806272190339505
+--- !u!114 &7657854213996930731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,12 +311,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 3366806272190339506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 047c19f323aa3054387a04d82b2e490d, type: 3}
+  m_Script: {fileID: 11500000, guid: a8d58bafe4457f941bd27a128b67edd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentTarget: {fileID: 0}
-  rotationSpeed: 5
+  pondParent: {fileID: 0}
+  isTurret: 0
+  speed: 6
+--- !u!114 &2724967027308673087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3366806272190339506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98122410d9e00104f8561098b8d1cb43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  target: {fileID: 0}
+  Projectile: {fileID: 6445303830105601911, guid: 12fb57fd10206e84cab349bb0e75fd61, type: 3}
+  spawnPoint: {fileID: 6402694063149663280}
+  fireRate: 1
+  bulletSpeed: 10
 --- !u!135 &3366806272190339504
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -332,37 +347,21 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &3366806272190339507
-MonoBehaviour:
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &-8169376280678002792
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3366806272190339506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d616b1f3ba84754c82e73cc7b671da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Projectile: {fileID: 6445303830105601911, guid: 12fb57fd10206e84cab349bb0e75fd61, type: 3}
-  spawnPoint: {fileID: 6402694063149663280}
-  fireRate: 1
-  bulletLifetime: 5
-  relativeVelocity: {x: 0, y: 0, z: 25}
---- !u!114 &2822447757221111299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366806272190339506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2df81172651ca1448435e349fdf4eb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 0.044270024, y: 0.09337953, z: 0.07772266}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &4805646739584100269
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -413,20 +412,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2923285221538486692
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366806272190339506}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.03
-  m_Height: 0.1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0.01}
 --- !u!54 &1345119429914357905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -441,46 +426,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &-8169376280678002792
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366806272190339506}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.044270024, y: 0.09337953, z: 0.07772266}
-  m_Center: {x: 0.00003625732, y: 0.0009087082, z: 0.007429477}
---- !u!114 &-6715589420308500062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366806272190339506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcb0a63d3dcabb346a79abc12eab419b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pondParent: {fileID: 0}
-  isTurret: 0
---- !u!154 &5573621929373693820
-TerrainCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3366806272190339506}
-  m_Material: {fileID: 0}
-  m_Enabled: 1
-  m_TerrainData: {fileID: 0}
-  m_EnableTreeColliders: 1
 --- !u!82 &2341649070578787359
 AudioSource:
   m_ObjectHideFlags: 0

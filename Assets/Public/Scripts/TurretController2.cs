@@ -24,13 +24,17 @@ public class TurretController2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InitializeTurret();
+    }
+
+    public void InitializeTurret()
+    {
         inRange = new List<PigController>();
         target = null;
         initialRotation = transform.rotation;
         //rotationSpeed = 10.0f;
 
         firingTimer = fireRate;
-
     }
 
     private void Update()
@@ -52,9 +56,19 @@ public class TurretController2 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
             inRange.Add(other.GetComponent<PigController>());
+        }
+        // Check if touching sty. For now uses same collider as turret ranging, but should use box collider eventually.
+        else if (other.CompareTag("Pond"))
+        {
+            PondController pc = other.gameObject.GetComponent<PondController>();
+            if (pc.isSty)
+            {
+                Debug.Log("Comrade touched sty");
+                pc.ConvertToPond();
+            }
         }
     }
 
@@ -87,20 +101,18 @@ public class TurretController2 : MonoBehaviour
         {
             return null;
         }
-
-        float radius = GetComponent<SphereCollider>().radius;
         
         PigController nearest = null;
-        float smallest_dist = radius;
+        float smallestDist = -1f;
         for (int i = 0; i < inRange.Count; i++)
         {
             PigController pig = inRange[i];
             if(pig != null)
             {
                 float dist = Vector3.Distance(pig.transform.position, transform.position);
-                if (dist < smallest_dist)
+                if (smallestDist < 0f || dist < smallestDist)
                 {
-                    smallest_dist = dist;
+                    smallestDist = dist;
                     nearest = pig;
                 }
             }

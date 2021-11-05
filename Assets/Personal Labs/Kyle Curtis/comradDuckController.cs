@@ -15,7 +15,6 @@ public class comradDuckController : MonoBehaviour
     private float speed = 6;
     private Rigidbody rb;
 
-
     // Start is called before the first frame update
     void Start()
     {

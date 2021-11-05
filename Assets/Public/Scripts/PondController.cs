@@ -79,7 +79,7 @@ public class PondController : MonoBehaviour
         {
             
             //can the player have any more following ducks
-            if(GameObject.FindWithTag("Player").GetComponent<PlayerComradControls>().canAddDuck)
+            if(GameObject.FindWithTag("Player").GetComponent<ManageComradesBehaviour>().canAddDuck)
             {
                 //spawn after cooldown
                 if (cooldown <= 0)
@@ -90,12 +90,12 @@ public class PondController : MonoBehaviour
                     randomOffset.y = 0;
                     randomOffset = randomOffset.normalized;
                     curDuck = Instantiate<GameObject>(comrad, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity);
-                    curDuck.GetComponent<comradDuckController>().pondParent = this;
+                    curDuck.GetComponent<ComradeController>().pondParent = this;
 
                     //update data and cooldown
                     numComrads++;
                     cooldown = recruitCooldown;
-                    GameObject.FindWithTag("Player").GetComponent<PlayerComradControls>().AddFollowingDuck(curDuck);
+                    GameObject.FindWithTag("Player").GetComponent<ManageComradesBehaviour>().AddFollowingDuck(curDuck);
                     //
                 }
             }
@@ -123,6 +123,10 @@ public class PondController : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerTouching = true;
+            if(isSty)
+            {
+                ConvertToPond();
+            }
         }
     }
 
@@ -134,6 +138,8 @@ public class PondController : MonoBehaviour
         }
     }
 
+    
+
     public static void setPolicy()
     {
         foreach (PondController pond in GameManager.Instance.ponds)
@@ -141,7 +147,7 @@ public class PondController : MonoBehaviour
             pond.pointTo = null;
             pond.nearestPondDist = -1;
         }
-
+        Debug.Log("Cleared pointTos");
         // Iterate V times, where V is the number of ponds
         for(int v = 0; v < GameManager.Instance.ponds.Count; v++)
         {
@@ -149,6 +155,7 @@ public class PondController : MonoBehaviour
             {
                 if (!pond.isSty)
                 {
+                    Debug.Log("Found Pond");
                     pond.nearestPondDist = 0f;
                     pond.pointTo = pond;
                 }
@@ -163,19 +170,32 @@ public class PondController : MonoBehaviour
                         PondController neighbor = pond.neighbors[i];
                         if (neighbor.nearestPondDist >= 0f)
                         {
-                            float dist = Vector3.Distance(neighbor.transform.position, pond.transform.position);
-                            float totalDist = dist + neighbor.nearestPondDist;
+                            if(pond.name == "Pond")
+                            {
+                                Debug.Log("Neighbor " + neighbor.name + " of original points to " + neighbor.pointTo + " with a nearestDist of " + neighbor.nearestPondDist);
+                            }
+                            
+                            float rawDist = Vector3.Distance(neighbor.transform.position, pond.transform.position);
+                            float totalDist = rawDist + neighbor.nearestPondDist;
 
-                            if (bestDist < 0f || dist < bestDist)
+                            if (bestDist < 0f || totalDist < bestDist)
                             {
                                 bestNeighbor = neighbor;
-                                bestDist = dist;
+                                if (pond.name == "Pond")
+                                {
+                                    Debug.Log("Current Best Neighbor of original: " + bestNeighbor);
+                                }
+                                bestDist = totalDist;
                             }
                         }
 
                     }
                     if (bestNeighbor != null)
                     {
+                        if(pond.name == "Pond")
+                        {
+                            Debug.Log("Final Best Neighbor of original: " + bestNeighbor);
+                        }
                         pond.pointTo = bestNeighbor;
                         pond.nearestPondDist = bestDist;
                     }

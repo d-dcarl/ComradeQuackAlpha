@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 3244874808531811610}
   - component: {fileID: 3244874808531811612}
   - component: {fileID: 1052245086555632108}
-  - component: {fileID: -2566624640753433623}
+  - component: {fileID: 3831344882675111566}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Player
@@ -557,7 +557,7 @@ MonoBehaviour:
   placementPreviewCooldown: 0.7
   placementDistance: 2
   turnSmoothTime: 0.1
---- !u!114 &-2566624640753433623
+--- !u!114 &3831344882675111566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -566,15 +566,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3244874808531811611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f41fef2df0590a48bf70f1dfabcd978, type: 3}
+  m_Script: {fileID: 11500000, guid: 33c576873316f9944a7d81257982c505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeableTurret: {fileID: 3366806272190339506, guid: 85fd36f6c4cfd3e45abb0487686a5030, type: 3}
+  placeableTurret: {fileID: 3366806272190339506, guid: b462e0e662f3ccb4a9334b7a3bfc86f3, type: 3}
   placementTurret: {fileID: 8071964418508513826, guid: 4add3b18062bb3b48b6b2f09d0560e55, type: 3}
-  placementCooldown: 5
+  placementCooldown: 1
   placementPreviewCooldown: 0.7
   placementDistance: 2
+  maxComrads: 10
   turnSmoothTime: 0.1
+  canAddDuck: 1
 --- !u!1 &3244874808620377741
 GameObject:
   m_ObjectHideFlags: 0
