@@ -528,7 +528,7 @@ MonoBehaviour:
   attackDelay: 3
   attackRadius: 3
   attackDamage: 1
-  health: 10
+  health: 20
 --- !u!1 &8561455471717723565
 GameObject:
   m_ObjectHideFlags: 0

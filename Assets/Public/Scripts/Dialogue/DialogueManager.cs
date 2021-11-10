@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
+        player.GetComponent<PlayerMovement>().enterDialogue = true;
         manager.GetComponent<AudioSource>().Play();
         nameText.text = dialogue.name;
 
