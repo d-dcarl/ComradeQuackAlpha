@@ -10,6 +10,7 @@ public class PlayerTurretControls : MonoBehaviour
     [SerializeField] public float placementCooldown = 5.0f;
     [SerializeField] public float placementPreviewCooldown = 0.7f;
     [SerializeField] public float placementDistance = 2.0f;
+    [SerializeField] public int turretCost = 3;
 
     public float turnSmoothTime = 0.1f;
 
@@ -31,7 +32,7 @@ public class PlayerTurretControls : MonoBehaviour
         //Input for placing a turret
         if (Input.GetKey(KeyCode.E))
         {
-            if (cooldown <= 0)
+            if (cooldown <= 0 && ScoreManager.instance.score > turretCost)
             {
 
                 if (!isInPreview)
@@ -50,6 +51,7 @@ public class PlayerTurretControls : MonoBehaviour
                     //instantiate the actual turret
                     Vector3 newPosition = new Vector3(transform.position.x + (placementDistance * this.transform.forward.x), transform.position.y, transform.position.z + (placementDistance * this.transform.forward.z));
                     Instantiate<GameObject>(placeableTurret, newPosition, this.transform.rotation);
+                    ScoreManager.instance.score -= turretCost;
 
                     //set the cooldown for placing a turret
                     cooldown = placementCooldown;
