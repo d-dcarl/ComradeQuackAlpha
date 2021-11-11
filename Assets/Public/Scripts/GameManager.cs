@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
+
     public GameObject pigPrefab;
 
     public int pondHealth;

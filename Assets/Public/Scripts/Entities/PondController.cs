@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PondController : MonoBehaviour
+public class PondController : EntityController
 {
     public bool isSty;
     public List<PondController> neighbors;
@@ -10,8 +10,6 @@ public class PondController : MonoBehaviour
     private float nearestPondDist;
     [HideInInspector]
     public PondController pointTo;
-
-    private int health;
 
     public float spawnDelay;
     private float spawnTimer;
@@ -66,7 +64,10 @@ public class PondController : MonoBehaviour
                 {
                     PigController pig = Instantiate(gm.pigPrefab, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity).GetComponent<PigController>();
                     pig.homeSty = this;
-                    pig.target = pointTo;
+                    if(pointTo != null)
+                    {
+                        pig.target = pointTo;
+                    }
                 }
             }
         }
@@ -227,13 +228,9 @@ public class PondController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
+    public override void Die()
     {
-        health -= amount;
-        if(health <= 0)
-        {
-            SwitchTeams();
-        }
+        SwitchTeams();
     }
 
     public void ConvertToSty()
