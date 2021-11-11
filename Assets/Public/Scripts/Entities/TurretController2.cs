@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TurretController2 : MonoBehaviour
 {
+    public GameObject head;
+    public GameObject gun;
+
     public float range;
     public RangeHitboxController rangeCollider;
 
@@ -68,7 +71,10 @@ public class TurretController2 : MonoBehaviour
             Vector3 projectedPos = target.transform.position + target.GetComponent<Rigidbody>().velocity * timeExpected;
             targetRotation = Quaternion.LookRotation(projectedPos - transform.position);
         }
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        head.transform.rotation = Quaternion.Lerp(head.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        head.transform.localEulerAngles = new Vector3(0f, head.transform.localEulerAngles.y, 0f);
+        gun.transform.rotation = Quaternion.Lerp(gun.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 0f, 0f);
     }
 
     private GameObject ClosestInRange()
@@ -108,7 +114,7 @@ public class TurretController2 : MonoBehaviour
     {
         BulletController2 projectile = Instantiate(Projectile).GetComponent<BulletController2>();
         projectile.transform.position = spawnPoint.position;
-        projectile.direction = new Vector3(transform.forward.x, transform.forward.y, transform.forward.z);
+        projectile.direction = gun.transform.forward;
         projectile.speed = bulletSpeed;
 
         firingTimer = fireRate;

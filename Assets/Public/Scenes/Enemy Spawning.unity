@@ -1383,6 +1383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98122410d9e00104f8561098b8d1cb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  head: {fileID: 215138684}
+  gun: {fileID: 1945024962}
   range: 20
   rangeCollider: {fileID: 626124161}
   rotationSpeed: 2
