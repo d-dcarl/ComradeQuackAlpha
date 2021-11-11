@@ -12990,7 +12990,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 228835854620260442, guid: 2e5fe75c2ef03ae42aaf2b905c45ac88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -32053,6 +32053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c8ec4024d0d8e47ad9e022ae0fea22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 712309722}
   pigPrefab: {fileID: 0}
   pondHealth: 0
   styHealth: 0
@@ -59689,7 +59690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78081,7 +78082,7 @@ PrefabInstance:
       objectReference: {fileID: 1700222608}
     - target: {fileID: 5863802458797271467, guid: b6522ac61caf0fb429b14f152629f9d1, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5863802458797271467, guid: b6522ac61caf0fb429b14f152629f9d1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -82314,7 +82315,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4269608605772788580, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4269608605772788580, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
       propertyPath: m_LocalPosition.x

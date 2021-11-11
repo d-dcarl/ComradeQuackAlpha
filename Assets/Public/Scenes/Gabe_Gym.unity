@@ -2676,6 +2676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c8ec4024d0d8e47ad9e022ae0fea22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2079916265}
   pigPrefab: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
   pondHealth: 20
   styHealth: 20
