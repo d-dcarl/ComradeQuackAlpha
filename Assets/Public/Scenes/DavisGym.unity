@@ -375,7 +375,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 1, z: 5.2515984}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &154926727
 GameObject:
@@ -605,6 +605,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+--- !u!1 &278691833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3244874808531811611, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+  m_PrefabInstance: {fileID: 278691832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &380262706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1092,7 +1097,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 1, z: 5.2515984}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558855815
 GameObject:
@@ -1188,7 +1193,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 1, z: 5.2515984}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &563170400
 GameObject:
@@ -1284,7 +1289,7 @@ Transform:
   m_LocalScale: {x: 15.781883, y: 0.5, z: 15.488697}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: -15.456, y: -48.46, z: -0.925}
 --- !u!1 &617037931
 GameObject:
@@ -1380,7 +1385,7 @@ Transform:
   m_LocalScale: {x: 2.4806, y: 2.4806, z: 2.4806}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657485119
 GameObject:
@@ -2364,6 +2369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c8ec4024d0d8e47ad9e022ae0fea22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 278691833}
   pigPrefab: {fileID: 663368072}
   pondHealth: 10
   styHealth: 5
@@ -3220,7 +3226,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
