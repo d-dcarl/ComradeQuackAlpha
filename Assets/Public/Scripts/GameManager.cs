@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     public bool cameraTransitioning = false;
     public bool isOverheadView = false;
 
-    [HideInInspector]
     public List<PondController> ponds;
 
     public static GameManager Instance;

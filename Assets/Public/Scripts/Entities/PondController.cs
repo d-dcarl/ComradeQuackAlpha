@@ -216,11 +216,6 @@ public class PondController : EntityController
         gm = GameManager.Instance;
         if (gm != null)
         {
-            if (gm.ponds == null)
-            {
-                gm.ponds = new List<PondController>();
-            }
-            gm.ponds.Add(this);
             PondController.setPolicy();
 
             health = isSty ? gm.styHealth : gm.pondHealth;
