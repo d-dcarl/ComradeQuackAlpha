@@ -32,7 +32,7 @@ public class PlayerTurretControls : MonoBehaviour
         //Input for placing a turret
         if (Input.GetKey(KeyCode.E))
         {
-            if (cooldown <= 0 && ScoreManager.instance.score > turretCost)
+            if (ScoreManager.instance != null && cooldown <= 0 && ScoreManager.instance.score > turretCost)
             {
 
                 if (!isInPreview)
