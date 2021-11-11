@@ -13,7 +13,7 @@ public class PigController : EntityController
     public float acceleration;
     public float maxSpeed;
 
-    public AttackHitboxController biteHB;
+    public HitboxController biteHB;
     public float attackDelay;
     public int attackDamage;
     private float attackTimer;

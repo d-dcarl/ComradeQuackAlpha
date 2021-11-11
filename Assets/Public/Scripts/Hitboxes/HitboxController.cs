@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackHitboxController : MonoBehaviour
+public class HitboxController : MonoBehaviour
 {
     [HideInInspector]
     public List<GameObject> tracked;
 
-    private void Start()
+    public virtual void Start()
     {
         tracked = new List<GameObject>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!tracked.Contains(other.gameObject))
+        if (!tracked.Contains(other.gameObject))
         {
             tracked.Add(other.gameObject);
         }

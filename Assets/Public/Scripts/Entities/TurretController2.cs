@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class TurretController2 : MonoBehaviour
 {
+    public float range;
+    public RangeHitboxController rangeCollider;
+
     public float rotationSpeed;
+    [HideInInspector]
     public Quaternion initialRotation;
 
     private bool resetting = true;
     private Quaternion targetRotation;
 
-    private List<PigController> inRange;
     [HideInInspector]
     public GameObject target;
 
@@ -29,7 +32,6 @@ public class TurretController2 : MonoBehaviour
 
     public void InitializeTurret()
     {
-        inRange = new List<PigController>();
         target = null;
         initialRotation = transform.rotation;
         //rotationSpeed = 10.0f;
@@ -54,32 +56,6 @@ public class TurretController2 : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            inRange.Add(other.GetComponent<PigController>());
-        }
-        // Check if touching sty. For now uses same collider as turret ranging, but should use box collider eventually.
-        else if (other.CompareTag("Pond"))
-        {
-            PondController pc = other.gameObject.GetComponent<PondController>();
-            if (pc.isSty)
-            {
-                Debug.Log("Comrade touched sty");
-                pc.ConvertToPond();
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.tag == "Enemy")
-        {
-            inRange.Remove(other.GetComponent<PigController>());
-        }
-    }
-
     private void AimAtTarget()
     {
         if (target == null)
@@ -97,25 +73,29 @@ public class TurretController2 : MonoBehaviour
 
     private GameObject ClosestInRange()
     {
-        if(inRange.Count < 1)
+        if(rangeCollider.tracked.Count < 1)
         {
             return null;
         }
         
         PigController nearest = null;
         float smallestDist = -1f;
-        for (int i = 0; i < inRange.Count; i++)
+        for (int i = 0; i < rangeCollider.tracked.Count; i++)
         {
-            PigController pig = inRange[i];
-            if(pig != null)
+            if(rangeCollider.tracked[i] != null)
             {
-                float dist = Vector3.Distance(pig.transform.position, transform.position);
-                if (smallestDist < 0f || dist < smallestDist)
+                PigController pig = rangeCollider.tracked[i].GetComponent<PigController>();
+                if (pig != null)
                 {
-                    smallestDist = dist;
-                    nearest = pig;
+                    float dist = Vector3.Distance(pig.transform.position, transform.position);
+                    if (smallestDist < 0f || dist < smallestDist)
+                    {
+                        smallestDist = dist;
+                        nearest = pig;
+                    }
                 }
             }
+            
         }
         if (nearest == null)
         {

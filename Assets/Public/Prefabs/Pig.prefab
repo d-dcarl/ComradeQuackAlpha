@@ -522,14 +522,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d15ab16e0a48e84195ff550d4e83975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 20
   homeSty: {fileID: 0}
   target: {fileID: 0}
+  targetPond: {fileID: 0}
   acceleration: 5000
   maxSpeed: 5
-  biteHB: {fileID: 8543346062732553720}
+  biteHB: {fileID: 6854674566888371098}
   attackDelay: 3
   attackDamage: 1
-  health: 20
 --- !u!1 &8561455471717723565
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +706,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8119218530971380759}
   - component: {fileID: 4943001279835019836}
-  - component: {fileID: 8543346062732553720}
+  - component: {fileID: 6854674566888371098}
   m_Layer: 7
   m_Name: Bite Collider
   m_TagString: Untagged
@@ -740,7 +741,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8543346062732553720
+--- !u!114 &6854674566888371098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -749,7 +750,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9145091042950097003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec5074fbc072f94090774f2a210cf9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 967500660016739438239a7c4f88da53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tracked: []
