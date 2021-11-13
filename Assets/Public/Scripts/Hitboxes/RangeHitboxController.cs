@@ -14,6 +14,13 @@ public class RangeHitboxController : HitboxController
 
     public void setRange(float newRange)
     {
-        sc.radius = newRange;
+        if (sc == null)
+        {
+            sc = GetComponent<SphereCollider>();
+        }
+        if(sc != null)
+        {
+            sc.radius = newRange;
+        }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretController2 : MonoBehaviour
+public class TurretController2 : EntityController
 {
     public GameObject head;
     public GameObject gun;
@@ -26,10 +26,15 @@ public class TurretController2 : MonoBehaviour
 
     public float bulletSpeed;
 
+    private bool initialized = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        InitializeTurret();
+        if (GameManager.Instance != null)
+        {
+            InitializeTurret();
+        }
     }
 
     public void InitializeTurret()
@@ -39,10 +44,20 @@ public class TurretController2 : MonoBehaviour
         //rotationSpeed = 10.0f;
 
         firingTimer = fireRate;
+        if (GameManager.Instance.turrets == null)
+        {
+            GameManager.Instance.turrets = new List<TurretController2>();
+        }
+        GameManager.Instance.turrets.Add(this);
+        initialized = true;
     }
 
     private void Update()
     {
+        if(!initialized)
+        {
+            InitializeTurret();
+        }
         target = ClosestInRange();
         if(target != null)
         {

@@ -14,6 +14,8 @@ public class PigController : EntityController
     public float maxSpeed;
 
     public HitboxController biteHB;
+    public RangeHitboxController followHB;
+    public float followRange;
     public float attackDelay;
     public int attackDamage;
     private float attackTimer;
@@ -29,6 +31,8 @@ public class PigController : EntityController
         attackTimer = attackDelay;
 
         rb = GetComponent<Rigidbody>();
+
+        followHB.setRange(followRange);
     }
 
     // Update is called once per frame
@@ -66,15 +70,62 @@ public class PigController : EntityController
         }
         else if(GameManager.Instance != null)
         {
-            GameObject player = GameManager.Instance.player;
-            float playerDist = Vector3.Distance(player.transform.position, transform.position);
-            float targetDist = Vector3.Distance(target.transform.position, transform.position);
-
-            if (playerDist < targetDist)
+            if (targetPond != null)
             {
-                target = player.GetComponent<EntityController>();
+                Debug.Log("Target Pond Exists");
+                GameObject nearest = NearestTarget();
+
+                if(nearest != null)
+                {
+                    float targetDist = Vector3.Distance(nearest.transform.position, transform.position);
+                    float pondDist = Vector3.Distance(targetPond.transform.position, transform.position);
+
+                    if (targetDist < pondDist)
+                    {
+                        target = nearest.GetComponent<EntityController>();
+                    }
+                    else
+                    {
+                        target = targetPond;
+                    }
+                }
+            }
+            else
+            {
+                if(homeSty.pointTo != null)
+                {
+                    Debug.Log("Homesty exists");
+                    targetPond = homeSty.pointTo;
+                    target = targetPond;
+                }
             }
         }
+    }
+
+    GameObject NearestTarget()
+    {
+        Debug.Log("Trying to find nearest target");
+        GameObject closest = null;
+        float bestDist = -1f;
+
+        foreach(GameObject go in followHB.tracked)
+        {
+            if(go != null)
+            {
+                if (go.GetComponent<PlayerController>() != null || go.GetComponent<TurretController2>() != null)
+                {
+                    float dist = Vector3.Distance(go.transform.position, transform.position);
+                    if (bestDist < 0f || dist < bestDist)
+                    {
+                        closest = go;
+                        bestDist = dist;
+                        Debug.Log("Closest target is now: " + closest.name);
+                    }
+                }
+            }
+        }
+
+        return closest;
     }
 
     public void MoveTowardsTarget()
