@@ -328,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98122410d9e00104f8561098b8d1cb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 5
   head: {fileID: 3366806272190339506}
   gun: {fileID: 7286568140566336629}
   range: 15
@@ -336,7 +337,6 @@ MonoBehaviour:
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   target: {fileID: 0}
   Projectile: {fileID: 6445303830105601911, guid: 12fb57fd10206e84cab349bb0e75fd61, type: 3}
-  spawnPoint: {fileID: 6402694063149663280}
   fireRate: 1
   bulletSpeed: 10
 --- !u!65 &-8169376280678002792

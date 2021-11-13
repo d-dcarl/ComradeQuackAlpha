@@ -248,6 +248,64 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3219539814626158460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4964700649213252701}
+  - component: {fileID: 2529545391340741669}
+  - component: {fileID: 4448096844224276568}
+  m_Layer: 7
+  m_Name: Follow Range
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4964700649213252701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219539814626158460}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8353789377088205379}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2529545391340741669
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219539814626158460}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4448096844224276568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219539814626158460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ace5be382bb70439cec54139212ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracked: []
 --- !u!1 &5747209459239557308
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +536,7 @@ Transform:
   m_Children:
   - {fileID: 3259619724370879492}
   - {fileID: 3907627717426548301}
+  - {fileID: 4964700649213252701}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -527,8 +586,10 @@ MonoBehaviour:
   target: {fileID: 0}
   targetPond: {fileID: 0}
   acceleration: 5000
-  maxSpeed: 5
+  maxSpeed: 2
   biteHB: {fileID: 6854674566888371098}
+  followHB: {fileID: 4448096844224276568}
+  followRange: 20
   attackDelay: 3
   attackDamage: 1
 --- !u!1 &8561455471717723565

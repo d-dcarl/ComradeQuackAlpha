@@ -148,7 +148,6 @@ public class PondController : EntityController
             pond.pointTo = null;
             pond.nearestPondDist = -1;
         }
-        Debug.Log("Cleared pointTos");
         // Iterate V times, where V is the number of ponds
         for(int v = 0; v < GameManager.Instance.ponds.Count; v++)
         {
@@ -156,7 +155,6 @@ public class PondController : EntityController
             {
                 if (!pond.isSty)
                 {
-                    Debug.Log("Found Pond");
                     pond.nearestPondDist = 0f;
                     pond.pointTo = pond;
                 }
@@ -170,22 +168,13 @@ public class PondController : EntityController
                         // Look for neighbors that already know their nearest distance
                         PondController neighbor = pond.neighbors[i];
                         if (neighbor.nearestPondDist >= 0f)
-                        {
-                            if(pond.name == "Pond")
-                            {
-                                Debug.Log("Neighbor " + neighbor.name + " of original points to " + neighbor.pointTo + " with a nearestDist of " + neighbor.nearestPondDist);
-                            }
-                            
+                        {   
                             float rawDist = Vector3.Distance(neighbor.transform.position, pond.transform.position);
                             float totalDist = rawDist + neighbor.nearestPondDist;
 
                             if (bestDist < 0f || totalDist < bestDist)
                             {
                                 bestNeighbor = neighbor;
-                                if (pond.name == "Pond")
-                                {
-                                    Debug.Log("Current Best Neighbor of original: " + bestNeighbor);
-                                }
                                 bestDist = totalDist;
                             }
                         }
@@ -193,10 +182,6 @@ public class PondController : EntityController
                     }
                     if (bestNeighbor != null)
                     {
-                        if(pond.name == "Pond")
-                        {
-                            Debug.Log("Final Best Neighbor of original: " + bestNeighbor);
-                        }
                         pond.pointTo = bestNeighbor;
                         pond.nearestPondDist = bestDist;
                     }
