@@ -41,16 +41,11 @@ public class PondController : EntityController
         numComrads = 0;
         playerTouching = false;
 
-
-        //spawn this pond's ducks if its not a sty
-        if (!isSty)
-        {
-            for (int i = 0; i < maxComrads; i++)
-            {
-                spawnComrade();
-            }
-        }
+        //spawn this ponds comrads
+        spawnComrads();
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -201,8 +196,8 @@ public class PondController : EntityController
     //spawns a duck guarding this pond if
     public void spawnComrade()
     {
-        //check if its valid to spawn a duck
-        if(numComrads < maxComrads)
+        //check if its valid to spawn a duck, less than max comrads, and not a sty
+        if(numComrads < maxComrads && !isSty)
             {
             Vector3 randomOffset = Random.onUnitSphere;
             randomOffset.y = 0;
@@ -216,6 +211,19 @@ public class PondController : EntityController
             //update data
             numComrads++;
             }
+    }
+
+    //spawns all comrads this pond can handle
+    public void spawnComrads()
+    {
+        //spawn this pond's ducks if its not a sty
+        if (!isSty)
+        {
+            for (int i = numComrads; i < maxComrads; i++)
+            {
+                spawnComrade();
+            }
+        }
     }
 
     //decrement the number of ducks
@@ -255,6 +263,9 @@ public class PondController : EntityController
         isSty = false;
         GetComponent<Renderer>().material = gm.water;
         PondController.setPolicy();
+
+        //spawn this ponds comrads
+        spawnComrads();
     }
 
     public void SwitchTeams()
