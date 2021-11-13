@@ -6,11 +6,14 @@ using UnityEngine;
 
 public class CameraSwap : MonoBehaviour
 {
-    private const int OVERHEAD_CAMERA = 0;
-    private const int PLAYER_CAMERA = 1;
+    public static bool isMapActive = false;
+    
+    private const int PLAYER_CAMERA = 0;
+    private const int OVERHEAD_CAMERA = 1;
 
     public Camera playerCamera;
     public Camera overheadCamera;
+    public Camera mapCamera;
 
     public GameObject playerCameraPosition;
     public GameObject overheadCameraPosition;
@@ -33,8 +36,9 @@ public class CameraSwap : MonoBehaviour
         GameManager.Instance.isOverheadView = false;
         playerCamera.enabled = true;
         overheadCamera.enabled = false;
-        
-        ShowPlayerView();
+        mapCamera.enabled = false;
+
+        // ShowPlayerView();
     }
 
     // Update is called once per frame
@@ -50,6 +54,9 @@ public class CameraSwap : MonoBehaviour
             {
                 ShowPlayerView();
             }
+        } else if (Input.GetKeyDown(KeyCode.M) && !GameManager.Instance.cameraTransitioning)
+        {
+            ToggleMap();
         }
         
         UpdateCamera();
@@ -98,5 +105,32 @@ public class CameraSwap : MonoBehaviour
         
         playerCamera.enabled = false;
         overheadCamera.enabled = true;
+    }
+
+    public void ToggleMap()
+    {
+        if (mapCamera.enabled)
+        {
+            mapCamera.enabled = false;
+            GetCurrentCamera().enabled = true;
+        }
+        else
+        {
+            mapCamera.enabled = true;
+            playerCamera.enabled = false;
+            overheadCamera.enabled = false;
+        }
+    }
+
+    private Camera GetCurrentCamera()
+    {
+        var result = currentCamera switch
+        {
+            PLAYER_CAMERA => playerCamera,
+            OVERHEAD_CAMERA => overheadCamera,
+            _ => null
+        };
+
+        return result;
     }
 }
