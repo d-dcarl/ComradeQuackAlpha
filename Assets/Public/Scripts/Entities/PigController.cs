@@ -155,6 +155,11 @@ public class PigController : EntityController
         }
         else if (biteHB.tracked.Contains(target.gameObject))
         {
+            PondController tp = target.GetComponent<PondController>();
+            if(tp != null && tp.isSty)
+            {
+                return;
+            }
             target.TakeDamage(attackDamage);
             attackTimer = attackDelay;
         }

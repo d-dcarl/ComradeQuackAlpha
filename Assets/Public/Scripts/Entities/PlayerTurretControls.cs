@@ -32,7 +32,7 @@ public class PlayerTurretControls : MonoBehaviour
         //Input for placing a turret
         if (Input.GetKey(KeyCode.E))
         {
-            if (ScoreManager.instance != null && cooldown <= 0 && ScoreManager.instance.score > turretCost)
+            if (ScoreManager.instance == null || cooldown <= 0 && ScoreManager.instance.score > turretCost)
             {
 
                 if (!isInPreview)
@@ -51,7 +51,11 @@ public class PlayerTurretControls : MonoBehaviour
                     //instantiate the actual turret
                     Vector3 newPosition = new Vector3(transform.position.x + (placementDistance * this.transform.forward.x), transform.position.y, transform.position.z + (placementDistance * this.transform.forward.z));
                     Instantiate<GameObject>(placeableTurret, newPosition, this.transform.rotation);
-                    ScoreManager.instance.score -= turretCost;
+                    
+                    if(ScoreManager.instance != null)
+                    {
+                        ScoreManager.instance.score -= turretCost;
+                    }
 
                     //set the cooldown for placing a turret
                     cooldown = placementCooldown;
