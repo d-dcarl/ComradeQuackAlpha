@@ -379,13 +379,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3244874808531811613}
   - component: {fileID: 3244874808531811614}
-  - component: {fileID: 3244874808531811615}
   - component: {fileID: 3244874808531811608}
   - component: {fileID: 3244874808531811609}
   - component: {fileID: 3244874808531811610}
   - component: {fileID: 3244874808531811612}
   - component: {fileID: 1052245086555632108}
-  - component: {fileID: -2566624640753433623}
+  - component: {fileID: 3831344882675111566}
+  - component: {fileID: 796201155557389258}
   m_Layer: 0
   m_Name: Duck
   m_TagString: Player
@@ -419,48 +419,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3244874808531811611}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3244874808531811615
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3244874808531811611}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &3244874808531811608
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -557,7 +515,7 @@ MonoBehaviour:
   placementPreviewCooldown: 0.7
   placementDistance: 2
   turnSmoothTime: 0.1
---- !u!114 &-2566624640753433623
+--- !u!114 &3831344882675111566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -566,15 +524,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 3244874808531811611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f41fef2df0590a48bf70f1dfabcd978, type: 3}
+  m_Script: {fileID: 11500000, guid: 33c576873316f9944a7d81257982c505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeableTurret: {fileID: 3366806272190339506, guid: 85fd36f6c4cfd3e45abb0487686a5030, type: 3}
+  placeableTurret: {fileID: 3366806272190339506, guid: b462e0e662f3ccb4a9334b7a3bfc86f3, type: 3}
   placementTurret: {fileID: 8071964418508513826, guid: 4add3b18062bb3b48b6b2f09d0560e55, type: 3}
-  placementCooldown: 5
+  placementCooldown: 1
   placementPreviewCooldown: 0.7
   placementDistance: 2
+  maxComrads: 10
   turnSmoothTime: 0.1
+  canAddDuck: 1
+--- !u!114 &796201155557389258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3244874808531811611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4454bb8cd3b38fa49a26d2dbe2e6975d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &3244874808620377741
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +777,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bc91ba3d10da5da4982c9f08080344fa, type: 3}
       propertyPath: m_Name
       value: duck_alpha_retop
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc91ba3d10da5da4982c9f08080344fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc91ba3d10da5da4982c9f08080344fa, type: 3}

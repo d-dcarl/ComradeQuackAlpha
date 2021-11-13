@@ -104,55 +104,55 @@ public class PlayerMovement : MonoBehaviour
     //Used to handle movement, gliding, and general physics
     void FixedUpdate()
     {
-        //If you are not mounted
-        if (!isMounted)
+        if (GameManager.Instance != null && !GameManager.Instance.isOverheadView)
         {
-            //Movement
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
-            Vector3 direction = new Vector3(h, 0, v).normalized;
-            if (direction.magnitude >= 0.1f)
-            {
-                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-                if (!isZoomedIn)
-                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-                Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * moveSpeed);
-            }
-            //If jump is held down and stamina is greater than zero
-            if (Input.GetButton("Jump") && stamina > 0)
+            //If you are not mounted
+            if (!isMounted)
             {
-                //rb.useGravity = false;
-                //rb.AddForce(Physics.gravity * rb.mass * .5f);
-                if (rb.velocity.y < -glideGravityCap)
+                //Movement
+                float h = Input.GetAxisRaw("Horizontal");
+                float v = Input.GetAxisRaw("Vertical");
+                Vector3 direction = new Vector3(h, 0, v).normalized;
+                if (direction.magnitude >= 0.1f)
                 {
-                    rb.velocity = new Vector3(rb.velocity.x, -glideGravityCap, rb.velocity.z);
+                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+                    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                    if (!isZoomedIn)
+                        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+                    Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                    rb.MovePosition(transform.position + moveDir.normalized * Time.deltaTime * moveSpeed);
                 }
-                stamina -= staminaUsedPerGlideSecond * Time.deltaTime;
-                anim.SetBool("isGliding", true);
+                //If jump is held down and stamina is greater than zero
+                if (Input.GetButton("Jump") && stamina > 0)
+                {
+                    //rb.useGravity = false;
+                    //rb.AddForce(Physics.gravity * rb.mass * .5f);
+                    if (rb.velocity.y < -glideGravityCap)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x, -glideGravityCap, rb.velocity.z);
+                    }
+                    stamina -= staminaUsedPerGlideSecond * Time.deltaTime;
+                    anim.SetBool("isGliding", true);
+                }
+                else //If you are not gliding
+                {
+                    rb.useGravity = true;
+                    anim.SetBool("isGliding", false);
+
+                }
             }
-            else //If you are not gliding
+            if (isMounted)
             {
-                rb.useGravity = true;
-                anim.SetBool("isGliding", false);
-
+                transform.position = mount.position;
+                if (!isZoomedIn)
+                    transform.rotation = mount.rotation;
             }
+
+            var velocity = this.GetComponent<Rigidbody>().velocity;
+            this.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x * 0.99f, velocity.y, velocity.z * 0.99f);
         }
-        if (isMounted)
-        {
-            transform.position = mount.position;
-            if (!isZoomedIn)
-                transform.rotation = mount.rotation;
-        }
-
-        var velocity = this.GetComponent<Rigidbody>().velocity;
-        this.GetComponent<Rigidbody>().velocity = new Vector3(velocity.x * 0.99f, velocity.y, velocity.z * 0.99f);
-       
-
-
-
     }
     //Used to calculate if on the ground
     private void LateUpdate()

@@ -32,20 +32,23 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // check for shooting input
-        if (Input.GetButtonDown("Fire1") && Input.GetButton("Fire2"))
+        if (!GameManager.Instance.isOverheadView)
         {
-            Shoot();
-        }
+            // check for shooting input
+            if (Input.GetButtonDown("Fire1") && Input.GetButton("Fire2"))
+            {
+                Shoot();
+            }
 
-        // show crosshair
-        if (Input.GetButton("Fire2"))
-        {
-            ShowCrosshair();
-        }
-        else
-        {
-            crosshair.SetActive(false);
+            // show crosshair
+            if (Input.GetButton("Fire2"))
+            {
+                ShowCrosshair();
+            }
+            else
+            {
+                crosshair.SetActive(false);
+            }
         }
     }
 
@@ -65,11 +68,18 @@ public class Gun : MonoBehaviour
             
 
             // find what we hit and apply damage
-            Target t = hit.transform.GetComponent<Target>();
+            /*Target t = hit.transform.GetComponent<Target>();
             if (t != null)
             {
                 Debug.Log(t.name + " was hit!");
                 t.TakeDamage(damage);
+                Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            }*/
+            PigController p = hit.transform.GetComponent<PigController>();
+            if (p != null)
+            {
+                Debug.Log(p.name + " was hit!");
+                p.TakeDamage((int)damage);
                 Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             }
         }

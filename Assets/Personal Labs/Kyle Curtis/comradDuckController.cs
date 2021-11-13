@@ -15,7 +15,6 @@ public class comradDuckController : MonoBehaviour
     private float speed = 12;
     private float step = 0;
 
-
     // Start is called before the first frame update
     void Start()
     {

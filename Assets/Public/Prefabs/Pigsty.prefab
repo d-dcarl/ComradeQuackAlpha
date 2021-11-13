@@ -116,5 +116,5 @@ MonoBehaviour:
   spawnDelay: 10
   offsetAmount: 3
   maxComrads: 3
-  comrad: {fileID: 3366806272190339506, guid: 85fd36f6c4cfd3e45abb0487686a5030, type: 3}
+  comrad: {fileID: 3366806272190339506, guid: b462e0e662f3ccb4a9334b7a3bfc86f3, type: 3}
   recruitCooldown: 1

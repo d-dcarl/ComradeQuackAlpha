@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
+        player.GetComponent<PlayerMovement>().enterDialogue = true;
         manager.GetComponent<AudioSource>().Play();
         nameText.text = dialogue.name;
 
@@ -68,6 +69,8 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of Conversation");
         animator.SetBool("IsOpen", false);
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         player.GetComponent<PlayerMovement>().enterDialogue = false;
     }
 

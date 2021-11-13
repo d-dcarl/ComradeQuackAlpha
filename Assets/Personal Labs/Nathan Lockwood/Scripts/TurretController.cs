@@ -125,6 +125,7 @@ public class TurretController : MonoBehaviour
     {
         Collider[] hitColliders = Physics.OverlapSphere(center, radius);
         Debug.Log(hitColliders.Length);
+        Debug.Log(gameObject.name);
         float smallest_dist = radius;
         Collider nearest = new Collider();
         foreach (var hitCollider in hitColliders)

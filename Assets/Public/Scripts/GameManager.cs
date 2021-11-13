@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
+
     public GameObject pigPrefab;
 
     public int pondHealth;
@@ -12,7 +14,9 @@ public class GameManager : MonoBehaviour
     public Material water;
     public Material mud;
 
-    [HideInInspector]
+    public bool cameraTransitioning = false;
+    public bool isOverheadView = false;
+
     public List<PondController> ponds;
 
     public static GameManager Instance;

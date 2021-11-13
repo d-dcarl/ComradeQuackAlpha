@@ -7,6 +7,8 @@ public class MovingBarrier : MonoBehaviour
     public Transform start;
     public Transform end;
     public GameObject player;
+    public GameObject bear;
+
 
     public float speed = 1.0f;
 
@@ -57,5 +59,11 @@ public class MovingBarrier : MonoBehaviour
             player.GetComponent<PlayerMovement>().playerDeath();
             //other.gameObject.transform.position = ;
         }
+        if (other.gameObject.tag == "Bear")
+        {
+            bear.GetComponent<BearMovement>().bearDeath();
+            //other.gameObject.transform.position = ;
+        }
+
     }
 }

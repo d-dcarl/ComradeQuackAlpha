@@ -346,9 +346,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d616b1f3ba84754c82e73cc7b671da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 343858680451813178, guid: 4309db41860453545b80b14f0175ec84, type: 3}
+  Projectile: {fileID: 6445303830105601911, guid: 12fb57fd10206e84cab349bb0e75fd61, type: 3}
   spawnPoint: {fileID: 6402694063149663280}
-  fireRate: 0.5
+  fireRate: 1
   bulletLifetime: 5
   relativeVelocity: {x: 0, y: 0, z: 25}
 --- !u!114 &2822447757221111299
