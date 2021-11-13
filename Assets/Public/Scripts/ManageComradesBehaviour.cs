@@ -24,8 +24,13 @@ public class ManageComradesBehaviour : MonoBehaviour
     private float previewCooldown;
     private bool isInPreview = false;
     private GameObject placeholder;
+    private ComradeController curComradeController;
 
+    //the comrads currently following the player
     private List<GameObject> followingComrads;
+
+    //a list of comrads to recruit
+    private List<ComradeController> recruitableComrads;
 
     //public get private set
     public int numFollowing { get; private set; }
@@ -38,9 +43,12 @@ public class ManageComradesBehaviour : MonoBehaviour
 
         followingComrads = new List<GameObject>();
         numFollowing = 0;
+
+        recruitableComrads = new List<ComradeController>();
     }
     private void Update()
     {
+        //placing ducks in turrets
         //Input for placing a turret
         if (Input.GetKey(KeyCode.F))
         {
@@ -87,6 +95,25 @@ public class ManageComradesBehaviour : MonoBehaviour
 
         }
 
+        //recruit comrades in zone
+        if (Input.GetKey(KeyCode.G))
+        {
+            //as long as there are recruitable comrades
+            while(recruitableComrads.Count != 0)
+            {
+                //or we can't have more following
+                if(numFollowing >= maxComrads)
+                {
+                    break;
+                }
+                //otherwise remove a recruitable comrade from the list and tell it to follow
+                curComradeController = recruitableComrads[0];
+                recruitableComrads.Remove(curComradeController);
+                //follows when not a turret
+                curComradeController.isTurret = false;
+                
+            }
+        }
     }
 
     //if a following duck died remove it from the list
@@ -141,5 +168,34 @@ public class ManageComradesBehaviour : MonoBehaviour
             previewCooldown -= Time.deltaTime;
         }
 
+    }
+
+    //when a comrad enters the trigger adds then to the recruitable list if they aren't following
+    private void OnTriggerEnter(Collider other)
+    {
+        //get the comrade's controller, if they are a comrad
+        curComradeController = other.gameObject.GetComponent<ComradeController>();
+        if(curComradeController != null)
+        {
+            //now check if its a turret, then it can be recruited
+            if(curComradeController.isTurret)
+            {
+                recruitableComrads.Add(curComradeController);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //get the comrade's controller, if they are a comrad
+        curComradeController = other.gameObject.GetComponent<ComradeController>();
+        if (curComradeController != null)
+        {
+            //now check if its a turret, then it can no longer be recruited
+            if (curComradeController.isTurret)
+            {
+                recruitableComrads.Remove(curComradeController);
+            }
+        }
     }
 }
