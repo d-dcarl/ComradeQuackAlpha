@@ -5,11 +5,11 @@ using UnityEngine;
 public class ComradeController : MonoBehaviour
 {
     [HideInInspector]
-    public PondController pondParent;
+    [SerializeField] public PondController pondParent;
 
     //is the comrad in guard mode.
     [HideInInspector]
-    public bool isTurret = false;
+    [SerializeField] public bool isTurret = false;
     private bool traveling = false;
     private Vector3 destination;
 
@@ -19,7 +19,7 @@ public class ComradeController : MonoBehaviour
 
     private Transform target = null;
     private GameObject Player;
-    public float speed = 6;
+    [SerializeField] public float speed = 6;
     private float step = 0;
     private const float startDistanceAway = 2.5f;
     private float distanceAway = 2.5f;

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PondController : EntityController
 {
-    public bool isSty;
-    public List<PondController> neighbors;
+    [SerializeField] public bool isSty;
+    [SerializeField] public List<PondController> neighbors;
 
     private float nearestPondDist;
     [HideInInspector]
-    public PondController pointTo;
+    [SerializeField] public PondController pointTo;
 
-    public float spawnDelay;
+    [SerializeField] public float spawnDelay;
     private float spawnTimer;
 
-    public float offsetAmount;
+    [SerializeField] public float offsetAmount;
 
     private GameManager gm;
 
@@ -29,7 +29,7 @@ public class PondController : EntityController
     [SerializeField] public GameObject comrad;
 
     GameObject curDuck;
-
+    private ComradeController curController;
     private float cooldown = 0;
     [SerializeField] public float recruitCooldown = 1.0f;
 
@@ -42,6 +42,14 @@ public class PondController : EntityController
         playerTouching = false;
 
 
+        //spawn this pond's ducks if its not a sty
+        if (!isSty)
+        {
+            for (int i = 0; i < maxComrads; i++)
+            {
+                spawnComrade();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -72,7 +80,7 @@ public class PondController : EntityController
             }
         }
 
-
+        //TODO remove this spawn comrade code, in ManageComradBehaviour add recruit
 
         //check if the pond should spawn a comrad
         //it has to not be a sty, and the player has to be touching, and the key G has to be down, and we have to have less than the max number of comrads
@@ -190,10 +198,32 @@ public class PondController : EntityController
         }
     }
 
+    //spawns a duck guarding this pond if
+    public void spawnComrade()
+    {
+        //check if its valid to spawn a duck
+        if(numComrads < maxComrads)
+            {
+            Vector3 randomOffset = Random.onUnitSphere;
+            randomOffset.y = 0;
+            randomOffset = randomOffset.normalized;
+            curDuck = Instantiate<GameObject>(comrad, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity);
+            curController = curDuck.GetComponent<ComradeController>();
+            curController.pondParent = this;
+            curController.isTurret = true;
+            
+
+            //update data
+            numComrads++;
+            }
+    }
+
     //decrement the number of ducks
     public void duckIsDestoryed()
     {
         numComrads--;
+        //respawn a comrade guarding this pond
+        spawnComrade();
     }
 
     void SetGM()
