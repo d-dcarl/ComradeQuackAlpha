@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -166,6 +166,7 @@ MonoBehaviour:
   cameraTransitioning: 0
   isOverheadView: 0
   ponds: []
+  turrets: []
 --- !u!4 &89711781
 Transform:
   m_ObjectHideFlags: 0
@@ -10641,7 +10642,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20405,13 +20406,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: jumpForce
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: numberOfJumps
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: glideGravityCap
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: staminaRecovery
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: staminaUsedPerJump
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: staminaUsedPerGlideSecond
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3244874808531811611, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
       propertyPath: m_Name
       value: Duck
       objectReference: {fileID: 0}
     - target: {fileID: 3244874808531811613, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3244874808531811613, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
       propertyPath: m_LocalPosition.x
