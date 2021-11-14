@@ -59,9 +59,13 @@ public class TurretController2 : EntityController
             InitializeTurret();
         }
         target = ClosestInRange();
-        if(target != null)
+
+        //we need to do this even without a target, so that comrades will rotate to face player, and turrets will go back to their initial position
+        AimAtTarget();
+
+        if (target != null)
         {
-            AimAtTarget();
+            
 
             firingTimer -= Time.deltaTime;
             if (firingTimer < 0)
@@ -78,6 +82,7 @@ public class TurretController2 : EntityController
         if (target == null)
         {
             targetRotation = initialRotation;
+            //actually rotate
         }
         else
         {
@@ -85,12 +90,14 @@ public class TurretController2 : EntityController
             Vector3 projectedPos = target.transform.position + target.GetComponent<Rigidbody>().velocity * timeExpected;
             targetRotation = Quaternion.LookRotation(projectedPos - transform.position);
 
-            head.transform.rotation = Quaternion.Lerp(head.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-            head.transform.localEulerAngles = new Vector3(0f, head.transform.localEulerAngles.y, 0f);
-            gun.transform.LookAt(target.transform);
-            gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 0f, 0f);
+           
         }
-        
+        //actually rotate
+        head.transform.rotation = Quaternion.Lerp(head.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        head.transform.localEulerAngles = new Vector3(0f, head.transform.localEulerAngles.y, 0f);
+        gun.transform.LookAt(target.transform);
+        gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 0f, 0f);
+
     }
 
     private GameObject ClosestInRange()

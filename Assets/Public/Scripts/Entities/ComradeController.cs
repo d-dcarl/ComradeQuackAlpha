@@ -8,8 +8,8 @@ public class ComradeController : MonoBehaviour
     [SerializeField] public PondController pondParent;
 
     //is the comrad in guard mode.
-    [HideInInspector]
-    [SerializeField] public bool isTurret = false;
+    //[HideInInspector]
+    [SerializeField] public bool isTurret = true;
     private bool traveling = false;
     private Vector3 destination;
 
