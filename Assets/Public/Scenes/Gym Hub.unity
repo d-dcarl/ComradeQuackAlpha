@@ -10571,6 +10571,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 277037310140790160, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: ChangeToRoom
+      value: Art Gallery
+      objectReference: {fileID: 0}
     - target: {fileID: 9116619938077645624, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
       propertyPath: m_Text
       value: To Art Gallery
