@@ -372,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc91ba3d10da5da4982c9f08080344fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.029
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bc91ba3d10da5da4982c9f08080344fa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -694,6 +694,7 @@ MonoBehaviour:
   placementCooldown: 5
   placementPreviewCooldown: 0.7
   placementDistance: 2
+  turretCost: 3
   turnSmoothTime: 0.1
 --- !u!1 &412565134
 GameObject:
