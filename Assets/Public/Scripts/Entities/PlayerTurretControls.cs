@@ -45,7 +45,7 @@ public class PlayerTurretControls : MonoBehaviour
                 isInPreview = true;
 
                 //wait a minimum time before accepting inputs
-                if (previewCooldown <= 0 && canPlace)
+                if (previewCooldown <= 0/* && canPlace*/)
                 {
                     //delete the placement turret
                     Destroy(placeholder);
