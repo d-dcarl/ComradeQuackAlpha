@@ -20,6 +20,8 @@ public class PlayerTurretControls : MonoBehaviour
     private float previewCooldown;
     private bool isInPreview = false;
     private GameObject placeholder;
+    private bool canPlace = true;
+    private bool previewRed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,7 @@ public class PlayerTurretControls : MonoBehaviour
                 isInPreview = true;
 
                 //wait a minimum time before accepting inputs
-                if (previewCooldown <= 0)
+                if (previewCooldown <= 0 && canPlace)
                 {
                     //delete the placement turret
                     Destroy(placeholder);
@@ -89,6 +91,57 @@ public class PlayerTurretControls : MonoBehaviour
         {
             previewCooldown -= Time.deltaTime;
         }
+        //update placment turret color if !canPlace
+        if(!canPlace)
+        {
+            var renderer = placementTurret.GetComponent<Renderer>();
+            renderer.material.SetColor("_Color", Color.red);
+            previewRed = true;
 
+        }
+        if(canPlace && previewRed)
+        {
+            var renderer = placementTurret.GetComponent<Renderer>();
+            renderer.material.SetColor("_Color", Color.blue);
+            previewRed = false;
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if(other.tag == "Turret")
+        {
+            canPlace = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Turret" && !CheckRadiusForTurret(placementTurret.transform.position, placementTurret.GetComponent<SphereCollider>().radius))
+        {
+            canPlace = true;
+        }
+    }
+
+    private bool CheckRadiusForTurret(Vector3 center, float radius)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(center, radius);
+        Collider nearest = new Collider();
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.tag == "Turret")
+            {
+                return true;
+            }
+
+
+        }
+        if (nearest == null)
+        {
+            return false;
+        }
+        return true;
     }
 }

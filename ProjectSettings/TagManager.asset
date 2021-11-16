@@ -11,6 +11,7 @@ TagManager:
   - Bear
   - Pond
   - Comrade
+  - Turret
   layers:
   - Default
   - TransparentFX
