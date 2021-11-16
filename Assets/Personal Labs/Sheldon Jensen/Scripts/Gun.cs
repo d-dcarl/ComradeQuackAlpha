@@ -34,13 +34,13 @@ public class Gun : MonoBehaviour
     {
         if (!GameManager.Instance.isOverheadView)
         {
-            // check for shooting input
+            /* check for shooting input
             if (Input.GetButtonDown("Fire1") && Input.GetButton("Fire2"))
             {
                 Shoot();
-            }
+            } */
 
-            // show crosshair
+            /* show crosshair
             if (Input.GetButton("Fire2"))
             {
                 ShowCrosshair();
@@ -48,7 +48,14 @@ public class Gun : MonoBehaviour
             else
             {
                 crosshair.SetActive(false);
-            }
+            } */
+
+            // show crosshair at all times
+            ShowCrosshair();
+
+            // fire without zooming in
+            if (Input.GetButtonDown("Fire1"))
+                Shoot();
         }
     }
 
