@@ -8,8 +8,7 @@ public class PondController : EntityController
     [SerializeField] public List<PondController> neighbors;
 
     private float nearestPondDist;
-    [HideInInspector]
-    [SerializeField] public PondController pointTo;
+    [HideInInspector] public PondController pointTo;
 
     [SerializeField] public float spawnDelay;
     private float spawnTimer;
@@ -54,7 +53,7 @@ public class PondController : EntityController
         }
         if(isSty)
         {
-            spawnTimer -= Time.deltaTime;
+            
             if (spawnTimer <= 0)
             {
                 spawnTimer = spawnDelay;
@@ -68,6 +67,7 @@ public class PondController : EntityController
                     if(pointTo != null)
                     {
                         pig.target = pointTo;
+                        pig.targetPond = pointTo;
                     }
                 }
             }
@@ -116,6 +116,15 @@ public class PondController : EntityController
         {
             cooldown -= Time.deltaTime;
         }
+        if(spawnTimer < 0)
+        {
+            spawnTimer = 0;
+        }
+        else
+        {
+            spawnTimer -= Time.deltaTime;
+        }
+        
     }
 
 
