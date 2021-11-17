@@ -34,7 +34,7 @@ public class PlayerTurretControls : MonoBehaviour
         //Input for placing a turret
         if (Input.GetKey(KeyCode.E))
         {
-            if (ScoreManager.instance == null || cooldown <= 0 && ScoreManager.instance.score > turretCost)
+            if (cooldown <= 0 &&  (ScoreManager.instance == null ||  ScoreManager.instance.score > turretCost))
             {
                 //instantiate the preview turret
                 if (!isInPreview)
@@ -43,7 +43,6 @@ public class PlayerTurretControls : MonoBehaviour
                     placeholder = Instantiate<GameObject>(placementTurret, this.transform);
                     isInPreview = true;
                     previewCooldown = placementPreviewCooldown;
-                    cooldown = placementCooldown;
                 }
                 
                 //place the actual turret
