@@ -72,7 +72,6 @@ public class PigController : EntityController
         {
             if (targetPond != null)
             {
-                Debug.Log("Target Pond Exists");
                 GameObject nearest = NearestTarget();
 
                 if(nearest != null)
@@ -94,7 +93,6 @@ public class PigController : EntityController
             {
                 if(homeSty.pointTo != null)
                 {
-                    Debug.Log("Homesty exists");
                     targetPond = homeSty.pointTo;
                     target = targetPond;
                 }
@@ -104,7 +102,6 @@ public class PigController : EntityController
 
     GameObject NearestTarget()
     {
-        Debug.Log("Trying to find nearest target");
         GameObject closest = null;
         float bestDist = -1f;
 
