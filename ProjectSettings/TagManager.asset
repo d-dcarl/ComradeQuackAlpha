@@ -12,6 +12,7 @@ TagManager:
   - Pond
   - Comrade
   - Turret
+  - Fist Gun
   layers:
   - Default
   - TransparentFX
