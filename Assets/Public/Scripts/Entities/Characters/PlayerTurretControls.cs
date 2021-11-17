@@ -36,16 +36,19 @@ public class PlayerTurretControls : MonoBehaviour
         {
             if (ScoreManager.instance == null || cooldown <= 0 && ScoreManager.instance.score > turretCost)
             {
-
+                //instantiate the preview turret
                 if (!isInPreview)
                 {
                     //Instantiate the placement turret
                     placeholder = Instantiate<GameObject>(placementTurret, this.transform);
+                    isInPreview = true;
+                    previewCooldown = placementPreviewCooldown;
+                    cooldown = placementCooldown;
                 }
-                isInPreview = true;
-
+                
+                //place the actual turret
                 //wait a minimum time before accepting inputs
-                if (previewCooldown <= 0 && canPlace)
+                if (isInPreview && previewCooldown <= 0 && canPlace)
                 {
                     //delete the placement turret
                     Destroy(placeholder);
