@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public bool isOverheadView = false;
 
     public List<PondController> ponds;
+    public List<TurretController2> turrets;
 
     public static GameManager Instance;
 

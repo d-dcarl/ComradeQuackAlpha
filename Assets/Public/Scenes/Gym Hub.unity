@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -166,6 +166,7 @@ MonoBehaviour:
   cameraTransitioning: 0
   isOverheadView: 0
   ponds: []
+  turrets: []
 --- !u!4 &89711781
 Transform:
   m_ObjectHideFlags: 0
@@ -10563,6 +10564,71 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697334664}
   m_Mesh: {fileID: 4300006, guid: 59b18c95b5a5c4dce8e16c568fc3a3b7, type: 3}
+--- !u!1001 &1776207110
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 277037310140790160, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: ChangeToRoom
+      value: ComradGym
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619938077645624, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_Text
+      value: To Comrade Gym
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.10000191
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.346415
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116619939653280050, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: m_Name
+      value: Room Change Door (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
 --- !u!1001 &1819800377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10570,6 +10636,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 277037310140790160, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
+      propertyPath: ChangeToRoom
+      value: Art Gallery
+      objectReference: {fileID: 0}
     - target: {fileID: 9116619938077645624, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
       propertyPath: m_Text
       value: To Art Gallery
@@ -10641,7 +10711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9116619939653280049, guid: bf2e8284c9190c545ad2385839e4fa08, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20405,13 +20475,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: jumpForce
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: numberOfJumps
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: glideGravityCap
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: staminaRecovery
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: staminaUsedPerJump
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244874808531811610, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
+      propertyPath: staminaUsedPerGlideSecond
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3244874808531811611, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
       propertyPath: m_Name
       value: Duck
       objectReference: {fileID: 0}
     - target: {fileID: 3244874808531811613, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3244874808531811613, guid: 1e070938a9f58d7439f7d1893298a7cc, type: 3}
       propertyPath: m_LocalPosition.x

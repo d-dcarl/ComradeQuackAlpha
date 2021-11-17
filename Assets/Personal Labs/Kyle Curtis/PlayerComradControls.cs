@@ -67,7 +67,7 @@ public class PlayerComradControls : MonoBehaviour
                     Instantiate<GameObject>(placeableTurret, newPosition, this.transform.rotation);
                     */
 
-                    //TODO get a comrad from game manager and tell it to stand here.
+                    //TODO tell comrad to pilot turret
                     if(numFollowing > 0)
                     {
                         //remove the duck thats been following the longest

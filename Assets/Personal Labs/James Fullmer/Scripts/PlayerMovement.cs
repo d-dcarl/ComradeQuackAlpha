@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public int numberOfJumps = 3;
     [Header("Stamina")]
     public float stamina = 100f;
-    public float staminaRecovery = 10f;
-    public float staminaUsedPerJump = 10f;
+    public float staminaRecovery = 20f;                                 // changed from 10f to 20f - SJ
+    public float staminaUsedPerJump = 20f;                              // changed from 10f to 20f - SJ
     public float staminaUsedPerGlideSecond = 5f;
     [Header("Other")]
     public Transform cam; //Camera Holder
@@ -68,7 +68,8 @@ public class PlayerMovement : MonoBehaviour
             }
             isGrounded = false;
             //The force that is added when jumped
-            rb.AddForce(this.transform.up * jumpForce, ForceMode.Impulse);
+            if(this.transform.position.y < 10)                                              // limit max jump height - SJ
+                rb.AddForce(this.transform.up * jumpForce, ForceMode.Impulse);
             currentJumps++;
             stamina -= staminaUsedPerJump;
             anim.Play("flap");
