@@ -45,8 +45,6 @@ public class PondController : EntityController
         spawnComrads();
     }
 
-
-
     // Update is called once per frame
     void Update()
     {
