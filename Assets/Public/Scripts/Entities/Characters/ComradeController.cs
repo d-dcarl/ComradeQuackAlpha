@@ -33,6 +33,7 @@ public class ComradeController : MonoBehaviour
 
         Player = GameObject.Find("Duck");
         moveSpeedDelay = 2.5f;
+        quackCooldown = Random.Range(3, 50);
     }
 
     // Update is called once per frame
