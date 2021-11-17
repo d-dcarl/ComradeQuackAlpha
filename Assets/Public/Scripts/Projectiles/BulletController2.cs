@@ -30,10 +30,9 @@ public class BulletController2 : MonoBehaviour
 
         lifeTimer -= Time.deltaTime;
        // Debug.Log(lifeTimer);
-        if(lifeTimer <= 0)
+        if(lifeTimer <= 0f)
         {
-            this.enabled = false;
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 
