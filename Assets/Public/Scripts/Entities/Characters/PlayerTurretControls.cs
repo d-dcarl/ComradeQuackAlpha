@@ -97,14 +97,16 @@ public class PlayerTurretControls : MonoBehaviour
         if(!canPlace)
         {
             var renderer = placementTurret.GetComponent<Renderer>();
-            renderer.material.SetColor("_Color", Color.red);
-            previewRed = true;
-
+            if (renderer != null && renderer.sharedMaterial != null)
+            {
+                renderer.sharedMaterial.SetColor("_Color", Color.red);
+                previewRed = true;
+            }
         }
         if(canPlace && previewRed)
         {
             var renderer = placementTurret.GetComponent<Renderer>();
-            renderer.material.SetColor("_Color", Color.blue);
+            renderer.sharedMaterial.SetColor("_Color", Color.blue);
             previewRed = false;
         }
 

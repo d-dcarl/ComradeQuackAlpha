@@ -43,7 +43,8 @@ public class ComradeController : MonoBehaviour
         if (quackCooldown <= 0)
         {
             //play the quack
-            this.gameObject.GetComponent<AudioSource>().Play();
+            if (gameObject.GetComponent<AudioSource>())
+                this.gameObject.GetComponent<AudioSource>().Play();
             //set the cooldown to some random value
             //quackCooldown = 2;
             quackCooldown = Random.Range(3, 50);
@@ -111,6 +112,7 @@ public class ComradeController : MonoBehaviour
 
     private void OnDestroy()
     {
+
         //if following remove from list
         if (!isTurret)
         {
@@ -118,16 +120,18 @@ public class ComradeController : MonoBehaviour
             {
                 Player = GameObject.Find("Duck");
             }
-            if(Player != null)
+            if (Player != null)
             {
                 Player.GetComponent<ManageComradesBehaviour>().followingDuckDied(gameObject);
             }
-            
-            
+
+
         }
         //cover if following and if turret
-        pondParent.duckIsDestoryed();
-        
+        if (pondParent != null)
+        {
+            pondParent.duckIsDestoryed();
+        }
     }
 
     //tell this duck to go stand guard somewhere

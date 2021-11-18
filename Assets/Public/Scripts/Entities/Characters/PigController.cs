@@ -21,6 +21,7 @@ public class PigController : EntityController
     private float attackTimer;
 
     private Rigidbody rb;
+    public Vector3 moveDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +63,7 @@ public class PigController : EntityController
                 // Placeholder. Eventually choose nearest sty.
                 homeSty = GameManager.Instance.ponds[0];
             }
-            if (homeSty.pointTo != null)
+            if (homeSty != null)
             {
                 targetPond = homeSty.pointTo;
                 target = targetPond;
@@ -177,4 +178,14 @@ public class PigController : EntityController
             }
         }
     }
+
+    /*void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Fist Gun")
+        {
+            moveDirection = rb.transform.position - other.transform.position;
+            rb.AddForce(moveDirection.normalized * -100000f);
+            //rb.AddForce(transform.forward * -10000000);
+        }
+    }*/
 }

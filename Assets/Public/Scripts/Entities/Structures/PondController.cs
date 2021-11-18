@@ -238,7 +238,7 @@ public class PondController : EntityController
     {
         numComrads--;
         //respawn a comrade guarding this pond
-        spawnComrade();
+        //spawnComrade();
     }
 
     void SetGM()
