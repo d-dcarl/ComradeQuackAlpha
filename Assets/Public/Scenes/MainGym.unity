@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 4f2adc4c01aa27f4db0fb33ed67e8c22, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -5312,7 +5312,9 @@ MonoBehaviour:
   mud: {fileID: 2100000, guid: 195b4c002637b4349b9f7edd1719e818, type: 2}
   cameraTransitioning: 0
   isOverheadView: 0
-  ponds: []
+  ponds:
+  - {fileID: 527634680}
+  - {fileID: 1405818350}
   turrets: []
 --- !u!1 &420239583
 GameObject:
@@ -16668,6 +16670,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1405818350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4269608605772788583, guid: 844da6a13bbacce45b7842886af9eabd, type: 3}
+  m_PrefabInstance: {fileID: 135392098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d1daf2071645d4c889708a4eb1c8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1407262502
 GameObject:
   m_ObjectHideFlags: 0

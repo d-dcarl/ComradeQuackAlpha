@@ -95,7 +95,8 @@ public class TurretController2 : EntityController
         //actually rotate
         head.transform.rotation = Quaternion.Lerp(head.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         head.transform.localEulerAngles = new Vector3(0f, head.transform.localEulerAngles.y, 0f);
-        gun.transform.LookAt(target.transform);
+        if (target != null)
+            gun.transform.LookAt(target.transform);
         gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 0f, 0f);
 
     }
