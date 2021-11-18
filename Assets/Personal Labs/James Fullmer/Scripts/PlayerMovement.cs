@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     bool isZoomedIn = false;
     Transform mount;
     MountTrigger mountTrigger;
+    Slider staminaSlider;
 
     float turnSmoothVelocity;
 
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
         currentJumps = 0;
         numberOfJumps--;
         anim = gameObject.GetComponent<Animator>();
+        staminaSlider = Object.FindObjectOfType<Slider>();
     }
     private void Update()
     {
@@ -178,6 +181,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (staminaSlider != null)
+        {
+            staminaSlider.value = stamina;
+        }
     }
 
     /// <summary>
