@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10439,8 +10439,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1377687248}
   pigPrefab: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
-  pondHealth: 10
-  styHealth: 5
+  pondHealth: 15
+  styHealth: 10
   water: {fileID: 2100000, guid: fce90641f23d0884c86cee770b3f0cab, type: 2}
   mud: {fileID: 2100000, guid: 195b4c002637b4349b9f7edd1719e818, type: 2}
   cameraTransitioning: 0
