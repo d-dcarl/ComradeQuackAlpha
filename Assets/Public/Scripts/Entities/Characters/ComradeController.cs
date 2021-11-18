@@ -128,8 +128,10 @@ public class ComradeController : MonoBehaviour
 
         }
         //cover if following and if turret
-        pondParent.duckIsDestoryed();
-
+        if (pondParent != null)
+        {
+            pondParent.duckIsDestoryed();
+        }
     }
 
     //tell this duck to go stand guard somewhere

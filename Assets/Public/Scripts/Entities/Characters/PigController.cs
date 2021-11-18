@@ -62,7 +62,7 @@ public class PigController : EntityController
                 // Placeholder. Eventually choose nearest sty.
                 homeSty = GameManager.Instance.ponds[0];
             }
-            if (homeSty.pointTo != null)
+            if (homeSty != null)
             {
                 targetPond = homeSty.pointTo;
                 target = targetPond;
