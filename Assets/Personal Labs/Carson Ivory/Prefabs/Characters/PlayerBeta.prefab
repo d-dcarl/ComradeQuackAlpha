@@ -51,7 +51,17 @@ MonoBehaviour:
   maxSpeed: 10
   rotationSpeed: 10
   rotationLerp: 0.02
-  targetRotation: 0
+  flapSpeed: 30
+  flapDelay: 0.2
+  maxFlyHeight: 50
+  sprintSpeed: 12
+  glideMoveSpeed: 10
+  glideFallSpeed: -5
+  maxStamina: 100
+  staminaRecovery: 20
+  staminaUsedPerJump: 20
+  staminaUsedPerGlideSecond: 5
+  staminaSlider: {fileID: 0}
 --- !u!136 &2865244532593718931
 CapsuleCollider:
   m_ObjectHideFlags: 0

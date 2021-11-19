@@ -1,31 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControllerBeta : CharacterControllerBeta
 {
+    [Header("Walking and turning")]
     public float rotationSpeed;
     public float rotationLerp;
-    public float targetRotation;
-    private float rotation;
+    protected float targetRotation;
+    protected float rotation;
+    
+
+    [Header("Jump and Gliding")]
+    public float flapSpeed = 30f;
+    public float flapDelay = 0.2f;
+    protected float flapTimer;
+    protected bool isGrounded;
+    public float maxFlyHeight = 10f;
+
+    public float sprintSpeed = 12f;
+    public float glideMoveSpeed = 10f;
+    public float glideFallSpeed = -5f;
+
+    [Header("Stamina")]
+    public float maxStamina = 100f;
+    protected float stamina;
+    public float staminaRecovery = 20f;
+    public float staminaUsedPerJump = 20f;
+    public float staminaUsedPerGlideSecond = 5f;
+
+    public Slider staminaSlider;
 
     public override void Start()
     {
         base.Start();
-        rotation = targetRotation;
+        targetRotation = rotation = transform.eulerAngles.y;
+        stamina = maxStamina;
+        flapTimer = 0f;
+
+        if(glideFallSpeed > 0f)
+        {
+            Debug.Log("Make sure your fall speed is negative by convention");
+            glideFallSpeed = -1 * Mathf.Abs(glideFallSpeed);
+        }
+
+        if(staminaSlider == null)
+        {
+            Debug.Log("Error: Player has no stamina slider");
+        }
     }
 
     public override void Update()
     {
         base.Update();
+
+        if(flapTimer > 0f)
+        {
+            flapTimer -= Time.deltaTime;
+        }
         CheckInput();
+        EnforceMaxHeight();
+        if(isGrounded && stamina < maxStamina)
+        {
+            stamina += staminaRecovery * Time.deltaTime;
+        }
+
+        if(staminaSlider != null)
+        {
+            staminaSlider.value = stamina;
+        }
     }
 
     protected void CheckInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump") && flapTimer <= 0f)
         {
             Flap();
+        }
+
+        if(Input.GetButton("Jump") && stamina > 0f)
+        {
+            Glide();
         }
 
         // Trap cursor when you click the screen
@@ -45,13 +101,28 @@ public class PlayerControllerBeta : CharacterControllerBeta
         PlayerMovement();
     }
 
+    
+
+    protected void EnforceMaxHeight()
+    {
+        if (this.transform.position.y > maxFlyHeight)
+        {
+            transform.position = new Vector3(transform.position.x, maxFlyHeight, transform.position.z);
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        }
+    }
+
     protected void PlayerTurning()
     {
-        float mouseVelX = Input.GetAxis("Mouse X");
-        targetRotation += mouseVelX * rotationSpeed * Time.deltaTime * 60f;
+        // Don't move camera unless the window has focus
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            float mouseVelX = Input.GetAxis("Mouse X");
+            targetRotation += mouseVelX * rotationSpeed * Time.deltaTime * 60f;
 
-        rotation = Mathf.Lerp(rotation, targetRotation, rotationLerp);
-        transform.localEulerAngles = new Vector3(0f, rotation, 0f);
+            rotation = Mathf.Lerp(rotation, targetRotation, rotationLerp);
+            transform.eulerAngles = new Vector3(0f, rotation, 0f);
+        }
     }
 
     protected void PlayerMovement()
@@ -70,6 +141,37 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     void Flap()
     {
-        Debug.Log("Flapping");
+        if(stamina >= staminaUsedPerJump)
+        {
+            Debug.Log("Flapping");
+            isGrounded = false;
+            rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.y);
+            stamina -= staminaUsedPerJump;
+            flapTimer = flapDelay;
+        }
+        else
+        {
+            Debug.Log("Too tired");
+        }
+    }
+
+    protected void Glide()
+    {
+        if (rb.velocity.y < glideFallSpeed)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, glideFallSpeed, rb.velocity.z);
+        }
+
+        // Don't use up glide power while you still have upward momentum
+        if (rb.velocity.y < 0f)
+        {
+            stamina -= staminaUsedPerGlideSecond * Time.deltaTime;
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isGrounded = true;
     }
 }

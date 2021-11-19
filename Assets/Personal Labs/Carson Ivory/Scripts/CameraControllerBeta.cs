@@ -46,10 +46,14 @@ public class CameraControllerBeta : MonoBehaviour
 
     public void CheckInput()
     {
-        float mouseVelX = Input.GetAxis("Mouse X");
-        float mouseVelY = Input.GetAxis("Mouse Y");
+        // Don't move camera unless window has focus
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            float mouseVelX = Input.GetAxis("Mouse X");
+            float mouseVelY = Input.GetAxis("Mouse Y");
 
-        targetAngle -= mouseVelY * cameraSpeed * Time.deltaTime * 60f;        // Moving mouse up should move camera offset angle down so it points further up
-        targetAngle = Mathf.Clamp(targetAngle, minCamAngle, maxCamAngle);
+            targetAngle -= mouseVelY * cameraSpeed * Time.deltaTime * 60f;        // Moving mouse up should move camera offset angle down so it points further up
+            targetAngle = Mathf.Clamp(targetAngle, minCamAngle, maxCamAngle);
+        }
     }
 }
