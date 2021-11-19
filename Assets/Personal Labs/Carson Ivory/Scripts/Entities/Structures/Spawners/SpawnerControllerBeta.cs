@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShedControllerBeta : StructureControllerBeta
+public class SpawnerControllerBeta : StructureControllerBeta
 {
     // Start is called before the first frame update
     void Start()
