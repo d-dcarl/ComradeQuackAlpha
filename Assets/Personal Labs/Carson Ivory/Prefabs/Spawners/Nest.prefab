@@ -574,6 +574,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  spawnPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
+  spawnCap: 3
+  spawnDelay: 1
+  spawnRadius: 5
+  spawnHeight: 1
 --- !u!1 &2853327197468753792
 GameObject:
   m_ObjectHideFlags: 0

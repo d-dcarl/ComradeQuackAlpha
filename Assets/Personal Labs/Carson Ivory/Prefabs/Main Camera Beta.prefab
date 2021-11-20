@@ -51,7 +51,7 @@ MonoBehaviour:
   minCamAngle: 0
   maxCamAngle: 70
   cameraSpeed: 5
-  cameraLerpSpeed: 0.02
+  cameraLerpSpeed: 0.03
 --- !u!20 &892480568564768651
 Camera:
   m_ObjectHideFlags: 0
