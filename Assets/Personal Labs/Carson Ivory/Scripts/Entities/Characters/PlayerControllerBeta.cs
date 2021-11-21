@@ -5,14 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerControllerBeta : CharacterControllerBeta
 {
-    [Header("Walking and turning")]
-    public float rotationSpeed;
-    public float rotationLerp;
-    protected float targetRotation;
-    protected float rotation;
-    
-
-    [Header("Jump and Gliding")]
+    [Header("Movement")]
     public float flapSpeed = 30f;
     public float flapDelay = 0.2f;
     protected float flapTimer;
@@ -22,6 +15,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public float sprintSpeed = 12f;
     public float glideMoveSpeed = 10f;
     public float glideFallSpeed = -5f;
+    public float rotationSpeed;
 
     [Header("Stamina")]
     public float maxStamina = 100f;
@@ -35,7 +29,6 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public override void Start()
     {
         base.Start();
-        targetRotation = rotation = transform.eulerAngles.y;
         stamina = maxStamina;
         flapTimer = 0f;
 
@@ -118,10 +111,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if(Cursor.lockState == CursorLockMode.Locked)
         {
             float mouseVelX = Input.GetAxis("Mouse X");
-            targetRotation += mouseVelX * rotationSpeed * Time.deltaTime * 60f;
-
-            rotation = Mathf.Lerp(rotation, targetRotation, rotationLerp);
-            transform.eulerAngles = new Vector3(0f, rotation, 0f);
+            if(Mathf.Abs(mouseVelX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
+            {
+                float rotationDelta = mouseVelX * rotationSpeed * Time.deltaTime * 60f;
+                transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + rotationDelta, 0f);
+            }
         }
     }
 
