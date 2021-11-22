@@ -15,7 +15,7 @@ public class EntityControllerBeta : MonoBehaviour
 
     public virtual void Update()
     {
-        if(currentHealth <= 0)
+        if (currentHealth <= 0 || transform.position.y < 0f)
         {
             Die();
         }

@@ -49,7 +49,6 @@ public class SpawnerControllerBeta : StructureControllerBeta
 
     public void Spawn()
     {
-        Debug.Log(gameObject.name + " is trying to spawn " + spawnPrefab.name);
         Vector3 offset = Random.onUnitSphere;                       // Random direction
         offset = new Vector3(offset.x, 0f, offset.z).normalized;    // Flatten and make the offset 1 unit long
         Vector3 spawnPosition = transform.position + (offset * spawnRadius) + (Vector3.up * spawnHeight);       // Make sure they don't spawn in the ground

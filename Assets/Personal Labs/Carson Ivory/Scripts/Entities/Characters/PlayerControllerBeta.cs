@@ -168,4 +168,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         isGrounded = true;
     }
+
+    public override void Die()
+    {
+        Debug.Log("Player is dead");
+    }
 }

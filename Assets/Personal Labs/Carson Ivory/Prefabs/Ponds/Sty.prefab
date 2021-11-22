@@ -41,9 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6435119666393522785}
   - component: {fileID: 6435119666393522784}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sty
-  m_TagString: Untagged
+  m_TagString: Enemy Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3b9a5f5237ac943b5ed1a1b146e4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
+  spawner: {fileID: 3561141972690400716}
 --- !u!1 &6435119666480781930
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4988557488102777429, guid: 89adcc3122ef4cd46b750d71889ba496, type: 3}
+      propertyPath: spawnCap
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4988557488102777431, guid: 89adcc3122ef4cd46b750d71889ba496, type: 3}
       propertyPath: m_Name
       value: Sty Shack
@@ -221,3 +225,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4988557488102777428, guid: 89adcc3122ef4cd46b750d71889ba496, type: 3}
   m_PrefabInstance: {fileID: 8381583029068027801}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3561141972690400716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4988557488102777429, guid: 89adcc3122ef4cd46b750d71889ba496, type: 3}
+  m_PrefabInstance: {fileID: 8381583029068027801}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febc9810dd4dbeb40ab41a1f5cc31aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

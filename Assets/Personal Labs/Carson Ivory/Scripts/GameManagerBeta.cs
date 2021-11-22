@@ -6,6 +6,9 @@ public class GameManagerBeta : MonoBehaviour
 {
     public float gravity = -40f;
 
+    public GameObject duckPondPrefab;
+    public GameObject styPrefab;
+
     [HideInInspector]
     public static GameManagerBeta Instance;
 

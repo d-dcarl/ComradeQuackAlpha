@@ -820,9 +820,9 @@ GameObject:
   - component: {fileID: 7463468025995264701}
   - component: {fileID: 1785871075534285754}
   - component: {fileID: 7463468025995264699}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Main Turret
-  m_TagString: Untagged
+  m_TagString: Player Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,6 +1037,10 @@ PrefabInstance:
     - target: {fileID: 2853327197391258097, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
       propertyPath: spawnCap
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853327197391258097, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
+      propertyPath: maxHealth
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2853327197391258097, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
       propertyPath: spawnDelay
