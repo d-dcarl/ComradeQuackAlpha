@@ -26,6 +26,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public Slider staminaSlider;
 
+    protected bool alive;
+    GameObject mesh;
+    Quaternion deadRotation;
+
     public override void Start()
     {
         base.Start();
@@ -42,24 +46,27 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             Debug.Log("Error: Player has no stamina slider");
         }
+
+        alive = true;
+        mesh = transform.Find("Mesh").gameObject;
     }
 
     public override void Update()
     {
         base.Update();
 
-        if(flapTimer > 0f)
+        if (flapTimer > 0f)
         {
             flapTimer -= Time.deltaTime;
         }
         CheckInput();
         EnforceMaxHeight();
-        if(isGrounded && stamina < maxStamina)
+        if (isGrounded && stamina < maxStamina)
         {
             stamina += staminaRecovery * Time.deltaTime;
         }
 
-        if(staminaSlider != null)
+        if (staminaSlider != null)
         {
             staminaSlider.value = stamina;
         }
@@ -67,12 +74,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     protected void CheckInput()
     {
-        if (Input.GetButtonDown("Jump") && flapTimer <= 0f)
+        if (Input.GetButtonDown("Jump") && flapTimer <= 0f && alive)
         {
             Flap();
         }
 
-        if(Input.GetButton("Jump") && stamina > 0f)
+        if(Input.GetButton("Jump") && stamina > 0f && alive)
         {
             Glide();
         }
@@ -91,7 +98,15 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
 
         PlayerTurning();
-        PlayerMovement();
+        if(alive)
+        {
+            PlayerMovement();
+        }
+        else
+        {
+            // Make sure dead player doesn't look like it's rotating
+            mesh.transform.rotation = deadRotation;
+        }
     }
 
     
@@ -172,5 +187,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public override void Die()
     {
         Debug.Log("Player is dead");
+        alive = false;
+        Vector3 meshRotation = mesh.transform.localEulerAngles;
+        // Turn sideways
+        mesh.transform.localEulerAngles = new Vector3(meshRotation.x, meshRotation.y, 90f);
+        deadRotation = mesh.transform.rotation;
     }
 }
