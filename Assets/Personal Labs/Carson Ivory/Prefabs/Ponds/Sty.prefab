@@ -41,9 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6435119666393522785}
   - component: {fileID: 6435119666393522784}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Sty
-  m_TagString: Enemy Structure
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

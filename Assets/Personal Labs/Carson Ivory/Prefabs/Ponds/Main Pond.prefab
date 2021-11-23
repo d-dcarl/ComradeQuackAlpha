@@ -566,7 +566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7463468025095378006}
   - component: {fileID: 7463468025095378007}
-  - component: {fileID: 7463468025095378004}
+  - component: {fileID: 5342785110289011397}
   m_Layer: 0
   m_Name: Range Finder
   m_TagString: Untagged
@@ -601,7 +601,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7463468025095378004
+--- !u!114 &5342785110289011397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -610,10 +610,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7463468025095378001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ace5be382bb70439cec54139212ebc, type: 3}
+  m_Script: {fileID: 11500000, guid: e3569e6d48c388e4e84ccfab70c3c3eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tracked: []
+  range: 20
 --- !u!1 &7463468025186154394
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +870,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  head: {fileID: 7463468024505602987}
+  gun: {fileID: 7463468025186154394}
+  targetRange: {fileID: 5342785110289011397}
+  canShoot:
+  - Enemy
+  - Enemy Structure
+  rotationSpeed: 100
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  Projectile: {fileID: 6445303830105601911, guid: 260ff3b95a77b0f4dbea579d172b01f3, type: 3}
+  fireRate: 0.5
 --- !u!1 &7463468026038030768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,10 +1044,6 @@ PrefabInstance:
     - target: {fileID: 2853327197391258096, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2853327197391258097, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
-      propertyPath: spawnCap
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2853327197391258097, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
       propertyPath: maxHealth

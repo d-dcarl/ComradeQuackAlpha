@@ -36,6 +36,13 @@ public class CharacterControllerBeta : EntityControllerBeta
         EnforceMaxSpeed();
     }
 
+    public virtual void KnockBack(Vector3 source, float amount)
+    {
+        Vector3 force = (transform.position - source).normalized * amount;
+        rb.AddForce(force, ForceMode.Impulse);
+
+    }
+
     void EnforceMaxSpeed()
     {
         Vector3 flatSpeed = new Vector3(rb.velocity.x, 0f, rb.velocity.z);  // Your speed in only horizontal directions
