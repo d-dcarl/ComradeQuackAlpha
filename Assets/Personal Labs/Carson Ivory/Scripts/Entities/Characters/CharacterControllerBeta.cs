@@ -19,11 +19,6 @@ public class CharacterControllerBeta : EntityControllerBeta
         }
     }
 
-    public override void Update()
-    {
-        base.Update();
-    }
-
     public virtual void WalkInDirection(Vector3 direction)
     {
         Vector3 flatDirection = new Vector3(direction.x, 0f, direction.z);      // Make sure you're not pointing up or down
@@ -34,6 +29,17 @@ public class CharacterControllerBeta : EntityControllerBeta
         flatDirection = flatDirection.normalized;       // Just the direction, so scale the vector to length 1
         rb.AddForce(flatDirection * acceleration * Time.deltaTime * 60f);           // Account for framerate
         EnforceMaxSpeed();
+    }
+
+    public virtual void WalkTowards(GameObject target)
+    {
+        WalkInDirection(target.transform.position - transform.position);
+    }
+
+    // Whatever direction you're walking, but not up or down.
+    public virtual void PointInDirectionXZ(Vector3 direction)
+    {
+        transform.forward = new Vector3(direction.x, 0f, direction.z).normalized;
     }
 
     public virtual void KnockBack(Vector3 source, float amount)

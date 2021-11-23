@@ -876,6 +876,7 @@ MonoBehaviour:
   canShoot:
   - Enemy
   - Enemy Structure
+  predictiveAiming: 1
   rotationSpeed: 100
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 6445303830105601911, guid: 260ff3b95a77b0f4dbea579d172b01f3, type: 3}

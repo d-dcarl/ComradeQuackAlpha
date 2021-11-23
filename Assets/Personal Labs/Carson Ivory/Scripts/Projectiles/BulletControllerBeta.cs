@@ -27,19 +27,34 @@ public class BulletControllerBeta : ProjectileControllerBeta
 
     public void OnTriggerEnter(Collider other)
     {
-        if(canHit.Contains(other.tag))
+        Hit(other.gameObject);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Hit(collision.gameObject);
+    }
+
+    public void Hit(GameObject other)
+    {
+        if (canHit.Contains(other.tag))
         {
             EntityControllerBeta ecb = other.gameObject.GetComponent<EntityControllerBeta>();
-            if(ecb != null)
+            if (ecb != null)
             {
                 ecb.TakeDamage(damage);
             }
             CharacterControllerBeta ccb = other.gameObject.GetComponent<CharacterControllerBeta>();
-            if(ccb != null)
+            if (ccb != null)
             {
                 ccb.KnockBack(transform.position, knockback);
             }
+            Debug.Log("Bullet just hit " + ecb.name);
             Destroy(gameObject);
-        }   
+        }
+        else
+        {
+            Debug.Log("Cannot hit object: " + other.name + " of type: " + other.tag);
+        }
     }
 }

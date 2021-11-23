@@ -10,6 +10,8 @@ public class TurretControllerBeta : StructureControllerBeta
     public RangeHitboxControllerBeta targetRange;
     public List<string> canShoot;
 
+    public bool predictiveAiming;
+
     public float rotationSpeed;
     [HideInInspector]
     public Quaternion initialRotation;
@@ -58,10 +60,19 @@ public class TurretControllerBeta : StructureControllerBeta
 
     protected void RotateGun(GameObject target)
     {
-        Vector3 projectedPos = ShotTracking(target);
+        Vector3 projectedPos;
+        if (predictiveAiming)
+        {
+            projectedPos = ShotTracking(target);     // Predict where it will be
+        }
+        else
+        {
+            projectedPos = target.transform.position;   // Shoot directly at target for now
+        }
+
         targetRotation = Quaternion.LookRotation(projectedPos - transform.position);
 
-        head.transform.rotation = Quaternion.Lerp(head.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        head.transform.rotation = Quaternion.Lerp(head.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime * 60f);
         head.transform.localEulerAngles = new Vector3(0f, head.transform.localEulerAngles.y, 0f);
         if (target != null)
             gun.transform.LookAt(target.transform);
@@ -75,16 +86,16 @@ public class TurretControllerBeta : StructureControllerBeta
         float timeExpected;
 
         // Iterate so your guesses get closer
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
+
             // Update how long it would take to get to your current guess
             timeExpected = Vector3.Distance(projectedPos, gun.transform.position) / bulletSpeed;
-            Debug.Log("Time Expected: " + timeExpected + " seconds");
 
             // See how far they would have moved by then
             projectedPos = target.transform.position + target.GetComponent<Rigidbody>().velocity * timeExpected;
-            Debug.Log("Delta pos: " + Vector3.Distance(projectedPos, target.transform.position));
         }
+        
 
         return projectedPos;
     }

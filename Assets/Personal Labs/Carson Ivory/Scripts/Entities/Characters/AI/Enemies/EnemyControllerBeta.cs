@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControllerBeta : CharacterControllerBeta
+public class EnemyControllerBeta : AIControllerBeta
 {
-    public List<string> canAttack;
+    
     public HitboxControllerBeta attackHitBox;
     public int attackDamage;
     public float attackDelay;
     protected float attackTimer;
 
-    public RangeHitboxControllerBeta followHitbox;
 
     public override void Start()
     {
@@ -48,39 +47,15 @@ public class EnemyControllerBeta : CharacterControllerBeta
         }
     }
 
-    public void FollowTarget()
+    public override bool TouchingTarget(GameObject target)
     {
-        GameObject closest = ClosestInRange();
-        if (closest != null)
-        {
-            if(!attackHitBox.tracked.Contains(closest))
-            {
-                WalkInDirection(closest.transform.position - transform.position);
-            }
-        }
-    }
-
-    public GameObject ClosestInRange()
-    {
-        GameObject closest = null;
-        foreach (GameObject g in followHitbox.tracked)
-        {
-            if (g != null && canAttack.Contains(g.tag))
-            {
-                float dist = Vector3.Distance(transform.position, g.transform.position);
-                if (closest == null || dist < Vector3.Distance(closest.transform.position, transform.position))
-                {
-                    closest = g;
-                }
-            }
-        }
-        return closest;
+        return base.TouchingTarget(target) || attackHitBox.tracked.Contains(target);
     }
 
     public override void WalkInDirection(Vector3 direction)
     {
         base.WalkInDirection(direction);
-        transform.forward = new Vector3(direction.x, 0f, direction.z).normalized;   // Whatever direction you're walking, but not up or down.
+        PointInDirectionXZ(direction);
     }
 
     public virtual void Attack()

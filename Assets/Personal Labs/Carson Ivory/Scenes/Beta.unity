@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Pond
       objectReference: {fileID: 0}
+    - target: {fileID: 7463468025995264699, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
+      propertyPath: canShoot.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
 --- !u!1 &1408590593
