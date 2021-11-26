@@ -18,11 +18,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public float rotationSpeed;
 
     [Header("Stamina")]
-    public float maxStamina = 100f;
+    public float maxStamina = 200f;
     protected float stamina;
     public float staminaRecovery = 20f;
     public float staminaUsedPerJump = 20f;
     public float staminaUsedPerGlideSecond = 5f;
+
+    public float foodStaminaRegen;      // Just an idea
 
     public Slider staminaSlider;
 
@@ -30,25 +32,19 @@ public class PlayerControllerBeta : CharacterControllerBeta
     GameObject mesh;
     Quaternion deadRotation;
 
+    public float numResourceTypes;
+    protected List<int> inventory;
+
     public override void Start()
     {
         base.Start();
-        stamina = maxStamina;
-        flapTimer = 0f;
-
-        if(glideFallSpeed > 0f)
-        {
-            Debug.Log("Make sure your fall speed is negative by convention");
-            glideFallSpeed = -1 * Mathf.Abs(glideFallSpeed);
-        }
-
-        if(staminaSlider == null)
-        {
-            Debug.Log("Error: Player has no stamina slider");
-        }
 
         alive = true;
         mesh = transform.Find("Mesh").gameObject;
+
+        InitializeStamina();
+        InitializeFlying();
+        ResetInventory();
     }
 
     public override void Update()
@@ -68,7 +64,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
         if (staminaSlider != null)
         {
-            staminaSlider.value = stamina;
+            staminaSlider.value = 100f * (stamina / maxStamina);
         }
     }
 
@@ -79,26 +75,26 @@ public class PlayerControllerBeta : CharacterControllerBeta
             Flap();
         }
 
-        if(Input.GetButton("Jump") && stamina > 0f && alive)
+        if (Input.GetButton("Jump") && stamina > 0f && alive)
         {
             Glide();
         }
 
         // Trap cursor when you click the screen
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
 
         // Free cursor and end game on escape
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
             Application.Quit();
         }
 
         PlayerTurning();
-        if(alive)
+        if (alive)
         {
             PlayerMovement();
         }
@@ -109,7 +105,57 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
     }
 
-    
+
+    void InitializeStamina()
+    {
+        if (staminaSlider == null)
+        {
+            Debug.Log("Error: Player has no stamina slider");
+        }
+        stamina = maxStamina;
+    }
+
+    void InitializeFlying()
+    {
+        if (glideFallSpeed > 0f)
+        {
+            Debug.Log("Make sure your fall speed is negative by convention");
+            glideFallSpeed = -1 * Mathf.Abs(glideFallSpeed);
+        }
+
+        flapTimer = 0f;
+    }
+
+    void ResetInventory()
+    {
+        // For now, only one type. 0 = fly collectibles. Eventually maybe an enum would help
+        inventory = new List<int>();
+        for (int i = 0; i < numResourceTypes; i++)
+        {
+            inventory.Add(0);
+        }
+    }
+
+    public void CollectResource(int resourceType, int amount)
+    {
+        if (resourceType >= 0 && resourceType < inventory.Count)
+        {
+            inventory[resourceType] += amount;
+            Debug.Log("Collected " + amount + " of resource type " + resourceType + ", putting us at " + inventory[resourceType]);
+        } else
+        {
+            Debug.LogError("Error: Must be a valid resource type");
+        }
+
+        // Make food refill stamina maybe?
+        if(resourceType == 0)
+        {
+            stamina += (float)amount * foodStaminaRegen;
+            Debug.Log("Yummy!");
+        }
+
+    }
+
 
     protected void EnforceMaxHeight()
     {
@@ -152,15 +198,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         if(stamina >= staminaUsedPerJump)
         {
-            Debug.Log("Flapping");
             isGrounded = false;
             rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.y);
             stamina -= staminaUsedPerJump;
             flapTimer = flapDelay;
-        }
-        else
-        {
-            Debug.Log("Too tired");
         }
     }
 

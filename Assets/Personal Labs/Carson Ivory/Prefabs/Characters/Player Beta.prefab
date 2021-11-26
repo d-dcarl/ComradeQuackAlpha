@@ -49,18 +49,20 @@ MonoBehaviour:
   maxHealth: 10
   acceleration: 100
   maxSpeed: 10
-  flapSpeed: 30
+  flapSpeed: 15
   flapDelay: 0.2
   maxFlyHeight: 50
   sprintSpeed: 12
   glideMoveSpeed: 10
   glideFallSpeed: -5
   rotationSpeed: 10
-  maxStamina: 100
-  staminaRecovery: 20
+  maxStamina: 200
+  staminaRecovery: 40
   staminaUsedPerJump: 20
   staminaUsedPerGlideSecond: 5
+  foodStaminaRegen: 30
   staminaSlider: {fileID: 0}
+  numResourceTypes: 1
 --- !u!136 &8393010493706824882
 CapsuleCollider:
   m_ObjectHideFlags: 0
