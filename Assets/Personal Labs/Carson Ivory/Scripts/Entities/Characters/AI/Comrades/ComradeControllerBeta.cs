@@ -45,7 +45,6 @@ public class ComradeControllerBeta : AIControllerBeta
             shotTimer = shotDelay;
             ProjectileControllerBeta pcb = Instantiate(projectilePrefab).GetComponent<ProjectileControllerBeta>();
             pcb.transform.position = transform.position;
-            pcb.transform.forward = transform.forward;
             return pcb;
         }
         return null;

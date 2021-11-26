@@ -114,7 +114,7 @@ MonoBehaviour:
   - Enemy
   - Enemy Structure
   projectilePrefab: {fileID: 6445303830105601911, guid: 36b174b6617dd354f911b68d6afd7382, type: 3}
-  shotDelay: 1
+  shotDelay: 2
 --- !u!136 &3862869299531508474
 CapsuleCollider:
   m_ObjectHideFlags: 0

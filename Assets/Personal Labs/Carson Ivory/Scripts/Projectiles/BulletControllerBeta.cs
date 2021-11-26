@@ -27,11 +27,19 @@ public class BulletControllerBeta : ProjectileControllerBeta
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Enemy Structure"))
+        {
+            Debug.Log("Triggered enemy structure");
+        }
         Hit(other.gameObject);
     }
 
     public void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Enemy Structure"))
+        {
+            Debug.Log("Collided with enemy structure");
+        }
         Hit(collision.gameObject);
     }
 
@@ -39,6 +47,8 @@ public class BulletControllerBeta : ProjectileControllerBeta
     {
         if (canHit.Contains(other.tag))
         {
+            Debug.Log("Hitting: " + other.tag);
+
             EntityControllerBeta ecb = other.gameObject.GetComponent<EntityControllerBeta>();
             if (ecb != null)
             {
@@ -49,12 +59,11 @@ public class BulletControllerBeta : ProjectileControllerBeta
             {
                 ccb.KnockBack(transform.position, knockback);
             }
-            Debug.Log("Bullet just hit " + ecb.name);
             Destroy(gameObject);
         }
-        else
+        else if(other.CompareTag("Enemy Structure"))
         {
-            Debug.Log("Cannot hit object: " + other.name + " of type: " + other.tag);
+            Debug.Log("Trying to hit enemy structure and failing for some reason");
         }
     }
 }

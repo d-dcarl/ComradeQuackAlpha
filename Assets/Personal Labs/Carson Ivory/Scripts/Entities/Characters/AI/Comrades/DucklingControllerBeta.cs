@@ -8,7 +8,10 @@ public class DucklingControllerBeta : ComradeControllerBeta
     {
         BulletControllerBeta bcb = base.Shoot() as BulletControllerBeta;
         if(bcb != null)
+        {
             bcb.direction = transform.forward;
+        }
+
         return bcb;
     }
 }
