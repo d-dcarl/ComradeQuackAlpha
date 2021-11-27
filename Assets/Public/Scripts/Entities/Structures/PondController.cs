@@ -51,27 +51,29 @@ public class PondController : EntityController
         {
             SetGM();
         }
-        if(isSty)
-        {
+
+        //Old pig spawn
+        //if(isSty)
+        //{
             
-            if (spawnTimer <= 0)
-            {
-                spawnTimer = spawnDelay;
-                Vector3 randomOffset = Random.onUnitSphere;
-                randomOffset.y = 0;
-                randomOffset = randomOffset.normalized;
-                if(gm != null)
-                {
-                    PigController pig = Instantiate(gm.pigPrefab, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity).GetComponent<PigController>();
-                    pig.homeSty = this;
-                    if(pointTo != null)
-                    {
-                        pig.target = pointTo;
-                        pig.targetPond = pointTo;
-                    }
-                }
-            }
-        }
+        //    if (spawnTimer <= 0)
+        //    {
+        //        spawnTimer = spawnDelay;
+        //        Vector3 randomOffset = Random.onUnitSphere;
+        //        randomOffset.y = 0;
+        //        randomOffset = randomOffset.normalized;
+        //        if(gm != null)
+        //        {
+        //            PigController pig = Instantiate(gm.pigPrefab, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity).GetComponent<PigController>();
+        //            pig.homeSty = this;
+        //            if(pointTo != null)
+        //            {
+        //                pig.target = pointTo;
+        //                pig.targetPond = pointTo;
+        //            }
+        //        }
+        //    }
+        //}
 
         //TODO remove this spawn comrade code, in ManageComradBehaviour add recruit
 
@@ -149,7 +151,25 @@ public class PondController : EntityController
         }
     }
 
-    
+    /// <summary>
+    /// Public spawn pig/enemy method that the wave maanger will call to spawn waves
+    /// </summary>
+    /// <param name="prefab">The enemy prefab to spawn in</param>
+    /// <param name="parentObj">The parent object to spawn in, used to count how many active enemies</param>
+    public void SpawnPig(GameObject prefab, GameObject parentObj)
+    {
+        Vector3 randomOffset = Random.onUnitSphere;
+        randomOffset.y = 0;
+        randomOffset = randomOffset.normalized;
+
+        PigController pig = Instantiate(prefab, transform.position + randomOffset * offsetAmount + Vector3.up, Quaternion.identity, parentObj.transform).GetComponent<PigController>();
+        pig.homeSty = this;
+        if (pointTo != null)
+        {
+            pig.target = pointTo;
+            pig.targetPond = pointTo;
+        }
+    }
 
     public static void setPolicy()
     {
