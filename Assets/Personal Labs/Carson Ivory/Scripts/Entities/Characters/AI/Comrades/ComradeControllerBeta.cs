@@ -8,6 +8,8 @@ public class ComradeControllerBeta : AIControllerBeta
     public float shotDelay;
     protected float shotTimer;
 
+    protected GameObject currentTarget;
+
     public override void Start()
     {
         base.Start();
@@ -21,11 +23,8 @@ public class ComradeControllerBeta : AIControllerBeta
     public override void Update()
     {
         base.Update();
-        GameObject currentTarget = ClosestInRange();
-        if(currentTarget == null)
-        {
-            Idle();
-        } else
+        currentTarget = ClosestInRange();
+        if (currentTarget != null)
         {
             AttackTarget(currentTarget);
         }
@@ -55,10 +54,5 @@ public class ComradeControllerBeta : AIControllerBeta
     {
         base.WalkInDirection(direction);
         PointInDirectionXZ(direction);
-    }
-
-    public virtual void Idle()
-    {
-
     }
 }
