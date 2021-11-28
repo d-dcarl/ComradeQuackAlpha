@@ -18,6 +18,9 @@ public class WaveManager : MonoBehaviour
     float waveTime = 0;
     float waitTime = 0;
     int spawnCount = 0;
+    int waveCount = 0;
+    bool canSpawnMore = true;
+    int pigCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +34,15 @@ public class WaveManager : MonoBehaviour
         if (!isWaitActive)
         {
             SpawnWave();
+            CheckAmountOfPigs();
+            CheckWaveOver();
         }
         if (isWaitActive)
         {
             waitTime += Time.deltaTime;
             if (waitTime >= timeBetweenWaves)
             {
-                waitTime = 0;
-                currentWave++;
-                isWaitActive = false;
+                ResetWave();
             }
         }
     }
@@ -54,10 +57,51 @@ public class WaveManager : MonoBehaviour
 
             if (spawnTimer >= spawnRate)
             {
-                mainPigsty.GetComponent<PondController>().SpawnPig(wavesToSpawn[currentWave].GetCurrentEnemy(waveTime), pigParent);
-                spawnTimer = 0;
-                spawnCount++;
+                if (canSpawnMore && waveTime >= wavesToSpawn[currentWave].enemyWaves[waveCount].spawnTimeSinceStart)
+                {
+                    mainPigsty.GetComponent<PondController>().SpawnPig(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, pigParent);
+                    spawnTimer = 0;
+                    spawnCount++;
+                    if (spawnCount >= wavesToSpawn[currentWave].enemyWaves[waveCount].amountToSpawn)
+                    {
+                        spawnCount = 0;
+                        waveCount++;
+                        if (waveCount >= wavesToSpawn[currentWave].enemyWaves.Length)
+                        {
+                            canSpawnMore = false;
+                        }
+                    }
+                }
             }
+        }
+    }
+
+    private void CheckWaveOver()
+    {
+        CheckAmountOfPigs();
+        if (pigCount == 0 && !canSpawnMore)
+        {
+            //Wave is over
+            isWaitActive = true;
+        }
+    }
+
+    private void CheckAmountOfPigs()
+    {
+        pigCount = pigParent.transform.childCount;
+    }
+
+    private void ResetWave()
+    {
+        waitTime = 0;
+        currentWave++;
+        isWaitActive = false;
+        canSpawnMore = true;
+        waveCount = 0;
+        waveTime = 0;
+        if (currentWave >= wavesToSpawn.Length)
+        {
+            Debug.Log("YOU WIN!");
         }
     }
 }
