@@ -26,7 +26,10 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        crosshair.SetActive(false);
+        if(crosshair != null)
+        {
+            crosshair.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -57,6 +60,7 @@ public class Gun : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
                 Shoot();
         }
+
     }
 
     void Shoot()
@@ -94,7 +98,14 @@ public class Gun : MonoBehaviour
 
     void ShowCrosshair()
     {
-        crosshair.SetActive(true);
-        crosshair.transform.position = Input.mousePosition;
+        if(crosshair != null)
+        {
+            crosshair.SetActive(true);
+            crosshair.transform.position = Input.mousePosition;
+        } else
+        {
+            Debug.Log("Crosshair has not been set in the scene.");
+        }
+        
     }
 }

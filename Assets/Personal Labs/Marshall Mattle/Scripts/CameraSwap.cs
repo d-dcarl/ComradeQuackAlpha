@@ -36,7 +36,8 @@ public class CameraSwap : MonoBehaviour
         GameManager.Instance.isOverheadView = false;
         playerCamera.enabled = true;
         overheadCamera.enabled = false;
-        mapCamera.enabled = false;
+        if (mapCamera != null)
+            mapCamera.enabled = false;
 
         // ShowPlayerView();
     }

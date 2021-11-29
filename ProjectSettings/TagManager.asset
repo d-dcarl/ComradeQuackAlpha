@@ -12,6 +12,9 @@ TagManager:
   - Pond
   - Comrade
   - Turret
+  - Fist Gun
+  - Player Structure
+  - Enemy Structure
   layers:
   - Default
   - TransparentFX
@@ -22,11 +25,11 @@ TagManager:
   - Player
   - Enemy
   - DONT TOUCH
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Comrade
+  - Enemy
+  - Player Structure
+  - Enemy Structure
+  - Projectile
   - 
   - 
   - 
