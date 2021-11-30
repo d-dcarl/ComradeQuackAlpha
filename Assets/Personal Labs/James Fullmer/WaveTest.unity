@@ -253,6 +253,7 @@ MonoBehaviour:
   wavesToSpawn:
   - {fileID: 11400000, guid: 2456cd5cc8a27fc4b8b5e35bd4e1dad1, type: 2}
   - {fileID: 11400000, guid: fa83757121c634d4fb148f5e633e806d, type: 2}
+  - {fileID: 11400000, guid: 769316c9e6c0ff14b9a801a10e462be5, type: 2}
   mainPond: {fileID: 1862524028}
   mainPigsty: {fileID: 1325109093}
   pigParent: {fileID: 2016512724}

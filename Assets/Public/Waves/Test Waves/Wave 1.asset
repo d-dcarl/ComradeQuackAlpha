@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 278dc54754211634fadb5e1e70d1562b, type: 3}
-  m_Name: Wave 2
+  m_Name: Wave 1
   m_EditorClassIdentifier: 
   enemyWaves:
-  - enemy: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
+  - enemy: {fileID: 5019965575117504303, guid: 5479d1bea7f2f3140b4b1bcaa16f25de, type: 3}
     amountToSpawn: 2
     spawnTimeSinceStart: 0
-    spawned: 1
-  - enemy: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
+  - enemy: {fileID: 5019965575117504303, guid: 5479d1bea7f2f3140b4b1bcaa16f25de, type: 3}
     amountToSpawn: 3
     spawnTimeSinceStart: 3
-    spawned: 1
-  - enemy: {fileID: 8353789377088205383, guid: d5196a6252f8b924ebde2b9d4afc1b20, type: 3}
+  - enemy: {fileID: 5019965575117504303, guid: 5479d1bea7f2f3140b4b1bcaa16f25de, type: 3}
     amountToSpawn: 5
     spawnTimeSinceStart: 5
-    spawned: 1
