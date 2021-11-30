@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class ComradeControllerBeta : AIControllerBeta
 {
     public GameObject projectilePrefab;
     public float shotDelay;
     protected float shotTimer;
+    protected AudioSource audioData;
 
     protected GameObject currentTarget;
 
@@ -18,6 +20,7 @@ public class ComradeControllerBeta : AIControllerBeta
             Debug.LogError("Error: Projectile does not have a projectile controller beta attached.");
         }
         shotTimer = shotDelay;
+        audioData = GetComponent<AudioSource>();
     }
 
     public override void Update()

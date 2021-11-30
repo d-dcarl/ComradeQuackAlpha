@@ -30,10 +30,14 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     protected bool alive;
     GameObject mesh;
+    GameObject recruitCircle;
+    private bool recruitActive = false;
     Quaternion deadRotation;
 
     public float numResourceTypes;
     protected List<int> inventory;
+
+    public AudioSource audioData;
 
     public override void Start()
     {
@@ -41,6 +45,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
         alive = true;
         mesh = transform.Find("Mesh").gameObject;
+        recruitCircle = transform.Find("CircleMesh").gameObject;
+        recruitCircle.SetActive(false);
+        audioData = GetComponent<AudioSource>();
 
         InitializeStamina();
         InitializeFlying();
@@ -57,6 +64,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
         CheckInput();
         EnforceMaxHeight();
+        if(recruitActive)
+            Recruit();
         if (isGrounded && stamina < maxStamina)
         {
             stamina += staminaRecovery * Time.deltaTime;
@@ -91,6 +100,18 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             Cursor.lockState = CursorLockMode.None;
             Application.Quit();
+        }
+
+        //input for player quackling recruitment ring
+        if(Input.GetKeyDown(KeyCode.V))
+        {
+            recruitActive = true;
+            audioData.Play();
+        }
+        if(Input.GetKeyUp(KeyCode.V))
+        {
+            recruitActive = false;
+            EndRecruit();
         }
 
         PlayerTurning();
@@ -218,6 +239,30 @@ public class PlayerControllerBeta : CharacterControllerBeta
             stamina -= staminaUsedPerGlideSecond * Time.deltaTime;
         }
 
+    }
+
+    private void Recruit()
+    {
+        float maxSize = 10.0f;
+        float dx = 0.005f;
+        if(!recruitCircle.activeInHierarchy)
+        {
+            recruitCircle.SetActive(true);
+        }
+        recruitCircle.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1.0f, this.transform.position.z);
+        if (recruitCircle.transform.localScale.x < maxSize)
+        {
+            recruitCircle.transform.localScale = new Vector3(recruitCircle.transform.localScale.x + dx, recruitCircle.transform.localScale.y, recruitCircle.transform.localScale.z + dx);
+        }
+        
+    }
+    private void EndRecruit()
+    {
+        recruitCircle.transform.localScale = new Vector3(1, 0.1f, 1);
+        if (recruitCircle.activeInHierarchy)
+        {
+            recruitCircle.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

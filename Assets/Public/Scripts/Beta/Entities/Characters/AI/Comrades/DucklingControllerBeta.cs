@@ -88,4 +88,17 @@ public class DucklingControllerBeta : ComradeControllerBeta
         homeNest.RemoveObject(gameObject);
         base.Die();
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Recruit")
+        {
+            if(leader == null)
+            {
+                this.SetLeader(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerBeta>());
+                base.audioData.Play();
+            }
+            
+        }
+    }
 }
