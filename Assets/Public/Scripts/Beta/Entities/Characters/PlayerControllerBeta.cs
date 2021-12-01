@@ -46,6 +46,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private bool recruitActive = false;
     Quaternion deadRotation;
 
+    [Header("Shooting")]
+    public List<GameObject> gunTypes;
+    public Transform gunTransform;
+    protected GunControllerBeta gunInHand;
+
     GameObject mesh;
 
     public override void Start()
@@ -64,6 +69,16 @@ public class PlayerControllerBeta : CharacterControllerBeta
         placementTimer = placementDelay;
         placing = false;
         beingPlaced = null;
+
+        
+        if(gunTypes.Count > 0)
+        {
+            SwitchWeapons(0);
+        }
+        else
+        {
+            Debug.LogError("Error: must start with at least one gun type");
+        }
     }
 
     public override void Update()
@@ -89,7 +104,33 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
 
         TurretPlacement();
+
+        // TODO: Add more gun types, and use scrolling to switch guns
+        
+        if(Input.GetMouseButton(0))
+        {
+            Shoot();
+        }
     }
+
+
+    public void SwitchWeapons(int newGun)
+    {
+        if(gunInHand != null)
+        {
+            Destroy(gunInHand.gameObject);
+        }
+        gunInHand = Instantiate(gunTypes[newGun]).GetComponent<GunControllerBeta>();
+        gunInHand.transform.parent = gunTransform;
+        gunInHand.transform.localPosition = Vector3.zero;
+        gunInHand.transform.localRotation = Quaternion.identity;
+    }
+
+    public void Shoot()
+    {
+        gunInHand.Shoot();
+    }
+
 
     void TurretPlacement()
     {

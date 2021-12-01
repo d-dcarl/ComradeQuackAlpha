@@ -254,10 +254,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Pond
       objectReference: {fileID: 0}
-    - target: {fileID: 5718133338975872947, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
-      propertyPath: spawnCap
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7463468025995264699, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: canShoot.Array.size
       value: 1
@@ -715,6 +711,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3699541272431450437, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: m_Name
+      value: Gun Transform
+      objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: staminaSlider
       value: 
