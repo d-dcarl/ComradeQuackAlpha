@@ -44,9 +44,6 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public void PlaceTurret()
     {
         placed = true;
-
-        hitBox.enabled = true;
-
         ActivateTurret();       // For now
     }
 
@@ -71,11 +68,11 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     public void SetOpaque()
     {
+        hitBox.enabled = true;
+
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
         {
             r.material.shader = Shader.Find("Standard");
-            // Color oldColor = r.material.color;
-            // r.material.color = new Color(oldColor.r, oldColor.g, oldColor.b, 0.5f);
         }
     }
 

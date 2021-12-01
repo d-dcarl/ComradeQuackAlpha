@@ -88,16 +88,28 @@ public class PlayerControllerBeta : CharacterControllerBeta
             staminaSlider.value = 100f * (stamina / maxStamina);
         }
 
-        if(Input.GetMouseButtonDown(1))
+        TurretPlacement();
+    }
+
+    void TurretPlacement()
+    {
+        if (placementTimer > 0f)
         {
-            if(!placing)
+            placementTimer -= Time.deltaTime;
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!placing && numTurrets < maxTurrets && placementTimer <= 0f)
             {
                 beingPlaced = Instantiate(placeableTurretPrefab).GetComponent<PlaceableTurretControllerBeta>();
                 placing = true;
-            } else
+                numTurrets++;
+            }
+            else if (placing)
             {
                 beingPlaced.PlaceTurret();
                 placing = false;
+                placementTimer = placementDelay;
             }
         }
     }

@@ -782,10 +782,6 @@ PrefabInstance:
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 2077353895}
-    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
-      propertyPath: placeableTurretPrefab
-      value: 
-      objectReference: {fileID: 554601727569707398, guid: 51a5a99f2403d844893bf1697a7a02ac, type: 3}
     - target: {fileID: 5089877601042258234, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: crosshair
       value: 
