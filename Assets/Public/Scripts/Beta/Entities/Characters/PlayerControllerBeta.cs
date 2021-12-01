@@ -101,24 +101,14 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (staminaSlider != null)
         {
             staminaSlider.value = 100f * (stamina / maxStamina);
-        }
-
-        TurretPlacement();
-
-        // TODO: Add more gun types, and use scrolling to switch guns
-        
-        if(Input.GetMouseButton(0))
-        {
-            Shoot();
-        }
+        }   
     }
-
 
     public void SwitchWeapons(int newGun)
     {
         if(gunInHand != null)
         {
-            Destroy(gunInHand.gameObject);
+            StashWeapon();
         }
         gunInHand = Instantiate(gunTypes[newGun]).GetComponent<GunControllerBeta>();
         gunInHand.transform.parent = gunTransform;
@@ -126,32 +116,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
         gunInHand.transform.localRotation = Quaternion.identity;
     }
 
-    public void Shoot()
+    public void StashWeapon()
     {
-        gunInHand.Shoot();
-    }
-
-
-    void TurretPlacement()
-    {
-        if (placementTimer > 0f)
+        if(gunInHand != null)
         {
-            placementTimer -= Time.deltaTime;
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            if (!placing && numTurrets < maxTurrets && placementTimer <= 0f)
-            {
-                beingPlaced = Instantiate(placeableTurretPrefab).GetComponent<PlaceableTurretControllerBeta>();
-                placing = true;
-                numTurrets++;
-            }
-            else if (placing)
-            {
-                beingPlaced.PlaceTurret();
-                placing = false;
-                placementTimer = placementDelay;
-            }
+            Destroy(gunInHand.gameObject);
+            gunInHand = null;
         }
     }
 
@@ -196,11 +166,46 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (alive)
         {
             PlayerMovement();
+            TurretPlacement();
+
+            // TODO: Add more gun types, and use scrolling to switch guns
+            if (Input.GetMouseButton(0))
+            {
+                Shoot();
+            }
         }
         else
         {
             // Make sure dead player doesn't look like it's rotating
             mesh.transform.rotation = deadRotation;
+        }
+    }
+
+    public void Shoot()
+    {
+        gunInHand.Shoot();
+    }
+
+    void TurretPlacement()
+    {
+        if (placementTimer > 0f)
+        {
+            placementTimer -= Time.deltaTime;
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (!placing && numTurrets < maxTurrets && placementTimer <= 0f)
+            {
+                beingPlaced = Instantiate(placeableTurretPrefab).GetComponent<PlaceableTurretControllerBeta>();
+                placing = true;
+                numTurrets++;
+            }
+            else if (placing)
+            {
+                beingPlaced.PlaceTurret();
+                placing = false;
+                placementTimer = placementDelay;
+            }
         }
     }
 
@@ -352,11 +357,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         alive = false;
 
-        TurnSideways();     // Placeholder
+        TurnSideways();     
     }
 
+    // Placeholder
     void TurnSideways()
     {
+        StashWeapon();
         Vector3 meshRotation = mesh.transform.localEulerAngles;
         mesh.transform.localEulerAngles = new Vector3(meshRotation.x, meshRotation.y, 90f);
         deadRotation = mesh.transform.rotation;
