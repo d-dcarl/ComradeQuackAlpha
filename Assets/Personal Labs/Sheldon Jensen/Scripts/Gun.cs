@@ -35,6 +35,14 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // show crosshair at all times
+        ShowCrosshair();
+
+        // fire without zooming in
+        if (Input.GetButtonDown("Fire1"))
+            Shoot();
+
+        /*
         if (!GameManager.Instance.isOverheadView)
         {
             /* check for shooting input
@@ -43,23 +51,20 @@ public class Gun : MonoBehaviour
                 Shoot();
             } */
 
-            /* show crosshair
-            if (Input.GetButton("Fire2"))
-            {
-                ShowCrosshair();
-            }
-            else
-            {
-                crosshair.SetActive(false);
-            } */
-
-            // show crosshair at all times
+        /* show crosshair
+        if (Input.GetButton("Fire2"))
+        {
             ShowCrosshair();
-
-            // fire without zooming in
-            if (Input.GetButtonDown("Fire1"))
-                Shoot();
         }
+        else
+        {
+            crosshair.SetActive(false);
+        } 
+
+
+
+    }
+    */
 
     }
 
