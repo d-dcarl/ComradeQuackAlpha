@@ -54,7 +54,6 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   canHit:
   - Enemy
-  - Enemy Structure
 --- !u!135 &2299299955941818428
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -23,20 +23,29 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public float staminaRecovery = 20f;
     public float staminaUsedPerJump = 20f;
     public float staminaUsedPerGlideSecond = 5f;
-
     public float foodStaminaRegen;      // Just an idea
-
     public Slider staminaSlider;
 
+    [Header("Turret Placement")]
+    public GameObject placeableTurretPrefab;
+    public int maxTurrets;
+    protected int numTurrets;
+    public float placementDelay;
+    protected bool placing;
+    protected PlaceableTurretControllerBeta beingPlaced;
+    protected float placementTimer;
+    public float placementDistance;
+
+    [Header("Miscellanious")]
+    public float numResourceTypes;
+    protected List<int> inventory;
+    public AudioSource audioData;
+
+    // Private
     GameObject mesh;
     GameObject recruitCircle;
     private bool recruitActive = false;
     Quaternion deadRotation;
-
-    public float numResourceTypes;
-    protected List<int> inventory;
-
-    public AudioSource audioData;
 
     public override void Start()
     {
@@ -50,6 +59,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
         InitializeStamina();
         InitializeFlying();
         ResetInventory();
+
+        numTurrets = 0;
+        placementTimer = placementDelay;
+        placing = false;
+        beingPlaced = null;
     }
 
     public override void Update()
@@ -72,6 +86,19 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (staminaSlider != null)
         {
             staminaSlider.value = 100f * (stamina / maxStamina);
+        }
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            if(!placing)
+            {
+                beingPlaced = Instantiate(placeableTurretPrefab).GetComponent<PlaceableTurretControllerBeta>();
+                placing = true;
+            } else
+            {
+                beingPlaced.PlaceTurret();
+                placing = false;
+            }
         }
     }
 

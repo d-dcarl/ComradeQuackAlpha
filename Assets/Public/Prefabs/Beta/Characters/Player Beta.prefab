@@ -14982,6 +14982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  alive: 0
   acceleration: 100
   maxSpeed: 10
   flapSpeed: 15
@@ -14997,6 +14998,10 @@ MonoBehaviour:
   staminaUsedPerGlideSecond: 5
   foodStaminaRegen: 30
   staminaSlider: {fileID: 0}
+  placeableTurretPrefab: {fileID: 0}
+  maxTurrets: 3
+  placementDelay: 1
+  placementDistance: 3
   numResourceTypes: 1
   audioData: {fileID: 0}
 --- !u!136 &8393010493706824882

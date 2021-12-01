@@ -10,7 +10,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     {
         base.Start();
         placed = false;
-        alive = true;
+        alive = false;
         SetTransparent();
     }
 
@@ -19,14 +19,20 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         if(!placed)
         {
             GoToPlacementPos();
-            if(Input.GetMouseButtonDown(1) && ValidPlacementLocation())
-            {
-                PlaceTurret();
-            }
         }
         else if(alive)
         {
             base.Update();
+        }
+    }
+
+    void GoToPlacementPos()
+    {
+        if(GameManagerBeta.Instance != null)
+        {
+            PlayerControllerBeta player = GameManagerBeta.Instance.player;
+            Vector3 playerPos = player.transform.position;
+            transform.position = new Vector3(playerPos.x, 0f, playerPos.z) + player.transform.forward * player.placementDistance;
         }
     }
 
@@ -35,27 +41,20 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         return true;
     }
 
-    void GoToPlacementPos()
-    {
-        if(GameManagerBeta.Instance != null)
-        {
-            Vector3 playerPos = GameManagerBeta.Instance.player.transform.position;
-            transform.position = new Vector3(playerPos.x, 0f, playerPos.z);
-        }
-    }
-
     public void PlaceTurret()
     {
         placed = true;
 
         hitBox.enabled = true;
-        SetOpaque();
+
+        ActivateTurret();       // For now
     }
 
     public void ActivateTurret()
     {
         alive = true;
         currentHealth = maxHealth;
+        SetOpaque();
     }
 
     public void SetTransparent()
