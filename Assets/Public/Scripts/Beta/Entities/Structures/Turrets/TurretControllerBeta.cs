@@ -31,7 +31,6 @@ public class TurretControllerBeta : StructureControllerBeta
         if (bc != null)
         {
             bulletSpeed = bc.speed;
-            Debug.Log("Bullet Speed:" + bulletSpeed);
         } else
         {
             Debug.LogError("Error: Projectile does not have a BulletControllerBeta component");
