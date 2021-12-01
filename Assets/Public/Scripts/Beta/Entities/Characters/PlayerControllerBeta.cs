@@ -41,18 +41,18 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected List<int> inventory;
     public AudioSource audioData;
 
-    // Private
-    GameObject mesh;
-    GameObject recruitCircle;
+    [Header("Recruitment")]
+    public GameObject recruitCircle;
     private bool recruitActive = false;
     Quaternion deadRotation;
+
+    GameObject mesh;
 
     public override void Start()
     {
         base.Start();
 
         mesh = transform.Find("Mesh").gameObject;
-        recruitCircle = transform.Find("CircleMesh").gameObject;
         recruitCircle.SetActive(false);
         audioData = GetComponent<AudioSource>();
 
