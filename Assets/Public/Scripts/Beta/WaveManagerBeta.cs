@@ -6,7 +6,11 @@ public class WaveManagerBeta : MonoBehaviour
 {
     public WaveObject[] wavesToSpawn;
     //public GameObject mainPond;
+
+    // This needs to work for more than one sty
     public SpawnerControllerBeta mainPigsty;
+    
+    
     public GameObject parentObj;
     public float spawnRate;
     public float timeBetweenWaves;
@@ -57,7 +61,8 @@ public class WaveManagerBeta : MonoBehaviour
             if (spawnTimer >= spawnRate)
             {
                 if (canSpawnMore && waveTime >= wavesToSpawn[currentWave].enemyWaves[waveCount].spawnTimeSinceStart && mainPigsty)
-                {
+                { 
+                    // TODO: Either make all stys spawn an enemy, or choose which sty each enemy spawns at
                     mainPigsty.SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
                     spawnTimer = 0;
                     spawnCount++;
