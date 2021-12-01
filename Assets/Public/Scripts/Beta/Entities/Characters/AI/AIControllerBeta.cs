@@ -62,10 +62,15 @@ public class AIControllerBeta : CharacterControllerBeta
         {
             if (g != null && canAttack.Contains(g.tag))
             {
-                float dist = Vector3.Distance(transform.position, g.transform.position);
-                if (closest == null || dist < Vector3.Distance(closest.transform.position, transform.position))
+                // Only target living entities even if they don't get destroyed when they die
+                EntityControllerBeta ecb = g.GetComponent<EntityControllerBeta>();
+                if(ecb != null && ecb.alive)
                 {
-                    closest = g;
+                    float dist = Vector3.Distance(transform.position, g.transform.position);
+                    if (closest == null || dist < Vector3.Distance(closest.transform.position, transform.position))
+                    {
+                        closest = g;
+                    }
                 }
             }
         }

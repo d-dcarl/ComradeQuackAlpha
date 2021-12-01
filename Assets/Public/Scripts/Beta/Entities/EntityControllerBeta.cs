@@ -7,10 +7,13 @@ public class EntityControllerBeta : MonoBehaviour
     public int maxHealth;
 
     protected int currentHealth;
+    [HideInInspector]
+    public bool alive;
 
     public virtual void Start()
     {
         currentHealth = maxHealth;
+        alive = true;
     }
 
     public virtual void Update()
@@ -32,6 +35,7 @@ public class EntityControllerBeta : MonoBehaviour
 
     public virtual void Die()
     {
+        alive = false;
         Destroy(gameObject);
     }
 }

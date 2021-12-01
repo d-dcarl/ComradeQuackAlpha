@@ -22,6 +22,8 @@ public class TurretControllerBeta : StructureControllerBeta
     [SerializeField] public float fireRate = 1;
     private float firingTimer;
 
+    protected BoxCollider hitBox;
+
     public override void Start()
     {
         base.Start();
@@ -31,10 +33,15 @@ public class TurretControllerBeta : StructureControllerBeta
         if (bc != null)
         {
             bulletSpeed = bc.speed;
-            Debug.Log("Bullet Speed:" + bulletSpeed);
         } else
         {
             Debug.LogError("Error: Projectile does not have a BulletControllerBeta component");
+        }
+
+        hitBox = GetComponent<BoxCollider>();
+        if(hitBox == null)
+        {
+            Debug.LogError("Error: Turrets need a box collider");
         }
     }
 
