@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntityControllerBeta : MonoBehaviour
 {
@@ -9,11 +10,18 @@ public class EntityControllerBeta : MonoBehaviour
     protected int currentHealth;
     [HideInInspector]
     public bool alive;
+    public Slider healthBarSlider;
+
 
     public virtual void Start()
     {
         currentHealth = maxHealth;
         alive = true;
+        if (healthBarSlider)
+        {
+            healthBarSlider.maxValue = maxHealth;
+            healthBarSlider.value = maxHealth;
+        }
     }
 
     public virtual void Update()
@@ -27,7 +35,11 @@ public class EntityControllerBeta : MonoBehaviour
     public virtual void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        if(currentHealth <= 0)
+        if (healthBarSlider)
+        {
+            healthBarSlider.value = currentHealth;
+        }
+        if (currentHealth <= 0)
         {
             Die();
         }
