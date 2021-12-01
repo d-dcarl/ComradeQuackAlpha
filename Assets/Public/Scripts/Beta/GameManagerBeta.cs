@@ -9,6 +9,8 @@ public class GameManagerBeta : MonoBehaviour
     public GameObject duckPondPrefab;
     public GameObject styPrefab;
 
+    public PlayerControllerBeta player;
+
     [HideInInspector]
     public static GameManagerBeta Instance;
 
@@ -21,6 +23,11 @@ public class GameManagerBeta : MonoBehaviour
         else
         {
             GameManagerBeta.Instance = this;
+        }
+
+        if(player == null)
+        {
+            Debug.LogError("Error: Must assign player to game manager");
         }
 
         gravity = -1 * Mathf.Abs(gravity);      // Just in case someone puts a positive gravity value by accident

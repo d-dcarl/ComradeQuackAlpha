@@ -28,7 +28,6 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public Slider staminaSlider;
 
-    protected bool alive;
     GameObject mesh;
     GameObject recruitCircle;
     private bool recruitActive = false;
@@ -43,7 +42,6 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         base.Start();
 
-        alive = true;
         mesh = transform.Find("Mesh").gameObject;
         recruitCircle = transform.Find("CircleMesh").gameObject;
         recruitCircle.SetActive(false);
@@ -272,10 +270,14 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public override void Die()
     {
-        Debug.Log("Player is dead");
         alive = false;
+
+        TurnSideways();     // Placeholder
+    }
+
+    void TurnSideways()
+    {
         Vector3 meshRotation = mesh.transform.localEulerAngles;
-        // Turn sideways
         mesh.transform.localEulerAngles = new Vector3(meshRotation.x, meshRotation.y, 90f);
         deadRotation = mesh.transform.rotation;
     }
