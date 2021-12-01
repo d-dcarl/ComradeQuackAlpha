@@ -17,6 +17,7 @@ TagManager:
   - Enemy Structure
   - Recruit
   - RecruitRange
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Player Structure
   - Enemy Structure
   - Projectile
-  - 
+  - Environment
   - 
   - 
   - 

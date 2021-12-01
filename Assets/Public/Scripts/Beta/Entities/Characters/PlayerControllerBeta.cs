@@ -138,7 +138,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
 
         // Trap cursor when you click the screen
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(1))
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
