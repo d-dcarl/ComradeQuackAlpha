@@ -79,7 +79,10 @@ public class EnemyControllerBeta : AIControllerBeta
             
             
             if (homeSty != null) {
-                targetTransform = homeSty.GetTargetPond().transform;
+                if(homeSty.GetTargetPond() != null)
+                {
+                    targetTransform = homeSty.GetTargetPond().transform;
+                }
             }
         }
     }
