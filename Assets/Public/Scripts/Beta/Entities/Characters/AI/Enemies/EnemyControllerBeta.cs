@@ -61,22 +61,16 @@ public class EnemyControllerBeta : AIControllerBeta
             StyControllerBeta nearest = NearestSty();
             if(nearest != null)
             {
-                if (homeSty == null || Vector3.Distance(nearest.transform.position, transform.position) <= styUpdateRadius)
+                if (homeSty == null)
                 {
                     SetHomeSty();
-
-                    float dist = Vector3.Distance(nearest.transform.position, transform.position);
-                    if (dist <= styUpdateRadius)
-                    {
-                        Debug.Log("Close to new sty");
-                    } else
-                    {
-                        Debug.Log("Distance: " + dist);
-                    }
-
+                }
+                float dist = Vector3.Distance(nearest.transform.position, transform.position);
+                if (dist <= styUpdateRadius)
+                {
+                    SetHomeSty();
                 }
             }
-            
             
             if (homeSty != null) {
                 if(homeSty.GetTargetPond() != null)

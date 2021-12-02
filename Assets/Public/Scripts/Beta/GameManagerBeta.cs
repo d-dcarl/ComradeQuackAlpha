@@ -33,6 +33,8 @@ public class GameManagerBeta : MonoBehaviour
             Debug.LogError("Error: Must assign player to game manager");
         }
 
+        allStys = new List<StyControllerBeta>();
+
         gravity = -1 * Mathf.Abs(gravity);      // Just in case someone puts a positive gravity value by accident
         Physics.gravity = new Vector3(0f, gravity, 0f);
     }

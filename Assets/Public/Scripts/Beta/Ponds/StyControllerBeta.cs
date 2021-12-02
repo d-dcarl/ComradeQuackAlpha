@@ -11,8 +11,7 @@ public class StyControllerBeta : PondControllerBeta
 
     public void Start()
     {
-        bestNeighbor = null;
-        totalDistanceToPond = -1f;
+        ResetTarget();
         registered = false;
         RegisterSty();
     }
@@ -27,7 +26,11 @@ public class StyControllerBeta : PondControllerBeta
         UpdateBestNeighbor();
     }
 
-    
+    public void ResetTarget()
+    {
+        bestNeighbor = null;
+        totalDistanceToPond = -1f;
+    }
 
     public PondControllerBeta GetTargetPond()
     {
@@ -68,6 +71,8 @@ public class StyControllerBeta : PondControllerBeta
         }
     }
 
+    
+
     void RegisterSty()
     {
         if(GameManagerBeta.Instance != null)
@@ -89,7 +94,22 @@ public class StyControllerBeta : PondControllerBeta
             if (GameManagerBeta.Instance != null)
             {
                 GameManagerBeta.Instance.allStys.Remove(this);
-                Instantiate(GameManagerBeta.Instance.duckPondPrefab, transform.position, transform.rotation);
+
+                PondControllerBeta newPCB = Instantiate(GameManagerBeta.Instance.duckPondPrefab, transform.position, transform.rotation).GetComponent<PondControllerBeta>();
+                newPCB.neighbors = new List<PondControllerBeta>();
+
+                foreach (PondControllerBeta neighbor in neighbors)
+                {
+                    neighbor.neighbors.Remove(this);
+
+                    neighbor.neighbors.Add(newPCB);
+                    newPCB.neighbors.Add(neighbor);
+                }
+
+                foreach (StyControllerBeta scb in GameManagerBeta.Instance.allStys)
+                {
+                    scb.ResetTarget();
+                }
                 Destroy(gameObject);
             }
         }

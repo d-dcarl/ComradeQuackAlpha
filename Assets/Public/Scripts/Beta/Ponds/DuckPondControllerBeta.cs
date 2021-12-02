@@ -12,7 +12,21 @@ public class DuckPondControllerBeta : PondControllerBeta
         {
             if(GameManagerBeta.Instance != null)
             {
-                Instantiate(GameManagerBeta.Instance.styPrefab, transform.position, transform.rotation);
+                PondControllerBeta newPCB = Instantiate(GameManagerBeta.Instance.styPrefab, transform.position, transform.rotation).GetComponent<PondControllerBeta>();
+                newPCB.neighbors = new List<PondControllerBeta>();
+
+                foreach(PondControllerBeta neighbor in neighbors)
+                {
+                    neighbor.neighbors.Remove(this);
+
+                    neighbor.neighbors.Add(newPCB);
+                    newPCB.neighbors.Add(neighbor);
+                }
+                
+                foreach(StyControllerBeta scb in GameManagerBeta.Instance.allStys)
+                {
+                    scb.ResetTarget();
+                }
                 Destroy(gameObject);
             }
         }
