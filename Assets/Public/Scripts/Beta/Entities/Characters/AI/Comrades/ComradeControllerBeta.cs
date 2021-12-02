@@ -58,4 +58,10 @@ public class ComradeControllerBeta : AIControllerBeta
         base.WalkInDirection(direction);
         PointInDirectionXZ(direction);
     }
+
+    public void WalkInDirection(Vector3 direction, Vector3 lookDirection)
+    {
+        base.WalkInDirection(direction);
+        PointInDirectionXZ(lookDirection);
+    }
 }

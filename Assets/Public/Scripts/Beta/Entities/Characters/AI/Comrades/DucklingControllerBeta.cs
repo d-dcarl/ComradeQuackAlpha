@@ -7,6 +7,9 @@ public class DucklingControllerBeta : ComradeControllerBeta
     protected PlayerControllerBeta leader;
     protected NestControllerBeta homeNest;
 
+    public Collider recruitRangeCollider;
+    public Collider recruitCircleCollider;
+
     public float wanderRadius;
     public float wanderTime;
     protected float wanderTimer;
@@ -23,6 +26,11 @@ public class DucklingControllerBeta : ComradeControllerBeta
     }
 
     // Not being used yet. Use it for recruiting
+    public virtual PlayerControllerBeta GetLeader()
+    {
+        return leader;
+    }
+
     public virtual void SetLeader(PlayerControllerBeta newLeader)
     {
         leader = newLeader;
@@ -83,22 +91,33 @@ public class DucklingControllerBeta : ComradeControllerBeta
         wanderTimer = wanderTime;
     }
 
+    public override void AttackTarget(GameObject target)
+    {
+        if(leader == null)
+        {
+            WalkTowards(target);
+        }
+        else
+        {
+            WalkTowards(leader.gameObject, target);
+            
+        }
+        Shoot();
+    }
+
+    public void WalkTowards(GameObject target, GameObject lookTarget)
+    {
+        WalkInDirection(target.transform.position - transform.position, lookTarget.transform.position - transform.position);
+    }
+
     public override void Die()
     {
         homeNest.RemoveObject(gameObject);
         base.Die();
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void PlayQuack()
     {
-        if(other.tag == "Recruit")
-        {
-            if(leader == null)
-            {
-                this.SetLeader(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerBeta>());
-                base.audioData.Play();
-            }
-            
-        }
+        base.audioData.Play();
     }
 }

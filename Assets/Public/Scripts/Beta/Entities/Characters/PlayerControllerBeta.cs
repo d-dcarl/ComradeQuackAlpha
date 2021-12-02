@@ -45,6 +45,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public GameObject recruitCircle;
     private bool recruitActive = false;
     Quaternion deadRotation;
+    public float circleExpansionRate = 0.015f;
 
     [Header("Shooting")]
     public List<GameObject> gunTypes;
@@ -327,7 +328,6 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private void Recruit()
     {
         float maxSize = 10.0f;
-        float dx = 0.005f;
         if(!recruitCircle.activeInHierarchy)
         {
             recruitCircle.SetActive(true);
@@ -335,7 +335,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         recruitCircle.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1.0f, this.transform.position.z);
         if (recruitCircle.transform.localScale.x < maxSize)
         {
-            recruitCircle.transform.localScale = new Vector3(recruitCircle.transform.localScale.x + dx, recruitCircle.transform.localScale.y, recruitCircle.transform.localScale.z + dx);
+            recruitCircle.transform.localScale = new Vector3(recruitCircle.transform.localScale.x + circleExpansionRate, recruitCircle.transform.localScale.y, recruitCircle.transform.localScale.z + circleExpansionRate);
         }
         
     }
@@ -367,5 +367,22 @@ public class PlayerControllerBeta : CharacterControllerBeta
         Vector3 meshRotation = mesh.transform.localEulerAngles;
         mesh.transform.localEulerAngles = new Vector3(meshRotation.x, meshRotation.y, 90f);
         deadRotation = mesh.transform.rotation;
+    }
+
+    //This currently will activate from any of the player's trigger colliders. That may need to change if more are added in the future
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "RecruitRange")
+        {
+            //GameObject duckling = other.gameObject.gameObject;
+            DucklingControllerBeta duckling_controller = other.GetComponentInParent<DucklingControllerBeta>();
+            Debug.Log(duckling_controller);
+            if (duckling_controller.GetLeader() == null)
+            {
+                duckling_controller.SetLeader(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerBeta>());
+                duckling_controller.PlayQuack();
+            }
+
+        }
     }
 }
