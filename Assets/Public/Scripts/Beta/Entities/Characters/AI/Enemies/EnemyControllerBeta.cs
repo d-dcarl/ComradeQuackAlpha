@@ -12,6 +12,9 @@ public class EnemyControllerBeta : AIControllerBeta
 
     protected StyControllerBeta homeSty;
 
+    // TODO: Replace by creating a trigger hitbox for the pond's water mesh
+    public float styUpdateRadius = 4f;
+
 
     public override void Start()
     {
@@ -55,30 +58,61 @@ public class EnemyControllerBeta : AIControllerBeta
         base.ChooseTarget();
         if(targetTransform == null)
         {
-            SetHomeSty();
+            StyControllerBeta nearest = NearestSty();
+            if(nearest != null)
+            {
+                if (homeSty == null || Vector3.Distance(nearest.transform.position, transform.position) <= styUpdateRadius)
+                {
+                    SetHomeSty();
+
+                    float dist = Vector3.Distance(nearest.transform.position, transform.position);
+                    if (dist <= styUpdateRadius)
+                    {
+                        Debug.Log("Close to new sty");
+                    } else
+                    {
+                        Debug.Log("Distance: " + dist);
+                    }
+
+                }
+            }
+            
+            
             if (homeSty != null) {
                 targetTransform = homeSty.GetTargetPond().transform;
             }
         }
     }
 
-    void SetHomeSty()
+    StyControllerBeta NearestSty()
     {
-        if(GameManagerBeta.Instance != null)
+        StyControllerBeta nearest = null;
+
+        if (GameManagerBeta.Instance != null)
         {
-            StyControllerBeta newHome = null;
-            foreach(PondControllerBeta pcb in GameManagerBeta.Instance.allStys)
+            
+            foreach (PondControllerBeta pcb in GameManagerBeta.Instance.allStys)
             {
-                if(pcb as StyControllerBeta != null)
+                if (pcb as StyControllerBeta != null)
                 {
                     float checkDist = Vector3.Distance(pcb.transform.position, transform.position);
-                    if(newHome == null || checkDist < Vector3.Distance(newHome.transform.position, transform.position))
+                    if (nearest == null || checkDist < Vector3.Distance(nearest.transform.position, transform.position))
                     {
-                        newHome = pcb as StyControllerBeta;
+                        nearest = pcb as StyControllerBeta;
                     }
                 }
             }
-            homeSty = newHome;
+        }
+
+        return nearest;
+    }
+
+    void SetHomeSty()
+    {
+        StyControllerBeta nearest = NearestSty();
+        if(nearest != null)
+        {
+            homeSty = nearest;
         }
     }
 
