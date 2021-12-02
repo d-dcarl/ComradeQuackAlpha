@@ -248,6 +248,8 @@ MonoBehaviour:
   - Enemy Structure
   projectilePrefab: {fileID: 6445303830105601911, guid: 36b174b6617dd354f911b68d6afd7382, type: 3}
   shotDelay: 2
+  recruitRangeCollider: {fileID: 22304813751531827}
+  recruitCircleCollider: {fileID: 3339720288529412069}
   wanderRadius: 20
   wanderTime: 3
 --- !u!136 &3862869299531508474
