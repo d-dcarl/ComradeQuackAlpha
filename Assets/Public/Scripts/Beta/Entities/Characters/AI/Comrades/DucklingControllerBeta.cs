@@ -120,6 +120,7 @@ public class DucklingControllerBeta : ComradeControllerBeta
         base.Die();
     }
 
+    //TODO Make this not acutally kill the duckling, but just remove it from the scene and keep it in the turret
     public void ManTurret()
     {
         base.Die();
