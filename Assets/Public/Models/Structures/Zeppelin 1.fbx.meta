@@ -6,7 +6,12 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: GeneralZepAnimation
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ZepTextures
+    second: {fileID: 2100000, guid: 97e95492902b9d949bd31fbed94abcd9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
