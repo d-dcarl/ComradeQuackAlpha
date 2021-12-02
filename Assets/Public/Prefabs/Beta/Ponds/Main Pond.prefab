@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 5718133338975872947}
+  neighbors: []
   structure: {fileID: 7463468025995264699}
 --- !u!1 &5818827012389076593
 GameObject:
@@ -600,7 +601,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5342785110289011397
 MonoBehaviour:
@@ -615,7 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracked: []
-  range: 20
+  range: 15
 --- !u!1 &7463468025186154394
 GameObject:
   m_ObjectHideFlags: 0
