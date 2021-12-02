@@ -46,6 +46,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private bool recruitActive = false;
     Quaternion deadRotation;
     public float circleExpansionRate = 0.015f;
+    public List<DucklingControllerBeta> ducklingsList;
+    public int maxDucklings = 12;
+    private bool ducklingToTurret = false;
 
     [Header("Shooting")]
     public List<GameObject> gunTypes;
@@ -71,8 +74,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
         placing = false;
         beingPlaced = null;
 
-        
-        if(gunTypes.Count > 0)
+
+        if (gunTypes.Count > 0)
         {
             SwitchWeapons(0);
         }
@@ -85,6 +88,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public override void Update()
     {
         base.Update();
+        TurretLook();
 
         if (flapTimer > 0f)
         {
@@ -92,7 +96,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
         CheckInput();
         EnforceMaxHeight();
-        if(recruitActive)
+        if (recruitActive)
             Recruit();
         if (isGrounded && stamina < maxStamina)
         {
@@ -102,12 +106,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (staminaSlider != null)
         {
             staminaSlider.value = 100f * (stamina / maxStamina);
-        }   
+        }
     }
 
     public void SwitchWeapons(int newGun)
     {
-        if(gunInHand != null)
+        if (gunInHand != null)
         {
             StashWeapon();
         }
@@ -119,7 +123,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public void StashWeapon()
     {
-        if(gunInHand != null)
+        if (gunInHand != null)
         {
             Destroy(gunInHand.gameObject);
             gunInHand = null;
@@ -152,15 +156,25 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
 
         //input for player quackling recruitment ring
-        if(Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V))
         {
             recruitActive = true;
             audioData.Play();
         }
-        if(Input.GetKeyUp(KeyCode.V))
+        if (Input.GetKeyUp(KeyCode.V))
         {
             recruitActive = false;
             EndRecruit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            ducklingToTurret = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            ducklingToTurret = false;
         }
 
         PlayerTurning();
@@ -247,13 +261,14 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             inventory[resourceType] += amount;
             Debug.Log("Collected " + amount + " of resource type " + resourceType + ", putting us at " + inventory[resourceType]);
-        } else
+        }
+        else
         {
             Debug.LogError("Error: Must be a valid resource type");
         }
 
         // Make food refill stamina maybe?
-        if(resourceType == 0)
+        if (resourceType == 0)
         {
             stamina += (float)amount * foodStaminaRegen;
             Debug.Log("Yummy!");
@@ -274,10 +289,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected void PlayerTurning()
     {
         // Don't move camera unless the window has focus
-        if(Cursor.lockState == CursorLockMode.Locked)
+        if (Cursor.lockState == CursorLockMode.Locked)
         {
             float mouseVelX = Input.GetAxis("Mouse X");
-            if(Mathf.Abs(mouseVelX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
+            if (Mathf.Abs(mouseVelX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
             {
                 float rotationDelta = mouseVelX * rotationSpeed * Time.deltaTime * 60f;
                 transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + rotationDelta, 0f);
@@ -301,12 +316,42 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     void Flap()
     {
-        if(stamina >= staminaUsedPerJump)
+        if (stamina >= staminaUsedPerJump)
         {
             isGrounded = false;
             rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.y);
             stamina -= staminaUsedPerJump;
             flapTimer = flapDelay;
+        }
+    }
+
+    protected void TurretLook()
+    {
+        GameObject selectedObject;
+        Ray ray;
+        RaycastHit hitData;
+        float maxDist = 10;
+        //TODO: add check to see if player is close enough to the turret. Adjust the variable to be appropriate
+        if (Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hitData, maxDist))
+        {
+            //tells the turret to Light up turret showing green, yellow or red for its states
+            selectedObject = hitData.collider.gameObject;
+            Debug.Log(selectedObject.tag);
+            if(selectedObject.tag == "Turret" && ducklingsList.Count > 0 )
+            {
+                //tell the turret it's being looked at
+                if(selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))
+                {
+                    //tell the turret we are placing a duckling in it
+                    if (ducklingToTurret && turret.AddDuckling())
+                    {
+                        ducklingsList[0].ManTurret();
+                        ducklingsList.RemoveAt(0); 
+
+                    }
+                }
+
+            }
         }
     }
 
@@ -328,7 +373,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private void Recruit()
     {
         float maxSize = 10.0f;
-        if(!recruitCircle.activeInHierarchy)
+        if (!recruitCircle.activeInHierarchy && ducklingsList.Count < maxDucklings)
         {
             recruitCircle.SetActive(true);
         }
@@ -337,7 +382,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             recruitCircle.transform.localScale = new Vector3(recruitCircle.transform.localScale.x + circleExpansionRate, recruitCircle.transform.localScale.y, recruitCircle.transform.localScale.z + circleExpansionRate);
         }
-        
+
     }
     private void EndRecruit()
     {
@@ -357,7 +402,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         alive = false;
 
-        TurnSideways();     
+        TurnSideways();
     }
 
     // Placeholder
@@ -367,6 +412,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
         Vector3 meshRotation = mesh.transform.localEulerAngles;
         mesh.transform.localEulerAngles = new Vector3(meshRotation.x, meshRotation.y, 90f);
         deadRotation = mesh.transform.rotation;
+    }
+
+    public void DucklingDied(DucklingControllerBeta deadling)
+    {
+        ducklingsList.Remove(deadling);
     }
 
     //This currently will activate from any of the player's trigger colliders. That may need to change if more are added in the future
@@ -380,6 +430,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             if (duckling_controller.GetLeader() == null)
             {
                 duckling_controller.SetLeader(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerBeta>());
+                ducklingsList.Add(duckling_controller);
                 duckling_controller.PlayQuack();
             }
 
