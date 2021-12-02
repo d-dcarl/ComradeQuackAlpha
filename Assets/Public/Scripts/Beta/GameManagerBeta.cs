@@ -12,6 +12,9 @@ public class GameManagerBeta : MonoBehaviour
     public PlayerControllerBeta player;
 
     [HideInInspector]
+    public List<StyControllerBeta> allStys;     // Each sty registers itself and removes itself from this list
+
+    [HideInInspector]
     public static GameManagerBeta Instance;
 
     public void Start()

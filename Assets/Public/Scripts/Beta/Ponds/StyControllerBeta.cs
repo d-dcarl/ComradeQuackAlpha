@@ -7,29 +7,31 @@ public class StyControllerBeta : PondControllerBeta
     protected PondControllerBeta bestNeighbor;
     protected float totalDistanceToPond;
 
+    protected bool registered;
+
     public void Start()
     {
         bestNeighbor = null;
         totalDistanceToPond = -1f;
+        registered = false;
+        RegisterSty();
     }
 
     public void Update()
-    {
+    { 
+        if(!registered)
+        {
+            RegisterSty();
+        }
         CheckDead();
-
         UpdateBestNeighbor();
     }
 
-    void CheckDead()
+    
+
+    public PondControllerBeta GetTargetPond()
     {
-        if (spawner == null)
-        {
-            if (GameManagerBeta.Instance != null)
-            {
-                Instantiate(GameManagerBeta.Instance.duckPondPrefab, transform.position, transform.rotation);
-                Destroy(gameObject);
-            }
-        }
+        return bestNeighbor;
     }
 
     void UpdateBestNeighbor()
@@ -63,6 +65,33 @@ public class StyControllerBeta : PondControllerBeta
         {
             transform.LookAt(bestNeighbor.transform);
             transform.localEulerAngles = new Vector3(0f, transform.localEulerAngles.y, 0f);
+        }
+    }
+
+    void RegisterSty()
+    {
+        if(GameManagerBeta.Instance != null)
+        {
+            if(GameManagerBeta.Instance.allStys == null)
+            {
+                GameManagerBeta.Instance.allStys = new List<StyControllerBeta>();
+            }
+            GameManagerBeta.Instance.allStys.Add(this);
+
+            registered = true;
+        }
+    }
+
+    void CheckDead()
+    {
+        if (spawner == null)
+        {
+            if (GameManagerBeta.Instance != null)
+            {
+                GameManagerBeta.Instance.allStys.Remove(this);
+                Instantiate(GameManagerBeta.Instance.duckPondPrefab, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }
     }
 }

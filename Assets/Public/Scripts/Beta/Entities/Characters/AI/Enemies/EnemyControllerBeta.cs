@@ -10,6 +10,8 @@ public class EnemyControllerBeta : AIControllerBeta
     public float attackDelay;
     protected float attackTimer;
 
+    protected StyControllerBeta homeSty;
+
 
     public override void Start()
     {
@@ -32,6 +34,7 @@ public class EnemyControllerBeta : AIControllerBeta
     public override void Update()
     {
         base.Update();
+        ChooseTarget();
         FollowTarget();
         if(attackTimer > 0f)
         {
@@ -45,6 +48,43 @@ public class EnemyControllerBeta : AIControllerBeta
                 attackTimer = attackDelay;
             }
         }
+    }
+
+    public override void ChooseTarget()
+    {
+        base.ChooseTarget();
+        if(targetTransform == null)
+        {
+            SetHomeSty();
+            if (homeSty != null) {
+                targetTransform = homeSty.GetTargetPond().transform;
+            }
+        }
+    }
+
+    void SetHomeSty()
+    {
+        if(GameManagerBeta.Instance != null)
+        {
+            StyControllerBeta newHome = null;
+            foreach(PondControllerBeta pcb in GameManagerBeta.Instance.allStys)
+            {
+                if(pcb as StyControllerBeta != null)
+                {
+                    float checkDist = Vector3.Distance(pcb.transform.position, transform.position);
+                    if(newHome == null || checkDist < Vector3.Distance(newHome.transform.position, transform.position))
+                    {
+                        newHome = pcb as StyControllerBeta;
+                    }
+                }
+            }
+            homeSty = newHome;
+        }
+    }
+
+    public void SetHomeSty(StyControllerBeta newHome)
+    {
+        homeSty = newHome;
     }
 
     public override bool TouchingTarget(GameObject target)

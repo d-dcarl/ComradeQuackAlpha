@@ -8,6 +8,7 @@ public class AIControllerBeta : CharacterControllerBeta
     public List<string> canAttack;
 
     protected List<GameObject> touching;
+    protected Transform targetTransform;
 
     public override void Start()
     {
@@ -21,15 +22,26 @@ public class AIControllerBeta : CharacterControllerBeta
         CleanTouchingList();
     }
 
-    public void FollowTarget()
+    public virtual void ChooseTarget()
     {
+        targetTransform = null;
+
         GameObject closest = ClosestInRange();
         if (closest != null)
         {
             if (!TouchingTarget(closest))
             {
-                WalkInDirection(closest.transform.position - transform.position);
+                targetTransform = closest.transform;
             }
+        }
+        
+    }
+
+    public virtual void FollowTarget()
+    {
+        if(targetTransform != null)
+        {
+            WalkInDirection(targetTransform.position - transform.position);
         }
     }
 

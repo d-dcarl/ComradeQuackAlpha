@@ -8,5 +8,4 @@ public class PondControllerBeta : MonoBehaviour
 
     public List<PondControllerBeta> neighbors;
 
-    
 }

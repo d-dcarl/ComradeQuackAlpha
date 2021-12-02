@@ -1687,6 +1687,30 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2865244532104429249}
+    - target: {fileID: 1273557612170049779, guid: d2039d6d44de1894cbb2de989a4e3d90, type: 3}
+      propertyPath: allPonds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273557612170049779, guid: d2039d6d44de1894cbb2de989a4e3d90, type: 3}
+      propertyPath: allPonds.Array.data[0]
+      value: 
+      objectReference: {fileID: 751042715}
+    - target: {fileID: 1273557612170049779, guid: d2039d6d44de1894cbb2de989a4e3d90, type: 3}
+      propertyPath: allPonds.Array.data[1]
+      value: 
+      objectReference: {fileID: 6435119666223921809}
+    - target: {fileID: 1273557612170049779, guid: d2039d6d44de1894cbb2de989a4e3d90, type: 3}
+      propertyPath: allPonds.Array.data[2]
+      value: 
+      objectReference: {fileID: 1422926975}
+    - target: {fileID: 1273557612170049779, guid: d2039d6d44de1894cbb2de989a4e3d90, type: 3}
+      propertyPath: allPonds.Array.data[3]
+      value: 
+      objectReference: {fileID: 1992661510}
+    - target: {fileID: 1273557612170049779, guid: d2039d6d44de1894cbb2de989a4e3d90, type: 3}
+      propertyPath: allPonds.Array.data[4]
+      value: 
+      objectReference: {fileID: 1527324665}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2039d6d44de1894cbb2de989a4e3d90, type: 3}
 --- !u!1001 &2155184218243499615

@@ -22,7 +22,7 @@ public class CharacterControllerBeta : EntityControllerBeta
     public virtual void WalkInDirection(Vector3 direction)
     {
         Vector3 flatDirection = new Vector3(direction.x, 0f, direction.z);      // Make sure you're not pointing up or down
-        if(flatDirection.magnitude <= 0f)
+        if(flatDirection.magnitude <= 0.01f)
         {
             return;     // If there is no movement, skip the next steps
         }
