@@ -66,7 +66,7 @@ public class DucklingControllerBeta : ComradeControllerBeta
     {
         // Placeholder. Fill in with comrade AI.
         WalkTowards(leader.gameObject);
-        Debug.Log("Tee dum, tee dee, a teedly do tee day");
+        //Debug.Log("Tee dum, tee dee, a teedly do tee day");
     }
 
     public virtual void Idle()
@@ -113,6 +113,15 @@ public class DucklingControllerBeta : ComradeControllerBeta
     public override void Die()
     {
         homeNest.RemoveObject(gameObject);
+        if (leader != null)
+        {
+            leader.DucklingDied(this);
+        }
+        base.Die();
+    }
+
+    public void ManTurret()
+    {
         base.Die();
     }
 

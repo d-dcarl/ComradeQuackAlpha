@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlaceableTurretControllerBeta : TurretControllerBeta
 {
     protected bool placed;
+    private int upgradeLevel = 0;
+    private int upgradeCap;
 
     public override void Start()
     {
@@ -12,6 +14,14 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         placed = false;
         alive = false;
         SetTransparent();
+
+        //turret upgrade stuff
+        upgradeLevel = 0;
+        upgradeCap = 10;
+
+        //This is only to visually show that the turret in inactive on spawning
+        currentHealth = 0;
+        healthBarSlider.value = 0;
     }
 
     public override void Update()
@@ -44,13 +54,16 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public void PlaceTurret()
     {
         placed = true;
-        ActivateTurret();       // For now
+        hitBox.enabled = true;
+        currentHealth = 0;
+        //ActivateTurret();       // For now
     }
 
     public void ActivateTurret()
     {
         alive = true;
         currentHealth = maxHealth;
+        healthBarSlider.value = maxHealth;
         SetOpaque();
     }
 
@@ -80,5 +93,49 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     {
         alive = false;
         SetTransparent();
+    }
+
+
+    public void SetHoverColor()
+    {
+        //TODO: Set turret outline to [INSERT COLOR HERE] to activate turret
+        if (!this.alive)
+        {
+            //foreach (Renderer r in GetComponentsInChildren<Renderer>())
+            //{
+            //    //https://www.gamedev.net/blogs/entry/2264832-highlight-in-unity/ DO this 
+
+            //}
+        }
+        //TODO: set turret outline color for upgrading
+        //TODO: set turret outline color for unable to upgrade or add duckling
+
+    }
+
+    public bool AddDuckling()
+    {
+        //activate turret if inactive
+        if (!this.alive)
+        {
+            //TODO Make sure the duckling doesn't actually die until turret is dead too 
+            ActivateTurret();
+            return true;
+        }
+        else if(upgradeLevel < upgradeCap)
+        {
+            UpgradeTurret();
+            return true;
+        }
+        return false;
+        //upgrade turret if active
+        //do nothing if turret is at upgrade cap
+    }
+
+    //TODO Acutally upgrade turret and give turret a cooldown for upgrading
+    private void UpgradeTurret()
+    {
+        upgradeLevel += 1;
+        this.fireRate -= 0.1f;
+        this.transform.localScale = new Vector3(this.transform.localScale.x + 0.05f, this.transform.localScale.y + 0.05f, this.transform.localScale.z + 0.05f);
     }
 }
