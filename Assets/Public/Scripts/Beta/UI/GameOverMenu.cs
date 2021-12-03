@@ -33,7 +33,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void ReturnToGame()
     {
-        SceneManager.LoadScene("WhiteBoxBeta1");
+        SceneManager.LoadScene("WhiteBox1Beta");
     }
 
     public void ReturnToMainMenu()
