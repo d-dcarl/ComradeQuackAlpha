@@ -17,4 +17,19 @@ public class NestControllerBeta : SpawnerControllerBeta
         newDuckling.InitializeDuckling(this);
         return newDuckling.gameObject;
     }
+
+    public override void Update()
+    {
+        base.Update();
+        if (!turnOffAutoSpawn)
+        {
+            CleanSpawnedList();
+            spawnTimer -= Time.deltaTime;
+            if (spawnTimer <= 0f && curSpawns < spawnCap)
+            {
+                Spawn();
+                spawnTimer = spawnDelay;
+            }
+        }
+    }
 }
