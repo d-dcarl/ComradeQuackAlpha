@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128876658825370596}
   - component: {fileID: 2581805067541758372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4788135708533269962}
   - component: {fileID: 22304813751531827}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Recruit Range
   m_TagString: RecruitRange
   m_Icon: {fileID: 0}
@@ -507,6 +507,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3862869299531508472}
     m_Modifications:
+    - target: {fileID: 765879135522220180, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549175271318885721, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5138567865375523899, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -515,9 +523,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5797877367492659065, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6422732579162807670, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422732579162807670, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8969698846730004058, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_Pivot.x

@@ -35,7 +35,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected PlaceableTurretControllerBeta beingPlaced;
     protected float placementTimer;
     public float placementDistance;
+<<<<<<< Updated upstream
     private int turretPrefabIndex;
+=======
+    private PlaceableTurretControllerBeta lookedTurret;
+>>>>>>> Stashed changes
 
     [Header("Miscellanious")]
     public float numResourceTypes;
@@ -84,6 +88,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             Debug.LogError("Error: must start with at least one gun type");
         }
+
+        lookedTurret = null;
     }
 
     public override void Update()
@@ -364,22 +370,38 @@ public class PlayerControllerBeta : CharacterControllerBeta
             //tells the turret to Light up turret showing green, yellow or red for its states
             selectedObject = hitData.collider.gameObject;
             //Debug.Log(selectedObject.tag);
+<<<<<<< Updated upstream
             if(selectedObject.tag == "Turret" && ducklingsList.Count > 0 )
+=======
+            if (selectedObject.tag == "Turret" && ducklingsList.Count > 0)
+>>>>>>> Stashed changes
             {
-                //tell the turret it's being looked at
-                if(selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))
+                //get the turret controller
+                if (selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))
                 {
+                    //tell turret its being looked at
+                    turret.lookedAt(true);
+                    lookedTurret = turret;
                     //tell the turret we are placing a duckling in it
                     if (ducklingToTurret && turret.AddDuckling())
                     {
                         ducklingsList[0].ManTurret();
-                        ducklingsList.RemoveAt(0); 
+                        ducklingsList.RemoveAt(0);
 
                     }
                 }
-
+                return;
             }
         }
+        //check turret is null
+        if (lookedTurret != null)
+        {
+            //not null tell turret not looking anymore and 
+            lookedTurret.lookedAt(false);
+            lookedTurret = null;
+
+        }
+        
     }
 
     protected void Glide()
