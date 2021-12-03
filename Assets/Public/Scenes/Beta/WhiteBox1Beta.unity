@@ -272,7 +272,6 @@ GameObject:
   - component: {fileID: 10860823}
   - component: {fileID: 10860826}
   - component: {fileID: 10860825}
-  - component: {fileID: 10860824}
   m_Layer: 0
   m_Name: pig_way (5)
   m_TagString: Untagged
@@ -294,19 +293,6 @@ Transform:
   m_Father: {fileID: 586546977}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &10860824
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10860822}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &10860825
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -437,7 +423,6 @@ GameObject:
   - component: {fileID: 23722439}
   - component: {fileID: 23722442}
   - component: {fileID: 23722441}
-  - component: {fileID: 23722440}
   m_Layer: 0
   m_Name: pig_way (5)
   m_TagString: Untagged
@@ -459,19 +444,6 @@ Transform:
   m_Father: {fileID: 531604329}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 215.378, z: 0}
---- !u!65 &23722440
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23722438}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &23722441
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -771,7 +743,6 @@ GameObject:
   - component: {fileID: 39032906}
   - component: {fileID: 39032909}
   - component: {fileID: 39032908}
-  - component: {fileID: 39032907}
   m_Layer: 0
   m_Name: pig_way (2)
   m_TagString: Untagged
@@ -793,19 +764,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &39032907
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39032905}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &39032908
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1891,7 +1849,6 @@ GameObject:
   - component: {fileID: 139760852}
   - component: {fileID: 139760855}
   - component: {fileID: 139760854}
-  - component: {fileID: 139760853}
   m_Layer: 0
   m_Name: pig_way
   m_TagString: Untagged
@@ -1913,19 +1870,6 @@ Transform:
   m_Father: {fileID: 586546977}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &139760853
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139760851}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &139760854
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1987,7 +1931,6 @@ GameObject:
   - component: {fileID: 140483678}
   - component: {fileID: 140483681}
   - component: {fileID: 140483680}
-  - component: {fileID: 140483679}
   m_Layer: 0
   m_Name: pig_way (4)
   m_TagString: Untagged
@@ -2009,19 +1952,6 @@ Transform:
   m_Father: {fileID: 531604329}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &140483679
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140483677}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &140483680
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2152,7 +2082,6 @@ GameObject:
   - component: {fileID: 158140080}
   - component: {fileID: 158140083}
   - component: {fileID: 158140082}
-  - component: {fileID: 158140081}
   m_Layer: 0
   m_Name: pig_way (4)
   m_TagString: Untagged
@@ -2174,19 +2103,6 @@ Transform:
   m_Father: {fileID: 2036111565}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &158140081
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158140079}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &158140082
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2386,7 +2302,6 @@ GameObject:
   - component: {fileID: 174756130}
   - component: {fileID: 174756133}
   - component: {fileID: 174756132}
-  - component: {fileID: 174756131}
   m_Layer: 0
   m_Name: pig_way (3)
   m_TagString: Untagged
@@ -2408,19 +2323,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &174756131
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174756129}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &174756132
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2482,7 +2384,6 @@ GameObject:
   - component: {fileID: 188814875}
   - component: {fileID: 188814878}
   - component: {fileID: 188814877}
-  - component: {fileID: 188814876}
   m_Layer: 0
   m_Name: pig_way (3)
   m_TagString: Untagged
@@ -2504,19 +2405,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &188814876
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188814874}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &188814877
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2578,7 +2466,6 @@ GameObject:
   - component: {fileID: 215888261}
   - component: {fileID: 215888264}
   - component: {fileID: 215888263}
-  - component: {fileID: 215888262}
   m_Layer: 0
   m_Name: pig_way (11)
   m_TagString: Untagged
@@ -2600,19 +2487,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &215888262
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215888260}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &215888263
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2839,7 +2713,6 @@ GameObject:
   - component: {fileID: 224211376}
   - component: {fileID: 224211379}
   - component: {fileID: 224211378}
-  - component: {fileID: 224211377}
   m_Layer: 0
   m_Name: pig_way (4)
   m_TagString: Untagged
@@ -2861,19 +2734,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &224211377
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224211375}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &224211378
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3060,7 +2920,6 @@ GameObject:
   - component: {fileID: 264599086}
   - component: {fileID: 264599089}
   - component: {fileID: 264599088}
-  - component: {fileID: 264599087}
   m_Layer: 0
   m_Name: pig_way (2)
   m_TagString: Untagged
@@ -3082,19 +2941,6 @@ Transform:
   m_Father: {fileID: 2036111565}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &264599087
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264599085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &264599088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3759,7 +3605,6 @@ GameObject:
   - component: {fileID: 338292005}
   - component: {fileID: 338292008}
   - component: {fileID: 338292007}
-  - component: {fileID: 338292006}
   m_Layer: 0
   m_Name: pig_way (4)
   m_TagString: Untagged
@@ -3781,19 +3626,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &338292006
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338292004}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &338292007
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4221,7 +4053,6 @@ GameObject:
   - component: {fileID: 389068935}
   - component: {fileID: 389068938}
   - component: {fileID: 389068937}
-  - component: {fileID: 389068936}
   m_Layer: 0
   m_Name: pig_way (10)
   m_TagString: Untagged
@@ -4243,19 +4074,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &389068936
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389068934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &389068937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5100,7 +4918,6 @@ GameObject:
   - component: {fileID: 450266345}
   - component: {fileID: 450266348}
   - component: {fileID: 450266347}
-  - component: {fileID: 450266346}
   m_Layer: 0
   m_Name: pig_way (6)
   m_TagString: Untagged
@@ -5122,19 +4939,6 @@ Transform:
   m_Father: {fileID: 2036111565}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &450266346
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450266344}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &450266347
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5403,7 +5207,6 @@ GameObject:
   - component: {fileID: 507702639}
   - component: {fileID: 507702642}
   - component: {fileID: 507702641}
-  - component: {fileID: 507702640}
   m_Layer: 0
   m_Name: only_duck_way (2)
   m_TagString: Untagged
@@ -5425,19 +5228,6 @@ Transform:
   m_Father: {fileID: 1012376027}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 53.391, z: 0}
---- !u!65 &507702640
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 507702638}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &507702641
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5816,7 +5606,6 @@ GameObject:
   - component: {fileID: 554237659}
   - component: {fileID: 554237662}
   - component: {fileID: 554237661}
-  - component: {fileID: 554237660}
   m_Layer: 0
   m_Name: pig_way
   m_TagString: Untagged
@@ -5838,19 +5627,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &554237660
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554237658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &554237661
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5981,7 +5757,6 @@ GameObject:
   - component: {fileID: 580550704}
   - component: {fileID: 580550707}
   - component: {fileID: 580550706}
-  - component: {fileID: 580550705}
   m_Layer: 0
   m_Name: only_duck_way
   m_TagString: Untagged
@@ -6003,19 +5778,6 @@ Transform:
   m_Father: {fileID: 1012376027}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 53.391, z: 0}
---- !u!65 &580550705
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580550703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &580550706
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6632,7 +6394,6 @@ GameObject:
   - component: {fileID: 620721726}
   - component: {fileID: 620721729}
   - component: {fileID: 620721728}
-  - component: {fileID: 620721727}
   m_Layer: 0
   m_Name: pig_way (7)
   m_TagString: Untagged
@@ -6654,19 +6415,6 @@ Transform:
   m_Father: {fileID: 2036111565}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &620721727
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620721725}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &620721728
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6797,7 +6545,6 @@ GameObject:
   - component: {fileID: 641922676}
   - component: {fileID: 641922679}
   - component: {fileID: 641922678}
-  - component: {fileID: 641922677}
   m_Layer: 0
   m_Name: pig_way (2)
   m_TagString: Untagged
@@ -6819,19 +6566,6 @@ Transform:
   m_Father: {fileID: 586546977}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &641922677
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641922675}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &641922678
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7031,7 +6765,6 @@ GameObject:
   - component: {fileID: 653756337}
   - component: {fileID: 653756340}
   - component: {fileID: 653756339}
-  - component: {fileID: 653756338}
   m_Layer: 0
   m_Name: pig_way (1)
   m_TagString: Untagged
@@ -7053,19 +6786,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &653756338
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653756336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &653756339
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7127,7 +6847,6 @@ GameObject:
   - component: {fileID: 665917167}
   - component: {fileID: 665917170}
   - component: {fileID: 665917169}
-  - component: {fileID: 665917168}
   m_Layer: 0
   m_Name: pig_way (9)
   m_TagString: Untagged
@@ -7149,19 +6868,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &665917168
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665917166}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &665917169
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7319,7 +7025,6 @@ GameObject:
   - component: {fileID: 668898235}
   - component: {fileID: 668898238}
   - component: {fileID: 668898237}
-  - component: {fileID: 668898236}
   m_Layer: 0
   m_Name: pig_way (6)
   m_TagString: Untagged
@@ -7341,19 +7046,6 @@ Transform:
   m_Father: {fileID: 586546977}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &668898236
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668898234}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &668898237
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7773,7 +7465,6 @@ GameObject:
   - component: {fileID: 750729824}
   - component: {fileID: 750729827}
   - component: {fileID: 750729826}
-  - component: {fileID: 750729825}
   m_Layer: 0
   m_Name: only_duck_way (1)
   m_TagString: Untagged
@@ -7795,19 +7486,6 @@ Transform:
   m_Father: {fileID: 1012376027}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 53.391, z: 0}
---- !u!65 &750729825
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750729823}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &750729826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7938,7 +7616,6 @@ GameObject:
   - component: {fileID: 769517694}
   - component: {fileID: 769517697}
   - component: {fileID: 769517696}
-  - component: {fileID: 769517695}
   m_Layer: 0
   m_Name: pig_way (4)
   m_TagString: Untagged
@@ -7960,19 +7637,6 @@ Transform:
   m_Father: {fileID: 38359526}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &769517695
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769517693}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &769517696
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8310,7 +7974,6 @@ GameObject:
   - component: {fileID: 810564152}
   - component: {fileID: 810564155}
   - component: {fileID: 810564154}
-  - component: {fileID: 810564153}
   m_Layer: 0
   m_Name: pig_way (1)
   m_TagString: Untagged
@@ -8332,19 +7995,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &810564153
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810564151}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &810564154
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8557,7 +8207,6 @@ GameObject:
   - component: {fileID: 821667977}
   - component: {fileID: 821667980}
   - component: {fileID: 821667979}
-  - component: {fileID: 821667978}
   m_Layer: 0
   m_Name: pig_way (2)
   m_TagString: Untagged
@@ -8579,19 +8228,6 @@ Transform:
   m_Father: {fileID: 38359526}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &821667978
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 821667976}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &821667979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8865,7 +8501,6 @@ GameObject:
   - component: {fileID: 888191374}
   - component: {fileID: 888191377}
   - component: {fileID: 888191376}
-  - component: {fileID: 888191375}
   m_Layer: 0
   m_Name: pig_way (5)
   m_TagString: Untagged
@@ -8887,19 +8522,6 @@ Transform:
   m_Father: {fileID: 2036111565}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &888191375
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888191373}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &888191376
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10025,7 +9647,6 @@ GameObject:
   - component: {fileID: 1026901078}
   - component: {fileID: 1026901081}
   - component: {fileID: 1026901080}
-  - component: {fileID: 1026901079}
   m_Layer: 0
   m_Name: pig_way (10)
   m_TagString: Untagged
@@ -10047,19 +9668,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1026901079
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026901077}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1026901080
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10121,7 +9729,6 @@ GameObject:
   - component: {fileID: 1038929790}
   - component: {fileID: 1038929793}
   - component: {fileID: 1038929792}
-  - component: {fileID: 1038929791}
   m_Layer: 0
   m_Name: pig_way (3)
   m_TagString: Untagged
@@ -10143,19 +9750,6 @@ Transform:
   m_Father: {fileID: 38359526}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1038929791
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038929789}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1038929792
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10222,7 +9816,6 @@ GameObject:
   - component: {fileID: 1051528699}
   - component: {fileID: 1051528702}
   - component: {fileID: 1051528701}
-  - component: {fileID: 1051528700}
   m_Layer: 0
   m_Name: pig_way (5)
   m_TagString: Untagged
@@ -10244,19 +9837,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1051528700
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051528698}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1051528701
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11252,7 +10832,6 @@ GameObject:
   - component: {fileID: 1177835043}
   - component: {fileID: 1177835046}
   - component: {fileID: 1177835045}
-  - component: {fileID: 1177835044}
   m_Layer: 0
   m_Name: pig_way (12)
   m_TagString: Untagged
@@ -11274,19 +10853,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1177835044
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1177835042}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1177835045
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11651,7 +11217,6 @@ GameObject:
   - component: {fileID: 1251350040}
   - component: {fileID: 1251350043}
   - component: {fileID: 1251350042}
-  - component: {fileID: 1251350041}
   m_Layer: 0
   m_Name: pig_way (7)
   m_TagString: Untagged
@@ -11673,19 +11238,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1251350041
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1251350039}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1251350042
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12092,7 +11644,6 @@ GameObject:
   - component: {fileID: 1280129901}
   - component: {fileID: 1280129904}
   - component: {fileID: 1280129903}
-  - component: {fileID: 1280129902}
   m_Layer: 0
   m_Name: pig_way (9)
   m_TagString: Untagged
@@ -12114,19 +11665,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1280129902
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280129900}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1280129903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12548,7 +12086,6 @@ GameObject:
   - component: {fileID: 1308103218}
   - component: {fileID: 1308103221}
   - component: {fileID: 1308103220}
-  - component: {fileID: 1308103219}
   m_Layer: 0
   m_Name: pig_way (8)
   m_TagString: Untagged
@@ -12570,19 +12107,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1308103219
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308103217}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1308103220
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12809,7 +12333,6 @@ GameObject:
   - component: {fileID: 1335863645}
   - component: {fileID: 1335863648}
   - component: {fileID: 1335863647}
-  - component: {fileID: 1335863646}
   m_Layer: 0
   m_Name: only_duck_way (1)
   m_TagString: Untagged
@@ -12831,19 +12354,6 @@ Transform:
   m_Father: {fileID: 531604329}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 13.975, z: 0}
---- !u!65 &1335863646
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335863644}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1335863647
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12905,7 +12415,6 @@ GameObject:
   - component: {fileID: 1360343835}
   - component: {fileID: 1360343838}
   - component: {fileID: 1360343837}
-  - component: {fileID: 1360343836}
   m_Layer: 0
   m_Name: pig_way (1)
   m_TagString: Untagged
@@ -12927,19 +12436,6 @@ Transform:
   m_Father: {fileID: 2036111565}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1360343836
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360343834}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1360343837
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13407,7 +12903,6 @@ GameObject:
   - component: {fileID: 1384515922}
   - component: {fileID: 1384515925}
   - component: {fileID: 1384515924}
-  - component: {fileID: 1384515923}
   m_Layer: 0
   m_Name: only_duck_way (3)
   m_TagString: Untagged
@@ -13429,19 +12924,6 @@ Transform:
   m_Father: {fileID: 531604329}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 53.391, z: 0}
---- !u!65 &1384515923
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384515921}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1384515924
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13503,7 +12985,6 @@ GameObject:
   - component: {fileID: 1395351949}
   - component: {fileID: 1395351952}
   - component: {fileID: 1395351951}
-  - component: {fileID: 1395351950}
   m_Layer: 0
   m_Name: pig_way (4)
   m_TagString: Untagged
@@ -13525,19 +13006,6 @@ Transform:
   m_Father: {fileID: 586546977}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1395351950
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395351948}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1395351951
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13750,7 +13218,6 @@ GameObject:
   - component: {fileID: 1413730862}
   - component: {fileID: 1413730865}
   - component: {fileID: 1413730864}
-  - component: {fileID: 1413730863}
   m_Layer: 0
   m_Name: pig_way (6)
   m_TagString: Untagged
@@ -13772,19 +13239,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1413730863
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413730861}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1413730864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14260,7 +13714,6 @@ GameObject:
   - component: {fileID: 1473187514}
   - component: {fileID: 1473187517}
   - component: {fileID: 1473187516}
-  - component: {fileID: 1473187515}
   m_Layer: 0
   m_Name: pig_way (2)
   m_TagString: Untagged
@@ -14282,19 +13735,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1473187515
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473187513}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1473187516
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14356,7 +13796,6 @@ GameObject:
   - component: {fileID: 1489195090}
   - component: {fileID: 1489195093}
   - component: {fileID: 1489195092}
-  - component: {fileID: 1489195091}
   m_Layer: 0
   m_Name: pig_way (3)
   m_TagString: Untagged
@@ -14378,19 +13817,6 @@ Transform:
   m_Father: {fileID: 2036111565}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1489195091
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489195089}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1489195092
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14898,7 +14324,6 @@ GameObject:
   - component: {fileID: 1518453392}
   - component: {fileID: 1518453395}
   - component: {fileID: 1518453394}
-  - component: {fileID: 1518453393}
   m_Layer: 0
   m_Name: pig_way (6)
   m_TagString: Untagged
@@ -14920,19 +14345,6 @@ Transform:
   m_Father: {fileID: 332730253}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1518453393
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518453391}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1518453394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14994,7 +14406,6 @@ GameObject:
   - component: {fileID: 1523414673}
   - component: {fileID: 1523414676}
   - component: {fileID: 1523414675}
-  - component: {fileID: 1523414674}
   m_Layer: 0
   m_Name: only_duck_way
   m_TagString: Untagged
@@ -15016,19 +14427,6 @@ Transform:
   m_Father: {fileID: 531604329}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 53.391, z: 0}
---- !u!65 &1523414674
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523414672}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1523414675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15735,7 +15133,6 @@ GameObject:
   - component: {fileID: 1610055439}
   - component: {fileID: 1610055442}
   - component: {fileID: 1610055441}
-  - component: {fileID: 1610055440}
   m_Layer: 0
   m_Name: only_duck_way (1)
   m_TagString: Untagged
@@ -15757,19 +15154,6 @@ Transform:
   m_Father: {fileID: 531604329}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 53.391, z: 0}
---- !u!65 &1610055440
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610055438}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1610055441
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16545,7 +15929,6 @@ GameObject:
   - component: {fileID: 1758027128}
   - component: {fileID: 1758027131}
   - component: {fileID: 1758027130}
-  - component: {fileID: 1758027129}
   m_Layer: 0
   m_Name: only_duck_way (2)
   m_TagString: Untagged
@@ -16567,19 +15950,6 @@ Transform:
   m_Father: {fileID: 531604329}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -35.454, z: 0}
---- !u!65 &1758027129
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758027127}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1758027130
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16779,7 +16149,6 @@ GameObject:
   - component: {fileID: 1811568842}
   - component: {fileID: 1811568845}
   - component: {fileID: 1811568844}
-  - component: {fileID: 1811568843}
   m_Layer: 0
   m_Name: only_duck_way (3)
   m_TagString: Untagged
@@ -16801,19 +16170,6 @@ Transform:
   m_Father: {fileID: 1012376027}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 53.391, z: 0}
---- !u!65 &1811568843
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1811568841}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1811568844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17427,7 +16783,6 @@ GameObject:
   - component: {fileID: 1878167301}
   - component: {fileID: 1878167304}
   - component: {fileID: 1878167303}
-  - component: {fileID: 1878167302}
   m_Layer: 0
   m_Name: pig_way (5)
   m_TagString: Untagged
@@ -17449,19 +16804,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1878167302
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878167300}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1878167303
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17523,7 +16865,6 @@ GameObject:
   - component: {fileID: 1888315795}
   - component: {fileID: 1888315798}
   - component: {fileID: 1888315797}
-  - component: {fileID: 1888315796}
   m_Layer: 0
   m_Name: pig_way
   m_TagString: Untagged
@@ -17545,19 +16886,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1888315796
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888315794}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1888315797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17964,7 +17292,6 @@ GameObject:
   - component: {fileID: 1971429092}
   - component: {fileID: 1971429095}
   - component: {fileID: 1971429094}
-  - component: {fileID: 1971429093}
   m_Layer: 0
   m_Name: pig_way (7)
   m_TagString: Untagged
@@ -17986,19 +17313,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1971429093
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971429091}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1971429094
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18060,7 +17374,6 @@ GameObject:
   - component: {fileID: 1971718657}
   - component: {fileID: 1971718660}
   - component: {fileID: 1971718659}
-  - component: {fileID: 1971718658}
   m_Layer: 0
   m_Name: pig_way (3)
   m_TagString: Untagged
@@ -18082,19 +17395,6 @@ Transform:
   m_Father: {fileID: 586546977}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1971718658
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971718656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1971718659
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18294,7 +17594,6 @@ GameObject:
   - component: {fileID: 2002094197}
   - component: {fileID: 2002094200}
   - component: {fileID: 2002094199}
-  - component: {fileID: 2002094198}
   m_Layer: 0
   m_Name: pig_way (1)
   m_TagString: Untagged
@@ -18316,19 +17615,6 @@ Transform:
   m_Father: {fileID: 531604329}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2002094198
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002094196}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2002094199
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18390,7 +17676,6 @@ GameObject:
   - component: {fileID: 2002587572}
   - component: {fileID: 2002587575}
   - component: {fileID: 2002587574}
-  - component: {fileID: 2002587573}
   m_Layer: 0
   m_Name: pig_way (8)
   m_TagString: Untagged
@@ -18412,19 +17697,6 @@ Transform:
   m_Father: {fileID: 587052300}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2002587573
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002587571}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2002587574
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18555,7 +17827,6 @@ GameObject:
   - component: {fileID: 2031127201}
   - component: {fileID: 2031127204}
   - component: {fileID: 2031127203}
-  - component: {fileID: 2031127202}
   m_Layer: 0
   m_Name: pig_way (1)
   m_TagString: Untagged
@@ -18577,19 +17848,6 @@ Transform:
   m_Father: {fileID: 586546977}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2031127202
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031127200}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2031127203
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19099,7 +18357,6 @@ GameObject:
   - component: {fileID: 2107476855}
   - component: {fileID: 2107476858}
   - component: {fileID: 2107476857}
-  - component: {fileID: 2107476856}
   m_Layer: 0
   m_Name: pig_way (1)
   m_TagString: Untagged
@@ -19121,19 +18378,6 @@ Transform:
   m_Father: {fileID: 38359526}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2107476856
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107476854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2107476857
 MeshRenderer:
   m_ObjectHideFlags: 0
