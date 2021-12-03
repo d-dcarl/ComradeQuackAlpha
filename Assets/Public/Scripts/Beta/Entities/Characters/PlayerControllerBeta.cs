@@ -57,6 +57,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public Transform gunTransform;
     protected GunControllerBeta gunInHand;
 
+    public GameObject deathOverlay;
+
     GameObject mesh;
 
     public override void Start()
@@ -445,7 +447,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public override void Die()
     {
         alive = false;
-
+        DuckDeath();
         TurnSideways();
     }
 
@@ -461,6 +463,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public void DucklingDied(DucklingControllerBeta deadling)
     {
         ducklingsList.Remove(deadling);
+    }
+
+    public void DuckDeath()
+    {
+
     }
 
     //This currently will activate from any of the player's trigger colliders. That may need to change if more are added in the future
