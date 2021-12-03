@@ -27,7 +27,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public Slider staminaSlider;
 
     [Header("Turret Placement")]
-    public GameObject placeableTurretPrefab;
+    public List<GameObject> placeableTurretPrefabs;
     public int maxTurrets;
     protected int numTurrets;
     public float placementDelay;
@@ -35,6 +35,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected PlaceableTurretControllerBeta beingPlaced;
     protected float placementTimer;
     public float placementDistance;
+    private int turretPrefabIndex;
+    private PlaceableTurretControllerBeta lookedTurret;
 
     [Header("Miscellanious")]
     public float numResourceTypes;
@@ -83,6 +85,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             Debug.LogError("Error: must start with at least one gun type");
         }
+
+        lookedTurret = null;
     }
 
     public override void Update()
@@ -213,7 +217,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             if (!placing && numTurrets < maxTurrets && placementTimer <= 0f)
             {
-                beingPlaced = Instantiate(placeableTurretPrefab).GetComponent<PlaceableTurretControllerBeta>();
+                beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
                 placing = true;
                 numTurrets++;
             }
@@ -222,6 +226,32 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 beingPlaced.PlaceTurret();
                 placing = false;
                 placementTimer = placementDelay;
+            }
+        }
+
+        if (placing)
+        {
+            if (Input.mouseScrollDelta.y > 0)
+            {
+                turretPrefabIndex--;
+                if (turretPrefabIndex < 0)
+                {
+                    turretPrefabIndex = placeableTurretPrefabs.Count - 1;
+                }
+                
+                Destroy(beingPlaced.gameObject);
+                beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
+            } 
+            else if (Input.mouseScrollDelta.y < 0)
+            {
+                turretPrefabIndex++;
+                if (turretPrefabIndex >= placeableTurretPrefabs.Count)
+                {
+                    turretPrefabIndex = 0;
+                }
+                
+                Destroy(beingPlaced.gameObject);
+                beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
             }
         }
     }
@@ -330,7 +360,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected void TurretLook()
     {
         GameObject selectedObject;
-        Ray ray;
+        //Ray ray;
         RaycastHit hitData;
         float maxDist = 10;
         //TODO: add check to see if player is close enough to the turret. Adjust the variable to be appropriate
@@ -341,20 +371,32 @@ public class PlayerControllerBeta : CharacterControllerBeta
             //Debug.Log(selectedObject.tag);
             if(selectedObject.tag == "Turret" && ducklingsList.Count > 0 )
             {
-                //tell the turret it's being looked at
-                if(selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))
+                //get the turret controller
+                if (selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))
                 {
+                    //tell turret its being looked at
+                    turret.lookedAt(true);
+                    lookedTurret = turret;
                     //tell the turret we are placing a duckling in it
                     if (ducklingToTurret && turret.AddDuckling())
                     {
                         ducklingsList[0].ManTurret();
-                        ducklingsList.RemoveAt(0); 
+                        ducklingsList.RemoveAt(0);
 
                     }
                 }
-
+                return;
             }
         }
+        //check turret is null
+        if (lookedTurret != null)
+        {
+            //not null tell turret not looking anymore and 
+            lookedTurret.lookedAt(false);
+            lookedTurret = null;
+
+        }
+        
     }
 
     protected void Glide()

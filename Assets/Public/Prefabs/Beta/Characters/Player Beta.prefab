@@ -194,13 +194,18 @@ MonoBehaviour:
   staminaUsedPerGlideSecond: 5
   foodStaminaRegen: 30
   staminaSlider: {fileID: 0}
-  placeableTurretPrefab: {fileID: 554601727569707398, guid: 51a5a99f2403d844893bf1697a7a02ac, type: 3}
+  placeableTurretPrefabs:
+  - {fileID: 554601727569707398, guid: 51a5a99f2403d844893bf1697a7a02ac, type: 3}
+  - {fileID: 7968797003135590011, guid: 3ff001bc62c661b4cb65d191a0418ba5, type: 3}
   maxTurrets: 3
   placementDelay: 1
   placementDistance: 3
   numResourceTypes: 1
   audioData: {fileID: 7298926254210497247}
   recruitCircle: {fileID: 8284632582061303038}
+  circleExpansionRate: 0.015
+  ducklingsList: []
+  maxDucklings: 12
   gunTypes:
   - {fileID: 7376874870213945803, guid: 5bb30e5e26b8e3e4a9caf64d5e7e09b9, type: 3}
   gunTransform: {fileID: 2451214499158473852}

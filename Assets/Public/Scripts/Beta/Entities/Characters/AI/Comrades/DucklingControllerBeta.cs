@@ -15,6 +15,14 @@ public class DucklingControllerBeta : ComradeControllerBeta
     protected float wanderTimer;
     protected Vector3 wanderPos;
 
+    private bool wasKilled = true;
+
+    public override void Start()
+    {
+        wasKilled = true;
+        base.Start();
+    }
+
     public virtual void InitializeDuckling(NestControllerBeta nest)
     {
         if (nest == null)
@@ -112,7 +120,11 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
     public override void Die()
     {
-        homeNest.RemoveObject(gameObject);
+        if (wasKilled)
+        {
+            homeNest.RemoveObject(gameObject);
+            
+        }
         if (leader != null)
         {
             leader.DucklingDied(this);
@@ -120,10 +132,12 @@ public class DucklingControllerBeta : ComradeControllerBeta
         base.Die();
     }
 
+
     //TODO Make this not acutally kill the duckling, but just remove it from the scene and keep it in the turret
     public void ManTurret()
     {
-        base.Die();
+        wasKilled = false;
+        Destroy(this.gameObject);
     }
 
     public void PlayQuack()
