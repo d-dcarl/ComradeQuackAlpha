@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6445303830105601911, guid: 36b174b6617dd354f911b68d6afd7382, type: 3}
   shootDelay: 0.5
+  crosshair: {fileID: 0}
 --- !u!1 &7376874870659901710
 GameObject:
   m_ObjectHideFlags: 0
