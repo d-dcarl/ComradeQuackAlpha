@@ -22,6 +22,11 @@ public class BulletControllerBeta : ProjectileControllerBeta
     {
         base.Update();
 
+        Move();
+    }
+
+    protected virtual void Move()
+    {
         transform.Translate(direction * Time.deltaTime * speed);
     }
 
@@ -33,9 +38,9 @@ public class BulletControllerBeta : ProjectileControllerBeta
     public void OnCollisionEnter(Collision collision)
     {
         Hit(collision.gameObject);
-    }
+    }   
 
-    public void Hit(GameObject other)
+    public virtual void Hit(GameObject other)
     {
         if (canHit.Contains(other.tag))
         {

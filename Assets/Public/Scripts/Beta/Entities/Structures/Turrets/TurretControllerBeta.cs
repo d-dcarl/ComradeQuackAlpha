@@ -17,7 +17,7 @@ public class TurretControllerBeta : StructureControllerBeta
     public Quaternion initialRotation;
     private Quaternion targetRotation;
 
-    [SerializeField] private GameObject Projectile;
+    [SerializeField] protected GameObject Projectile;
     private float bulletSpeed;
     [SerializeField] public float fireRate = 1;
     private float firingTimer;
