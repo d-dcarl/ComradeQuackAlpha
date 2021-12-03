@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class EntityControllerBeta : MonoBehaviour
 {
-    public int maxHealth;
+    public float maxHealth;
 
-    protected int currentHealth;
+    protected float currentHealth;
     [HideInInspector]
     public bool alive;
     public Slider healthBarSlider;
@@ -32,7 +32,7 @@ public class EntityControllerBeta : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage(int amount)
+    public virtual void TakeDamage(float amount)
     {
         currentHealth -= amount;
         if (healthBarSlider)

@@ -18,7 +18,12 @@ public class ProjectileControllerBeta : MonoBehaviour
         age += Time.deltaTime;
         if(age >= lifetime || transform.position.y < 0f || transform.position.magnitude > cleanupDistance)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    protected virtual void Die()
+    {
+        Destroy(gameObject);
     }
 }

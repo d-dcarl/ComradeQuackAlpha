@@ -96,7 +96,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     }
 
 
-    public void SetHoverColor()
+    public virtual void SetHoverColor()
     {
         //TODO: Set turret outline to [INSERT COLOR HERE] to activate turret
         if (!this.alive)
@@ -112,7 +112,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     }
 
-    public bool AddDuckling()
+    public virtual bool AddDuckling()
     {
         //activate turret if inactive
         if (!this.alive)
@@ -132,7 +132,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     }
 
     //TODO Acutally upgrade turret and give turret a cooldown for upgrading
-    private void UpgradeTurret()
+    protected virtual void UpgradeTurret()
     {
         upgradeLevel += 1;
         this.fireRate -= 0.1f;
