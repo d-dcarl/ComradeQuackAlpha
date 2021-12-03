@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
-  cleanupDistance: 100
+  cleanupDistance: 1000
   speed: 30
   damage: 4
   knockback: 10
