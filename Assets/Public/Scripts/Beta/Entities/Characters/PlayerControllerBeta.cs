@@ -27,7 +27,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public Slider staminaSlider;
 
     [Header("Turret Placement")]
-    public GameObject placeableTurretPrefab;
+    public List<GameObject> placeableTurretPrefabs;
     public int maxTurrets;
     protected int numTurrets;
     public float placementDelay;
@@ -35,6 +35,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected PlaceableTurretControllerBeta beingPlaced;
     protected float placementTimer;
     public float placementDistance;
+    private int turretPrefabIndex;
 
     [Header("Miscellanious")]
     public float numResourceTypes;
@@ -211,7 +212,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             if (!placing && numTurrets < maxTurrets && placementTimer <= 0f)
             {
-                beingPlaced = Instantiate(placeableTurretPrefab).GetComponent<PlaceableTurretControllerBeta>();
+                beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
                 placing = true;
                 numTurrets++;
             }
@@ -220,6 +221,32 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 beingPlaced.PlaceTurret();
                 placing = false;
                 placementTimer = placementDelay;
+            }
+        }
+
+        if (placing)
+        {
+            if (Input.mouseScrollDelta.y > 0)
+            {
+                turretPrefabIndex--;
+                if (turretPrefabIndex < 0)
+                {
+                    turretPrefabIndex = placeableTurretPrefabs.Count - 1;
+                }
+                
+                Destroy(beingPlaced.gameObject);
+                beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
+            } 
+            else if (Input.mouseScrollDelta.y < 0)
+            {
+                turretPrefabIndex++;
+                if (turretPrefabIndex >= placeableTurretPrefabs.Count)
+                {
+                    turretPrefabIndex = 0;
+                }
+                
+                Destroy(beingPlaced.gameObject);
+                beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
             }
         }
     }
