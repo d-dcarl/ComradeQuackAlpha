@@ -11,7 +11,7 @@ public class SpawnerControllerBeta : StructureControllerBeta
     public float spawnRadius;
     public float spawnHeight;
     public bool turnOffAutoSpawn;
-    private int curSpawns; //this is an implicit list of comrades manning turrets AND comrades in the list
+    public int curSpawns; //this is an implicit list of comrades manning turrets AND comrades in the list
 
     protected List<GameObject> spawned;
 
@@ -30,7 +30,7 @@ public class SpawnerControllerBeta : StructureControllerBeta
         {
             CleanSpawnedList();
             spawnTimer -= Time.deltaTime;
-            if (spawnTimer <= 0f && curSpawns < spawnCap)
+            if (spawnTimer <= 0f && spawned.Count < spawnCap)
             {
                 Spawn();
                 spawnTimer = spawnDelay;
