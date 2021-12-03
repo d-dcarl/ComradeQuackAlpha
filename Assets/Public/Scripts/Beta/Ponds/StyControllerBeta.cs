@@ -93,6 +93,7 @@ public class StyControllerBeta : PondControllerBeta
         {
             if (GameManagerBeta.Instance != null)
             {
+                // Unregister
                 GameManagerBeta.Instance.allStys.Remove(this);
 
                 PondControllerBeta newPCB = Instantiate(GameManagerBeta.Instance.duckPondPrefab, transform.position, transform.rotation).GetComponent<PondControllerBeta>();

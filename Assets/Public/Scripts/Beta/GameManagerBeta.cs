@@ -12,7 +12,9 @@ public class GameManagerBeta : MonoBehaviour
     public PlayerControllerBeta player;
 
     [HideInInspector]
-    public List<StyControllerBeta> allStys;     // Each sty registers itself and removes itself from this list
+    public List<StyControllerBeta> allStys;
+    [HideInInspector]
+    public List<DuckPondControllerBeta> allPonds;
 
     [HideInInspector]
     public static GameManagerBeta Instance;
@@ -34,8 +36,14 @@ public class GameManagerBeta : MonoBehaviour
         }
 
         allStys = new List<StyControllerBeta>();
+        allPonds = new List<DuckPondControllerBeta>();
 
         gravity = -1 * Mathf.Abs(gravity);      // Just in case someone puts a positive gravity value by accident
         Physics.gravity = new Vector3(0f, gravity, 0f);
+    }
+
+    public void EndGame()
+    {
+        player.Die();
     }
 }
