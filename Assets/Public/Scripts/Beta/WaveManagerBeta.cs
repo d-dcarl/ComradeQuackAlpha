@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WaveManagerBeta : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class WaveManagerBeta : MonoBehaviour
     public float timeBetweenWaves;
     public int currentWave;
     public bool isWaitActive;
+
+    public Text waveNumberText;
+    public Text timeBetweenText;
+    public Text enemiesRemainingText;
 
     float spawnTimer = 0;
     float waveTime = 0;
@@ -44,10 +49,14 @@ public class WaveManagerBeta : MonoBehaviour
             SpawnWave();
             CheckAmountOfPigs();
             CheckWaveOver();
+            UpdateWaveText();
         }
         if (isWaitActive)
         {
             waitTime += Time.deltaTime;
+            timeBetweenText.text = "Next wave in: " + Mathf.Round(timeBetweenWaves - waitTime);
+            waveNumberText.text = "Wave: " + (currentWave + 1);
+            enemiesRemainingText.text = "";
             if (waitTime >= timeBetweenWaves)
             {
                 ResetWave();
@@ -65,10 +74,15 @@ public class WaveManagerBeta : MonoBehaviour
 
             if (spawnTimer >= spawnRate)
             {
-                if (canSpawnMore && waveTime >= wavesToSpawn[currentWave].enemyWaves[waveCount].spawnTimeSinceStart && mainPigsties.Length > 0)
-                { 
+                if (canSpawnMore && waveTime >= wavesToSpawn[currentWave].enemyWaves[waveCount].spawnTimeSinceStart && manager)
+                {
                     // TODO: Either make all stys spawn an enemy, or choose which sty each enemy spawns at
-                    mainPigsties[0].SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
+                    foreach(StyControllerBeta sti in manager.allStys)
+                    {
+                        sti.GetComponentInChildren<SpawnerControllerBeta>().SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
+                    }
+                    //manager.allStys[0].GetComponentInChildren<SpawnerControllerBeta>().SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
+                    //mainPigsties[0].SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
                     spawnTimer = 0;
                     spawnCount++;
                     if (spawnCount >= wavesToSpawn[currentWave].enemyWaves[waveCount].amountToSpawn)
@@ -98,6 +112,13 @@ public class WaveManagerBeta : MonoBehaviour
     private void CheckAmountOfPigs()
     {
         pigCount = parentObj.transform.childCount;
+    }
+
+    private void UpdateWaveText()
+    {
+        waveNumberText.text = "Wave: " + (currentWave + 1);
+        enemiesRemainingText.text = "Enemies remaining: " + pigCount;
+        timeBetweenText.text = "";
     }
 
     private void ResetWave()
