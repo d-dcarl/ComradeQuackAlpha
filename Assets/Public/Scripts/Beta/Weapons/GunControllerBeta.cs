@@ -54,6 +54,8 @@ public class GunControllerBeta : MonoBehaviour
                 // TODO: shoot at crosshair
                 shootTimer = shootDelay;
 
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                
                 BulletControllerBeta bcb = Instantiate(bulletPrefab).GetComponent<BulletControllerBeta>();
                 if (bcb == null)
                 {
@@ -61,7 +63,7 @@ public class GunControllerBeta : MonoBehaviour
                 }
 
                 bcb.transform.position = transform.position;
-                bcb.direction = transform.forward;
+                bcb.direction = ray.direction;
             }
             else
             {
