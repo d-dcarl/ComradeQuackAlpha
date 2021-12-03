@@ -39,6 +39,6 @@ public class GameOverMenu : MonoBehaviour
     public void ReturnToMainMenu()
     {
         //Change later to main menu scene
-        SceneManager.LoadScene("WhiteBoxBeta1");
+        SceneManager.LoadScene("MainMenu");
     }
 }

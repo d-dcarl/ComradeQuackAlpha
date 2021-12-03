@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject small;
     public GameObject full;
+    public GameObject creditsImage;
+    public GameObject videoPlayer;
 
     public void PlayGame()
     {
@@ -29,6 +31,13 @@ public class MainMenu : MonoBehaviour
             full.SetActive(true);
         }
     }
+
+    public void PlayCredits()
+    {
+        videoPlayer.SetActive(true);
+        creditsImage.SetActive(true);
+    }
+
     public void ExitGame()
     {
         Application.Quit();
