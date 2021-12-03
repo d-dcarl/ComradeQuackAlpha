@@ -382,7 +382,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                     //tell the turret we are placing a duckling in it
                     if (ducklingToTurret && turret.AddDuckling())
                     {
-                        ducklingsList[0].ManTurret();
+                        ducklingsList[0].ManTurret(turret);
                         ducklingsList.RemoveAt(0);
 
                     }

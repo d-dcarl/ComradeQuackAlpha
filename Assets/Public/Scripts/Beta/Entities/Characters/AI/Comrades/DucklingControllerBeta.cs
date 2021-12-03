@@ -10,6 +10,9 @@ public class DucklingControllerBeta : ComradeControllerBeta
     public Collider recruitRangeCollider;
     public Collider recruitCircleCollider;
 
+    private PlaceableTurretControllerBeta turret;
+    private bool isManning;
+
     public float wanderRadius;
     public float wanderTime;
     protected float wanderTimer;
@@ -21,6 +24,8 @@ public class DucklingControllerBeta : ComradeControllerBeta
     {
         wasKilled = true;
         base.Start();
+        turret = null;
+        isManning = false;
     }
 
     public virtual void InitializeDuckling(NestControllerBeta nest)
@@ -56,6 +61,15 @@ public class DucklingControllerBeta : ComradeControllerBeta
             {
                 FollowLeader();
             }
+        }
+        if(isManning && turret != null)
+        {
+            if(!turret.alive)
+            {
+                this.gameObject.SetActive(true);
+                this.Die();
+            }
+
         }
     }
 
@@ -134,10 +148,13 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
 
     //TODO Make this not acutally kill the duckling, but just remove it from the scene and keep it in the turret
-    public void ManTurret()
+    public void ManTurret(PlaceableTurretControllerBeta turret)
     {
         wasKilled = false;
-        Destroy(this.gameObject);
+        isManning = true;
+        //Destroy(this.gameObject);
+        this.turret = turret;
+        this.gameObject.SetActive(false);
     }
 
     public void PlayQuack()
