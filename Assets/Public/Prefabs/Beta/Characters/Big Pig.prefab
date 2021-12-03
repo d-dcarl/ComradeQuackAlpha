@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41562ab204520c9489493ce22f7c917a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 180
   alive: 0
   healthBarSlider: {fileID: 3492876883054497400}
   acceleration: 100
@@ -121,7 +121,7 @@ MonoBehaviour:
   - Player Structure
   - Turret
   attackHitBox: {fileID: 6924727160141618297}
-  attackDamage: 1
+  attackDamage: 5
   attackDelay: 1
   styUpdateRadius: 4
 --- !u!65 &5019965575117504301
