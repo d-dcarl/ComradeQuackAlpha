@@ -11,6 +11,7 @@ public class SpawnerControllerBeta : StructureControllerBeta
     public float spawnRadius;
     public float spawnHeight;
     public bool turnOffAutoSpawn;
+    public int curSpawns; //this is an implicit list of comrades manning turrets AND comrades in the list
 
     protected List<GameObject> spawned;
 
@@ -19,6 +20,7 @@ public class SpawnerControllerBeta : StructureControllerBeta
         base.Start();
         spawnTimer = spawnDelay;
         spawned = new List<GameObject>();
+        curSpawns = 0;
     }
 
     public override void Update()
@@ -26,7 +28,7 @@ public class SpawnerControllerBeta : StructureControllerBeta
         base.Update();
         if (!turnOffAutoSpawn)
         {
-            //CleanSpawnedList();
+            CleanSpawnedList();
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0f && spawned.Count < spawnCap)
             {
@@ -58,6 +60,7 @@ public class SpawnerControllerBeta : StructureControllerBeta
         Vector3 spawnPosition = transform.position + (offset * spawnRadius) + (Vector3.up * spawnHeight);       // Make sure they don't spawn in the ground
         GameObject newObject = Instantiate(spawnPrefab, spawnPosition, transform.rotation);
         spawned.Add(newObject);
+        curSpawns += 1;
         return newObject;
     }
 
@@ -75,6 +78,13 @@ public class SpawnerControllerBeta : StructureControllerBeta
         if(spawned.Contains(toRemove))
         {
             spawned.Remove(toRemove);
+            curSpawns -= 1;
         }
+    }
+
+    //tells the spawner that it can spawn a new member
+    public void newSpawn()
+    {
+        curSpawns -= 1;
     }
 }
