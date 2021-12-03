@@ -10,10 +10,11 @@ public class EnemyControllerBeta : AIControllerBeta
     public float attackDelay;
     protected float attackTimer;
 
-    protected StyControllerBeta homeSty;
+    protected GameObject source;
+    protected GameObject destination;
 
     // TODO: Replace by creating a trigger hitbox for the pond's water mesh
-    public float styUpdateRadius = 4f;
+    public float updateRadius = 4f;
 
 
     public override void Start()
@@ -61,21 +62,18 @@ public class EnemyControllerBeta : AIControllerBeta
             StyControllerBeta nearest = NearestSty();
             if(nearest != null)
             {
-                if (homeSty == null)
+                if (source == null)
                 {
-                    SetHomeSty();
+                    FindNewSource();
                 }
                 float dist = Vector3.Distance(nearest.transform.position, transform.position);
-                if (dist <= styUpdateRadius)
-                {
-                    SetHomeSty();
-                }
             }
             
-            if (homeSty != null) {
-                if(homeSty.GetTargetPond() != null)
+            if (source != null) {
+                StyControllerBeta scb = source.GetComponent<StyControllerBeta>();
+                if(scb != null)
                 {
-                    targetTransform = homeSty.GetTargetPond().transform;
+                    targetTransform = scb.GetTargetPond().transform;
                 }
             }
         }
@@ -104,18 +102,18 @@ public class EnemyControllerBeta : AIControllerBeta
         return nearest;
     }
 
-    void SetHomeSty()
+    void FindNewSource()
     {
         StyControllerBeta nearest = NearestSty();
         if(nearest != null)
         {
-            homeSty = nearest;
+            source = nearest.gameObject;
         }
     }
 
     public void SetHomeSty(StyControllerBeta newHome)
     {
-        homeSty = newHome;
+        source = newHome.gameObject;
     }
 
     public override bool TouchingTarget(GameObject target)
