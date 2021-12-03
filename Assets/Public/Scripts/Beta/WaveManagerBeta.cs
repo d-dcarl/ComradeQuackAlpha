@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveManagerBeta : MonoBehaviour
 {
@@ -110,6 +111,9 @@ public class WaveManagerBeta : MonoBehaviour
         if (currentWave >= wavesToSpawn.Length)
         {
             Debug.Log("YOU WIN!");
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("MainMenu");
+            
         }
     }
 }
