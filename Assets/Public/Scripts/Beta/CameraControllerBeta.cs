@@ -65,7 +65,7 @@ public class CameraControllerBeta : MonoBehaviour
     public void CheckInput()
     {
         // Don't move camera unless window has focus
-        if(Cursor.lockState == CursorLockMode.Locked)
+        if(Cursor.lockState == CursorLockMode.Locked || Cursor.lockState == CursorLockMode.Confined)
         {
             float mouseVelX = Input.GetAxis("Mouse X");
             float mouseVelY = Input.GetAxis("Mouse Y");

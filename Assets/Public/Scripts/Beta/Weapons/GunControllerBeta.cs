@@ -25,18 +25,24 @@ public class GunControllerBeta : MonoBehaviour
         {
             ShowCrosshair();
             zoomedIn = true;
+
+            // set cursor
+            Cursor.lockState = CursorLockMode.Confined;
+            
         }
         else
         {
             crosshair.SetActive(false);
             zoomedIn = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         if (shootTimer > 0f)
         {
             shootTimer -= Time.deltaTime;
         }
-        
+
+        Cursor.visible = false;
     }
 
     public virtual void Shoot()
