@@ -142,11 +142,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
             Glide();
         }
 
-        // Trap cursor when you click the screen
+        /* Trap cursor when you click the screen
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(1))
         {
             Cursor.lockState = CursorLockMode.Locked;
-        }
+        } */
+        Cursor.lockState = CursorLockMode.Locked;           // changed to work with shooting - SJ
+
 
         // Free cursor and end game on escape
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -289,7 +291,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected void PlayerTurning()
     {
         // Don't move camera unless the window has focus
-        if (Cursor.lockState == CursorLockMode.Locked)
+        if (Cursor.lockState == CursorLockMode.Locked || Cursor.lockState == CursorLockMode.Confined)           // changed to allow confined cursor as well - SJ
         {
             float mouseVelX = Input.GetAxis("Mouse X");
             if (Mathf.Abs(mouseVelX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
