@@ -92,7 +92,6 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         upgradeTimer = upgradeDelay;
         //make the color the activated color
         SetOpaque();
-        hitBox.enabled = true;
     }
 
     public void SetTransparent()
@@ -105,6 +104,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             r.material.color = new Color(oldColor.r, oldColor.g, oldColor.b, 0.5f);
             i++;
         }
+        gameObject.layer = LayerMask.NameToLayer("Dead Player Structure");
     }
 
     public void SetOpaque()
@@ -113,6 +113,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         {
             r.material.shader = Shader.Find("Standard");
         }
+        gameObject.layer = LayerMask.NameToLayer("Player Structure");
     }
 
     public override void Die()

@@ -118,6 +118,7 @@ MonoBehaviour:
   - Player
   - Comrade
   - Player Structure
+  - Turret
   attackHitBox: {fileID: 6924727160141618297}
   attackDamage: 1
   attackDelay: 1
