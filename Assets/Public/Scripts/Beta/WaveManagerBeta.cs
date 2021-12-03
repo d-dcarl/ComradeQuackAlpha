@@ -25,10 +25,14 @@ public class WaveManagerBeta : MonoBehaviour
     bool canSpawnMore = true;
     int pigCount = 0;
 
+    GameManagerBeta manager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = FindObjectOfType<GameManagerBeta>();
+        if (!manager)
+            Debug.Log("Can't find game manager");
     }
 
     // Update is called once per frame
