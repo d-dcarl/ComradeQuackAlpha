@@ -10,6 +10,9 @@ scopes = {
 	"last_search.B064B029" = "capture"
 	"InspectorPreview.B064B029" = "0"
 	"currentGroup.B064B029" = "all"
+	"last_search.785D90A9" = "prefab"
+	"InspectorPreview.785D90A9" = "0"
+	"currentGroup.785D90A9" = "menu"
 }
 providers = {
 	asset = {
