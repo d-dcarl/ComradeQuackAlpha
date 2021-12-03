@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraControllerBeta : MonoBehaviour
 {
     public GameObject player;
+    float degToRads;
 
     public float cameraDistance;
 
@@ -16,6 +17,9 @@ public class CameraControllerBeta : MonoBehaviour
     public float cameraSpeed;
     public float cameraLerpSpeed;
 
+    public Transform zoomCam;
+    public float zoomSpeed = .5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,23 +29,37 @@ public class CameraControllerBeta : MonoBehaviour
         }
 
         cameraAngle = targetAngle;
+        degToRads = Mathf.PI / 180f;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckInput();
+        Vector3 cameraDirection, cameraOffset;
+        float camBack, camUp;
+        if (Input.GetKey(KeyCode.LeftShift))        // zoomed in
+        {
+            transform.position = Vector3.Slerp(transform.position, zoomCam.position, zoomSpeed * Time.time);
+            transform.rotation = Quaternion.Slerp(transform.rotation, zoomCam.rotation, zoomSpeed * Time.time);
+        }
+        else
+        {
+            cameraAngle = Mathf.Lerp(cameraAngle, targetAngle, cameraLerpSpeed);
 
-        cameraAngle = Mathf.Lerp(cameraAngle, targetAngle, cameraLerpSpeed);
+            camBack = Mathf.Cos(cameraAngle * degToRads);
+            camUp = Mathf.Sin(cameraAngle * degToRads);
 
-        float degToRads = Mathf.PI / 180f;
-        float camBack = Mathf.Cos(cameraAngle * degToRads);
-        float camUp = Mathf.Sin(cameraAngle * degToRads);
+            cameraDirection = (player.transform.forward * -1) * camBack + player.transform.up * camUp;
+            cameraOffset = cameraDistance * cameraDirection;
 
-        Vector3 cameraDirection = (player.transform.forward * -1) * camBack + player.transform.up * camUp;
-        Vector3 cameraOffset = cameraDistance * cameraDirection;
-        transform.position = player.transform.position + cameraOffset;
-        transform.LookAt(player.transform);
+            transform.position = player.transform.position + cameraOffset;
+            transform.LookAt(player.transform);
+        }
+
+        //Debug.Log("Camera Angle: " + cameraAngle);
+        
     }
 
     public void CheckInput()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -337,6 +337,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Pond
       objectReference: {fileID: 0}
+    - target: {fileID: 7114062268320755170, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114062268320755170, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7463468025995264699, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: canShoot.Array.size
       value: 1
@@ -418,6 +426,36 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8170233906109585491, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
   m_PrefabInstance: {fileID: 8170233907282451353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1043426975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043426976}
+  m_Layer: 0
+  m_Name: Camera Zoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043426976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043426975}
+  m_LocalRotation: {x: -0.13340911, y: -0.0038674455, z: 0.0005236372, w: -0.99105334}
+  m_LocalPosition: {x: 0.9012783, y: 0.1682682, z: -0.94941187}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2865244532104429250}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1245695285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1654,6 +1692,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2865244532104429245}
+    - target: {fileID: 892480568564768653, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
+      propertyPath: zoomCam
+      value: 
+      objectReference: {fileID: 1043426976}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
 --- !u!1001 &1273557612248619533
@@ -1806,6 +1848,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8ffe46f5addf24bb2204ab62b06f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2865244532104429250 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8393010493706824887, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+  m_PrefabInstance: {fileID: 6033295367740822028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6033295367740822028
 PrefabInstance:
   m_ObjectHideFlags: 0

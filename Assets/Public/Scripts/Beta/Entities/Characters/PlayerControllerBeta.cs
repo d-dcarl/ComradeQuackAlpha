@@ -336,7 +336,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             //tells the turret to Light up turret showing green, yellow or red for its states
             selectedObject = hitData.collider.gameObject;
-            Debug.Log(selectedObject.tag);
+            //Debug.Log(selectedObject.tag);
             if(selectedObject.tag == "Turret" && ducklingsList.Count > 0 )
             {
                 //tell the turret it's being looked at
