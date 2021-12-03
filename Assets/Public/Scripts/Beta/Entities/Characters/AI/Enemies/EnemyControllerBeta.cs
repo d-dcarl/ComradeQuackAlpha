@@ -15,7 +15,8 @@ public class EnemyControllerBeta : AIControllerBeta
 
     // TODO: Replace by creating a trigger hitbox for the pond's water mesh
     public float updateRadius = 4f;
-
+    public float targetUpdateTime;
+    protected float targetUpdateTimer;
 
     public override void Start()
     {
@@ -33,6 +34,7 @@ public class EnemyControllerBeta : AIControllerBeta
                 Debug.LogError("Error: Make sure your attack hitbox has a trigger collider");
             }
         }
+        targetUpdateTimer = targetUpdateTime;
     }
 
     public override void Update()
@@ -56,24 +58,30 @@ public class EnemyControllerBeta : AIControllerBeta
 
     public override void ChooseTarget()
     {
-        base.ChooseTarget();
-        if(targetTransform == null)
+        targetUpdateTimer -= Time.deltaTime;
+        if(targetUpdateTimer <= 0f)
         {
-            StyControllerBeta nearest = NearestSty();
-            if(nearest != null)
+            targetUpdateTimer = targetUpdateTime;
+            base.ChooseTarget();
+            if (targetTransform == null)
             {
-                if (source == null)
+                StyControllerBeta nearest = NearestSty();
+                if (nearest != null)
                 {
-                    FindNewSource();
+                    if (source == null)
+                    {
+                        FindNewSource();
+                    }
+                    float dist = Vector3.Distance(nearest.transform.position, transform.position);
                 }
-                float dist = Vector3.Distance(nearest.transform.position, transform.position);
-            }
-            
-            if (source != null) {
-                StyControllerBeta scb = source.GetComponent<StyControllerBeta>();
-                if(scb != null)
+
+                if (source != null)
                 {
-                    targetTransform = scb.GetTargetPond().transform;
+                    StyControllerBeta scb = source.GetComponent<StyControllerBeta>();
+                    if (scb != null)
+                    {
+                        targetTransform = scb.GetTargetPond().transform;
+                    }
                 }
             }
         }

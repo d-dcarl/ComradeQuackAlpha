@@ -123,7 +123,8 @@ MonoBehaviour:
   attackHitBox: {fileID: 6924727160141618297}
   attackDamage: 5
   attackDelay: 1
-  styUpdateRadius: 4
+  updateRadius: 4
+  targetUpdateTime: 1
 --- !u!65 &5019965575117504301
 BoxCollider:
   m_ObjectHideFlags: 0
