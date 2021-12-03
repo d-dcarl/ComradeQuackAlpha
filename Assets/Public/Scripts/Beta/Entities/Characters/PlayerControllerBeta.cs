@@ -35,11 +35,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected PlaceableTurretControllerBeta beingPlaced;
     protected float placementTimer;
     public float placementDistance;
-<<<<<<< Updated upstream
     private int turretPrefabIndex;
-=======
     private PlaceableTurretControllerBeta lookedTurret;
->>>>>>> Stashed changes
 
     [Header("Miscellanious")]
     public float numResourceTypes;
@@ -370,11 +367,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             //tells the turret to Light up turret showing green, yellow or red for its states
             selectedObject = hitData.collider.gameObject;
             //Debug.Log(selectedObject.tag);
-<<<<<<< Updated upstream
             if(selectedObject.tag == "Turret" && ducklingsList.Count > 0 )
-=======
-            if (selectedObject.tag == "Turret" && ducklingsList.Count > 0)
->>>>>>> Stashed changes
             {
                 //get the turret controller
                 if (selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))

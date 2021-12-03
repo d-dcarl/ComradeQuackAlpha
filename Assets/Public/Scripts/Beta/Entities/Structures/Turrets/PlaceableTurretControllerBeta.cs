@@ -121,12 +121,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         SetTransparent();
     }
 
-<<<<<<< Updated upstream
-
-    public virtual void SetHoverColor()
-=======
     public void lookedAt(bool isLookedAt)
->>>>>>> Stashed changes
     {
         if (isLookedAt)
         {
@@ -223,12 +218,9 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     }
 
-<<<<<<< Updated upstream
-    public virtual bool AddDuckling()
-=======
+
     //uses a ducking on this turret, either to upgrade or activate. Returns true if upgraded or activated, false otherwise
     public bool AddDuckling()
->>>>>>> Stashed changes
     {
         //activate turret if inactive
         if (!this.alive)
@@ -242,18 +234,13 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             UpgradeTurret();
             return true;
         }
-        lookedAt(false);
+        //lookedAt(false);
         //do nothing if turret is at upgrade cap
         return false;
     }
 
-<<<<<<< Updated upstream
-    //TODO Acutally upgrade turret and give turret a cooldown for upgrading
-    protected virtual void UpgradeTurret()
-=======
     //TODO Acutally upgrade turret
     private void UpgradeTurret()
->>>>>>> Stashed changes
     {
         //upgrade tracker
         upgradeLevel += 1;
