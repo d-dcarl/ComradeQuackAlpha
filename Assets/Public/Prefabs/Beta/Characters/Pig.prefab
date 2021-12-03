@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 5019965575117504300}
   - component: {fileID: 5019965575117504301}
   - component: {fileID: 9041428531484272334}
+  - component: {fileID: 101067125537168935}
   m_Layer: 7
   m_Name: Pig
   m_TagString: Enemy
@@ -131,7 +132,7 @@ BoxCollider:
   m_GameObject: {fileID: 5019965575117504303}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1.3}
   m_Center: {x: 0, y: 0, z: 0}
@@ -151,6 +152,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &101067125537168935
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5019965575117504303}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6472303189834055204
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +230,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5019965575117504302}
     m_Modifications:
+    - target: {fileID: 765879135522220180, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549175271318885721, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5138567865375523899, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -224,9 +246,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5797877367492659065, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6422732579162807670, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422732579162807670, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8969698846730004058, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_Pivot.x

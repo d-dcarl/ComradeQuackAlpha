@@ -26,7 +26,7 @@ public class SpawnerControllerBeta : StructureControllerBeta
         base.Update();
         if (!turnOffAutoSpawn)
         {
-            CleanSpawnedList();
+            //CleanSpawnedList();
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0f && spawned.Count < spawnCap)
             {
