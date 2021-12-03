@@ -37,9 +37,26 @@ public class StyControllerBeta : PondControllerBeta
         return bestNeighbor;
     }
 
+    List <PondControllerBeta> GetNeighbors()
+    {
+        List<PondControllerBeta> neighbors = new List<PondControllerBeta>();
+        foreach(PathControllerBeta path in paths)
+        {
+            if(path.source == this)
+            {
+                neighbors.Add(path.dest);
+            }
+            else if(path.dest == this)
+            {
+                neighbors.Add(path.source);
+            }
+        }
+        return neighbors;
+    }
+
     void UpdateBestNeighbor()
     {
-        foreach(PondControllerBeta pcb in neighbors)
+        foreach(PondControllerBeta pcb in GetNeighbors())
         {
             if(pcb as DuckPondControllerBeta != null)
             {
@@ -97,14 +114,17 @@ public class StyControllerBeta : PondControllerBeta
                 GameManagerBeta.Instance.allStys.Remove(this);
 
                 PondControllerBeta newPCB = Instantiate(GameManagerBeta.Instance.duckPondPrefab, transform.position, transform.rotation).GetComponent<PondControllerBeta>();
-                newPCB.neighbors = new List<PondControllerBeta>();
 
-                foreach (PondControllerBeta neighbor in neighbors)
+                foreach (PathControllerBeta path in paths)
                 {
-                    neighbor.neighbors.Remove(this);
-
-                    neighbor.neighbors.Add(newPCB);
-                    newPCB.neighbors.Add(neighbor);
+                    if(path.source == this)
+                    {
+                        path.source = newPCB;
+                    }
+                    else if(path.dest == this)
+                    {
+                        path.dest = newPCB;
+                    }
                 }
 
                 foreach (StyControllerBeta scb in GameManagerBeta.Instance.allStys)

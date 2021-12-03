@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class PathControllerBeta : MonoBehaviour
 {
-    public GameObject source;
-    public GameObject dest;
+    public PondControllerBeta source;
+    public PondControllerBeta dest;
 
-    // Start is called before the first frame update
+    public List<SteppingStoneControllerBeta> steppingStones;     // In order from source to destination
+
     void Start()
     {
-        Vector3 displacement = source.transform.position - dest.transform.position;
-        float dist = displacement.magnitude;
+        LinkSteppingStones();
+    }
 
-        gameObject.transform.position = (source.transform.position + dest.transform.position) / 2;
-        gameObject.transform.LookAt(dest.transform);
-        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, dist);
+    void LinkSteppingStones()
+    {
+        if(steppingStones.Count > 1)
+        {
+            for (int i = 0; i < steppingStones.Count - 1; i++)
+            {
+                steppingStones[i].SetNext(steppingStones[i + 1]);
+            }
+
+            for (int j = steppingStones.Count - 1; j > 0; j--)
+            {
+                steppingStones[j].SetPrevious(steppingStones[j - 1]);
+            }
+        }
+        
     }
 }
