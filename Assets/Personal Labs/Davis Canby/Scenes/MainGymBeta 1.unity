@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 13751517}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[0]
@@ -490,7 +490,7 @@ PrefabInstance:
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: fe61c2d49137dde45a3463cda447bbed, type: 2}
+      objectReference: {fileID: 11400000, guid: e8449b1c4bf4a0c40add3fb1329a6787, type: 2}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[2]
       value: 
@@ -1871,7 +1871,7 @@ PrefabInstance:
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 029c86cce20295b4dbbeb52d6453edaa, type: 2}
+      objectReference: {fileID: 11400000, guid: e01e9999827c75140a4ceb8afe1a8e0b, type: 2}
     - target: {fileID: 2155184217897867240, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: m_Name
       value: Wave Manager
