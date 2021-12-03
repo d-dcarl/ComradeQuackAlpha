@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Waves/Wave")]
 public class WaveObject : ScriptableObject
 {
+    [Tooltip("The index of which pigsty you want to spawn from, 0 is first")]
+    public int pigstyToSpawn;
     public EnemyWave[] enemyWaves;
 }
 

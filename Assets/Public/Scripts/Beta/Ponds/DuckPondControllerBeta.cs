@@ -54,14 +54,16 @@ public class DuckPondControllerBeta : PondControllerBeta
                 }
 
                 PondControllerBeta newPCB = Instantiate(GameManagerBeta.Instance.styPrefab, transform.position, transform.rotation).GetComponent<PondControllerBeta>();
-                newPCB.neighbors = new List<PondControllerBeta>();
 
-                foreach (PondControllerBeta neighbor in neighbors)
+                foreach (PathControllerBeta path in paths)
                 {
-                    neighbor.neighbors.Remove(this);
-
-                    neighbor.neighbors.Add(newPCB);
-                    newPCB.neighbors.Add(neighbor);
+                    if (path.source == this)
+                    {
+                        path.source = newPCB;
+                    }
+                    else if (path.dest == this) {
+                        path.dest = newPCB;
+                    }
                 }
 
                 foreach (StyControllerBeta scb in GameManagerBeta.Instance.allStys)

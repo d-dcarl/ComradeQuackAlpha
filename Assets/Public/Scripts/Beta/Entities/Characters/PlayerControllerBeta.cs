@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerBeta : CharacterControllerBeta
 {
@@ -467,7 +468,14 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public void DuckDeath()
     {
+        StartCoroutine(WaitToGameOver());
+    }
 
+    IEnumerator WaitToGameOver()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("GameOver");
     }
 
     //This currently will activate from any of the player's trigger colliders. That may need to change if more are added in the future

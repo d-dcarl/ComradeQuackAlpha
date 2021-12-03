@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveManagerBeta : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class WaveManagerBeta : MonoBehaviour
     //public GameObject mainPond;
 
     // This needs to work for more than one sty
-    public SpawnerControllerBeta mainPigsty;
+    public SpawnerControllerBeta[] mainPigsties;
     
     
     public GameObject parentObj;
@@ -64,10 +65,10 @@ public class WaveManagerBeta : MonoBehaviour
 
             if (spawnTimer >= spawnRate)
             {
-                if (canSpawnMore && waveTime >= wavesToSpawn[currentWave].enemyWaves[waveCount].spawnTimeSinceStart && mainPigsty)
+                if (canSpawnMore && waveTime >= wavesToSpawn[currentWave].enemyWaves[waveCount].spawnTimeSinceStart && mainPigsties.Length > 0)
                 { 
                     // TODO: Either make all stys spawn an enemy, or choose which sty each enemy spawns at
-                    mainPigsty.SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
+                    mainPigsties[0].SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
                     spawnTimer = 0;
                     spawnCount++;
                     if (spawnCount >= wavesToSpawn[currentWave].enemyWaves[waveCount].amountToSpawn)
@@ -110,6 +111,9 @@ public class WaveManagerBeta : MonoBehaviour
         if (currentWave >= wavesToSpawn.Length)
         {
             Debug.Log("YOU WIN!");
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("MainMenu");
+            
         }
     }
 }
