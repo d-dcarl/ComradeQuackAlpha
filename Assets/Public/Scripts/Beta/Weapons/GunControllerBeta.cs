@@ -10,6 +10,7 @@ public class GunControllerBeta : MonoBehaviour
     protected float shootTimer;
     public GameObject crosshair;
     public bool zoomedIn;
+    public LayerMask PlayerLayerMask;
 
     public virtual void Start()
     {
@@ -51,11 +52,9 @@ public class GunControllerBeta : MonoBehaviour
         {
             if (zoomedIn)
             {
-                // TODO: shoot at crosshair
                 shootTimer = shootDelay;
 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                
                 BulletControllerBeta bcb = Instantiate(bulletPrefab).GetComponent<BulletControllerBeta>();
                 if (bcb == null)
                 {
@@ -63,7 +62,8 @@ public class GunControllerBeta : MonoBehaviour
                 }
 
                 bcb.transform.position = transform.position;
-                bcb.direction = ray.direction;
+                bcb.direction = GetDirection();           // ALMOST WORKS :(
+                //bcb.direction = ray.direction;
             }
             else
             {
@@ -93,5 +93,27 @@ public class GunControllerBeta : MonoBehaviour
             Debug.Log("Crosshair has not been set in the scene.");
         }
 
+    }
+
+    private Vector3 GetDirection()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Vector3 result = ray.direction;
+
+        if (Physics.Raycast(ray, out hit, 100, ~PlayerLayerMask))
+        {
+            var heading = hit.point - transform.position;
+            var distance = heading.magnitude;
+            result = heading / distance; // This is now the normalized direction.
+        }
+
+        // TESTING CODE ------------------------------------------------------------------
+        PlayerControllerBeta bad = hit.transform.GetComponent<PlayerControllerBeta>();
+        if (bad != null)
+            Debug.Log("hitting player");
+        // -------------------------------------------------------------------------------
+
+        return result;
     }
 }
