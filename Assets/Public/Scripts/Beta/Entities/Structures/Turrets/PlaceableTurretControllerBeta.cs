@@ -168,21 +168,21 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     private void SetHoverColor(int colorToSet)
     {
         //steal from set transparent
-        float redChange = 0;
-        float greenChange = 0;
-        float blueChange = 0;
+        //float redChange = 0;
+        //float greenChange = 0;
+        //float blueChange = 0;
         
         //set activate turret color
        switch(colorToSet)
         {
             case 1:
-                greenChange = 255;
+                //greenChange = 255;
                 break;
             case 2:
-                blueChange = 255;
+                //blueChange = 255;
                 break;
             case 3:
-                redChange = 255;
+                //redChange = 255;
                 break;
             default:
                 if (alive)

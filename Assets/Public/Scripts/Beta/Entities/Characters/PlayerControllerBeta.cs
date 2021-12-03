@@ -358,7 +358,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected void TurretLook()
     {
         GameObject selectedObject;
-        Ray ray;
+        //Ray ray;
         RaycastHit hitData;
         float maxDist = 10;
         //TODO: add check to see if player is close enough to the turret. Adjust the variable to be appropriate
