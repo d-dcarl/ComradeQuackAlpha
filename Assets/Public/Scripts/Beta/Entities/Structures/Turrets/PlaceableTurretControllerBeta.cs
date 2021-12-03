@@ -119,6 +119,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public override void Die()
     {
         alive = false;
+        //tell a nestController with a comrad manning a turret that it can spawn a comrad
         SetTransparent();
     }
 
