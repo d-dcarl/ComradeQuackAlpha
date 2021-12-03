@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1267,10 +1267,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1164838507}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &1164838509 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2901587764359893816, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1164838507}
+=======
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043426976}
+  m_Layer: 6
+  m_Name: Camera Zoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043426976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+>>>>>>> 29dae2d4d63fecc1625182aa4ae1bbfd6b814da5
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
