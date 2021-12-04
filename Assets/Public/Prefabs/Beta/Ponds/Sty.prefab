@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 3561141972690400716}
+  paths: []
 --- !u!1 &6435119666480781930
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +349,10 @@ PrefabInstance:
       propertyPath: healthBarSlider
       value: 
       objectReference: {fileID: 3514883189035598234}
+    - target: {fileID: 4988557488102777429, guid: 89adcc3122ef4cd46b750d71889ba496, type: 3}
+      propertyPath: turnOffAutoSpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4988557488102777431, guid: 89adcc3122ef4cd46b750d71889ba496, type: 3}
       propertyPath: m_Name
       value: Sty Shack
