@@ -78,7 +78,7 @@ public class EnemyControllerBeta : AIControllerBeta
                 if (source != null)
                 {
                     StyControllerBeta scb = source.GetComponent<StyControllerBeta>();
-                    if (scb != null)
+                    if (scb != null && scb.GetTargetPond() != null)
                     {
                         targetTransform = scb.GetTargetPond().transform;
                     }
