@@ -11,6 +11,7 @@ public class EntityControllerBeta : MonoBehaviour
     [HideInInspector]
     public bool alive;
     public Slider healthBarSlider;
+    public bool cantDie;
 
 
     public virtual void Start()
@@ -34,14 +35,17 @@ public class EntityControllerBeta : MonoBehaviour
 
     public virtual void TakeDamage(float amount)
     {
-        currentHealth -= amount;
-        if (healthBarSlider)
+        if (!cantDie)
         {
-            healthBarSlider.value = currentHealth;
-        }
-        if (currentHealth <= 0)
-        {
-            Die();
+            currentHealth -= amount;
+            if (healthBarSlider)
+            {
+                healthBarSlider.value = currentHealth;
+            }
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 

@@ -55,7 +55,7 @@ public class WaveManagerBeta : MonoBehaviour
         {
             waitTime += Time.deltaTime;
             timeBetweenText.text = "Next wave in: " + Mathf.Round(timeBetweenWaves - waitTime);
-            waveNumberText.text = "Wave: " + (currentWave + 1);
+            waveNumberText.text = "Wave: " + (currentWave + 1) + "/" + wavesToSpawn.Length;
             enemiesRemainingText.text = "";
             if (waitTime >= timeBetweenWaves)
             {
@@ -116,7 +116,7 @@ public class WaveManagerBeta : MonoBehaviour
 
     private void UpdateWaveText()
     {
-        waveNumberText.text = "Wave: " + (currentWave + 1);
+        waveNumberText.text = "Wave: " + (currentWave + 1) + "/" + wavesToSpawn.Length;
         enemiesRemainingText.text = "Enemies remaining: " + pigCount;
         timeBetweenText.text = "";
     }

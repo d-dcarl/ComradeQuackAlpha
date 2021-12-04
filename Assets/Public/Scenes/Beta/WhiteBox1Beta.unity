@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 374d3d2237ed9c043aef65cf2ad5ab75, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1023,6 +1023,14 @@ PrefabInstance:
       propertyPath: mainPigsty
       value: 
       objectReference: {fileID: 2125500604}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: currentWave
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: isWaitActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: waveNumberText
       value: 
@@ -2207,6 +2215,10 @@ PrefabInstance:
       value: Gun Transform
       objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: rotationSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 328548789}
@@ -2261,6 +2273,10 @@ PrefabInstance:
     - target: {fileID: 8393010493706824881, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393010493706824881, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8393010493706824883, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: m_Constraints
@@ -4146,6 +4162,10 @@ PrefabInstance:
     - target: {fileID: 6600427992290651671, guid: 75538898015334a4bb0630da3c5940f9, type: 3}
       propertyPath: m_Name
       value: Stamina Slider 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6600427992290651671, guid: 75538898015334a4bb0630da3c5940f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75538898015334a4bb0630da3c5940f9, type: 3}
@@ -8410,6 +8430,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 570319152888196783, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446354214516707179, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1790575426972176519, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8426,6 +8454,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4436246188223651739, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6815150354807114118, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -8433,6 +8465,10 @@ PrefabInstance:
     - target: {fileID: 7170711429507758265, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326317295602440564, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8170233906109585491, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
       propertyPath: m_Pivot.x
@@ -12325,6 +12361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 892480568564768649, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 892480568564768652, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -15713,6 +15753,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Duck Pond 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5718133338975872947, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
+      propertyPath: spawnCap
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7114062268320755170, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -19078,6 +19122,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3561141972690400716, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: cantDie
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561141972690400716, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: turnOffAutoSpawn
       value: 1
       objectReference: {fileID: 0}
@@ -19193,6 +19241,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6435119664964492400, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435119664964492400, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6435119664964492401, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -19220,6 +19276,18 @@ PrefabInstance:
     - target: {fileID: 6435119666393522785, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435119666393522785, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435119666393522785, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435119666393522785, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6435119666393522785, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19269,13 +19337,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8398999866129138200, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 7701930101898713941, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8398999866129138200, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.496
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398999866129138200, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}

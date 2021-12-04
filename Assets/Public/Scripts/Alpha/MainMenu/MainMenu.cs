@@ -11,6 +11,12 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsImage;
     public GameObject videoPlayer;
 
+    public void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
