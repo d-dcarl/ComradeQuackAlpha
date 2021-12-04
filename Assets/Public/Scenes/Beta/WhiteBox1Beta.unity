@@ -1045,7 +1045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: mainPigsties.Array.data[0]
@@ -1071,6 +1071,14 @@ PrefabInstance:
       propertyPath: wavesToSpawn.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: 834b8821e0cb23845a4d4705fa16531d, type: 2}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: wavesToSpawn.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: da38bd826cf382e4bb706ffd5bbdfdef, type: 2}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: wavesToSpawn.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: f13fbc1ea63bd174380c495d9a2b8ab7, type: 2}
     - target: {fileID: 2155184217897867240, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: m_Name
       value: Wave Manager
