@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.86716336, g: 0.6724117, b: 0.51768684, a: 1}
+  m_IndirectSpecularColor: {r: 0.8671514, g: 0.67240566, b: 0.5176857, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1024,12 +1024,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2125500604}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: waveNumberText
+      value: 
+      objectReference: {fileID: 1267828272}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: timeBetweenText
+      value: 
+      objectReference: {fileID: 1103080289}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: timeBetweenWaves
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: enemiesRemainingText
+      value: 
+      objectReference: {fileID: 426136925}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: mainPigsties.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: mainPigsties.Array.data[0]
@@ -1038,15 +1054,23 @@ PrefabInstance:
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 2456cd5cc8a27fc4b8b5e35bd4e1dad1, type: 2}
+      objectReference: {fileID: 11400000, guid: 0459d1cec7ef0274582905ef29810a7b, type: 2}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: fa83757121c634d4fb148f5e633e806d, type: 2}
+      objectReference: {fileID: 11400000, guid: 2beee15a74e5c9647a714ad0f31f6ace, type: 2}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 769316c9e6c0ff14b9a801a10e462be5, type: 2}
+      objectReference: {fileID: 11400000, guid: 68f89e5bbe5df6d44b836f9e2b3adc22, type: 2}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: wavesToSpawn.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 90d54be4cae3c4a4094c9778a4d73cc2, type: 2}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: wavesToSpawn.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 834b8821e0cb23845a4d4705fa16531d, type: 2}
     - target: {fileID: 2155184217897867240, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: m_Name
       value: Wave Manager
@@ -4117,6 +4141,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75538898015334a4bb0630da3c5940f9, type: 3}
+--- !u!114 &426136925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2078206002398054154, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+  m_PrefabInstance: {fileID: 991745711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &434422657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8679450568649515087, guid: 526d1b8752e2e4a4cbb95ca8794d1413, type: 3}
@@ -8367,6 +8402,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1790575426972176519, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2089002536375847309, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -8378,6 +8417,14 @@ PrefabInstance:
     - target: {fileID: 2089002537790167472, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815150354807114118, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170711429507758265, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8170233906109585491, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
       propertyPath: m_Pivot.x
@@ -9434,6 +9481,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 835c3f479010543bf9d97f51c114e5e3, type: 3}
+--- !u!114 &1103080289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 921544168404889343, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+  m_PrefabInstance: {fileID: 991745711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1115422650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11346,6 +11404,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5597002278806442958, guid: a492b85da6f9e064cbac035c5167bc32, type: 3}
+--- !u!114 &1267828272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7980182819741614678, guid: fffbaef4f6e90ed418f0168a1a6984cc, type: 3}
+  m_PrefabInstance: {fileID: 991745711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1282356199
 PrefabInstance:
   m_ObjectHideFlags: 0
