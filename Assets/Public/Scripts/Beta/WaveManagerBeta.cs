@@ -133,7 +133,7 @@ public class WaveManagerBeta : MonoBehaviour
         {
             Debug.Log("YOU WIN!");
             Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("Level Clear");
             
         }
     }

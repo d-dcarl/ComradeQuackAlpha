@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class MainMenu : MonoBehaviour
 {
@@ -10,12 +11,22 @@ public class MainMenu : MonoBehaviour
     public GameObject full;
     public GameObject creditsImage;
     public GameObject videoPlayer;
+    public AudioSource backgroundMusic;
 
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
+
+    //private void Update()
+    //{
+    //    if (!videoPlayer.activeSelf)
+    //    {
+    //        Debug.Log("no mute");
+    //        backgroundMusic.mute = false;
+    //    }
+    //}
 
     public void PlayGame()
     {
@@ -36,12 +47,15 @@ public class MainMenu : MonoBehaviour
             small.SetActive(false);
             full.SetActive(true);
         }
+
+        
     }
 
     public void PlayCredits()
     {
         videoPlayer.SetActive(true);
         creditsImage.SetActive(true);
+        //backgroundMusic.mute = true;
     }
 
     public void ExitGame()
