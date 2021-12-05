@@ -1098,11 +1098,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8393010493706824881, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
   m_PrefabInstance: {fileID: 240161072}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &102318353 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8393010493706824887, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
-  m_PrefabInstance: {fileID: 240161072}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &102318356 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
@@ -2215,16 +2210,16 @@ PrefabInstance:
       value: Gun Transform
       objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
-      propertyPath: rotationSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 328548789}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: circleExpansionRate
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128106518067279010, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4767632537951355355, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2336,6 +2331,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+--- !u!4 &241128202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4128106518067279010, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+  m_PrefabInstance: {fileID: 240161072}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &245234589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6131,36 +6131,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20076fd47cbf7014db2cc8aac8cc30ab, type: 3}
---- !u!1 &695591252
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 695591253}
-  m_Layer: 0
-  m_Name: Camera Zoom
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &695591253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695591252}
-  m_LocalRotation: {x: -0.13340911, y: -0.0038674455, z: 0.0005236372, w: -0.99105334}
-  m_LocalPosition: {x: 0.9012783, y: 1.1682682, z: -0.94941187}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 102318353}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699242226 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3213520564932780519, guid: 20076fd47cbf7014db2cc8aac8cc30ab, type: 3}
@@ -12416,7 +12386,7 @@ PrefabInstance:
     - target: {fileID: 892480568564768653, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
       propertyPath: zoomCam
       value: 
-      objectReference: {fileID: 695591253}
+      objectReference: {fileID: 241128202}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
 --- !u!1 &1392875533 stripped
