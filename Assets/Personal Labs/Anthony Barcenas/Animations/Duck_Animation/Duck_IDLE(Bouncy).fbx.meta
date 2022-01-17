@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 29626cc02f58f084c9e0917e1f428ee1
+guid: 9fcb5a474d84e1b4eb4b00929282895c
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
   - first:
-      74: 4781951162920444690
-    second: Armature|ArmatureAction
+      74: -1975476574750524591
+    second: Duck_IDLE(Bouncy)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|ArmatureAction
-      takeName: Armature|ArmatureAction
+      name: Duck_IDLE(Bouncy)
+      takeName: Duck_IDLE(Bouncy)
       internalID: 0
-      firstFrame: 0
-      lastFrame: 19
+      firstFrame: 1
+      lastFrame: 155
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -62,7 +62,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 0
   meshes:
     lODScreenPercentages: []
