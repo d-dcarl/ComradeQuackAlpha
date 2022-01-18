@@ -18,7 +18,7 @@ public class GunControllerBeta : MonoBehaviour
         crosshair = GameObject.Find("Crosshair");
         crosshair.SetActive(false);
         zoomedIn = false;
-        PlayerLayerMask = LayerMask.GetMask("Player", "UI");
+        PlayerLayerMask = LayerMask.GetMask("Player", "UI", "Ignore Raycast");
     }
 
     public virtual void Update()
@@ -107,13 +107,15 @@ public class GunControllerBeta : MonoBehaviour
             var heading = hit.point - transform.position;
             var distance = heading.magnitude;
             result = heading / distance; // This is now the normalized direction.
+
+            Debug.Log(hit.collider.gameObject.layer);
         }
 
         // TESTING CODE ------------------------------------------------------------------
         /*PlayerControllerBeta bad = hit.transform.GetComponent<PlayerControllerBeta>();
         if (bad != null)
             Debug.Log("hitting player"); */
-        Debug.Log(hit.collider);
+        
         // -------------------------------------------------------------------------------
 
         return result;

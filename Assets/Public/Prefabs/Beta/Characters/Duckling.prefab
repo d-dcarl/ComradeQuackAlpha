@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2490746866848049003}
   - component: {fileID: 3339720288529412069}
   - component: {fileID: 7290712179075750611}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: Range Finder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,6 +240,7 @@ MonoBehaviour:
   maxHealth: 10
   alive: 0
   healthBarSlider: {fileID: 7113465024780976508}
+  cantDie: 0
   acceleration: 30
   maxSpeed: 3
   targetHitbox: {fileID: 7290712179075750611}

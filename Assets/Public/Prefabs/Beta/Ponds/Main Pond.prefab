@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 5718133338975872947}
-  neighbors: []
+  paths: []
   structure: {fileID: 7463468025995264699}
 --- !u!1 &5818827012389076593
 GameObject:
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 7463468025095378006}
   - component: {fileID: 7463468025095378007}
   - component: {fileID: 5342785110289011397}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Range Finder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,6 +875,7 @@ MonoBehaviour:
   maxHealth: 10
   alive: 0
   healthBarSlider: {fileID: 5414225856916870231}
+  cantDie: 0
   head: {fileID: 7463468024505602987}
   gun: {fileID: 7463468025186154394}
   targetRange: {fileID: 5342785110289011397}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7315122376185121959}
   - component: {fileID: 2223259863739803913}
   - component: {fileID: 2996925734376119767}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Follow Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +111,7 @@ MonoBehaviour:
   maxHealth: 180
   alive: 0
   healthBarSlider: {fileID: 3492876883054497400}
+  cantDie: 0
   acceleration: 100
   maxSpeed: 2
   targetHitbox: {fileID: 2996925734376119767}
@@ -121,7 +122,8 @@ MonoBehaviour:
   attackHitBox: {fileID: 6924727160141618297}
   attackDamage: 5
   attackDelay: 1
-  styUpdateRadius: 4
+  updateRadius: 4
+  targetUpdateTime: 0
 --- !u!65 &5019965575117504301
 BoxCollider:
   m_ObjectHideFlags: 0

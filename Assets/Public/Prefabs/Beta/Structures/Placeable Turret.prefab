@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 554601727527761218}
   - component: {fileID: 554601727527761216}
   - component: {fileID: 554601727527761217}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: Range Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,6 +109,7 @@ MonoBehaviour:
   maxHealth: 10
   alive: 0
   healthBarSlider: {fileID: 440019105985176517}
+  cantDie: 0
   head: {fileID: 554601728353918052}
   gun: {fileID: 554601727985244049}
   targetRange: {fileID: 554601727527761216}
