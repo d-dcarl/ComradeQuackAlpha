@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d225c6168c9864c88dd7d49a89d370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 15
   alive: 0
   healthBarSlider: {fileID: 8016353434781744184}
   cantDie: 0
@@ -574,10 +574,10 @@ MonoBehaviour:
   canShoot:
   - Enemy
   predictiveAiming: 0
-  rotationSpeed: 0.05
+  rotationSpeed: 0.1
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 5493637439549793926, guid: 5ddc7086dd9d68346ad65377c7bc76f0, type: 3}
-  fireRate: 1
+  fireRate: 1.2
 --- !u!1 &7968797003176608683
 GameObject:
   m_ObjectHideFlags: 0

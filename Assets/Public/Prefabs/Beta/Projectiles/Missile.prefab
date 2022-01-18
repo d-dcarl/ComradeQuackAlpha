@@ -139,12 +139,12 @@ MonoBehaviour:
   lifetime: 5
   cleanupDistance: 1000
   speed: 10
-  damage: 8
-  knockback: 50
+  damage: 10
+  knockback: 40
   direction: {x: 0, y: 0, z: 0}
   canHit:
   - Enemy
-  splashRadius: 3
+  splashRadius: 4
   splashRange: {fileID: 8705638303165872077}
   retargetDistance: 5
   target: {fileID: 0}
