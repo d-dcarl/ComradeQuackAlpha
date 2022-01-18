@@ -182,6 +182,7 @@ MonoBehaviour:
   full: {fileID: 966544052}
   creditsImage: {fileID: 1438164736}
   videoPlayer: {fileID: 2000292458}
+  backgroundMusic: {fileID: 1260605631}
 --- !u!81 &206351752
 AudioListener:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206351749}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &233333679
 GameObject:
   m_ObjectHideFlags: 0
