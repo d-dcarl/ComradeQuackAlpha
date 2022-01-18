@@ -456,7 +456,7 @@ GameObject:
   - component: {fileID: 7968797003110443711}
   - component: {fileID: 7968797003110443709}
   - component: {fileID: 7968797003110443708}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: Range Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
