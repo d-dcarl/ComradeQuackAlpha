@@ -102,7 +102,7 @@ public class GunControllerBeta : MonoBehaviour
         RaycastHit hit;
         Vector3 result = ray.direction;
 
-        if (Physics.Raycast(ray, out hit, 100, ~PlayerLayerMask))
+        if (Physics.Raycast(ray, out hit, 100/*, ~PlayerLayerMask*/))
         {
             var heading = hit.point - transform.position;
             var distance = heading.magnitude;
