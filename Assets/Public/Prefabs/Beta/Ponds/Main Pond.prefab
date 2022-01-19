@@ -378,6 +378,8 @@ MonoBehaviour:
   spawner: {fileID: 5718133338975872947}
   paths: []
   structure: {fileID: 7463468025995264699}
+  pond: {fileID: 8672356825619356826, guid: 0c4e35018fb8b2b428134ebc6be8e6ee, type: 3}
+  waterTexture: {fileID: 2100000, guid: 512bfc700ab0b0b4388d7114c0785e7a, type: 2}
 --- !u!1 &5818827012389076593
 GameObject:
   m_ObjectHideFlags: 0

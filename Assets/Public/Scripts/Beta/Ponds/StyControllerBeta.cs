@@ -9,11 +9,19 @@ public class StyControllerBeta : PondControllerBeta
 
     protected bool registered;
 
+    [SerializeField] public GameObject pond;
+    [SerializeField] public Material waterTexture;
+
+
     public void Start()
     {
         ResetTarget();
         registered = false;
         RegisterSty();
+
+        //makes the pond
+        //Instantiate(pond, this.transform.position, Quaternion.identity);
+        //make the pond use the dirty water texture
     }
 
     public void Update()

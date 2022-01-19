@@ -8,10 +8,17 @@ public class DuckPondControllerBeta : PondControllerBeta
 
     protected bool registered;
 
+    [SerializeField] public GameObject pond;
+    [SerializeField] public Material waterTexture;
+
     public void Start()
     {
         registered = false;
         RegisterPond();
+        //Instantiate(pond, this.transform.position, Quaternion.identity);
+        //make the pond use the clear water texture
+
+
     }
 
     public void Update()
