@@ -234,6 +234,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
         if (placing)
         {
+            //cancel the turret placement
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                placing = false;
+                Destroy(beingPlaced.gameObject);
+            }
+
             if (Input.mouseScrollDelta.y > 0)
             {
                 turretPrefabIndex--;
