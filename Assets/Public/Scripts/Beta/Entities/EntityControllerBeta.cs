@@ -49,6 +49,17 @@ public class EntityControllerBeta : MonoBehaviour
         }
     }
 
+    public virtual void Heal(float amount)
+    {
+        currentHealth += amount;
+        if (currentHealth >= maxHealth)
+            currentHealth = maxHealth;
+        if (healthBarSlider)
+        {
+            healthBarSlider.value = currentHealth;
+        }
+    }
+
     public virtual void Die()
     {
         alive = false;
