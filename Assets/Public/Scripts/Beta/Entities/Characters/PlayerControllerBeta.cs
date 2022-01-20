@@ -334,9 +334,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (Cursor.lockState == CursorLockMode.Locked || Cursor.lockState == CursorLockMode.Confined)           // changed to allow confined cursor as well - SJ
         {
             float mouseVelX = Input.GetAxis("Mouse X");
-            if (Mathf.Abs(mouseVelX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
+            float contRotX = Input.GetAxis("JoyStick Right");
+
+            if (Mathf.Abs(mouseVelX) > 0.1f || Mathf.Abs(contRotX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
             {
-                float rotationDelta = mouseVelX * rotationSpeed * Time.deltaTime * 60f;
+                float rotationDelta = (mouseVelX + contRotX) * rotationSpeed * Time.deltaTime * 60f;
                 transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + rotationDelta, 0f);
             }
         }
