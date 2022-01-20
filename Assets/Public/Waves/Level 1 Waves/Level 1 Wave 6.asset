@@ -17,3 +17,6 @@ MonoBehaviour:
   - enemy: {fileID: 5019965575117504303, guid: 420322af6fc717a4180050995283fc01, type: 3}
     amountToSpawn: 20
     spawnTimeSinceStart: 0
+  - enemy: {fileID: 6446803332376336247, guid: 8926c3a888d6e794cbd41f5c5609909c, type: 3}
+    amountToSpawn: 2
+    spawnTimeSinceStart: 0
