@@ -387,7 +387,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 if (selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))
                 {
                     //tell turret its being looked at
-                    turret.lookedAt(true);
+                    //turret.lookedAt(true);
                     lookedTurret = turret;
                     //tell the turret we are placing a duckling in it
                     if (ducklingToTurret && turret.AddDuckling())
@@ -410,6 +410,39 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
         }
         
+    }
+
+    protected void NestLook()
+    {
+        GameObject selectedObject;
+        //Ray ray;
+        RaycastHit hitData;
+        float maxDist = 10;
+        //TODO: add check to see if player is close enough to the turret. Adjust the variable to be appropriate
+        if (Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hitData, maxDist))
+        {
+            //tells the turret to Light up turret showing green, yellow or red for its states
+            selectedObject = hitData.collider.gameObject;
+            //Debug.Log(selectedObject.tag);
+            if (selectedObject.tag == "Nest" && ducklingsList.Count > 0)
+            {
+                //get the turret controller
+                if (selectedObject.TryGetComponent<NestControllerBeta>(out NestControllerBeta nest))
+                {
+                    //tell the nest we are placing a duckling in it
+                    if (ducklingToTurret && nest.AddDuckling())
+                    {
+                        ducklingsList[0].ManNest(nest);
+                        //ducklingsList[0].Die();
+                        ducklingsList.RemoveAt(0);
+
+                    }
+                }
+                return;
+            }
+        }
+
+
     }
 
     protected void Glide()

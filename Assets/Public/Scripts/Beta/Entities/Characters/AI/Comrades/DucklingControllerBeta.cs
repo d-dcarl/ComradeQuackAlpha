@@ -157,6 +157,16 @@ public class DucklingControllerBeta : ComradeControllerBeta
         this.gameObject.SetActive(false);
     }
 
+    //TODO Make this not acutally kill the duckling, but just remove it from the scene and keep it in the turret
+    public void ManNest(NestControllerBeta nest)
+    {
+        wasKilled = false;
+        isManning = true;
+        //Destroy(this.gameObject);
+        //this.turret = turret;
+        this.gameObject.SetActive(false);
+    }
+
     public void PlayQuack()
     {
         base.audioData.Play();
