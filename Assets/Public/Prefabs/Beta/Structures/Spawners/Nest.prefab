@@ -224,7 +224,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2896557737110496845, guid: 89d18cf02e0b3e646856d82f932ba152, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -579,12 +579,14 @@ MonoBehaviour:
   maxHealth: 10
   alive: 0
   healthBarSlider: {fileID: 5634484433958553634}
+  cantDie: 0
   spawnPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
   spawnCap: 3
   spawnDelay: 1
   spawnRadius: 5
   spawnHeight: 1
   turnOffAutoSpawn: 0
+  curSpawns: 0
 --- !u!136 &8333827899096382275
 CapsuleCollider:
   m_ObjectHideFlags: 0
