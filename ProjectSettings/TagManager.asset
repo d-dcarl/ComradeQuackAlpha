@@ -18,6 +18,7 @@ TagManager:
   - Recruit
   - RecruitRange
   - Environment
+  - Nest
   layers:
   - Default
   - TransparentFX
