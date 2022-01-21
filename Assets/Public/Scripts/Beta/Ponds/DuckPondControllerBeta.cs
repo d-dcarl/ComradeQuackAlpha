@@ -8,17 +8,15 @@ public class DuckPondControllerBeta : PondControllerBeta
 
     protected bool registered;
 
-    [SerializeField] public GameObject pond;
-    [SerializeField] public Material waterTexture;
-
     public void Start()
     {
         registered = false;
         RegisterPond();
-        //Instantiate(pond, this.transform.position, Quaternion.identity);
-        //make the pond use the clear water texture
-
-
+        if(placedInLevel)
+        {
+            //changes from object type to reference to pond
+            pond = Instantiate(pond, new Vector3(this.transform.position.x, this.transform.position.y + 0.13f, this.transform.position.z), Quaternion.identity);
+        }
     }
 
     public void Update()
@@ -62,6 +60,7 @@ public class DuckPondControllerBeta : PondControllerBeta
 
                 PondControllerBeta newPCB = Instantiate(GameManagerBeta.Instance.styPrefab, transform.position, transform.rotation).GetComponent<PondControllerBeta>();
 
+
                 foreach (PathControllerBeta path in paths)
                 {
                     if (path.source == this)
@@ -77,6 +76,10 @@ public class DuckPondControllerBeta : PondControllerBeta
                 {
                     scb.ResetTarget();
                 }
+                //tell the new pond where the pond (water and shore) is
+                newPCB.setPond(pond);
+
+
                 Destroy(gameObject);
             }
         }

@@ -9,9 +9,6 @@ public class StyControllerBeta : PondControllerBeta
 
     protected bool registered;
 
-    [SerializeField] public GameObject pond;
-    [SerializeField] public Material waterTexture;
-
 
     public void Start()
     {
@@ -20,8 +17,13 @@ public class StyControllerBeta : PondControllerBeta
         RegisterSty();
 
         //makes the pond
-        //Instantiate(pond, this.transform.position, Quaternion.identity);
-        //make the pond use the dirty water texture
+        if (placedInLevel)
+        {
+            //changes from object type to reference to pond
+            pond = Instantiate(pond, new Vector3(this.transform.position.x, this.transform.position.y + 0.13f, this.transform.position.z), Quaternion.identity);
+            //make the pond use the dirty water texture
+            changePondTexture();
+        }
     }
 
     public void Update()
@@ -139,6 +141,10 @@ public class StyControllerBeta : PondControllerBeta
                 {
                     scb.ResetTarget();
                 }
+
+                //tell the new pond where the pond (water and shore) is
+                newPCB.setPond(pond);
+
                 Destroy(gameObject);
             }
         }
