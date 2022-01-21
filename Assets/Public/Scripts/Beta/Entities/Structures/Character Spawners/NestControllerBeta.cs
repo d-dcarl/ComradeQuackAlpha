@@ -9,9 +9,8 @@ public class NestControllerBeta : SpawnerControllerBeta
     protected float upgradeTimer = 0;
     protected float upgradeDelay = 1;
 
-    private int upgradeLevel = 4;
+    private int upgradeLevel = 0;
     private int upgradeCap = 4;
-
 
     public override GameObject Spawn()
     {
@@ -78,20 +77,23 @@ public class NestControllerBeta : SpawnerControllerBeta
     {
         if(upgradeLevel == 1)
         {
-            //spawnDelay = 2;
+            turnOffAutoSpawn = false;
+            spawnDelay = 20;
         }
         else if(upgradeLevel == 2)
         {
-
+            turnOffAutoSpawn = false;
+            spawnDelay = 10;
         }
         else if (upgradeLevel == 3)
         {
-
+            turnOffAutoSpawn = false;
+            spawnDelay = 2;
         }
-        //our default is the min spawn time
+        //our default is the not spawning
         else
         {
-
+            turnOffAutoSpawn = true;
         }
     }
 }
