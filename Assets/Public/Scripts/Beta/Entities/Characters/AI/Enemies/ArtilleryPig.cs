@@ -12,6 +12,7 @@ public class ArtilleryPig : EnemyControllerBeta
     public float xForce;
     public float zForce;
     public Transform cannon;
+    public Transform targetBox;
 
     bool canMove = true;
     bool isProgressing = false;
@@ -31,8 +32,15 @@ public class ArtilleryPig : EnemyControllerBeta
 
     public override void Attack()
     {
+        transform.LookAt(targetBox);
         GameObject proj = Instantiate(projectile, cannon.position, cannon.rotation, GameObject.Find("Ball Holder").transform);
-        proj.GetComponent<Rigidbody>().AddForce(cannon.forward * xForce);
+        float dist = Vector3.Distance(cannon.position, targetBox.position);
+        float t = .5f;
+        float xVel = -(cannon.position.x - targetBox.position.x) / t;
+        float yVel = ((cannon.position.y - targetBox.position.y) / t) + ((Physics.gravity.y * t)/2);
+        float zVel = -(cannon.position.z - targetBox.position.z) / t;
+        //proj.GetComponent<Rigidbody>().velocity = new Vector3(xVel, yVel, zVel);
+        proj.GetComponent<Rigidbody>().velocity = cannon.forward * (dist * 2);
         foreach (GameObject g in attackHitBox.tracked)
         {
             if (g != null)

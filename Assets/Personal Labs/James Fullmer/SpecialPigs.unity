@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -836,7 +836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676457682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 20}
+  m_LocalPosition: {x: 0, y: 0.5, z: 15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1475,9 +1475,10 @@ MonoBehaviour:
   progressSlider: {fileID: 0}
   maxWaitTime: 0
   projectile: {fileID: 6061287910832345258, guid: 9f71189e391cb2c4daa2a4a94baced2b, type: 3}
-  xForce: 650
+  xForce: 5
   zForce: 0
   cannon: {fileID: 428322207}
+  targetBox: {fileID: 1676457686}
 --- !u!1 &5290579225741341813
 GameObject:
   m_ObjectHideFlags: 0
