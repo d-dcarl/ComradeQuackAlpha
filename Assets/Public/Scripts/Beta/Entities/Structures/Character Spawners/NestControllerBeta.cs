@@ -9,7 +9,7 @@ public class NestControllerBeta : SpawnerControllerBeta
     protected float upgradeTimer = 0;
     protected float upgradeDelay = 1;
 
-    private int upgradeLevel = 0;
+    [SerializeField]  public int upgradeLevel = 0;
     private int upgradeCap = 4;
 
     public override GameObject Spawn()

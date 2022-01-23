@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2853327195998244398}
   - component: {fileID: 2853327195998244393}
   - component: {fileID: 2853327195998244392}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stick (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2853327196215246854}
   - component: {fileID: 2853327196215246849}
   - component: {fileID: 2853327196215246848}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 2853327196550875961}
   - component: {fileID: 2853327196550875972}
   - component: {fileID: 2853327196550875963}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2853327196662347898}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 2853327196995997466}
   - component: {fileID: 2853327196995997477}
   - component: {fileID: 2853327196995997476}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stick (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 2853327197066156516}
   - component: {fileID: 2853327197066156519}
   - component: {fileID: 2853327197066156518}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stick (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 2853327197142767928}
   - component: {fileID: 2853327197142767931}
   - component: {fileID: 2853327197142767930}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stick (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 2853327197391258097}
   - component: {fileID: 8333827899096382275}
   - component: {fileID: 5802581162627578839}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Nest
   m_TagString: Player Structure
   m_Icon: {fileID: 0}
@@ -581,12 +581,13 @@ MonoBehaviour:
   healthBarSlider: {fileID: 5634484433958553634}
   cantDie: 0
   spawnPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
-  spawnCap: 3
+  spawnCap: 10
   spawnDelay: 1
   spawnRadius: 5
   spawnHeight: 1
   turnOffAutoSpawn: 0
   curSpawns: 0
+  upgradeLevel: 0
 --- !u!136 &8333827899096382275
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -628,7 +629,7 @@ GameObject:
   - component: {fileID: 2853327197468753793}
   - component: {fileID: 2853327197468753804}
   - component: {fileID: 2853327197468753795}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Stick (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,6 +707,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2853327197391258096}
     m_Modifications:
+    - target: {fileID: 765879135522220180, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4549175271318885721, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5138567865375523899, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -714,9 +723,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5797877367492659065, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 6422732579162807670, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422732579162807670, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8969698846730004058, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_Pivot.x

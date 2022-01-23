@@ -377,9 +377,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 5718133338975872947}
   paths: []
-  structure: {fileID: 7463468025995264699}
   pond: {fileID: 8672356825619356826, guid: 0c4e35018fb8b2b428134ebc6be8e6ee, type: 3}
   waterTexture: {fileID: 2100000, guid: 512bfc700ab0b0b4388d7114c0785e7a, type: 2}
+  placedInLevel: 0
+  structure: {fileID: 7463468025995264699}
 --- !u!1 &5818827012389076593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1214,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2853327197391258097, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
       propertyPath: spawnDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2853327197391258097, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
+      propertyPath: upgradeLevel
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2853327197391258103, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
