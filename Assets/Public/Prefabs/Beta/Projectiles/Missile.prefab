@@ -139,8 +139,8 @@ MonoBehaviour:
   lifetime: 5
   cleanupDistance: 1000
   speed: 10
-  damage: 10
-  knockback: 40
+  damage: 15
+  knockback: 35
   direction: {x: 0, y: 0, z: 0}
   canHit:
   - Enemy

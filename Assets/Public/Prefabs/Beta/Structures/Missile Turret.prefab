@@ -513,8 +513,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7968797003135590008}
-  - component: {fileID: 7968797003135590006}
   - component: {fileID: 3857200841732041573}
+  - component: {fileID: 7968797003135590006}
   m_Layer: 11
   m_Name: Missile Turret
   m_TagString: Turret
@@ -539,19 +539,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7968797003135590006
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7968797003135590011}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.8, z: 1.5}
-  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!114 &3857200841732041573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,7 +564,20 @@ MonoBehaviour:
   rotationSpeed: 0.1
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 5493637439549793926, guid: 5ddc7086dd9d68346ad65377c7bc76f0, type: 3}
-  fireRate: 1.2
+  fireRate: 2
+--- !u!65 &7968797003135590006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968797003135590011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2.8, z: 1.5}
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!1 &7968797003176608683
 GameObject:
   m_ObjectHideFlags: 0
