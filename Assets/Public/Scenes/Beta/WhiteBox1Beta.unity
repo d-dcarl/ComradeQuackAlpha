@@ -2217,6 +2217,14 @@ PrefabInstance:
       propertyPath: circleExpansionRate
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: placeableTurretPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: placeableTurretPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 554601727569707398, guid: 56a3799b8d18d5b42aea1b8a2e0b4b9e, type: 3}
     - target: {fileID: 4128106518067279010, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: m_RootOrder
       value: 4
