@@ -338,8 +338,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
             if (Mathf.Abs(mouseVelX) > 0.1f || Mathf.Abs(contRotX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
             {
-                float rotationDelta = (mouseVelX + contRotX) * rotationSpeed * Time.deltaTime * 60f;
-                transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + rotationDelta, 0f);
+                if (!Input.GetKey(KeyCode.LeftShift))       // added zoom-in check to allow smooth rotations for zoom-in shooting - SJ
+                {
+                    float rotationDelta = (mouseVelX + contRotX) * rotationSpeed * Time.deltaTime * 60f;
+                    transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + rotationDelta, 0f);
+                }
             }
         }
     }
