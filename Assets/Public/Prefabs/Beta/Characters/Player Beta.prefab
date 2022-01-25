@@ -198,7 +198,7 @@ MonoBehaviour:
   foodStaminaRegen: 30
   staminaSlider: {fileID: 0}
   placeableTurretPrefabs:
-  - {fileID: 554601727569707398, guid: 51a5a99f2403d844893bf1697a7a02ac, type: 3}
+  - {fileID: 554601727569707398, guid: 2678e54e7aee8584884a90396a2128d1, type: 3}
   - {fileID: 7968797003135590011, guid: 3ff001bc62c661b4cb65d191a0418ba5, type: 3}
   maxTurrets: 3
   placementDelay: 1
