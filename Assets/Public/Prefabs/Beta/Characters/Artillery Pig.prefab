@@ -50,16 +50,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0930d9f8b287904291a8f966c5d459d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 20
   alive: 0
   healthBarSlider: {fileID: 8137534064912883752}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 5
+  maxSpeed: 2
   targetHitbox: {fileID: 7566149668356354951}
   canAttack:
   - Turret
   - Player Structure
+  - Flying Turret
   attackHitBox: {fileID: 7566149668356354951}
   attackDamage: 2
   attackDelay: 2
@@ -71,6 +72,10 @@ MonoBehaviour:
   xForce: 2.5
   yForce: 30
   cannon: {fileID: 4654299906247742519}
+  canMove: 1
+  isProgressing: 0
+  isFiring: 0
+  isPackingUp: 0
 --- !u!65 &377709788000653693
 BoxCollider:
   m_ObjectHideFlags: 0

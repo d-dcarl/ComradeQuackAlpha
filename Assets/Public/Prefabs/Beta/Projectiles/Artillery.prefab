@@ -135,5 +135,6 @@ MonoBehaviour:
   canHit:
   - Turret
   - Player Structure
+  - Flying Turret
   target: {fileID: 0}
   fallSpeed: 15
