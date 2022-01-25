@@ -114,7 +114,7 @@ MonoBehaviour:
   healthBarSlider: {fileID: 3492876883054497400}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 7.75
+  maxSpeed: 8
   targetHitbox: {fileID: 2996925734376119767}
   canAttack:
   - Player
