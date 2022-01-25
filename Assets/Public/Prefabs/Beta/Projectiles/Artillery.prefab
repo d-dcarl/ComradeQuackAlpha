@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6272325472581553703}
   - component: {fileID: 7875534201493679469}
   - component: {fileID: 5281840745333312404}
-  m_Layer: 0
-  m_Name: Ball
-  m_TagString: Untagged
+  - component: {fileID: 7623621507206929231}
+  m_Layer: 13
+  m_Name: Artillery
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,3 +114,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7623621507206929231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061287910832345258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eea1338da15c104cafa9f50e1ea87b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 5
+  cleanupDistance: 1000
+  speed: 1
+  damage: 1
+  knockback: 0
+  direction: {x: 0, y: 0, z: 0}
+  canHit:
+  - Turret
+  - Player Structure
+  target: {fileID: 0}
+  fallSpeed: 15
