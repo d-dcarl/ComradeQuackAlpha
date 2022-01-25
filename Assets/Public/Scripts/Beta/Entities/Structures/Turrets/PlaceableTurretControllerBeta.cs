@@ -23,11 +23,11 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         hitBox.enabled = false;
         SetTransparent();
 
-        //turret upgrade stuff
+        // turret upgrade stuff
         upgradeLevel = 0;
         upgradeCap = 10;
 
-        //This is only to visually show that the turret in inactive on spawning
+        // This is only to visually show that the turret is inactive on spawning
         currentHealth = 0;
         healthBarSlider.value = 0;
 
@@ -57,7 +57,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         }
     }
 
-    void GoToPlacementPos()
+    public virtual void GoToPlacementPos()
     {
         if(GameManagerBeta.Instance != null)
         {

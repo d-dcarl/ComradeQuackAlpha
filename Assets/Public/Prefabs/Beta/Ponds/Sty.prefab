@@ -79,8 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 3561141972690400716}
   paths: []
-  pond: {fileID: 3640171380732336487, guid: e97340eef7fd4de4ba76019f386d91ea, type: 3}
+  pond: {fileID: 0}
   waterTexture: {fileID: 2100000, guid: a394ae45b9ef5804386696b7f40a0996, type: 2}
+  placedInLevel: 0
 --- !u!1 &6435119666480781930
 GameObject:
   m_ObjectHideFlags: 0
