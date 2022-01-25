@@ -18,7 +18,7 @@ public class PondControllerBeta : MonoBehaviour
     public void changePondTexture()
     {
         //gets the water's mesh renderer, then
-        gameObject.transform.GetChild(1).GetComponent<MeshRenderer>().material = waterTexture;
+        pond.transform.GetChild(1).GetComponent<MeshRenderer>().material = waterTexture;
     }
 
     //gives the pond object associated with this pond (the water and shore)
