@@ -61,7 +61,7 @@ public class TurretControllerBeta : StructureControllerBeta
         else
         {
             RotateGun(target);
-            Shoot();
+            ShootCheck();
         }
     }
 
@@ -107,17 +107,17 @@ public class TurretControllerBeta : StructureControllerBeta
         return projectedPos;
     }
 
-    public virtual void Shoot()
+    public virtual void ShootCheck()
     {
         firingTimer -= Time.deltaTime;
         if (firingTimer <= 0f)
         {
-            SpawnProjectile();
+            Fire();
             firingTimer = fireRate;
         }
     }
 
-    public virtual void SpawnProjectile()
+    public virtual void Fire()
     {
         BulletControllerBeta projectile = Instantiate(Projectile).GetComponent<BulletControllerBeta>();
         projectile.transform.position = gun.transform.position;

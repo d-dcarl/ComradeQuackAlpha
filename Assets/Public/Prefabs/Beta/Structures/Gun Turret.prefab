@@ -68,8 +68,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 554601727569707397}
-  - component: {fileID: 554601727569707403}
   - component: {fileID: 1154439759841681948}
+  - component: {fileID: 554601727569707403}
   m_Layer: 11
   m_Name: Gun Turret
   m_TagString: Turret
@@ -94,6 +94,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1154439759841681948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554601727569707398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79108267f3be0374b9c6a91666e49c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  alive: 0
+  healthBarSlider: {fileID: 440019105985176517}
+  cantDie: 0
+  head: {fileID: 554601728353918052}
+  gun: {fileID: 554601727985244049}
+  targetRange: {fileID: 554601727527761216}
+  canShoot:
+  - Enemy
+  predictiveAiming: 0
+  rotationSpeed: 0.3
+  initialRotation: {x: 0, y: 0, z: 0, w: 0}
+  Projectile: {fileID: 6445303830105601911, guid: 75bc9860ec10d3f468127d7c324a8a8f, type: 3}
+  fireRate: 0.7
+  damage: 4
+  knockback: 10
 --- !u!65 &554601727569707403
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,33 +135,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2.8, z: 1.5}
   m_Center: {x: 0, y: 1.4, z: 0}
---- !u!114 &1154439759841681948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554601727569707398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79108267f3be0374b9c6a91666e49c4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  alive: 0
-  healthBarSlider: {fileID: 440019105985176517}
-  cantDie: 0
-  head: {fileID: 554601728353918052}
-  gun: {fileID: 554601727985244049}
-  targetRange: {fileID: 554601727527761216}
-  canShoot: []
-  predictiveAiming: 0
-  rotationSpeed: 0.3
-  initialRotation: {x: 0, y: 0, z: 0, w: 0}
-  Projectile: {fileID: 0}
-  fireRate: 0.7
-  damage: 4
-  knockback: 10
 --- !u!1 &554601727593962582
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +329,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 554601727569707397}
     m_Modifications:
+    - target: {fileID: 2912066948662340481, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5138567865375523899, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

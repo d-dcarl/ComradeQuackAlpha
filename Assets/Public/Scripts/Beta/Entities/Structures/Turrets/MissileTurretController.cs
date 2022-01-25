@@ -10,7 +10,7 @@ public class MissileTurretController : PlaceableTurretControllerBeta
         base.Start();
     }
 
-    public override void SpawnProjectile()
+    public override void Fire()
     {
         MissileControllerBeta missile = Instantiate(Projectile).GetComponent<MissileControllerBeta>();
         missile.transform.position = gun.transform.position;

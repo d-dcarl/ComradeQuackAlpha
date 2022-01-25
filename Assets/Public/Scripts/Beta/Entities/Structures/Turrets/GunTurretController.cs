@@ -13,18 +13,24 @@ public class GunTurretController : PlaceableTurretControllerBeta
         base.Start();
     }
 
-    public override void Shoot()
+    public override void Fire()
     {
         RaycastHit hit;
         if (Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range))
         {
-            EnemyControllerBeta target = hit.collider.GetComponent<EnemyControllerBeta>();
-
-            if (target != null)
+            if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                target.TakeDamage(damage);
-                target.KnockBack(-hit.normal, knockback);
+                EnemyControllerBeta target = hit.collider.GetComponent<EnemyControllerBeta>();
+
+                if (target != null)
+                {
+                    target.TakeDamage(damage);
+                    target.KnockBack(-hit.normal, knockback);
+                }
+                
+                Debug.DrawLine(gun.transform.position, hit.point);
             }
+
         }
     }
 }
