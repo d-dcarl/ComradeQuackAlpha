@@ -23,7 +23,7 @@ public class GunControllerBeta : MonoBehaviour
 
     public virtual void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetMouseButton(1))
         {
             ShowCrosshair();
             zoomedIn = true;

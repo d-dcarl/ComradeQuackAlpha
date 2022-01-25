@@ -176,12 +176,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
             EndRecruit();
         }
 
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("DucklingTurret"))
+        if (Input.GetKeyDown(KeyCode.C) || Input.GetButtonDown("DucklingTurret"))
         {
             ducklingToTurret = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("DucklingTurret"))
+        if (Input.GetKeyUp(KeyCode.C) || Input.GetButtonUp("DucklingTurret"))
         {
             ducklingToTurret = false;
         }
@@ -216,7 +216,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             placementTimer -= Time.deltaTime;
         }
-        if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("PlaceTurret"))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("PlaceTurret"))
         {
             if (!placing && numTurrets < maxTurrets && placementTimer <= 0f)
             {
@@ -337,7 +337,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
             if (Mathf.Abs(mouseVelX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
             {
-                if (!Input.GetKey(KeyCode.LeftShift) || Input.GetAxis("Zoom") > 0f)       // added zoom-in check to allow smooth rotations for zoom-in shooting - SJ
+                if (!Input.GetMouseButton(1) || Input.GetAxis("Zoom") > 0f)       // added zoom-in check to allow smooth rotations for zoom-in shooting - SJ
                 {
                     float rotationDelta = (mouseVelX) * rotationSpeed * Time.deltaTime * 60f;
                     transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + rotationDelta, 0f);
