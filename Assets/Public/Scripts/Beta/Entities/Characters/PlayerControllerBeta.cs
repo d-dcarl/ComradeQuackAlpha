@@ -381,7 +381,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             //tells the turret to Light up turret showing green, yellow or red for its states
             selectedObject = hitData.collider.gameObject;
             //Debug.Log(selectedObject.tag);
-            if(selectedObject.tag == "Turret" && ducklingsList.Count > 0 )
+            if((selectedObject.CompareTag("Turret") || selectedObject.CompareTag("Flying Turret")) && ducklingsList.Count > 0 )
             {
                 //get the turret controller
                 if (selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))

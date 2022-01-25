@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 554601727569707403}
   m_Layer: 11
   m_Name: Flying Turret
-  m_TagString: Turret
+  m_TagString: Flying Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -321,6 +321,7 @@ Transform:
   m_Children:
   - {fileID: 3745077638590665192}
   - {fileID: 554601727985244048}
+  - {fileID: 6226913356377090869}
   m_Father: {fileID: 554601727593962581}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -605,6 +606,59 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5065824841639076566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6226913356377090869}
+  - component: {fileID: 1223690389105394359}
+  - component: {fileID: 8168582672528276559}
+  m_Layer: 11
+  m_Name: Platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6226913356377090869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5065824841639076566}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalScale: {x: 3, y: 0.1, z: 3}
+  m_Children: []
+  m_Father: {fileID: 554601728353918059}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1223690389105394359
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5065824841639076566}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &8168582672528276559
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5065824841639076566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5914417246462971634
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +748,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 554601727569707397}
     m_Modifications:
+    - target: {fileID: 2912066948662340481, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5138567865375523899, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -784,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8969698846730004058, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.944
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 8969698846730004058, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
