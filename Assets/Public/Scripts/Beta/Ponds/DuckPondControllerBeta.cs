@@ -58,26 +58,26 @@ public class DuckPondControllerBeta : PondControllerBeta
                     GameManagerBeta.Instance.EndGame();
                 }
 
-                PondControllerBeta newPCB = Instantiate(GameManagerBeta.Instance.styPrefab, transform.position, transform.rotation).GetComponent<PondControllerBeta>();
+                //PondControllerBeta newPCB = Instantiate(GameManagerBeta.Instance.styPrefab, transform.position, transform.rotation).GetComponent<PondControllerBeta>();
 
 
-                foreach (PathControllerBeta path in paths)
-                {
-                    if (path.source == this)
-                    {
-                        path.source = newPCB;
-                    }
-                    else if (path.dest == this) {
-                        path.dest = newPCB;
-                    }
-                }
+                //foreach (PathControllerBeta path in paths)
+                //{
+                //    if (path.source == this)
+                //    {
+                //        path.source = newPCB;
+                //    }
+                //    else if (path.dest == this) {
+                //        path.dest = newPCB;
+                //    }
+                //}
 
                 foreach (StyControllerBeta scb in GameManagerBeta.Instance.allStys)
                 {
                     scb.ResetTarget();
                 }
                 //tell the new pond where the pond (water and shore) is
-                newPCB.setPond(pond);
+                //newPCB.setPond(pond);
 
 
                 Destroy(gameObject);
