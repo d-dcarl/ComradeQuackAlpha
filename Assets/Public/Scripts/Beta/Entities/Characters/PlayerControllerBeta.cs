@@ -165,23 +165,23 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
 
         //input for player quackling recruitment ring
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(KeyCode.V) || Input.GetButtonDown("Recruit"))
         {
             recruitActive = true;
             audioData.Play();
         }
-        if (Input.GetKeyUp(KeyCode.V))
+        if (Input.GetKeyUp(KeyCode.V) || Input.GetButtonUp("Recruit"))
         {
             recruitActive = false;
             EndRecruit();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("DucklingTurret"))
         {
             ducklingToTurret = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.F))
+        if (Input.GetKeyUp(KeyCode.F) || Input.GetButtonUp("DucklingTurret"))
         {
             ducklingToTurret = false;
         }
@@ -193,7 +193,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             TurretPlacement();
 
             // TODO: Add more gun types, and use scrolling to switch guns
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) || Input.GetAxis("Shoot") > 0f)
             {
                 Shoot();
             }
@@ -216,7 +216,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             placementTimer -= Time.deltaTime;
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) || Input.GetButtonDown("PlaceTurret"))
         {
             if (!placing && numTurrets < maxTurrets && placementTimer <= 0f)
             {
@@ -235,13 +235,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (placing)
         {
             //cancel the turret placement
-            if (Input.GetKeyDown(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G) || Input.GetButtonDown("Cancel"))
             {
                 placing = false;
                 Destroy(beingPlaced.gameObject);
             }
 
-            if (Input.mouseScrollDelta.y > 0)
+            if (Input.mouseScrollDelta.y > 0 || Input.GetButtonDown("NextBumper"))
             {
                 turretPrefabIndex--;
                 if (turretPrefabIndex < 0)
@@ -252,7 +252,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 Destroy(beingPlaced.gameObject);
                 beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
             } 
-            else if (Input.mouseScrollDelta.y < 0)
+            else if (Input.mouseScrollDelta.y < 0 || Input.GetButtonDown("PrevBumper"))
             {
                 turretPrefabIndex++;
                 if (turretPrefabIndex >= placeableTurretPrefabs.Count)
@@ -334,13 +334,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (Cursor.lockState == CursorLockMode.Locked || Cursor.lockState == CursorLockMode.Confined)           // changed to allow confined cursor as well - SJ
         {
             float mouseVelX = Input.GetAxis("Mouse X");
-            float contRotX = Input.GetAxis("JoyStick Right");
 
-            if (Mathf.Abs(mouseVelX) > 0.1f || Mathf.Abs(contRotX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
+            if (Mathf.Abs(mouseVelX) > 0.1f)     // Make a rotation deadzome to avoid unintended rotation
             {
-                if (!Input.GetKey(KeyCode.LeftShift))       // added zoom-in check to allow smooth rotations for zoom-in shooting - SJ
+                if (!Input.GetKey(KeyCode.LeftShift) || Input.GetAxis("Zoom") > 0f)       // added zoom-in check to allow smooth rotations for zoom-in shooting - SJ
                 {
-                    float rotationDelta = (mouseVelX + contRotX) * rotationSpeed * Time.deltaTime * 60f;
+                    float rotationDelta = (mouseVelX) * rotationSpeed * Time.deltaTime * 60f;
                     transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + rotationDelta, 0f);
                 }
             }

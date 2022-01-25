@@ -39,7 +39,7 @@ public class CameraControllerBeta : MonoBehaviour
         CheckInput();
         Vector3 cameraDirection, cameraOffset;
         float camBack, camUp;
-        if (Input.GetKey(KeyCode.LeftShift))        // zoomed in
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetAxis("Zoom") > 0f)        // zoomed in
         {
             //--------------------------ZOOM CAM BEHAVIOR-----------------------------------------------------------
             Camera mycam = GetComponent<Camera>();
