@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class RangeHitboxControllerBeta : HitboxControllerBeta
 {
+    private float _range;
+    // public float range
+    // {
+    //     get => _range;
+    //     set
+    //     {
+    //         _range = value;
+    //         sc.radius = _range;
+    //     }
+    // }
+
     public float range;
 
     protected SphereCollider sc;

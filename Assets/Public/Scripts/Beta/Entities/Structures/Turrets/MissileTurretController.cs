@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class MissileTurretController : PlaceableTurretControllerBeta
 {
+    public float splashRadius;
+    public float retargetDistance;
+    
     public override void Start()
     {
         base.Start();
@@ -13,8 +16,23 @@ public class MissileTurretController : PlaceableTurretControllerBeta
     public override void Fire()
     {
         MissileControllerBeta missile = Instantiate(Projectile).GetComponent<MissileControllerBeta>();
+        missile.damage = damage;
+        missile.knockback = knockback;
+        missile.splashRadius = splashRadius;
+        missile.retargetDistance = retargetDistance;
         missile.transform.position = gun.transform.position;
         missile.target = ClosestInRange();
         missile.transform.LookAt(missile.target.transform);
+    }
+
+    protected override void SetUpgrade(TowerUpgrade upgrade)
+    {
+        base.SetUpgrade(upgrade);
+        var missileTurretUpgrade = upgrade as MissileTurretUpgrade;
+        if (missileTurretUpgrade != null)
+        {
+            splashRadius = missileTurretUpgrade.splashRadius;
+            retargetDistance = missileTurretUpgrade.retargetDistance;
+        }
     }
 }

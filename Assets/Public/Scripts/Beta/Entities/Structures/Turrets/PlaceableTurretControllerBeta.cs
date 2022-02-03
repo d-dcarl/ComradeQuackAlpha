@@ -6,12 +6,17 @@ using UnityEngine;
 public class PlaceableTurretControllerBeta : TurretControllerBeta
 {
     protected bool placed;
-    private int upgradeLevel = 0;
-    private int upgradeCap;
+    protected int upgradeLevel = 0;
+    protected int upgradeCap;
+    
+    public float damage;
+    public float knockback;
 
     //timers for upgrading the turret
     protected float upgradeTimer;
     protected float upgradeDelay = 1;
+
+    public List<TowerUpgrade> upgrades;
 
     private int turretColor = 0;
 
@@ -25,7 +30,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
         // turret upgrade stuff
         upgradeLevel = 0;
-        upgradeCap = 10;
+        upgradeCap = upgrades.Count;
 
         // This is only to visually show that the turret is inactive on spawning
         currentHealth = 0;
@@ -92,6 +97,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         upgradeTimer = upgradeDelay;
         //make the color the activated color
         SetOpaque();
+
+        SetUpgrade(upgrades[upgradeLevel]);
     }
 
     public void SetTransparent()
@@ -242,17 +249,26 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     }
 
     //TODO Acutally upgrade turret
-    private void UpgradeTurret()
+    protected virtual void UpgradeTurret()
     {
-        //upgrade tracker
-        upgradeLevel += 1;
-        //upgrade Stats TODO make it
-        this.fireRate -= 0.1f;
-        this.transform.localScale = new Vector3(this.transform.localScale.x + 0.05f, this.transform.localScale.y + 0.05f, this.transform.localScale.z + 0.05f);
+        // keeping this until we have actual visual indicators of upgrades
+        this.transform.localScale = new Vector3(this.transform.localScale.x + 0.05f, this.transform.localScale.y + 0.05f, this.transform.localScale.z + 0.05f); 
+        
         //reset the cooldown
         upgradeTimer = upgradeDelay;
         //heal
         currentHealth = maxHealth;
         healthBarSlider.value = maxHealth;
+        
+        upgradeLevel++;
+        SetUpgrade(upgrades[upgradeLevel]);
+    }
+
+    protected virtual void SetUpgrade(TowerUpgrade upgrade)
+    {
+        damage = upgrade.damage;
+        knockback = upgrade.knockback;
+        targetRange.range = upgrade.range;
+        fireRate = upgrade.fireRate;
     }
 }

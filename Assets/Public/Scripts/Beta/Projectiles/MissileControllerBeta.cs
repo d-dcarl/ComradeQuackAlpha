@@ -5,7 +5,18 @@ namespace Public.Scripts.Beta.Projectiles
 {
     public class MissileControllerBeta : BulletControllerBeta
     {
-        public float splashRadius;
+        private float _splashRadius;
+
+        public float splashRadius
+        {
+            get => _splashRadius;
+            set
+            {
+                _splashRadius = value;
+                splashRange.range = _splashRadius;
+            }
+        }
+
         public RangeHitboxControllerBeta splashRange;
         public float retargetDistance;
 

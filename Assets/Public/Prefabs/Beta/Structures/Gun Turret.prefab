@@ -122,6 +122,8 @@ MonoBehaviour:
   fireRate: 0.7
   damage: 4
   knockback: 10
+  upgrades:
+  - {fileID: 11400000, guid: 96f128ff3512bd949a1814c33df7abbd, type: 2}
 --- !u!65 &554601727569707403
 BoxCollider:
   m_ObjectHideFlags: 0

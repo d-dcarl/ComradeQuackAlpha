@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletControllerBeta : ProjectileControllerBeta
 {
     public float speed;
-    public int damage;
+    public float damage;
     public float knockback;
 
     [HideInInspector]

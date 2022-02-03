@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class GunTurretController : PlaceableTurretControllerBeta
 {
-    public float damage;
-    public float knockback;
-    
     // Start is called before the first frame update
     public override void Start()
     {
@@ -25,7 +22,7 @@ public class GunTurretController : PlaceableTurretControllerBeta
                 if (target != null)
                 {
                     target.TakeDamage(damage);
-                    target.KnockBack(-hit.normal, knockback);
+                    target.KnockBack(hit.point, knockback);
                 }
                 
                 Debug.DrawLine(gun.transform.position, hit.point);
