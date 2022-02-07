@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Gun Turret Lvl. 2
   m_EditorClassIdentifier: 
   damage: 5
-  knockback: 0
-  range: 0
-  fireRate: 0.6
+  knockback: 11
+  range: 22
+  fireRate: 0.9
