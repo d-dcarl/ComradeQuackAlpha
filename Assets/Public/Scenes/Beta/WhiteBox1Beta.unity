@@ -718,6 +718,43 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5597002278806442958, guid: a492b85da6f9e064cbac035c5167bc32, type: 3}
+--- !u!1 &79587108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 892480568564768649, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
+  m_PrefabInstance: {fileID: 1384033183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &79587109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79587108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &82310700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3213520564932780519, guid: 20076fd47cbf7014db2cc8aac8cc30ab, type: 3}
@@ -2205,6 +2242,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3288853519580506338, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3699541272431450437, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: m_Name
       value: Gun Transform
