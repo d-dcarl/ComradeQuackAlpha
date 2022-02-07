@@ -124,6 +124,10 @@ MonoBehaviour:
   knockback: 10
   upgrades:
   - {fileID: 11400000, guid: 96f128ff3512bd949a1814c33df7abbd, type: 2}
+  - {fileID: 11400000, guid: a811113cef970bb4db2aa93b7519e7f6, type: 2}
+  - {fileID: 11400000, guid: 7ea028d17cfc810469259dd9a310263b, type: 2}
+  - {fileID: 11400000, guid: 9cf3a6357190fda44938a1805869a24e, type: 2}
+  - {fileID: 11400000, guid: 3dc62fa269f3f1b488bf42d6fe9a0213, type: 2}
 --- !u!65 &554601727569707403
 BoxCollider:
   m_ObjectHideFlags: 0
