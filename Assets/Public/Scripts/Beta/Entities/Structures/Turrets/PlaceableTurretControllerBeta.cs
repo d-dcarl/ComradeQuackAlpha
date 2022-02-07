@@ -20,6 +20,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     private int turretColor = 0;
 
+    public VFXController constructionVFX;
+
     public override void Start()
     {
         base.Start();
@@ -30,7 +32,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
         // turret upgrade stuff
         upgradeLevel = 0;
-        upgradeCap = upgrades.Count;
+        upgradeCap = upgrades.Count - 1;
 
         // This is only to visually show that the turret is inactive on spawning
         currentHealth = 0;
@@ -251,20 +253,16 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     //TODO Acutally upgrade turret
     protected virtual void UpgradeTurret()
     {
+        // keeping this until we have actual visual indicators of upgrades
+        this.transform.localScale = new Vector3(this.transform.localScale.x + 0.05f, this.transform.localScale.y + 0.05f, this.transform.localScale.z + 0.05f);
 
-        if(upgradeLevel < upgradeCap - 1)
-        {
-            // keeping this until we have actual visual indicators of upgrades
-            this.transform.localScale = new Vector3(this.transform.localScale.x + 0.05f, this.transform.localScale.y + 0.05f, this.transform.localScale.z + 0.05f);
-
-            //reset the cooldown
-            upgradeTimer = upgradeDelay;
-            //heal
-            currentHealth = maxHealth;
-            healthBarSlider.value = maxHealth;
-            upgradeLevel++;
-            SetUpgrade(upgrades[upgradeLevel]);
-        }
+        //reset the cooldown
+        upgradeTimer = upgradeDelay;
+        //heal
+        currentHealth = maxHealth;
+        healthBarSlider.value = maxHealth;
+        upgradeLevel++;
+        SetUpgrade(upgrades[upgradeLevel]);
 
     }
 
