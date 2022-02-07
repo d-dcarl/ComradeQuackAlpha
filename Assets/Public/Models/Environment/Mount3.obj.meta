@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 8b4ea9dd6d37b464cbffb6316a1854a0
+guid: ad985a13eee3a834eb7061b439f99caf
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mount3Mat
+    second: {fileID: 2100000, guid: cb2a1bbe6d406ea4e9a0468c331502e7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

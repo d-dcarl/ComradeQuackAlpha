@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 8b4ea9dd6d37b464cbffb6316a1854a0
+guid: bb66c99f6c2bdfd4ea6c1ce5d07ef848
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LGGMat
+    second: {fileID: 5561349426305759274, guid: 835c3f479010543bf9d97f51c114e5e3, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -15,4 +15,4 @@ MonoBehaviour:
   damage: 6
   knockback: 12
   range: 24
-  fireRate: 0.8
+  fireRate: 0.6
