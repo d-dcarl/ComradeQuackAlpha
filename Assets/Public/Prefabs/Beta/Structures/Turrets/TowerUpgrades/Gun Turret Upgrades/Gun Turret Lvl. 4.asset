@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e94a76ecfa54bec969467e9ce20b922, type: 3}
   m_Name: Gun Turret Lvl. 4
   m_EditorClassIdentifier: 
-  damage: 7
+  damage: 8
   knockback: 13
-  range: 26
-  fireRate: 0.7
+  range: 24
+  fireRate: 0.5
