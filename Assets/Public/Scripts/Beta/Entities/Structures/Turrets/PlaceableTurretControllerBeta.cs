@@ -16,6 +16,9 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     protected float upgradeTimer;
     protected float upgradeDelay = 1;
 
+    public float constructionDelay = 3;
+    public bool isUnderConstruction = false;
+
     public List<TowerUpgrade> upgrades;
 
     private int turretColor = 0;
@@ -49,7 +52,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         {
             GoToPlacementPos();
         }
-        else if(alive)
+        else if(alive && !isUnderConstruction)
         {
             base.Update();
         }
@@ -242,7 +245,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         //otherwise upgrade if we can still upgrade, and the cooldown has passed
         else if (upgradeLevel < upgradeCap && upgradeTimer <= 0)
         {
-            UpgradeTurret();
+            StartConstruction();
             return true;
         }
         //lookedAt(false);
@@ -250,7 +253,22 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         return false;
     }
 
-    //TODO Acutally upgrade turret
+    private void StartConstruction()
+    {
+        isUnderConstruction = true;
+        constructionVFX.StartVFX();
+        StartCoroutine(EndConstruction());
+    }
+
+    IEnumerator EndConstruction()
+    {
+        yield return new WaitForSeconds(constructionDelay);
+
+        isUnderConstruction = false;
+        constructionVFX.StopVFX();
+        UpgradeTurret();
+    }
+
     protected virtual void UpgradeTurret()
     {
         // keeping this until we have actual visual indicators of upgrades
