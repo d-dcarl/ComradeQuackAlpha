@@ -251,17 +251,21 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     //TODO Acutally upgrade turret
     protected virtual void UpgradeTurret()
     {
-        // keeping this until we have actual visual indicators of upgrades
-        this.transform.localScale = new Vector3(this.transform.localScale.x + 0.05f, this.transform.localScale.y + 0.05f, this.transform.localScale.z + 0.05f); 
-        
-        //reset the cooldown
-        upgradeTimer = upgradeDelay;
-        //heal
-        currentHealth = maxHealth;
-        healthBarSlider.value = maxHealth;
-        
-        upgradeLevel++;
-        SetUpgrade(upgrades[upgradeLevel]);
+
+        if(upgradeLevel < upgradeCap - 1)
+        {
+            // keeping this until we have actual visual indicators of upgrades
+            this.transform.localScale = new Vector3(this.transform.localScale.x + 0.05f, this.transform.localScale.y + 0.05f, this.transform.localScale.z + 0.05f);
+
+            //reset the cooldown
+            upgradeTimer = upgradeDelay;
+            //heal
+            currentHealth = maxHealth;
+            healthBarSlider.value = maxHealth;
+            upgradeLevel++;
+            SetUpgrade(upgrades[upgradeLevel]);
+        }
+
     }
 
     protected virtual void SetUpgrade(TowerUpgrade upgrade)

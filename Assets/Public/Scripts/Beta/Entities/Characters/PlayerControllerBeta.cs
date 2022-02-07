@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 
 public class PlayerControllerBeta : CharacterControllerBeta
 {
@@ -58,6 +59,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public Transform gunTransform;
     protected GunControllerBeta gunInHand;
 
+    private Animator animator;
+
     public GameObject deathOverlay;
 
     GameObject mesh;
@@ -78,6 +81,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
         placementTimer = placementDelay;
         placing = false;
         beingPlaced = null;
+
+        animator = GetComponent<Animator>();
+        animator.Play("Duck_IDLE");
 
 
         if (gunTypes.Count > 0)
@@ -194,7 +200,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
             // TODO: Add more gun types, and use scrolling to switch guns
             if (Input.GetMouseButton(0) || Input.GetAxis("Shoot") > 0f)
-            {
+            { 
                 Shoot();
             }
         }

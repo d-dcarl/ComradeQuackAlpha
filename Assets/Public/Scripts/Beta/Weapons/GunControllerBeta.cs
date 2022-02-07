@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class GunControllerBeta : MonoBehaviour
 {
@@ -11,11 +12,15 @@ public class GunControllerBeta : MonoBehaviour
     public GameObject crosshair;
     public bool zoomedIn;
     public LayerMask PlayerLayerMask;
+    private VisualEffect gunMuzzleFlash;
+    private Animator gunAnimator;
 
     public virtual void Start()
     {
         shootTimer = shootDelay;
         crosshair = GameObject.Find("Crosshair");
+        gunAnimator = GetComponentInChildren<Animator>();
+        gunMuzzleFlash = GetComponentInChildren<VisualEffect>();
         crosshair.SetActive(false);
         zoomedIn = false;
         PlayerLayerMask = LayerMask.GetMask("Player", "UI", "Ignore Raycast");
@@ -51,6 +56,8 @@ public class GunControllerBeta : MonoBehaviour
     {
         if(shootTimer <= 0f)
         {
+            gunAnimator.Play("PistolAnimation");
+            gunMuzzleFlash.Play();
             if (zoomedIn)
             {
                 shootTimer = shootDelay;

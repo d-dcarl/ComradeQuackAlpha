@@ -128,6 +128,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ea028d17cfc810469259dd9a310263b, type: 2}
   - {fileID: 11400000, guid: 9cf3a6357190fda44938a1805869a24e, type: 2}
   - {fileID: 11400000, guid: 3dc62fa269f3f1b488bf42d6fe9a0213, type: 2}
+  gunTurretAnimator: {fileID: 0}
 --- !u!65 &554601727569707403
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -266,6 +267,25 @@ Transform:
   m_Father: {fileID: 554601727593962581}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5305936682622304736
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085575106443922258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8eedc24d1ed6d0f43af6cf6cb5466608, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &178854829029622972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -518,6 +538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cc74a9a70f60148bb123638901a273, type: 3}
+--- !u!1 &4085575106443922258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a1cc74a9a70f60148bb123638901a273, type: 3}
+  m_PrefabInstance: {fileID: 3779515387495446019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3745077638590665192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1cc74a9a70f60148bb123638901a273, type: 3}
