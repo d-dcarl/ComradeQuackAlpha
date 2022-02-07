@@ -40,6 +40,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private int turretPrefabIndex;
     private PlaceableTurretControllerBeta lookedTurret;
 
+    [Header("Barricade Placement")]
+    public GameObject barricadePrefab;
+    public int maxBarricades;
+    protected BarricadeControllerBeta barricadeBeingPlaced;
+    protected bool placingBarricade;
+
+
     [Header("Miscellanious")]
     public float numResourceTypes;
     protected List<int> inventory;
@@ -81,6 +88,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
         placementTimer = placementDelay;
         placing = false;
         beingPlaced = null;
+
+        // Barricade Placing Initialization
+        placingBarricade = false;
+        barricadeBeingPlaced = null;
 
         animator = GetComponent<Animator>();
         animator.Play("Duck_IDLE");
@@ -197,6 +208,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             PlayerMovement();
             TurretPlacement();
+            BarricadePlacement();
 
             // TODO: Add more gun types, and use scrolling to switch guns
             if (Input.GetMouseButton(0) || Input.GetAxis("Shoot") > 0f)
@@ -224,7 +236,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
         if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("PlaceTurret"))
         {
-            if (!placing && numTurrets < maxTurrets && placementTimer <= 0f)
+            if (!placing && !placingBarricade && numTurrets < maxTurrets && placementTimer <= 0f) // added check for placingBarricade
             {
                 beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
                 placing = true;
@@ -268,6 +280,35 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 
                 Destroy(beingPlaced.gameObject);
                 beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
+            }
+        }
+    }
+
+    void BarricadePlacement()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) // || Input.GetButtonDown("PlaceBarricade")) -- not yet implemented
+        {
+            if (!placingBarricade && !placing)
+            {
+                barricadeBeingPlaced = Instantiate(barricadePrefab).GetComponent<BarricadeControllerBeta>();
+                placingBarricade = true;
+                //numBarricades++;
+            }
+            else if (placingBarricade)
+            {
+                barricadeBeingPlaced.PlaceBarricade();
+                placingBarricade = false;
+                //placementTimer = placementDelay;
+            }
+        }
+
+        if (placingBarricade)
+        {
+            //cancel the barricade placement
+            if (Input.GetKeyDown(KeyCode.G) || Input.GetButtonDown("Cancel"))
+            {
+                placingBarricade = false;
+                Destroy(barricadeBeingPlaced.gameObject);
             }
         }
     }

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7912333360538117591}
   - component: {fileID: 7084274438964197990}
   - component: {fileID: 7929881752533647163}
-  m_Layer: 0
+  - component: {fileID: -4116986206737046411}
+  m_Layer: 11
   m_Name: PlaceholderBarricade
-  m_TagString: Untagged
+  m_TagString: Player Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7062927851985740122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.17, y: 0.87, z: -5.25}
-  m_LocalScale: {x: 4.6377993, y: 1.6414826, z: 0.7061281}
+  m_LocalScale: {x: 1, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,3 +97,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4116986206737046411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7062927851985740122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67bfd0e2cef0637408410f28b02755df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 15
+  alive: 0
+  healthBarSlider: {fileID: 0}
+  cantDie: 0
