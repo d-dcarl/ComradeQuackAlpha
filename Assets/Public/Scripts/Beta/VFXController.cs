@@ -24,10 +24,6 @@ public class VFXController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            StartVFX();
-        }
         if (isEmitting)
         {
             waitTimeCounter += Time.deltaTime;
