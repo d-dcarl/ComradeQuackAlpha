@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 5802581162627578839}
   m_Layer: 16
   m_Name: Nest
-  m_TagString: Player Structure
+  m_TagString: Nest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

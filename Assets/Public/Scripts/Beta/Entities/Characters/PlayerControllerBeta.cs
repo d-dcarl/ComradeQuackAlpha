@@ -48,6 +48,14 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected bool placingBarricade;
     public List<GameObject> currBarricades;
 
+    [Header("Nest Placement")]
+    public GameObject nestPrefab;
+    public int maxNests;
+    protected int numNests;
+    protected PlacableNestControllerBeta nestBeingPlaced;
+    protected bool placingNest;
+    public List<GameObject> currNests;
+
 
     [Header("Miscellanious")]
     public float numResourceTypes;
@@ -117,6 +125,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         base.Update();
         TurretLook();
+        NestLook();
 
         if (flapTimer > 0f)
         {
@@ -213,6 +222,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             PlayerMovement();
             TurretPlacement();
             BarricadePlacement();
+            NestPlacement();
 
             // TODO: Add more gun types, and use scrolling to switch guns
             if (Input.GetMouseButton(0) || Input.GetAxis("Shoot") > 0f)
@@ -240,7 +250,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
         if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("PlaceTurret"))
         {
-            if (!placing && !placingBarricade && numTurrets < maxTurrets && placementTimer <= 0f) // added check for placingBarricade - SJ
+            if (!placing && !placingBarricade && !placingNest && numTurrets < maxTurrets && placementTimer <= 0f) // added check for placingBarricade - SJ
             {
                 beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
                 placing = true;
@@ -306,7 +316,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         // Place barricades
         if (Input.GetKeyDown(KeyCode.R)) // || Input.GetButtonDown("PlaceBarricade")) -- not yet implemented
         {
-            if (!placingBarricade && !placing && numBarricades < maxBarricades)
+            if (!placingBarricade && !placing && !placingNest && numBarricades < maxBarricades)
             {
                 barricadeBeingPlaced = Instantiate(barricadePrefab).GetComponent<BarricadeControllerBeta>();
                 placingBarricade = true;
@@ -334,6 +344,39 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
     }
 
+
+    void NestPlacement()
+    {
+        // Place barricades
+        if (Input.GetKeyDown(KeyCode.L)) // || Input.GetButtonDown("PlaceNest")) -- not yet implemented
+        {
+            if (!placingBarricade && !placing && !placingNest && numNests < maxNests)
+            {
+                nestBeingPlaced = Instantiate(nestPrefab).GetComponent<PlacableNestControllerBeta>();
+                placingNest = true;
+            }
+            else if (placingNest)
+            {
+                //TODO uncomment after fix
+                nestBeingPlaced.PlaceNest();
+                placingNest = false;
+
+                // Add to current nests
+                currNests.Add(nestBeingPlaced.gameObject);
+                numNests++;
+            }
+        }
+
+        if (placingNest)
+        {
+            //cancel the placement
+            if (Input.GetKeyDown(KeyCode.G) || Input.GetButtonDown("Cancel"))
+            {
+                placingNest = false;
+                Destroy(nestBeingPlaced.gameObject);
+            }
+        }
+    }
 
     void InitializeStamina()
     {

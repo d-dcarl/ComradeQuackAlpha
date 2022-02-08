@@ -204,6 +204,12 @@ MonoBehaviour:
   maxTurrets: 3
   placementDelay: 1
   placementDistance: 3
+  barricadePrefab: {fileID: 0}
+  maxBarricades: 0
+  currBarricades: []
+  nestPrefab: {fileID: 5142882221832298542, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
+  maxNests: 10
+  currNests: []
   numResourceTypes: 1
   audioData: {fileID: 7298926254210497247}
   recruitCircle: {fileID: 8284632582061303038}

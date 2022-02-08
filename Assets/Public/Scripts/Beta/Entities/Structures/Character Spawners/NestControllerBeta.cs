@@ -29,6 +29,7 @@ public class NestControllerBeta : SpawnerControllerBeta
     public override void Update()
     {
         base.Update();
+        //spawns ducks
         if (!turnOffAutoSpawn)
         {
             CleanSpawnedList();
@@ -54,8 +55,12 @@ public class NestControllerBeta : SpawnerControllerBeta
         return false;
     }
 
+    /**
+ * This below section of deals with upgrading the nest
+ * **/
+
     //Acutally upgrade
-    private void UpgradeNest()
+    public virtual void UpgradeNest()
     {
         //upgrade tracker
         upgradeLevel += 1;
@@ -96,4 +101,5 @@ public class NestControllerBeta : SpawnerControllerBeta
             turnOffAutoSpawn = true;
         }
     }
+
 }
