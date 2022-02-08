@@ -43,8 +43,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
     [Header("Barricade Placement")]
     public GameObject barricadePrefab;
     public int maxBarricades;
+    protected int numBarricades;
     protected BarricadeControllerBeta barricadeBeingPlaced;
     protected bool placingBarricade;
+    public List<GameObject> currBarricades;
 
 
     [Header("Miscellanious")]
@@ -90,8 +92,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
         beingPlaced = null;
 
         // Barricade Placing Initialization
+        numBarricades = 0;
         placingBarricade = false;
         barricadeBeingPlaced = null;
+        currBarricades = new List<GameObject>();
 
         animator = GetComponent<Animator>();
         animator.Play("Duck_IDLE");
@@ -236,7 +240,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
         if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("PlaceTurret"))
         {
-            if (!placing && !placingBarricade && numTurrets < maxTurrets && placementTimer <= 0f) // added check for placingBarricade
+            if (!placing && !placingBarricade && numTurrets < maxTurrets && placementTimer <= 0f) // added check for placingBarricade - SJ
             {
                 beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
                 placing = true;
@@ -286,19 +290,36 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     void BarricadePlacement()
     {
+        // Check for destroyed barricades and remove them
+        List<int> remove = new List<int>();
+        for(int i = 0; i < currBarricades.Count; i++)
+        {
+            if (currBarricades[i] == null && !ReferenceEquals(currBarricades[i], null))
+            {
+                remove.Add(i);
+                numBarricades--;
+            }
+        }
+        for (int i = 0; i < remove.Count; i++)
+            currBarricades.RemoveAt(remove[i]);
+
+        // Place barricades
         if (Input.GetKeyDown(KeyCode.R)) // || Input.GetButtonDown("PlaceBarricade")) -- not yet implemented
         {
-            if (!placingBarricade && !placing)
+            if (!placingBarricade && !placing && numBarricades < maxBarricades)
             {
                 barricadeBeingPlaced = Instantiate(barricadePrefab).GetComponent<BarricadeControllerBeta>();
                 placingBarricade = true;
-                //numBarricades++;
             }
             else if (placingBarricade)
             {
                 barricadeBeingPlaced.PlaceBarricade();
                 placingBarricade = false;
                 //placementTimer = placementDelay;
+
+                // Add to current barricades
+                currBarricades.Add(barricadeBeingPlaced.gameObject);
+                numBarricades++;
             }
         }
 

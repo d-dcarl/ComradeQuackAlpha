@@ -7,10 +7,10 @@ public class BarricadeControllerBeta : StructureControllerBeta
     /*
      * TODO: 
      * - change hitbox layers to "IgnoreRaycast"
-     * - 
+     * - add health bar to prefab
+     * - replace placeholder model
      */
 
-    //public GameObject barricade;
     protected bool placed;
     protected BoxCollider hitBox;
 
@@ -20,7 +20,7 @@ public class BarricadeControllerBeta : StructureControllerBeta
         placed = false;
         alive = false;
 
-        /* // TODO: ADD BOX COLLIDER
+        /* // TODO: ADD BOX COLLIDER?
         hitBox = GetComponent<BoxCollider>();
         if (hitBox == null)
         {
@@ -72,9 +72,9 @@ public class BarricadeControllerBeta : StructureControllerBeta
     {
         //update our values
         alive = true;
-        //update health
         currentHealth = maxHealth;
         //healthBarSlider.value = maxHealth;
+
         //make the color the activated color
         SetOpaque();
     }
