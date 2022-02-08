@@ -2251,9 +2251,17 @@ PrefabInstance:
       value: Gun Transform
       objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: maxBarricades
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 328548789}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: barricadePrefab
+      value: 
+      objectReference: {fileID: 7062927851985740122, guid: 5591e608d56650d4aafb6bc042fa98be, type: 3}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: circleExpansionRate
       value: 0.25
