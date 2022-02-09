@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: a1502cf2f06ae4c448a16eb107df35a7
+guid: e5003e8952a9adf429e968383e479af7
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
   - first:
-      74: -1026380660502826037
-    second: Duck Land
+      74: -7142535269721626273
+    second: Duck Death
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Duck Land
-      takeName: Duck Land
+      name: Duck Death
+      takeName: Duck Death
       internalID: 0
-      firstFrame: 58
-      lastFrame: 70
+      firstFrame: 0
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -62,7 +62,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 58
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
