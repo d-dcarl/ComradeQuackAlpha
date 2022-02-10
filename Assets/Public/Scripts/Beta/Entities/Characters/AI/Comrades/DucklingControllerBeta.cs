@@ -86,9 +86,10 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
     public virtual void FollowLeader()
     {
-        // Placeholder. Fill in with comrade AI.
-        WalkTowards(leader.gameObject);
-        //Debug.Log("Tee dum, tee dee, a teedly do tee day");
+        if(Vector3.Distance(transform.position, leader.transform.position) > followDistance)
+        {
+            WalkTowards(leader.gameObject);
+        }
     }
 
     public virtual void Idle()
@@ -121,8 +122,7 @@ public class DucklingControllerBeta : ComradeControllerBeta
         }
         else
         {
-            WalkTowards(leader.gameObject, target);
-            
+            FollowLeader();
         }
         Shoot();
     }

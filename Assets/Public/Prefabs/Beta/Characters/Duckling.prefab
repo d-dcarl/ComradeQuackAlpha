@@ -247,6 +247,7 @@ MonoBehaviour:
   canAttack:
   - Enemy
   - Enemy Structure
+  followDistance: 2
   projectilePrefab: {fileID: 6445303830105601911, guid: 36b174b6617dd354f911b68d6afd7382, type: 3}
   shotDelay: 2
   recruitRangeCollider: {fileID: 22304813751531827}

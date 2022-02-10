@@ -121,10 +121,10 @@ MonoBehaviour:
   - Comrade
   - Player Structure
   - Turret
+  followDistance: 0.1
   attackHitBox: {fileID: 6924727160141618297}
   attackDamage: 2
   attackDelay: 1
-  updateRadius: 4
   targetUpdateTime: 1
 --- !u!65 &5019965575117504301
 BoxCollider:

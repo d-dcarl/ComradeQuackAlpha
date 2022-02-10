@@ -61,10 +61,10 @@ MonoBehaviour:
   - Turret
   - Player Structure
   - Flying Turret
+  followDistance: 0.1
   attackHitBox: {fileID: 7566149668356354951}
   attackDamage: 2
   attackDelay: 2
-  updateRadius: 4
   targetUpdateTime: 1
   progressSlider: {fileID: 4654299904889227014}
   maxWaitTime: 5

@@ -12,16 +12,24 @@ public class GameManagerBeta : MonoBehaviour
     public PlayerControllerBeta player;
 
     [HideInInspector]
-    public List<StyControllerBeta> allStys;
-    [HideInInspector]
-    public List<DuckPondControllerBeta> allPonds;
+    public List<NodeControllerBeta> allNodes;
 
     [HideInInspector]
     public static GameManagerBeta Instance;
 
     public void Start()
     {
-        if(GameManagerBeta.Instance != null)
+        EnsureUnique();
+
+        allNodes = new List<NodeControllerBeta>();
+
+        gravity = -1 * Mathf.Abs(gravity);      // Just in case someone puts a positive gravity value by accident
+        Physics.gravity = new Vector3(0f, gravity, 0f);
+    }
+
+    void EnsureUnique()
+    {
+        if (GameManagerBeta.Instance != null)
         {
             Debug.Log("Error: more than one game manager");
         }
@@ -30,16 +38,10 @@ public class GameManagerBeta : MonoBehaviour
             GameManagerBeta.Instance = this;
         }
 
-        if(player == null)
+        if (player == null)
         {
             Debug.LogError("Error: Must assign player to game manager");
         }
-
-        allStys = new List<StyControllerBeta>();
-        allPonds = new List<DuckPondControllerBeta>();
-
-        gravity = -1 * Mathf.Abs(gravity);      // Just in case someone puts a positive gravity value by accident
-        Physics.gravity = new Vector3(0f, gravity, 0f);
     }
 
     public void EndGame()

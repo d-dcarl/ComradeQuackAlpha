@@ -580,7 +580,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             recruitCircle.SetActive(true);
         }
-        recruitCircle.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 1.0f, this.transform.position.z);
+        recruitCircle.transform.localPosition = new Vector3(0f, -0.9f, 0f);
         if (recruitCircle.transform.localScale.x < maxSize)
         {
             recruitCircle.transform.localScale = new Vector3(recruitCircle.transform.localScale.x + circleExpansionRate, recruitCircle.transform.localScale.y, recruitCircle.transform.localScale.z + circleExpansionRate);

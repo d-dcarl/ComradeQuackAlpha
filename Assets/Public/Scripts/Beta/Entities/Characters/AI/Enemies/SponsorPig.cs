@@ -26,9 +26,12 @@ public class SponsorPig : EnemyControllerBeta
         {
             foreach(GameObject g in effectsHitBox.tracked)
             {
-                if (g.GetComponent<EnemyControllerBeta>())
+                if(g != null)
                 {
-                    g.GetComponent<EntityControllerBeta>().Heal(healthPerSecond * Time.deltaTime);
+                    if (g.GetComponent<EnemyControllerBeta>())
+                    {
+                        g.GetComponent<EntityControllerBeta>().Heal(healthPerSecond * Time.deltaTime);
+                    }
                 }
             }
         }

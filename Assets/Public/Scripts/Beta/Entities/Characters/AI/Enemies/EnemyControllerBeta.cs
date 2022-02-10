@@ -10,11 +10,6 @@ public class EnemyControllerBeta : AIControllerBeta
     public float attackDelay;
     protected float attackTimer;
 
-    protected GameObject source;
-    protected GameObject destination;
-
-    // TODO: Replace by creating a trigger hitbox for the pond's water mesh
-    public float updateRadius = 4f;
     public float targetUpdateTime;
     protected float targetUpdateTimer;
 
@@ -63,65 +58,50 @@ public class EnemyControllerBeta : AIControllerBeta
         {
             targetUpdateTimer = targetUpdateTime;
             base.ChooseTarget();
+
             if (targetTransform == null)
             {
-                StyControllerBeta nearest = NearestSty();
-                if (nearest != null)
+                NodeControllerBeta nextNode = FindNextNode();
+                if (nextNode != null)
                 {
-                    if (source == null)
-                    {
-                        FindNewSource();
-                    }
-                    float dist = Vector3.Distance(nearest.transform.position, transform.position);
-                }
-
-                if (source != null)
-                {
-                    StyControllerBeta scb = source.GetComponent<StyControllerBeta>();
-                    if (scb != null && scb.GetTargetPond() != null)
-                    {
-                        targetTransform = scb.GetTargetPond().transform;
-                    }
+                    targetTransform = nextNode.transform;
                 }
             }
         }
     }
 
-    StyControllerBeta NearestSty()
+    public NodeControllerBeta FindNextNode()
     {
-        StyControllerBeta nearest = null;
+        NodeControllerBeta source = FindClosestNode();
 
-        if (GameManagerBeta.Instance != null)
+        return source;
+    }
+
+    // Returns null if nodes are not set up
+    public NodeControllerBeta FindClosestNode()
+    {
+        NodeControllerBeta closest = null;
+        float closestDist = -1;
+
+        // If the nodes are set up
+        if(GameManagerBeta.Instance != null && GameManagerBeta.Instance.allNodes != null)
         {
-            
-            foreach (PondControllerBeta pcb in GameManagerBeta.Instance.allStys)
+            foreach(NodeControllerBeta node in GameManagerBeta.Instance.allNodes)
             {
-                if (pcb as StyControllerBeta != null)
+                // For now, just rush the closest pond
+                if(node.isGoal)
                 {
-                    float checkDist = Vector3.Distance(pcb.transform.position, transform.position);
-                    if (nearest == null || checkDist < Vector3.Distance(nearest.transform.position, transform.position))
+                    float dist = Vector3.Distance(transform.position, node.transform.position);
+                    if (closest == null || dist < closestDist)
                     {
-                        nearest = pcb as StyControllerBeta;
+                        closestDist = dist;
+                        closest = node;
                     }
                 }
             }
         }
 
-        return nearest;
-    }
-
-    void FindNewSource()
-    {
-        StyControllerBeta nearest = NearestSty();
-        if(nearest != null)
-        {
-            source = nearest.gameObject;
-        }
-    }
-
-    public void SetHomeSty(StyControllerBeta newHome)
-    {
-        source = newHome.gameObject;
+        return closest;
     }
 
     public override bool TouchingTarget(GameObject target)

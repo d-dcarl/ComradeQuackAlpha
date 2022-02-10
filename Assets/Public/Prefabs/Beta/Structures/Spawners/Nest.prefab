@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 5802581162627578839}
   m_Layer: 16
   m_Name: Nest
-  m_TagString: Nest
+  m_TagString: Player Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -580,11 +580,11 @@ MonoBehaviour:
   alive: 0
   healthBarSlider: {fileID: 5634484433958553634}
   cantDie: 0
-  spawnPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
-  spawnCap: 10
-  spawnDelay: 1
   spawnRadius: 5
   spawnHeight: 1
+  duckPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
+  spawnCap: 10
+  spawnDelay: 1
   turnOffAutoSpawn: 0
   curSpawns: 0
   upgradeLevel: 0

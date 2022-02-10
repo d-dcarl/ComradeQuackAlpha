@@ -5,6 +5,15 @@ using UnityEngine;
 
 public class NestControllerBeta : SpawnerControllerBeta
 {
+    public GameObject duckPrefab;
+    public int spawnCap;
+    public float spawnDelay;
+    protected float spawnTimer;
+    
+    public bool turnOffAutoSpawn;
+    [HideInInspector]
+    public int curSpawns; //this is an implicit list of comrades manning turrets AND comrades in the list
+
     //timers for upgrading the turret
     protected float upgradeTimer = 0;
     protected float upgradeDelay = 1;
@@ -12,18 +21,13 @@ public class NestControllerBeta : SpawnerControllerBeta
     [SerializeField]  public int upgradeLevel = 0;
     private int upgradeCap = 4;
 
-    public override GameObject Spawn()
+    public override void Start()
     {
-        DucklingControllerBeta newDuckling = base.Spawn().GetComponent<DucklingControllerBeta>();
-
-        if(newDuckling == null)
-        {
-            Debug.LogError("Nest must spawn ducklings.");
-            return null;
-        }
-
-        newDuckling.InitializeDuckling(this);
-        return newDuckling.gameObject;
+        base.Start();
+        spawnTimer = spawnDelay;
+        spawned = new List<GameObject>();
+        curSpawns = 0;
+        changeSpawnTime();
     }
 
     public override void Update()
@@ -32,14 +36,33 @@ public class NestControllerBeta : SpawnerControllerBeta
         //spawns ducks
         if (!turnOffAutoSpawn)
         {
-            CleanSpawnedList();
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0f && curSpawns < spawnCap)
             {
-                Spawn();
+                Spawn(duckPrefab);
                 spawnTimer = spawnDelay;
             }
         }
+    }
+
+    //tells the spawner that it can spawn a new member
+    public void newSpawn()
+    {
+        curSpawns -= 1;
+    }
+
+    public override GameObject Spawn(GameObject prefab)
+    {
+        DucklingControllerBeta newDuckling = base.Spawn(prefab).GetComponent<DucklingControllerBeta>();
+
+        if (newDuckling == null)
+        {
+            Debug.LogError("Nest must spawn ducklings.");
+            return null;
+        }
+
+        newDuckling.InitializeDuckling(this);
+        return newDuckling.gameObject;
     }
 
     //uses a ducking on this nest, to upgrade Returns true if upgraded, false otherwise
@@ -55,9 +78,6 @@ public class NestControllerBeta : SpawnerControllerBeta
         return false;
     }
 
-    /**
- * This below section of deals with upgrading the nest
- * **/
 
     //Acutally upgrade
     public virtual void UpgradeNest()

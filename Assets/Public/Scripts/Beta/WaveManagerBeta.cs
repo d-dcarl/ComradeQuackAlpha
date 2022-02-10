@@ -77,9 +77,9 @@ public class WaveManagerBeta : MonoBehaviour
                 if (canSpawnMore && waveTime >= wavesToSpawn[currentWave].enemyWaves[waveCount].spawnTimeSinceStart && manager)
                 {
                     // TODO: Either make all stys spawn an enemy, or choose which sty each enemy spawns at
-                    foreach(StyControllerBeta sti in manager.allStys)
+                    foreach(StyControllerBeta sti in StyControllerBeta.allStys)
                     {
-                        sti.GetComponentInChildren<SpawnerControllerBeta>().SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
+                        sti.GetComponentInChildren<SpawnerControllerBeta>().Spawn(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy);
                     }
                     //manager.allStys[0].GetComponentInChildren<SpawnerControllerBeta>().SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);
                     //mainPigsties[0].SpawnEnemy(wavesToSpawn[currentWave].enemyWaves[waveCount].enemy, parentObj);

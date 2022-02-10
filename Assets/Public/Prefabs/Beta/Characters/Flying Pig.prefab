@@ -144,10 +144,10 @@ MonoBehaviour:
   - Comrade
   - Player Structure
   - Turret
+  followDistance: 5
   attackHitBox: {fileID: 3031381806052614993}
   attackDamage: 2
   attackDelay: 0.75
-  updateRadius: 4
   targetUpdateTime: 1
   turret: {fileID: 2280958540908658108}
   projectile: {fileID: 6445303830105601911, guid: 260ff3b95a77b0f4dbea579d172b01f3, type: 3}

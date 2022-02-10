@@ -10,6 +10,8 @@ public class AIControllerBeta : CharacterControllerBeta
     protected List<GameObject> touching;
     protected Transform targetTransform;
 
+    public float followDistance;
+
     public override void Start()
     {
         base.Start();
@@ -39,7 +41,7 @@ public class AIControllerBeta : CharacterControllerBeta
 
     public virtual void FollowTarget()
     {
-        if(targetTransform != null)
+        if(targetTransform != null && Vector3.Distance(transform.position, targetTransform.position) > followDistance)
         {
             WalkInDirection(targetTransform.position - transform.position);
         }
