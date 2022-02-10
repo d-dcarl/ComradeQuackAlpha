@@ -144,6 +144,7 @@ MonoBehaviour:
   - Comrade
   - Player Structure
   - Turret
+  - Nest
   followDistance: 5
   attackHitBox: {fileID: 3031381806052614993}
   attackDamage: 2

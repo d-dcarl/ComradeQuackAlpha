@@ -61,6 +61,7 @@ MonoBehaviour:
   - Turret
   - Player Structure
   - Flying Turret
+  - Nest
   followDistance: 0.1
   attackHitBox: {fileID: 7566149668356354951}
   attackDamage: 2
