@@ -531,6 +531,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         //Ray ray;
         RaycastHit hitData;
         float maxDist = 10;
+        //TODO lower the height of the ray
         //TODO: add check to see if player is close enough to the turret. Adjust the variable to be appropriate
         if (Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hitData, maxDist))
         {
