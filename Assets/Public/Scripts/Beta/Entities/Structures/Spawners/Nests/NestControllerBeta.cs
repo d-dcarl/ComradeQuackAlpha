@@ -43,6 +43,8 @@ public class NestControllerBeta : SpawnerControllerBeta
                 spawnTimer = spawnDelay;
             }
         }
+        //decrement the upgrade timer
+        upgradeTimer -= Time.deltaTime;
     }
 
     //tells the spawner that it can spawn a new member
