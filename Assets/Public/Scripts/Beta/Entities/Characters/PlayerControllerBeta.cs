@@ -146,6 +146,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
     }
 
+    public int GetTurretIndex()
+    {
+        return turretPrefabIndex;
+    }
+
     public void SwitchWeapons(int newGun)
     {
         if (gunInHand != null)
