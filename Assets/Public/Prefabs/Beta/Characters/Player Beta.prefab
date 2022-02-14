@@ -404,15 +404,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5138567865375523899, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.496
       objectReference: {fileID: 0}
     - target: {fileID: 5138567865375523899, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6422732579162807670, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422732579162807670, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8969698846730004058, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
       propertyPath: m_Pivot.x

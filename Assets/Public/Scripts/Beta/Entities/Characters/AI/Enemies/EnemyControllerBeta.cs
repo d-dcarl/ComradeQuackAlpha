@@ -13,8 +13,16 @@ public class EnemyControllerBeta : AIControllerBeta
     public float targetUpdateTime;
     protected float targetUpdateTimer;
 
+    protected static List<EnemyControllerBeta> allEnemies;
+
     public override void Start()
     {
+        if(allEnemies == null)
+        {
+            allEnemies = new List<EnemyControllerBeta>();
+        }
+        allEnemies.Add(this);
+
         base.Start();
         attackTimer = attackDelay;
         if (attackHitBox == null)
@@ -129,5 +137,32 @@ public class EnemyControllerBeta : AIControllerBeta
                 }
             }
         }
+    }
+
+    public override void Die()
+    {
+        allEnemies.Remove(this);
+        base.Die();
+    }
+
+    public static int enemyCount()
+    {
+        if(allEnemies == null)
+        {
+            allEnemies = new List<EnemyControllerBeta>();
+        }
+
+        int i = 0;
+        while(i < allEnemies.Count)
+        {
+            if(allEnemies[i] == null)
+            {
+                allEnemies.RemoveAt(i);
+            } else
+            {
+                i++;
+            }
+        }
+        return allEnemies.Count;
     }
 }

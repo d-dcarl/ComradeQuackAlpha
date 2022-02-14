@@ -111,7 +111,7 @@ public class WaveManagerBeta : MonoBehaviour
 
     private void CheckAmountOfPigs()
     {
-        pigCount = parentObj.transform.childCount;
+        pigCount = EnemyControllerBeta.enemyCount();
     }
 
     private void UpdateWaveText()
