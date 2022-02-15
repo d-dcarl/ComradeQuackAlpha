@@ -77,6 +77,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected GunControllerBeta gunInHand;
 
     private Animator animator;
+    private bool anim_isLanding = false;
 
     public GameObject deathOverlay;
 
@@ -105,7 +106,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         barricadeBeingPlaced = null;
         currBarricades = new List<GameObject>();
 
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         animator.Play("Duck_IDLE");
 
 
@@ -177,6 +178,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (Input.GetButtonDown("Jump") && flapTimer <= 0f && alive)
         {
             Flap();
+            if (isGrounded)
+                animator.Play("Duck Depot or Jump");
+            else
+                animator.Play("Duck Flap");
         }
 
         if (Input.GetButton("Jump") && stamina > 0f && alive)
@@ -244,6 +249,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public void Shoot()
     {
+        animator.Play("Duck Shooting gun");
         gunInHand.Shoot();
     }
 
@@ -471,6 +477,16 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
         direction += h * transform.right;
         direction += v * transform.forward;
+        Vector3 animdir = new Vector3(direction.x, 0f, direction.z);      // Make sure you're not pointing up or down
+        if (animdir.magnitude > 0.01f && isGrounded && !anim_isLanding)
+        {
+            animator.Play("Duck_Walk");     // If there is movement, play the walk animation
+        }
+        else if (isGrounded && !anim_isLanding)
+        {
+            animator.Play("Duck_IDLE");
+        }
+
 
         WalkInDirection(direction);
     }
@@ -582,9 +598,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private void Recruit()
     {
         float maxSize = 10.0f;
+        animator.Play("Duck Recruiting");
         if (!recruitCircle.activeInHierarchy && ducklingsList.Count < maxDucklings)
         {
             recruitCircle.SetActive(true);
+            
         }
         recruitCircle.transform.localPosition = new Vector3(0f, -0.9f, 0f);
         if (recruitCircle.transform.localScale.x < maxSize)
@@ -605,6 +623,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+        animator.Play("Duck Land");
+        anim_isLanding = true;
+        StartCoroutine(LandingTime());
     }
 
     public override void Die()
@@ -630,6 +651,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public void DuckDeath()
     {
+        animator.Play("Duck Death");
         StartCoroutine(WaitToGameOver());
     }
 
@@ -638,6 +660,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
         yield return new WaitForSeconds(1.5f);
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("GameOver");
+    }
+
+    IEnumerator LandingTime()
+    {
+        yield return new WaitForSeconds(1.1f);
+        anim_isLanding = false;
     }
 
     //This currently will activate from any of the player's trigger colliders. That may need to change if more are added in the future
