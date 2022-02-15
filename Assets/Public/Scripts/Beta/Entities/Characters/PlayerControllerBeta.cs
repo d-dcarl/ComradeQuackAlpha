@@ -664,7 +664,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     IEnumerator LandingTime()
     {
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(0.5f);
         anim_isLanding = false;
     }
 
