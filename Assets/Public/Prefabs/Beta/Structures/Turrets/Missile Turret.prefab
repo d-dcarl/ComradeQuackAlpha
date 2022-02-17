@@ -567,8 +567,15 @@ MonoBehaviour:
   fireRate: 3
   damage: 0
   knockback: 0
+  constructionDelay: 3
+  isUnderConstruction: 0
   upgrades:
   - {fileID: 11400000, guid: 1e8256153711a7c4c946a16697f5db31, type: 2}
+  - {fileID: 11400000, guid: 32d84df71e847544ba9210803d55f7c2, type: 2}
+  - {fileID: 11400000, guid: 8526a9affb3487f4abdc2a79928ffc74, type: 2}
+  - {fileID: 11400000, guid: e68bd5acafce7714ab5d03790207e1a2, type: 2}
+  - {fileID: 11400000, guid: 41105519c17c4f8489c48cb2d917d2b3, type: 2}
+  constructionVFX: {fileID: 0}
   splashRadius: 0
   retargetDistance: 0
 --- !u!65 &7968797003135590006
