@@ -216,6 +216,17 @@ MonoBehaviour:
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 6445303830105601911, guid: 75bc9860ec10d3f468127d7c324a8a8f, type: 3}
   fireRate: 0.7
+  damage: 0
+  knockback: 0
+  constructionDelay: 3
+  isUnderConstruction: 0
+  upgrades:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  constructionVFX: {fileID: 0}
   height: 5
 --- !u!65 &554601727569707403
 BoxCollider:
