@@ -215,17 +215,17 @@ MonoBehaviour:
   rotationSpeed: 0.3
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 6445303830105601911, guid: 75bc9860ec10d3f468127d7c324a8a8f, type: 3}
-  fireRate: 0.7
+  fireRate: 1
   damage: 0
   knockback: 0
   constructionDelay: 3
   isUnderConstruction: 0
   upgrades:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 6c08f74031e87f943b78d85998bebfbd, type: 2}
+  - {fileID: 11400000, guid: 7348d5fffc1013445819ca1ce15d2e35, type: 2}
+  - {fileID: 11400000, guid: fb436f36516ca7b46b955c812f7cee8d, type: 2}
+  - {fileID: 11400000, guid: 69bab2096f6132841916c094dcd3d78e, type: 2}
+  - {fileID: 11400000, guid: 26a863ab17e6a064f89acc2e26eac2b5, type: 2}
   constructionVFX: {fileID: 0}
   height: 5
 --- !u!65 &554601727569707403
