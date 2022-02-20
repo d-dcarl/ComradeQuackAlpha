@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 256360c8645ce4748b4f3a7ce0068690
+guid: 41602a3e137234944a1b12a100cfde5a
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable:
   - first:
-      74: -312311966728255860
-    second: Duck Depot or Jump
+      74: 1148368366189345217
+    second: Duck Gliding ilde
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Duck Depot or Jump
-      takeName: Duck Depot or Jump
+      name: Duck Gliding ilde
+      takeName: Duck Gliding ilde
       internalID: 0
-      firstFrame: 1
-      lastFrame: 30
+      firstFrame: 42
+      lastFrame: 58
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -62,7 +62,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 42
     isReadable: 0
   meshes:
     lODScreenPercentages: []
