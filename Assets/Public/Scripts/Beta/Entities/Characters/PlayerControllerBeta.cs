@@ -126,7 +126,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         base.Update();
         TurretLook();
-        NestLook();
+        //NestLook();
 
         if (flapTimer > 0f)
         {
@@ -533,6 +533,21 @@ public class PlayerControllerBeta : CharacterControllerBeta
                     }
                 }
                 return;
+            }
+            else if (selectedObject.tag == "Nest" && ducklingsList.Count > 0)
+            {
+                //get the turret controller
+                if (selectedObject.TryGetComponent<NestControllerBeta>(out NestControllerBeta nest))
+                {
+                    //tell the nest we are placing a duckling in it
+                    if (ducklingToTurret && nest.AddDuckling())
+                    {
+                        ducklingsList[0].ManNest(nest);
+                        //ducklingsList[0].Die();
+                        ducklingsList.RemoveAt(0);
+
+                    }
+                }
             }
         }
         //check turret is null
