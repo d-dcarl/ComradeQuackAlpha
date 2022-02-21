@@ -70,8 +70,7 @@ public class GunControllerBeta : MonoBehaviour
                 }
 
                 bcb.transform.position = transform.position;
-                bcb.direction = GetDirection();                     // ALMOST WORKS :(
-                //bcb.direction = ray.direction;
+                bcb.direction = GetDirection();
             }
             else
             {
