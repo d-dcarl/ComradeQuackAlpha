@@ -6,6 +6,16 @@ using UnityEngine.VFX;
 public class GunTurretController : PlaceableTurretControllerBeta
 {
     public Animator gunTurretAnimator;
+
+    [SerializeField]
+    private ParticleSystem muzzleFlash;
+
+    [SerializeField]
+    private ParticleSystem impactParticles;
+
+    [SerializeField]
+    private TrailRenderer bulletTrail;
+
     //public VisualEffect gunTurretMuzzleFlash;
     // Start is called before the first frame update
     public override void Start()
@@ -24,6 +34,9 @@ public class GunTurretController : PlaceableTurretControllerBeta
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
+                TrailRenderer trail = Instantiate(bulletTrail, gun.transform.position, Quaternion.identity);
+                StartCoroutine(SpawnTrail(trail, hit));
+                
                 EnemyControllerBeta target = hit.collider.GetComponent<EnemyControllerBeta>();
 
                 if (target != null)
@@ -36,5 +49,24 @@ public class GunTurretController : PlaceableTurretControllerBeta
             }
 
         }
+    }
+
+    private IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
+    {
+        float time = 0;
+        Vector3 startPosition = trail.transform.position;
+
+        while (time < 1)
+        {
+            trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
+            time += Time.deltaTime / trail.time;
+
+            yield return null;
+        }
+
+        trail.transform.position = hit.point;
+        // Instantiate(impactParticles, hit.point, Quaternion.LookRotation(hit.normal));
+
+        Destroy(bulletTrail.gameObject, trail.time);
     }
 }

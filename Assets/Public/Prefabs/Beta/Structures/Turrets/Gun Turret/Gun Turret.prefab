@@ -133,6 +133,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3dc62fa269f3f1b488bf42d6fe9a0213, type: 2}
   constructionVFX: {fileID: 7882147207014830099}
   gunTurretAnimator: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+  impactParticles: {fileID: 0}
+  bulletTrail: {fileID: 7019818373328254747, guid: 52009fbe2a17a974aa58bf8dc5142b7b, type: 3}
 --- !u!65 &554601727569707403
 BoxCollider:
   m_ObjectHideFlags: 0
