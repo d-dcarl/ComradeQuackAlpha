@@ -19,7 +19,9 @@ public class TutorialTriggers : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            FindObjectOfType<TutorialManager>().ReceiveTrigger(ID);
+            FindObjectOfType<TutorialManager>().ReceiveTrigger(ID, this);
+            if (GetComponent<DialogueInteractable>())
+                GetComponent<DialogueInteractable>().TriggerDialogue();
         }
     }
 }
