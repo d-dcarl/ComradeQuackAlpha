@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d958c189e3288b04e9cbf81f6bb07c7d
+guid: f7cf2f47e3acab8469d807b5d785083c
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: MDGMat
-    second: {fileID: 5561349426305759274, guid: 835c3f479010543bf9d97f51c114e5e3, type: 3}
+      name: blinn1SG
+    second: {fileID: 2100000, guid: 547de93b65da5d3449c30bae85cd537a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
