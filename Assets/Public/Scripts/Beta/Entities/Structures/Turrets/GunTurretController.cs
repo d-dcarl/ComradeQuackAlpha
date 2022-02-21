@@ -36,16 +36,6 @@ public class GunTurretController : PlaceableTurretControllerBeta
             {
                 TrailRenderer trail = Instantiate(bulletTrail, gun.transform.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit));
-                
-                EnemyControllerBeta target = hit.collider.GetComponent<EnemyControllerBeta>();
-
-                if (target != null)
-                {
-                    target.TakeDamage(damage);
-                    target.KnockBack(hit.point, knockback);
-                }
-                
-                Debug.DrawLine(gun.transform.position, hit.point);
             }
 
         }
@@ -67,6 +57,14 @@ public class GunTurretController : PlaceableTurretControllerBeta
         trail.transform.position = hit.point;
         // Instantiate(impactParticles, hit.point, Quaternion.LookRotation(hit.normal));
 
-        Destroy(bulletTrail.gameObject, trail.time);
+        EnemyControllerBeta target = hit.collider.GetComponent<EnemyControllerBeta>();
+
+        if (target != null)
+        {
+            target.TakeDamage(damage);
+            target.KnockBack(hit.point, knockback);
+        }
+        
+        Destroy(trail.gameObject, trail.time);
     }
 }
