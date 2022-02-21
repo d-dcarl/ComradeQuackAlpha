@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MDGRMat
+    second: {fileID: 2100000, guid: 547de93b65da5d3449c30bae85cd537a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: blinn1SG
     second: {fileID: 2100000, guid: 547de93b65da5d3449c30bae85cd537a, type: 2}
   materials:
