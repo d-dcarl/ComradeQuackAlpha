@@ -10,10 +10,10 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
 
     public Animator animator;
-    public GameObject manager;
+    //public GameObject manager;
 
     private Queue<string> sentences;
-    public GameObject player;
+    bool isConversationActive = false;
 
     void Start()
     {
@@ -21,11 +21,19 @@ public class DialogueManager : MonoBehaviour
 
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (isConversationActive)
+                DisplayNextSentence();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
-        player.GetComponent<PlayerMovement>().enterDialogue = true;
-        manager.GetComponent<AudioSource>().Play();
+        //manager.GetComponent<AudioSource>().Play();
         nameText.text = dialogue.name;
 
         sentences.Clear();
@@ -34,14 +42,13 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-        
+        isConversationActive = true;
         DisplayNextSentence();
     }
 
     public void DisplayNextSentence()
     {
-        manager.GetComponent<AudioSource>().Play();
-            ;
+        //manager.GetComponent<AudioSource>().Play();
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -61,7 +68,7 @@ public class DialogueManager : MonoBehaviour
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.04f);
         }
     }
 
@@ -69,9 +76,8 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of Conversation");
         animator.SetBool("IsOpen", false);
-        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        player.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-        player.GetComponent<PlayerMovement>().enterDialogue = false;
+        FindObjectOfType<TutorialManager>().EndDialogue();
+        isConversationActive = false;
     }
 
 }
