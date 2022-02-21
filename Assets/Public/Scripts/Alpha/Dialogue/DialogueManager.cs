@@ -56,8 +56,16 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        if (sentence.Contains(">"))
+        {
+            FindObjectOfType<TutorialManager>().ChatUpdateCommand(sentence);
+            DisplayNextSentence();
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
         
 
     }
@@ -68,7 +76,10 @@ public class DialogueManager : MonoBehaviour
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.04f);
+            if (letter == '.' || letter == '!' || letter == '?' || letter == ',')
+                yield return new WaitForSeconds(0.5f);
+            else
+                yield return new WaitForSeconds(0.02f);
         }
     }
 
