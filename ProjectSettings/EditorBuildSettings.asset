@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Public/Scenes/Beta/Level Clear.unity
     guid: afb89bcc4e91d074487aea460c7c23a7
+  - enabled: 1
+    path: Assets/Public/Scenes/Beta/TutorialLevel.unity
+    guid: d0590aabf32d4c842b54ab6c39b12ff5
   m_configObjects: {}

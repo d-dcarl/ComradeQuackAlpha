@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -11,13 +12,24 @@ public class TutorialManager : MonoBehaviour
     int mainCamIndex = 0;
     public GameObject instructionsPanel;
     public TMP_Text controllsText;
+
+    public GameObject pondPigs;
+
+    public NestControllerBeta nest;
+    public TurretControllerBeta nestTurret;
+
+    public GameObject waveManager;
+    public bool waveOver;
+
+
     [TextArea(3, 10)]
     public string[] instructions;
-
     //Movement
     //Shooting
     //Recruiting/building turret
     //Defend from wave
+
+    bool allowRecruit = false;
 
 
     // Start is called before the first frame update
@@ -33,7 +45,36 @@ public class TutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (activeList == 3 && pondPigs.transform.childCount == 0)
+        {
+            tutorialTriggers[activeList].GetComponent<TutorialTriggers>().TriggerEvent();
+        }
+
+        if (activeList == 5 && FindObjectOfType<PlayerControllerBeta>().ducklingsList.Count > 0 && allowRecruit)
+        {
+            tutorialTriggers[activeList].GetComponent<TutorialTriggers>().TriggerEvent();
+        }
+
+        //these turret stuff is sooooo hacky lol
+        if (activeList == 6 && FindObjectOfType<PlaceableTurretControllerBeta>().gameObject.GetComponent<BoxCollider>().enabled)
+        {
+            tutorialTriggers[activeList].GetComponent<TutorialTriggers>().TriggerEvent();
+        }
+
+        if (activeList == 7 && FindObjectOfType<PlaceableTurretControllerBeta>().healthBarSlider.value > 0)
+        {
+            tutorialTriggers[activeList].GetComponent<TutorialTriggers>().TriggerEvent();
+        }
+
+        if (activeList == 8 && FindObjectOfType<PlaceableTurretControllerBeta>().damage >= 6)
+        {
+            tutorialTriggers[activeList].GetComponent<TutorialTriggers>().TriggerEvent();
+        }
+
+        if (activeList == 9 && waveOver)
+        {
+            tutorialTriggers[activeList].GetComponent<TutorialTriggers>().TriggerEvent();
+        }
     }
 
     public void ReceiveTrigger(string id, TutorialTriggers tt)
@@ -44,16 +85,21 @@ public class TutorialManager : MonoBehaviour
             tt.keepPlayer = true;
             instructionsPanel.SetActive(false);
         }
-        //if (id == "dialogue 1")
-        //{
-        //    cameras[mainCamIndex].SetActive(false);
-        //    cameras[1].SetActive(true);
-        //}
-        //if (id == "dialogue 2")
-        //{
-        //    cameras[mainCamIndex].SetActive(false);
-        //    cameras[2].SetActive(true);
-        //}
+        if (id == "dialogue 4")
+        {
+            nest.turnOffAutoSpawn = false;
+            nestTurret.canShoot.Add("Enemy");
+            nest.spawnCap = 3;
+        }
+        if (id == "dialogue 6")
+        {
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().maxTurrets = 1;
+        }
+        if (id == "dialogue 9")//wave starts
+        {
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().maxTurrets = 10;
+            //waveManager.SetActive(true);
+        }
         //if (id == "dialogue 3")
         //{
         //    cameras[mainCamIndex].SetActive(false);
@@ -67,6 +113,8 @@ public class TutorialManager : MonoBehaviour
         {
             tt.keepPlayer = false;
         }
+        GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().maxSpeed = 10;
+        GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().flapSpeed = 15;
         foreach (GameObject go in cameras)
         {
             go.SetActive(false);
@@ -87,6 +135,24 @@ public class TutorialManager : MonoBehaviour
             }
 
             cameras[(int)char.GetNumericValue(command[command.Length - 1])].SetActive(true);
+        }
+        else if (command.Contains("inst"))
+        {
+            instructionsPanel.SetActive(true);
+            controllsText.text = instructions[(int)char.GetNumericValue(command[command.Length - 1])];
+        }
+        else if (command.Contains("recruit"))
+        {
+            allowRecruit = true;
+        }
+        else if (command.Contains("wave"))
+        {
+            waveManager.SetActive(true);
+        }
+        else if (command.Contains("end"))
+        {
+            StyControllerBeta.allStys = null;
+            SceneManager.LoadScene(1);
         }
     }
 }

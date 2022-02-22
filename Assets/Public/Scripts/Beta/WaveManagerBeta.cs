@@ -23,6 +23,8 @@ public class WaveManagerBeta : MonoBehaviour
     public Text timeBetweenText;
     public Text enemiesRemainingText;
 
+    public bool isTutorial;
+
     float spawnTimer = 0;
     float waveTime = 0;
     float waitTime = 0;
@@ -106,6 +108,11 @@ public class WaveManagerBeta : MonoBehaviour
         {
             //Wave is over
             isWaitActive = true;
+            if (isTutorial)
+            {
+                gameObject.SetActive(false);
+                FindObjectOfType<TutorialManager>().waveOver = true;
+            }
         }
     }
 

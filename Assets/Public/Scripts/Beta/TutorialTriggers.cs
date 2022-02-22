@@ -11,7 +11,9 @@ public class TutorialTriggers : MonoBehaviour
     {
         if (keepPlayer)
         {
-            GameObject.Find("Player Beta").transform.position = transform.position;
+            //GameObject.Find("Player Beta").transform.position = transform.position;
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().maxSpeed = 0;
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().flapSpeed = 0;
         }
     }
 
@@ -19,9 +21,14 @@ public class TutorialTriggers : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            FindObjectOfType<TutorialManager>().ReceiveTrigger(ID, this);
-            if (GetComponent<DialogueInteractable>())
-                GetComponent<DialogueInteractable>().TriggerDialogue();
+            TriggerEvent();
         }
+    }
+
+    public void TriggerEvent()
+    {
+        FindObjectOfType<TutorialManager>().ReceiveTrigger(ID, this);
+        if (GetComponent<DialogueInteractable>())
+            GetComponent<DialogueInteractable>().TriggerDialogue();
     }
 }
