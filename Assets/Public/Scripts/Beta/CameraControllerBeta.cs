@@ -19,6 +19,8 @@ public class CameraControllerBeta : MonoBehaviour
 
     public Transform zoomCam;
     public float zoomSpeed = .5f;
+    public float zoomMaxY = 315f;
+    public float zoomMinY = 45f;
 
     // Start is called before the first frame update
     void Start()
@@ -53,10 +55,22 @@ public class CameraControllerBeta : MonoBehaviour
             vp.x += 0.5f;
             vp.y += 0.5f;
             Vector3 sp = mycam.ViewportToScreenPoint(vp);
-
             Vector3 v = mycam.ScreenToWorldPoint(sp);
-            transform.LookAt(v, Vector3.up);
 
+            // Limit camera X rotation
+            transform.LookAt(v, Vector3.up);
+            Vector3 rot = transform.rotation.eulerAngles;
+            if (rot.x < 315f && rot.x > 180f)
+            {
+                rot.x = zoomMaxY;
+            }
+            else if (rot.x > 45f && rot.x < 180f)
+            {
+                rot.x = zoomMinY;
+            }
+            transform.rotation = Quaternion.Euler(rot); 
+
+            // Apply position and rotation to camera and player
             transform.position = Vector3.Slerp(transform.position, zoomCam.position, zoomSpeed * Time.time);
             player.transform.rotation = transform.rotation;
             //------------------------------------------------------------------------------------------------------
