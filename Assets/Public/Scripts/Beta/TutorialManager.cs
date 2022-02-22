@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class TutorialManager : MonoBehaviour
     int activeList = 0;
     public GameObject[] cameras; // 1 = start overlook, 2 = rock look, 3 = pond overlook, 4 = pigsty look, 5 = pond zoom
     int mainCamIndex = 0;
+    public GameObject instructionsPanel;
+    public TMP_Text controllsText;
+    [TextArea(3, 10)]
+    public string[] instructions;
 
     //Movement
     //Shooting
@@ -37,6 +42,7 @@ public class TutorialManager : MonoBehaviour
         if (id.Contains("dialogue"))
         {
             tt.keepPlayer = true;
+            instructionsPanel.SetActive(false);
         }
         //if (id == "dialogue 1")
         //{
