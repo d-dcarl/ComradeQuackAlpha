@@ -152,7 +152,7 @@ public class TutorialManager : MonoBehaviour
         else if (command.Contains("end"))
         {
             StyControllerBeta.allStys = null;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }
