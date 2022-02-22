@@ -19,8 +19,11 @@ public class CameraControllerBeta : MonoBehaviour
 
     public Transform zoomCam;
     public float zoomSpeed = .5f;
-    public float zoomMaxY = 315f;
-    public float zoomMinY = 45f;
+    public float zoomXRotationLimit = 45f;
+
+    private float zoomHighBound;
+    private float zoomLowBound;
+    private float zoomMidpoint = 180f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,9 @@ public class CameraControllerBeta : MonoBehaviour
         cameraAngle = targetAngle;
         degToRads = Mathf.PI / 180f;
 
+        // set zoom rotation boundaries
+        zoomHighBound = 360f - zoomXRotationLimit;
+        zoomLowBound = 0f + zoomXRotationLimit;
     }
 
     // Update is called once per frame
@@ -60,13 +66,13 @@ public class CameraControllerBeta : MonoBehaviour
             // Limit camera X rotation
             transform.LookAt(v, Vector3.up);
             Vector3 rot = transform.rotation.eulerAngles;
-            if (rot.x < 315f && rot.x > 180f)
+            if (rot.x < zoomHighBound && rot.x > zoomMidpoint)
             {
-                rot.x = zoomMaxY;
+                rot.x = zoomHighBound;
             }
-            else if (rot.x > 45f && rot.x < 180f)
+            else if (rot.x > zoomLowBound && rot.x < zoomMidpoint)
             {
-                rot.x = zoomMinY;
+                rot.x = zoomLowBound;
             }
             transform.rotation = Quaternion.Euler(rot); 
 
