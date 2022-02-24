@@ -8011,6 +8011,10 @@ PrefabInstance:
       propertyPath: neighbors.Array.data[0]
       value: 
       objectReference: {fileID: 1398910410}
+    - target: {fileID: 6376084278352394227, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: spawnRadius
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6435119666393522785, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_RootOrder
       value: 3

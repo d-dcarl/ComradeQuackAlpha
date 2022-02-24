@@ -36,6 +36,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void ReturnToGame()
     {
+        StyControllerBeta.allStys = null;
         SceneManager.LoadScene("WhiteBox1Beta");
     }
 

@@ -152,7 +152,7 @@ MonoBehaviour:
   targetUpdateTime: 1
   turret: {fileID: 2280958540908658108}
   projectile: {fileID: 6445303830105601911, guid: 260ff3b95a77b0f4dbea579d172b01f3, type: 3}
-  startHeight: 5
+  startHeight: 13
 --- !u!65 &1126659734799499269
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracked: []
-  range: 20
+  range: 25
 --- !u!135 &6112132404518622753
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -426,7 +426,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1742100068496134973
 PrefabInstance:
