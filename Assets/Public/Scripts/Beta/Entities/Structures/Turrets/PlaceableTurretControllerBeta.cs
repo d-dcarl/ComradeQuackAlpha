@@ -243,7 +243,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             return true;
         }
         //otherwise upgrade if we can still upgrade, and the cooldown has passed
-        else if (upgradeLevel < upgradeCap && upgradeTimer <= 0)
+        else if (upgradeLevel < upgradeCap && !isUnderConstruction)
         {
             StartConstruction();
             return true;
