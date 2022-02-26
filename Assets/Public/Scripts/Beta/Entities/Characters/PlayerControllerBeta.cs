@@ -497,7 +497,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (stamina >= staminaUsedPerJump)
         {
             isGrounded = false;
-            rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.y);
+            rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.z);
             stamina -= staminaUsedPerJump;
             flapTimer = flapDelay;
         }
