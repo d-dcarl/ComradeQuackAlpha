@@ -16,5 +16,5 @@ MonoBehaviour:
   knockback: 45
   range: 50
   fireRate: 2.25
-  splashRadius: 9
+  splashRadius: 7
   retargetDistance: 5
