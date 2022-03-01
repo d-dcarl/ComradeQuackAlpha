@@ -1180,7 +1180,7 @@ PrefabInstance:
       objectReference: {fileID: 1103080289}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: timeBetweenWaves
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: enemiesRemainingText
