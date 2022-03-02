@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 6
   knockback: 11
-  range: 20
+  range: 15
   fireRate: 0.6

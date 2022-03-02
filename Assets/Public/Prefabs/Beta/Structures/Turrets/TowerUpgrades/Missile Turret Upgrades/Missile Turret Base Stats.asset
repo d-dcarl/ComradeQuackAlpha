@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   knockback: 45
-  range: 40
+  range: 20
   fireRate: 3
-  splashRadius: 5
+  splashRadius: 3
   retargetDistance: 5

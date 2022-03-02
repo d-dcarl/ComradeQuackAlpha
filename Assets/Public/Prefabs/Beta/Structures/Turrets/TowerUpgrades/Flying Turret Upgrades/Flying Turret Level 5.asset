@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9edb4ff0fcdda44a0e9b3847819119, type: 3}
   m_Name: Flying Turret Level 5
   m_EditorClassIdentifier: 
-  damage: 17
+  damage: 12
   knockback: 25
-  range: 21
-  fireRate: 0.8
+  range: 40
+  fireRate: 1.25
