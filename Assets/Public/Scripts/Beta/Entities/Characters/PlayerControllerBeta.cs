@@ -81,6 +81,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public GameObject deathOverlay;
 
+    //pause the game
+    private bool paused = false;
+
     GameObject mesh;
 
     public override void Start()
@@ -201,6 +204,17 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
+            //TODO CHANGE FROM EXIT GAME
+            if(paused)
+            {
+                paused = false;
+                Time.timeScale = 1;
+            }
+            else
+            {
+                paused = true;
+                Time.timeScale = 0;
+            }
             Application.Quit();
         }
 
