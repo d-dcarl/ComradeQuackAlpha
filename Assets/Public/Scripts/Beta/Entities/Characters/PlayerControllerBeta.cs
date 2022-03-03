@@ -268,6 +268,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if(anim_shoot_timer <= 0 )
         {
             animator.Play("Duck gun shooting (handgun)");
+            animator.SetTrigger("Shooting");
             anim_shoot_timer = gunInHand.shootDelay;
         }
         gunInHand.Shoot();
@@ -506,7 +507,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         else if (isGrounded && !anim_isLanding)
         {
             animator.SetBool("IsWalking", false);
-            animator.Play("Duck Idle (handgun)");
+            //animator.Play("Duck Idle (handgun)");
         }
 
 
@@ -518,10 +519,15 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         if (stamina >= staminaUsedPerJump)
         {
+            animator.SetTrigger("Jumped");
             if (isGrounded)
+            {
                 animator.Play("Duck Depot or Jump (Handgun)");
+            }
             else
+            {
                 animator.Play("Flap tap spacebar (Handgun)");
+            }
             isGrounded = false;
             animator.SetBool("IsGrounded", isGrounded);
             rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.z);
@@ -667,7 +673,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         isGrounded = true;
         animator.SetBool("IsGrounded", isGrounded);
-        animator.Play("Duck Land");
+        animator.Play("Land (Handgun)");
         anim_isLanding = true;
         StartCoroutine(LandingTime());
     }
