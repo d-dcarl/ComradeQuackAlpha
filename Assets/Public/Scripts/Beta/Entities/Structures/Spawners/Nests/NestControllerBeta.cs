@@ -110,17 +110,17 @@ public class NestControllerBeta : SpawnerControllerBeta
         else if(upgradeLevel == 2)
         {
             turnOffAutoSpawn = false;
-            spawnDelay = 10;
+            spawnDelay = 17;
         }
         else if (upgradeLevel == 3)
         {
             turnOffAutoSpawn = false;
-            spawnDelay = 5;
+            spawnDelay = 14;
         }
         else if (upgradeLevel == 4)
         {
             turnOffAutoSpawn = false;
-            spawnDelay = 2;
+            spawnDelay = 11;
         }
         //our default is the not spawning
         else
