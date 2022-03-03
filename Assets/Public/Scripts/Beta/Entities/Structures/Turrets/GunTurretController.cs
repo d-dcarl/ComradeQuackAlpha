@@ -28,7 +28,7 @@ public class GunTurretController : PlaceableTurretControllerBeta
 
     public override void Fire()
     {
-        gunTurretAnimator.Play("FeedShooter_BaseAnimation");
+        // gunTurretAnimator.Play("FeedShooter_BaseAnimation");
         //gunTurretMuzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range))

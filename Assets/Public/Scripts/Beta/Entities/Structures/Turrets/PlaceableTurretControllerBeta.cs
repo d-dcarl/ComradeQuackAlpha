@@ -79,7 +79,11 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
                 transform.position = new Vector3(playerPos.x, hit.transform.position.y, playerPos.z) + player.transform.forward * player.placementDistance;
             }
             else
+            {
                 transform.position = new Vector3(playerPos.x, 0f, playerPos.z) + player.transform.forward * player.placementDistance;
+            }
+
+            transform.rotation = player.transform.rotation;
         }
     }
 
