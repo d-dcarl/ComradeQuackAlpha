@@ -76,8 +76,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public Transform gunTransform;
     protected GunControllerBeta gunInHand;
 
+    [Header("Animation")]
     private Animator animator;
     private bool anim_isLanding = false;
+    private float anim_shoot_timer = 0f;
 
     public GameObject deathOverlay;
 
@@ -110,7 +112,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         currBarricades = new List<GameObject>();
 
         animator = GetComponentInChildren<Animator>();
-        animator.Play("Duck_IDLE");
+        animator.Play("Duck Idle (handgun)");
 
 
         if (gunTypes.Count > 0)
@@ -134,6 +136,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (flapTimer > 0f)
         {
             flapTimer -= Time.deltaTime;
+        }
+        if(anim_shoot_timer > 0f)
+        {
+            anim_shoot_timer -= Time.deltaTime;
         }
         CheckInput();
         EnforceMaxHeight();
@@ -181,10 +187,6 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (Input.GetButtonDown("Jump") && flapTimer <= 0f && alive)
         {
             Flap();
-            if (isGrounded)
-                animator.Play("Duck Depot or Jump");
-            else
-                animator.Play("Duck Flap");
         }
 
         if (Input.GetButton("Jump") && stamina > 0f && alive)
@@ -263,7 +265,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public void Shoot()
     {
-        animator.Play("Duck Shooting gun");
+        if(anim_shoot_timer <= 0 )
+        {
+            animator.Play("Duck gun shooting (handgun)");
+            anim_shoot_timer = gunInHand.shootDelay;
+        }
         gunInHand.Shoot();
     }
 
@@ -494,11 +500,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
         Vector3 animdir = new Vector3(direction.x, 0f, direction.z);      // Make sure you're not pointing up or down
         if (animdir.magnitude > 0.01f && isGrounded && !anim_isLanding)
         {
-            animator.Play("Duck_Walk");     // If there is movement, play the walk animation
+            animator.SetBool("IsWalking", true);
+            animator.Play("Duck Walkcycle (handgun)");     // If there is movement, play the walk animation
         }
         else if (isGrounded && !anim_isLanding)
         {
-            animator.Play("Duck_IDLE");
+            animator.SetBool("IsWalking", false);
+            animator.Play("Duck Idle (handgun)");
         }
 
 
@@ -510,7 +518,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         if (stamina >= staminaUsedPerJump)
         {
+            if (isGrounded)
+                animator.Play("Duck Depot or Jump (Handgun)");
+            else
+                animator.Play("Flap tap spacebar (Handgun)");
             isGrounded = false;
+            animator.SetBool("IsGrounded", isGrounded);
             rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.z);
             stamina -= staminaUsedPerJump;
             flapTimer = flapDelay;
@@ -627,7 +640,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private void Recruit()
     {
         float maxSize = 10.0f;
-        animator.Play("Duck Recruiting");
+        animator.SetTrigger("Recruiting");
+        animator.Play("Duck Recruiting (handgun)");
         if (!recruitCircle.activeInHierarchy && ducklingsList.Count < maxDucklings)
         {
             recruitCircle.SetActive(true);
@@ -652,6 +666,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+        animator.SetBool("IsGrounded", isGrounded);
         animator.Play("Duck Land");
         anim_isLanding = true;
         StartCoroutine(LandingTime());
@@ -680,6 +695,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public void DuckDeath()
     {
+        animator.SetTrigger("Dead");
         animator.Play("Duck Death");
         StartCoroutine(WaitToGameOver());
     }
