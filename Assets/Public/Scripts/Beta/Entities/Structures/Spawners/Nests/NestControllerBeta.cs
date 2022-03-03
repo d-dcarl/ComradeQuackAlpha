@@ -63,7 +63,6 @@ public class NestControllerBeta : SpawnerControllerBeta
             Debug.LogError("Nest must spawn ducklings.");
             return null;
         }
-        curSpawns += 1;
         newDuckling.InitializeDuckling(this);
         return newDuckling.gameObject;
     }
