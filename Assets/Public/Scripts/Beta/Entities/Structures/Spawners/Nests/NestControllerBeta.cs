@@ -26,7 +26,7 @@ public class NestControllerBeta : SpawnerControllerBeta
         base.Start();
         spawnTimer = spawnDelay;
         spawned = new List<GameObject>();
-        curSpawns = 0;
+        curSpawns = spawned.Count;
         changeSpawnTime();
     }
 
@@ -36,6 +36,7 @@ public class NestControllerBeta : SpawnerControllerBeta
         //spawns ducks
         if (!turnOffAutoSpawn)
         {
+            curSpawns = spawned.Count;
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0f && curSpawns < spawnCap)
             {
@@ -62,7 +63,7 @@ public class NestControllerBeta : SpawnerControllerBeta
             Debug.LogError("Nest must spawn ducklings.");
             return null;
         }
-
+        curSpawns += 1;
         newDuckling.InitializeDuckling(this);
         return newDuckling.gameObject;
     }
