@@ -13,7 +13,11 @@ public class EnemyControllerBeta : AIControllerBeta
     public float targetUpdateTime;
     protected float targetUpdateTimer;
 
+    public float updateRadius = 5f;
+
     protected static List<EnemyControllerBeta> allEnemies;
+
+    protected NodeControllerBeta source;
 
     public override void Start()
     {
@@ -78,11 +82,64 @@ public class EnemyControllerBeta : AIControllerBeta
         }
     }
 
+    public void UpdateSource()
+    {
+        NodeControllerBeta closest = FindClosestNode();
+        if (source == null)
+        {
+            source = closest;
+        }
+        else if (source != closest)
+        {
+            // Vector with x and z of closest node, but y of self
+            Vector3 closestAtY = new Vector3(closest.transform.position.x, transform.position.y, closest.transform.position.z);
+            float flatDist = Vector3.Distance(closestAtY, transform.position);
+            if(flatDist < updateRadius)
+            {
+                source = closest;
+            }
+        }
+    }
+
     public NodeControllerBeta FindNextNode()
     {
-        NodeControllerBeta source = FindClosestNode();
+        UpdateSource();
 
-        return source;
+        NodeControllerBeta checking = source;
+        NodeControllerBeta dest = null;
+
+        // If any neighbors are goals
+        foreach (NodeControllerBeta n in checking.neighbors)
+        {
+            if(n.isGoal)
+            {
+                float nDist = Vector3.Distance(n.transform.position, transform.position);
+                if (dest == null || nDist < Vector3.Distance(dest.transform.position, transform.position))
+                {
+                    dest = n;
+                }
+            }
+        }
+
+        // Otherwise pick the best non-goal neighbor
+        if (dest == null)
+        {
+            NodeControllerBeta goal = FindClosestGoal();
+            float bestDist = -1f;
+            foreach (NodeControllerBeta n in checking.neighbors)
+            {
+                float nDist = Vector3.Distance(n.transform.position, transform.position);
+                float gDist = Vector3.Distance(n.transform.position, goal.transform.position);
+
+                if(bestDist < 0f || nDist + gDist < bestDist)
+                {
+                    bestDist = nDist + gDist;
+                    dest = n;
+                }
+            }
+        }
+
+        return dest;
     }
 
     // Returns null if nodes are not set up
@@ -96,7 +153,28 @@ public class EnemyControllerBeta : AIControllerBeta
         {
             foreach(NodeControllerBeta node in GameManagerBeta.Instance.allNodes)
             {
-                // For now, just rush the closest pond
+                float dist = Vector3.Distance(transform.position, node.transform.position);
+                if (closest == null || dist < closestDist)
+                {
+                    closestDist = dist;
+                    closest = node;
+                }
+            }
+        }
+
+        return closest;
+    }
+
+    public NodeControllerBeta FindClosestGoal()
+    {
+        NodeControllerBeta closest = null;
+        float closestDist = -1;
+
+        // If the nodes are set up
+        if (GameManagerBeta.Instance != null && GameManagerBeta.Instance.allNodes != null)
+        {
+            foreach (NodeControllerBeta node in GameManagerBeta.Instance.allNodes)
+            {
                 if(node.isGoal)
                 {
                     float dist = Vector3.Distance(transform.position, node.transform.position);

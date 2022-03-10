@@ -4590,10 +4590,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: neighbors.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: neighbors.Array.data[0]
+      value: 
+      objectReference: {fileID: 980483952}
+    - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
+      propertyPath: neighbors.Array.data[1]
       value: 
       objectReference: {fileID: 1398910410}
     - target: {fileID: 1111074059893348309, guid: e83b461e89723aa49900b1b216926754, type: 3}
@@ -5201,12 +5205,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: neighbors.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 1398910410}
+      objectReference: {fileID: 1155096331}
+    - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
+      propertyPath: neighbors.Array.data[1]
+      value: 
+      objectReference: {fileID: 2080123519}
     - target: {fileID: 1111074059893348309, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8127,7 +8135,7 @@ PrefabInstance:
     - target: {fileID: 5923826172001103433, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 1398910410}
+      objectReference: {fileID: 980483952}
     - target: {fileID: 6376084278352394227, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: cantDie
       value: 1
@@ -13880,12 +13888,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 223338992836441811, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: neighbors.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 223338992836441811, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 980483952}
+      objectReference: {fileID: 2080123519}
     - target: {fileID: 223338992836441811, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: neighbors.Array.data[1]
       value: 
