@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Public/Scenes/Alpha/MainMenu.unity
     guid: 4d599486b4b0a824db9b8b281a2818f9
   - enabled: 1
-    path: Assets/Public/Scenes/Beta/TutorialLevel.unity
-    guid: d0590aabf32d4c842b54ab6c39b12ff5
+    path: Assets/Public/Scenes/Beta/Tutorial2.unity
+    guid: 901b460ab0835dc48b9ee054b6e19d47
   - enabled: 1
     path: Assets/Public/Scenes/Beta/WhiteBox1Beta.unity
     guid: 0ff9848777ea3004daf96ad461ea00ed
