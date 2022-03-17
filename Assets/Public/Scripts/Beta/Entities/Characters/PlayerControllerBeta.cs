@@ -184,6 +184,30 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     protected void CheckInput()
     {
+
+        // Free cursor and end game on escape
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //TODO CHANGE FROM EXIT GAME
+            if (paused)
+            {
+                paused = false;
+                Time.timeScale = 1;
+            }
+            else
+            {
+                paused = true;
+                Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            //Application.Quit();
+        }
+        //if the game is paused don't check for other inputs
+        if(paused)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Jump") && flapTimer <= 0f && alive)
         {
             Flap();
@@ -202,23 +226,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         Cursor.lockState = CursorLockMode.Locked;           // changed to work with shooting - SJ
 
 
-        // Free cursor and end game on escape
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            //TODO CHANGE FROM EXIT GAME
-            if(paused)
-            {
-                paused = false;
-                Time.timeScale = 1;
-            }
-            else
-            {
-                paused = true;
-                Time.timeScale = 0;
-            }
-            Application.Quit();
-        }
+
 
         //input for player quackling recruitment ring
         if (Input.GetKeyDown(KeyCode.V) || Input.GetButtonDown("Recruit"))
