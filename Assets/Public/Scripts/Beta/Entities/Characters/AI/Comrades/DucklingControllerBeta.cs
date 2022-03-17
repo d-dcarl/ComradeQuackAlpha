@@ -20,12 +20,15 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
     private bool wasKilled = true;
 
+    public Animator animator;
+
     public override void Start()
     {
         wasKilled = true;
         base.Start();
         turret = null;
         isManning = false;
+        animator.Play("Quackling Idle");
     }
 
     public virtual void InitializeDuckling(NestControllerBeta nest)
@@ -35,6 +38,7 @@ public class DucklingControllerBeta : ComradeControllerBeta
             Debug.LogError("Every duckling needs a home nest");
         }
         homeNest = nest;
+        animator = this.gameObject.GetComponentInChildren<Animator>();
         SetWanderPos();
     }
 
@@ -47,6 +51,7 @@ public class DucklingControllerBeta : ComradeControllerBeta
     public virtual void SetLeader(PlayerControllerBeta newLeader)
     {
         leader = newLeader;
+        animator.SetTrigger("Saluting");
     }
 
     public override void Update()
@@ -99,6 +104,11 @@ public class DucklingControllerBeta : ComradeControllerBeta
         {
             WalkInDirection(toWanderPos.normalized);
         }
+        else
+        {
+            animator.SetBool("IsRunning", false);
+            animator.Play("Quackling Idle");
+        }
         
         wanderTimer -= Time.deltaTime;
         if(wanderTimer <= 0f)
@@ -129,6 +139,8 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
     public void WalkTowards(GameObject target, GameObject lookTarget)
     {
+        animator.SetBool("IsRunning", true);
+        animator.Play("Quacking Running");
         WalkInDirection(target.transform.position - transform.position, lookTarget.transform.position - transform.position);
     }
 

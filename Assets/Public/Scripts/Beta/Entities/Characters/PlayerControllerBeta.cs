@@ -76,10 +76,15 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public Transform gunTransform;
     protected GunControllerBeta gunInHand;
 
+    [Header("Animation")]
     private Animator animator;
     private bool anim_isLanding = false;
+    private float anim_shoot_timer = 0f;
 
     public GameObject deathOverlay;
+
+    //pause the game
+    private bool paused = false;
 
     GameObject mesh;
 
@@ -107,7 +112,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         currBarricades = new List<GameObject>();
 
         animator = GetComponentInChildren<Animator>();
-        animator.Play("Duck_IDLE");
+        animator.Play("Duck Idle (handgun)");
 
 
         if (gunTypes.Count > 0)
@@ -131,6 +136,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (flapTimer > 0f)
         {
             flapTimer -= Time.deltaTime;
+        }
+        if(anim_shoot_timer > 0f)
+        {
+            anim_shoot_timer -= Time.deltaTime;
         }
         CheckInput();
         EnforceMaxHeight();
@@ -175,13 +184,33 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     protected void CheckInput()
     {
+
+        // Free cursor and end game on escape
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //TODO CHANGE FROM EXIT GAME
+            if (paused)
+            {
+                paused = false;
+                Time.timeScale = 1;
+            }
+            else
+            {
+                paused = true;
+                Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            //Application.Quit();
+        }
+        //if the game is paused don't check for other inputs
+        if(paused)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Jump") && flapTimer <= 0f && alive)
         {
             Flap();
-            if (isGrounded)
-                animator.Play("Duck Depot or Jump");
-            else
-                animator.Play("Duck Flap");
         }
 
         if (Input.GetButton("Jump") && stamina > 0f && alive)
@@ -197,12 +226,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         Cursor.lockState = CursorLockMode.Locked;           // changed to work with shooting - SJ
 
 
-        // Free cursor and end game on escape
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Application.Quit();
-        }
+
 
         //input for player quackling recruitment ring
         if (Input.GetKeyDown(KeyCode.V) || Input.GetButtonDown("Recruit"))
@@ -249,7 +273,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public void Shoot()
     {
-        animator.Play("Duck Shooting gun");
+        if(anim_shoot_timer <= 0 )
+        {
+            animator.Play("Duck gun shooting (handgun)");
+            animator.SetTrigger("Shooting");
+            anim_shoot_timer = gunInHand.shootDelay;
+        }
         gunInHand.Shoot();
     }
 
@@ -480,11 +509,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
         Vector3 animdir = new Vector3(direction.x, 0f, direction.z);      // Make sure you're not pointing up or down
         if (animdir.magnitude > 0.01f && isGrounded && !anim_isLanding)
         {
-            animator.Play("Duck_Walk");     // If there is movement, play the walk animation
+            animator.SetBool("IsWalking", true);
+            animator.Play("Duck Walkcycle (handgun)");     // If there is movement, play the walk animation
         }
         else if (isGrounded && !anim_isLanding)
         {
-            animator.Play("Duck_IDLE");
+            animator.SetBool("IsWalking", false);
+            //animator.Play("Duck Idle (handgun)");
         }
 
 
@@ -496,8 +527,18 @@ public class PlayerControllerBeta : CharacterControllerBeta
     {
         if (stamina >= staminaUsedPerJump)
         {
+            animator.SetTrigger("Jumped");
+            if (isGrounded)
+            {
+                animator.Play("Duck Depot or Jump (Handgun)");
+            }
+            else
+            {
+                animator.Play("Flap tap spacebar (Handgun)");
+            }
             isGrounded = false;
-            rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.y);
+            animator.SetBool("IsGrounded", isGrounded);
+            rb.velocity = new Vector3(rb.velocity.x, flapSpeed, rb.velocity.z);
             stamina -= staminaUsedPerJump;
             flapTimer = flapDelay;
         }
@@ -613,7 +654,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private void Recruit()
     {
         float maxSize = 10.0f;
-        animator.Play("Duck Recruiting");
+        animator.SetTrigger("Recruiting");
+        animator.Play("Duck Recruiting (handgun)");
         if (!recruitCircle.activeInHierarchy && ducklingsList.Count < maxDucklings)
         {
             recruitCircle.SetActive(true);
@@ -638,7 +680,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
-        animator.Play("Duck Land");
+        animator.SetBool("IsGrounded", isGrounded);
+        animator.Play("Land (Handgun)");
         anim_isLanding = true;
         StartCoroutine(LandingTime());
     }
@@ -666,6 +709,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public void DuckDeath()
     {
+        animator.SetTrigger("Dead");
         animator.Play("Duck Death");
         StartCoroutine(WaitToGameOver());
     }

@@ -26,7 +26,7 @@ public class NestControllerBeta : SpawnerControllerBeta
         base.Start();
         spawnTimer = spawnDelay;
         spawned = new List<GameObject>();
-        curSpawns = 0;
+        curSpawns = spawned.Count;
         changeSpawnTime();
     }
 
@@ -36,6 +36,7 @@ public class NestControllerBeta : SpawnerControllerBeta
         //spawns ducks
         if (!turnOffAutoSpawn)
         {
+            curSpawns = spawned.Count;
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0f && curSpawns < spawnCap)
             {
@@ -62,7 +63,6 @@ public class NestControllerBeta : SpawnerControllerBeta
             Debug.LogError("Nest must spawn ducklings.");
             return null;
         }
-
         newDuckling.InitializeDuckling(this);
         return newDuckling.gameObject;
     }
@@ -110,12 +110,17 @@ public class NestControllerBeta : SpawnerControllerBeta
         else if(upgradeLevel == 2)
         {
             turnOffAutoSpawn = false;
-            spawnDelay = 10;
+            spawnDelay = 17;
         }
         else if (upgradeLevel == 3)
         {
             turnOffAutoSpawn = false;
-            spawnDelay = 5;
+            spawnDelay = 14;
+        }
+        else if (upgradeLevel == 4)
+        {
+            turnOffAutoSpawn = false;
+            spawnDelay = 11;
         }
         //our default is the not spawning
         else

@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 5
   cleanupDistance: 1000
-  speed: 30
-  damage: 2
+  speed: 40
+  damage: 5
   knockback: 5
   direction: {x: 0, y: 0, z: 0}
   canHit:

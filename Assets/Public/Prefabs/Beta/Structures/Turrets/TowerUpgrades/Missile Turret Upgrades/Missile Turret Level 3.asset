@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e657a6baf7c4d31a766df67629e2a36, type: 3}
   m_Name: Missile Turret Level 3
   m_EditorClassIdentifier: 
-  damage: 30
+  damage: 26
   knockback: 45
-  range: 40
+  range: 25
   fireRate: 2.75
-  splashRadius: 7
+  splashRadius: 3
   retargetDistance: 5

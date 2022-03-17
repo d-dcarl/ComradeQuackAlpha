@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 035285de164341b429f5799ada0624ee, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 2'
     - Cursed Pigs and their loud guns caused an avalanche that is blocking the path!
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 3'
     - These Pigs are mere oinks, smoke them with the fury of the Mother Pond!
@@ -2887,11 +2887,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 1'
     - Comrade? Can we hear us Comrade?
-    - This is the K.D.B (Killer Duck Brigade) from the capitol!
+    - This is the P.A.C.T.  from the capitol!
     - The mud rollers are here! We are baffled to see them past the boarder! Our
       initial defenses were flawless and took a week to paint!
     - It is time to stretch our wings Comrade, the Mother Pond calls to us!
@@ -3332,7 +3332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 3'
     - Nice work as usual Comrade!
@@ -4000,7 +4000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 3'
     - This turret is but a shell not fit to serve.
@@ -4219,7 +4219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 3'
     - The machine lives! This Quackling is now ready to protect this pond.
@@ -4659,7 +4659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 3'
     - Before we get off track, we must remind us of the Turret System.
@@ -4891,7 +4891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 3'
     - Nice work as usual Comrade.
@@ -5136,7 +5136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 3'
     - What a beautiful piece of art we have created Comrade!
@@ -8375,11 +8375,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: K.D.B.
+    name: P.A.C.T.
     sentences:
     - '>cam 5'
     - "Quacklings are the beat of the Mother Pond\u2019s heart."
-    - They are the very spine that keeps the U.F.F.R standing.
+    - They are the very spine that keeps the F.F. standing.
     - ....
     - Also really adorable...
     - '>cam 3'
