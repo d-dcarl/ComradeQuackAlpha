@@ -587,7 +587,7 @@ MonoBehaviour:
   spawnDelay: 1
   turnOffAutoSpawn: 0
   curSpawns: 0
-  upgradeLevel: 0
+  upgradeLevel: 1
 --- !u!136 &8333827899096382275
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -256,7 +256,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             PlayerMovement();
             TurretPlacement();
             BarricadePlacement();
-            NestPlacement();
+            //NestPlacement();
 
             // TODO: Add more gun types, and use scrolling to switch guns
             if (Input.GetMouseButton(0) || Input.GetAxis("Shoot") > 0f)

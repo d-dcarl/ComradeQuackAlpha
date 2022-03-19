@@ -24,10 +24,10 @@ public class NestControllerBeta : SpawnerControllerBeta
     public override void Start()
     {
         base.Start();
-        spawnTimer = spawnDelay;
         spawned = new List<GameObject>();
         curSpawns = spawned.Count;
         changeSpawnTime();
+        spawnTimer = spawnDelay;
     }
 
     public override void Update()
