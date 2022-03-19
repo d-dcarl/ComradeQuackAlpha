@@ -451,7 +451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2853327197391258097, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
       propertyPath: upgradeLevel
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2853327197391258103, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
       propertyPath: m_Name
