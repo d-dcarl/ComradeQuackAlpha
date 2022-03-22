@@ -15,13 +15,14 @@ public class PlacableNestControllerBeta : NestControllerBeta
         base.Start();
         hitBox = GetComponent<CapsuleCollider>();
         placed = true;
-        alive = true;
+        alive = false;
         hitBox.enabled = false;
         //SetTransparent();
 
         // This is only to visually show that the turret is inactive on spawning
         currentHealth = 0;
         healthBarSlider.value = 0;
+        PlaceNest();
     }
 
     private void SetTransparent()
