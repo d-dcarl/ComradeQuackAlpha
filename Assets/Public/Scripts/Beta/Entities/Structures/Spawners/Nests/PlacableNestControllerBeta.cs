@@ -14,8 +14,8 @@ public class PlacableNestControllerBeta : NestControllerBeta
     {
         base.Start();
         hitBox = GetComponent<CapsuleCollider>();
-        placed = false;
-        alive = false;
+        placed = true;
+        alive = true;
         hitBox.enabled = false;
         //SetTransparent();
 
