@@ -77,7 +77,7 @@ public class PlacableNestControllerBeta : NestControllerBeta
         hitBox.enabled = true;
         currentHealth = 0;
         healthBarSlider.value = 0;
-        //ActivateNest();       // For now
+        ActivateNest();       // For now
     }
 
     public void ActivateNest()
