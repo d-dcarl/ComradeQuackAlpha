@@ -228,6 +228,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69bab2096f6132841916c094dcd3d78e, type: 2}
   - {fileID: 11400000, guid: 26a863ab17e6a064f89acc2e26eac2b5, type: 2}
   constructionVFX: {fileID: 3119308670804445313}
+  muzzleFlash: {fileID: 0}
+  impactParticles: {fileID: 0}
+  bulletTrail: {fileID: 7019818373328254747, guid: 79d27033e7dc1894191ce7348710214c, type: 3}
   height: 5
 --- !u!65 &554601727569707403
 BoxCollider:
