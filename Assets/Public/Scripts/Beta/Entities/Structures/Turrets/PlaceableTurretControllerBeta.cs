@@ -250,12 +250,13 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         if (!this.alive)
         {
             ActivateTurret();
+            StartConstruction(false);
             return true;
         }
         //otherwise upgrade if we can still upgrade, and the cooldown has passed
         else if (upgradeLevel < upgradeCap && !isUnderConstruction)
         {
-            StartConstruction();
+            StartConstruction(true);
             return true;
         }
         //lookedAt(false);
@@ -263,20 +264,21 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         return false;
     }
 
-    private void StartConstruction()
+    private void StartConstruction(bool isUpgrade)
     {
         isUnderConstruction = true;
         constructionVFX.StartVFX();
-        StartCoroutine(EndConstruction());
+        StartCoroutine(EndConstruction(isUpgrade));
     }
 
-    IEnumerator EndConstruction()
+    IEnumerator EndConstruction(bool isUpgrade)
     {
         yield return new WaitForSeconds(constructionDelay);
 
         isUnderConstruction = false;
         constructionVFX.StopVFX();
-        UpgradeTurret();
+        if (isUpgrade)
+            UpgradeTurret();
     }
 
     protected virtual void UpgradeTurret()
