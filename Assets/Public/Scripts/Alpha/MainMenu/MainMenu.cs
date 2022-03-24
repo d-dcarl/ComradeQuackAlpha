@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsImage;
     public GameObject videoPlayer;
     public AudioSource backgroundMusic;
+    public GameObject levelSelect;
+    public GameObject[] mainMenu;
 
     public void Start()
     {
@@ -30,7 +32,12 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        levelSelect.SetActive(true);
+        foreach (GameObject uiElement in mainMenu)
+        {
+            uiElement.SetActive(false);
+        }
     }
 
     public void FullScreen(bool isFull)
