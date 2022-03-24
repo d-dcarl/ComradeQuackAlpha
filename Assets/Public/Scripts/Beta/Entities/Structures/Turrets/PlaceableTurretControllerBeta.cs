@@ -25,6 +25,15 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     public VFXController constructionVFX;
 
+    [SerializeField]
+    private List<GameObject> turretModels;
+    
+    [SerializeField]
+    private List<GameObject> bulletSpawnPoints;
+
+    [SerializeField]
+    private List<GameObject> duckPositions;
+
     public override void Start()
     {
         base.Start();
@@ -42,6 +51,15 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         healthBarSlider.value = 0;
 
         turretColor = 0;
+        
+        // setup for multiple turret models
+        // basically deactivate every set of turret models so they aren't visible and then reactivate the base model
+        foreach (var model in turretModels)
+            model.SetActive(false);
+        head.SetActive(true);
+
+        foreach (var d in duckPositions)
+            d.SetActive(false);
     }
 
 
@@ -113,6 +131,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         //make the color the activated color
         SetOpaque();
 
+        duck.SetActive(true);
         SetUpgrade(upgrades[upgradeLevel]);
     }
 
@@ -141,6 +160,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public override void Die()
     {
         alive = false;
+        duck.SetActive(false);
         //tell a nestController with a comrad manning a turret that it can spawn a comrad
         SetTransparent();
     }
@@ -247,9 +267,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public bool AddDuckling()
     {
         //activate turret if inactive
-        if (!this.alive)
+        if (!this.alive && !isUnderConstruction)
         {
-            ActivateTurret();
             StartConstruction(false);
             return true;
         }
@@ -279,6 +298,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         constructionVFX.StopVFX();
         if (isUpgrade)
             UpgradeTurret();
+        else
+            ActivateTurret();
     }
 
     protected virtual void UpgradeTurret()
@@ -292,8 +313,31 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         currentHealth = maxHealth;
         healthBarSlider.value = maxHealth;
         upgradeLevel++;
+        
+        head.SetActive(false);
+        if (upgradeLevel < turretModels.Count)
+        {
+            var newHead = turretModels[upgradeLevel];
+            newHead.transform.rotation = head.transform.rotation;
+            head = newHead;
+        }
+        head.SetActive(true);
+        
+        gun.SetActive(false);
+        if (upgradeLevel < bulletSpawnPoints.Count)
+            gun = bulletSpawnPoints[upgradeLevel];
+        gun.SetActive(true);
+        
+        duck.SetActive(false);
+        if (upgradeLevel < duckPositions.Count)
+        {
+            var newDuck = duckPositions[upgradeLevel];
+            newDuck.transform.rotation = duck.transform.rotation;
+            duck = newDuck;
+        }
+        duck.SetActive(true);
+        
         SetUpgrade(upgrades[upgradeLevel]);
-
     }
 
     protected virtual void SetUpgrade(TowerUpgrade upgrade)
@@ -302,5 +346,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         knockback = upgrade.knockback;
         targetRange.range = upgrade.range;
         fireRate = upgrade.fireRate;
+
+        hitBox.center = upgrade.hitboxCenter;
+        hitBox.size = upgrade.hitboxSize;
     }
 }

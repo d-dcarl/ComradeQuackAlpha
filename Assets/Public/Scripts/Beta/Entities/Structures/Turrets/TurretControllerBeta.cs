@@ -6,6 +6,9 @@ public class TurretControllerBeta : StructureControllerBeta
 {
     public GameObject head;
     public GameObject gun;
+    
+    [SerializeField]
+    protected GameObject duck;
 
     public RangeHitboxControllerBeta targetRange;
     public List<string> canShoot;
@@ -43,6 +46,9 @@ public class TurretControllerBeta : StructureControllerBeta
         {
             Debug.LogError("Error: Turrets need a box collider");
         }
+        
+        if (duck != null)
+            duck.SetActive(false);
     }
 
     public override void Update()
@@ -84,6 +90,17 @@ public class TurretControllerBeta : StructureControllerBeta
         if (target != null)
             gun.transform.LookAt(target.transform);
         gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 0f, 0f);
+        
+        if (target != null)
+            hitBox.transform.LookAt(target.transform);
+        hitBox.transform.localEulerAngles = new Vector3(0f, hitBox.transform.localEulerAngles.y, 0f);
+
+        if (duck != null)
+        {
+            if (target != null)
+                duck.transform.LookAt(target.transform);
+            duck.transform.localEulerAngles = new Vector3(0f, duck.transform.localEulerAngles.y, 0f);
+        }
     }
 
     protected Vector3 ShotTracking(GameObject target)

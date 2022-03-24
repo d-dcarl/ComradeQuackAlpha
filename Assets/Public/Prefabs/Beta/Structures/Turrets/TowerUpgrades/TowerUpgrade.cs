@@ -9,4 +9,6 @@ public class TowerUpgrade : ScriptableObject
     public float knockback;
     public float range;
     public float fireRate;
+    public Vector3 hitboxCenter;
+    public Vector3 hitboxSize;
 }
