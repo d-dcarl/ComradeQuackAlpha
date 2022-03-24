@@ -18,6 +18,7 @@ public class EnemyControllerBeta : AIControllerBeta
     protected static List<EnemyControllerBeta> allEnemies;
 
     protected NodeControllerBeta source;
+    public bool isTutorial;
 
     public override void Start()
     {
@@ -74,7 +75,7 @@ public class EnemyControllerBeta : AIControllerBeta
             if (targetTransform == null)
             {
                 NodeControllerBeta nextNode = FindNextNode();
-                if (nextNode != null)
+                if (nextNode != null && !isTutorial)
                 {
                     targetTransform = nextNode.transform;
                 }
