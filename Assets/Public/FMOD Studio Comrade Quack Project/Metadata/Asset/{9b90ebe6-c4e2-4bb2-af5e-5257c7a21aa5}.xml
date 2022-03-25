@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EncodableAsset" id="{9b90ebe6-c4e2-4bb2-af5e-5257c7a21aa5}">
+		<property name="assetPath">
+			<value>characters/enemies/artillery_pig/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bc839046-d7c7-4a97-96b4-932bd50751bc}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="AudioFile" id="{e37470d8-a6fb-469b-88c5-c243922851c2}">
 		<property name="assetPath">
-			<value>sfx_uni_turret_place_valid_01.wav</value>
+			<value>weapons/turret/sfx_uni_turret_place_valid_01.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

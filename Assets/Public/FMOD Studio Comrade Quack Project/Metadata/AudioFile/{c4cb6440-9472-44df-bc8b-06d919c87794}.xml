@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="AudioFile" id="{c4cb6440-9472-44df-bc8b-06d919c87794}">
 		<property name="assetPath">
-			<value>sfx_uni_player_recruit_duckling_03.wav</value>
+			<value>characters/player/sfx_uni_player_recruit_duckling_03.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

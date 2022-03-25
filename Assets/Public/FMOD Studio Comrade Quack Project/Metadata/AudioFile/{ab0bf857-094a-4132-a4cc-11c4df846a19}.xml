@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="AudioFile" id="{ab0bf857-094a-4132-a4cc-11c4df846a19}">
 		<property name="assetPath">
-			<value>sfx_uni_player_movement_glide_01.wav</value>
+			<value>characters/player/sfx_uni_player_movement_glide_01.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

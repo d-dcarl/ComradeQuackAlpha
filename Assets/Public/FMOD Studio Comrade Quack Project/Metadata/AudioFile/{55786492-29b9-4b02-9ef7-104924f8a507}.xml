@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="AudioFile" id="{55786492-29b9-4b02-9ef7-104924f8a507}">
 		<property name="assetPath">
-			<value>sfx_uni_menu_volume_increase_01.wav</value>
+			<value>ui/main/sfx_uni_menu_volume_increase_01.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
