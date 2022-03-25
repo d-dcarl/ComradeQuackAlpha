@@ -82,4 +82,14 @@ public class GunTurretController : PlaceableTurretControllerBeta
         
         turretBase.SetActive(false);
     }
+
+    protected override void unUpgrade()
+    {
+        base.unUpgrade();
+
+        if(upgradeLevel == 0)
+        {
+            turretBase.SetActive(true);
+        }
+    }
 }

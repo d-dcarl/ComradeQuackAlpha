@@ -163,6 +163,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ea028d17cfc810469259dd9a310263b, type: 2}
   - {fileID: 11400000, guid: 9cf3a6357190fda44938a1805869a24e, type: 2}
   - {fileID: 11400000, guid: 3dc62fa269f3f1b488bf42d6fe9a0213, type: 2}
+  duckPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
   constructionVFX: {fileID: 7882147207014830099}
   turretModels:
   - {fileID: 554601728353918052}
@@ -599,7 +600,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5854973896450364645}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []

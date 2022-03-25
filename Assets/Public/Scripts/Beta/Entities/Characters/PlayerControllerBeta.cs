@@ -70,6 +70,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public List<DucklingControllerBeta> ducklingsList;
     public int maxDucklings = 12;
     private bool ducklingToTurret = false;
+    private bool removeDuckling = false;
+
 
     [Header("Shooting")]
     public List<GameObject> gunTypes;
@@ -248,6 +250,16 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (Input.GetKeyUp(KeyCode.C) || Input.GetButtonUp("DucklingTurret"))
         {
             ducklingToTurret = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            removeDuckling = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            removeDuckling = false;
         }
 
         PlayerTurning();
@@ -556,7 +568,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             //tells the turret to Light up turret showing green, yellow or red for its states
             selectedObject = hitData.collider.gameObject;
             //Debug.Log(selectedObject.tag);
-            if((selectedObject.CompareTag("Turret") || selectedObject.CompareTag("Flying Turret")) && ducklingsList.Count > 0 )
+            if((selectedObject.CompareTag("Turret") || selectedObject.CompareTag("Flying Turret")))
             {
                 //get the turret controller
                 if (selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))
@@ -565,12 +577,23 @@ public class PlayerControllerBeta : CharacterControllerBeta
                     //turret.lookedAt(true);
                     lookedTurret = turret;
                     //tell the turret we are placing a duckling in it
-                    if (ducklingToTurret && turret.AddDuckling())
+                    if (ducklingToTurret &&  ducklingsList.Count > 0 && turret.AddDuckling())
                     {
                         //ducklingsList[0].ManTurret(turret);
                         ducklingsList[0].Die();
                         //ducklingsList.RemoveAt(0);
 
+                    }
+                    //or take one out
+                    else if(removeDuckling && ducklingsList.Count < maxDucklings)
+                    {
+                        DucklingControllerBeta newDuck = turret.RemoveDuckling();
+                        if(newDuck != null)
+                        {
+                            newDuck.animator = newDuck.gameObject.GetComponentInChildren<Animator>();
+                            newDuck.SetLeader(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerBeta>());
+                            ducklingsList.Add(newDuck);
+                        }
                     }
                 }
                 return;

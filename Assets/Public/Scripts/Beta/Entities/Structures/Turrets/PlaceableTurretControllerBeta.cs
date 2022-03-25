@@ -23,6 +23,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     private int turretColor = 0;
 
+    public GameObject duckPrefab;
+
     public VFXController constructionVFX;
 
     [SerializeField]
@@ -281,6 +283,72 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         //lookedAt(false);
         //do nothing if turret is at upgrade cap
         return false;
+    }
+
+
+    //removes a duckling from this turret
+    public DucklingControllerBeta RemoveDuckling()
+    {
+        //can't de-upgrade
+        if(upgradeLevel == 0 || isUnderConstruction)
+        {
+            return null;
+        }
+
+        //if can un-upgrade do it
+        upgradeLevel--;
+
+        isUnderConstruction = true;
+        constructionVFX.StartVFX();
+        StartCoroutine(UnUpgradeConstruction());
+
+        //generate new duck
+        Vector3 offset = UnityEngine.Random.onUnitSphere;                       // Random direction
+        offset = new Vector3(offset.x, 0f, offset.z).normalized;    // Flatten and make the offset 1 unit long
+        float spawnRadius = 5;
+        float spawnHeight = 1;
+        Vector3 spawnPosition = transform.position + (offset * spawnRadius) + (Vector3.up * spawnHeight);       // Make sure they don't spawn in the ground
+        return Instantiate(duckPrefab, spawnPosition, transform.rotation).GetComponent<DucklingControllerBeta>();
+    }
+
+    protected virtual void unUpgrade()
+    {
+
+        this.transform.localScale = new Vector3(this.transform.localScale.x - 0.05f, this.transform.localScale.y - 0.05f, this.transform.localScale.z - 0.05f);
+
+        head.SetActive(false);
+        if (upgradeLevel < turretModels.Count)
+        {
+            var newHead = turretModels[upgradeLevel];
+            newHead.transform.rotation = head.transform.rotation;
+            head = newHead;
+        }
+        head.SetActive(true);
+
+        gun.SetActive(false);
+        if (upgradeLevel < bulletSpawnPoints.Count)
+            gun = bulletSpawnPoints[upgradeLevel];
+        gun.SetActive(true);
+
+        duck.SetActive(false);
+        if (upgradeLevel < duckPositions.Count)
+        {
+            var newDuck = duckPositions[upgradeLevel];
+            newDuck.transform.rotation = duck.transform.rotation;
+            duck = newDuck;
+        }
+        duck.SetActive(true);
+
+        SetUpgrade(upgrades[upgradeLevel]);
+    }
+
+    IEnumerator UnUpgradeConstruction()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        isUnderConstruction = false;
+        constructionVFX.StopVFX();
+        unUpgrade();
     }
 
     private void StartConstruction(bool isUpgrade)

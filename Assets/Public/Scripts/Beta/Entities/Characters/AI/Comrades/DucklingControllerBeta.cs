@@ -146,7 +146,7 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
     public override void Die()
     {
-        if (wasKilled)
+        if (wasKilled && homeNest != null)
         {
             homeNest.RemoveObject(gameObject);
             

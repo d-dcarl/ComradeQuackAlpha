@@ -578,6 +578,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8526a9affb3487f4abdc2a79928ffc74, type: 2}
   - {fileID: 11400000, guid: e68bd5acafce7714ab5d03790207e1a2, type: 2}
   - {fileID: 11400000, guid: 41105519c17c4f8489c48cb2d917d2b3, type: 2}
+  duckPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
   constructionVFX: {fileID: 358671120738388796}
   turretModels: []
   bulletSpawnPoints: []

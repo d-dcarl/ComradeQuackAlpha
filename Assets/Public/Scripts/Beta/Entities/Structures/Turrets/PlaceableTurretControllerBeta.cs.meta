@@ -3,7 +3,15 @@ guid: e4b841dad63b319439bfb6c5cff200a1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - healthBarSlider: {instanceID: 0}
+  - head: {instanceID: 0}
+  - gun: {instanceID: 0}
+  - duck: {instanceID: 0}
+  - targetRange: {instanceID: 0}
+  - Projectile: {instanceID: 0}
+  - duckPrefab: {fileID: 919132149155446097, guid: a9f9091f16980d543b6c6fd2f12446f1, type: 3}
+  - constructionVFX: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
