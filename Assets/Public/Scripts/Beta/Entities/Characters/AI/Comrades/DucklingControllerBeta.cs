@@ -22,6 +22,8 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
     public Animator animator;
 
+    public GameObject hats;
+
     public override void Start()
     {
         wasKilled = true;
@@ -182,5 +184,12 @@ public class DucklingControllerBeta : ComradeControllerBeta
     public void PlayQuack()
     {
         base.audioData.Play();
+    }
+
+    public void ChangeHat(GameObject newHat)
+    {
+        if (hats.transform.childCount > 0)
+            Destroy(hats.transform.GetChild(0).gameObject);
+        Instantiate(newHat, hats.transform);
     }
 }
