@@ -20,7 +20,7 @@ public class FlyingTurretController : PlaceableTurretControllerBeta
     public override void GoToPlacementPos()
     {
         base.GoToPlacementPos();
-        startPos = new Vector3(transform.position.x, height, transform.position.z);
+        startPos = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
         transform.position = startPos;
     }
     

@@ -96,7 +96,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             RaycastHit hit;
             if (Physics.Raycast(playerPos, -transform.up, out hit, 100f, LayerMask.GetMask("Ground")))
             {
-                transform.position = new Vector3(playerPos.x, hit.transform.position.y, playerPos.z) + player.transform.forward * player.placementDistance;
+                transform.position = new Vector3(playerPos.x, hit.point.y, playerPos.z) + player.transform.forward * player.placementDistance;
             }
             else
             {
