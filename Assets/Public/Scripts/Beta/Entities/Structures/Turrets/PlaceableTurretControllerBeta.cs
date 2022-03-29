@@ -271,13 +271,13 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         //activate turret if inactive
         if (!this.alive && !isUnderConstruction)
         {
-            StartConstruction(false);
+            StartConstruction(ConstructionType.Activate);
             return true;
         }
         //otherwise upgrade if we can still upgrade, and the cooldown has passed
         else if (upgradeLevel < upgradeCap && !isUnderConstruction)
         {
-            StartConstruction(true);
+            StartConstruction(ConstructionType.Upgrade);
             return true;
         }
         //lookedAt(false);
@@ -295,12 +295,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             return null;
         }
 
-        //if can un-upgrade do it
-        upgradeLevel--;
-
-        isUnderConstruction = true;
-        constructionVFX.StartVFX();
-        StartCoroutine(UnUpgradeConstruction());
+        StartConstruction(ConstructionType.Downgrade);
 
         //generate new duck
         Vector3 offset = UnityEngine.Random.onUnitSphere;                       // Random direction
@@ -311,8 +306,10 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         return Instantiate(duckPrefab, spawnPosition, transform.rotation).GetComponent<DucklingControllerBeta>();
     }
 
-    protected virtual void unUpgrade()
+    protected virtual void DowngradeTurret()
     {
+        //if can un-upgrade do it
+        upgradeLevel = upgradeLevel > 0 ? upgradeLevel - 1 : 0;
 
         this.transform.localScale = new Vector3(this.transform.localScale.x - 0.05f, this.transform.localScale.y - 0.05f, this.transform.localScale.z - 0.05f);
 
@@ -342,32 +339,34 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         SetUpgrade(upgrades[upgradeLevel]);
     }
 
-    IEnumerator UnUpgradeConstruction()
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        isUnderConstruction = false;
-        constructionVFX.StopVFX();
-        unUpgrade();
-    }
-
-    private void StartConstruction(bool isUpgrade)
+    private void StartConstruction(ConstructionType type)
     {
         isUnderConstruction = true;
         constructionVFX.StartVFX();
-        StartCoroutine(EndConstruction(isUpgrade));
+        StartCoroutine(EndConstruction(type));
     }
 
-    IEnumerator EndConstruction(bool isUpgrade)
+    private IEnumerator EndConstruction(ConstructionType type)
     {
         yield return new WaitForSeconds(constructionDelay);
 
         isUnderConstruction = false;
         constructionVFX.StopVFX();
-        if (isUpgrade)
-            UpgradeTurret();
-        else
-            ActivateTurret();
+        switch (type)
+        {
+            case ConstructionType.Activate:
+                ActivateTurret();
+                break;
+            case ConstructionType.Downgrade:
+                DowngradeTurret();
+                break;
+            case ConstructionType.Upgrade:
+                UpgradeTurret();
+                break;
+            default:
+                Debug.Log("Must specify what kind of construction is taking place on the turret. This shouldn't ever happen.");
+                break;
+        }
     }
 
     protected virtual void UpgradeTurret()
@@ -417,5 +416,12 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
         hitBox.center = upgrade.hitboxCenter;
         hitBox.size = upgrade.hitboxSize;
+    }
+
+    private enum ConstructionType
+    {
+        Activate,
+        Upgrade,
+        Downgrade
     }
 }

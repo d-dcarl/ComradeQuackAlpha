@@ -83,9 +83,9 @@ public class GunTurretController : PlaceableTurretControllerBeta
         turretBase.SetActive(false);
     }
 
-    protected override void unUpgrade()
+    protected override void DowngradeTurret()
     {
-        base.unUpgrade();
+        base.DowngradeTurret();
 
         if(upgradeLevel == 0)
         {
