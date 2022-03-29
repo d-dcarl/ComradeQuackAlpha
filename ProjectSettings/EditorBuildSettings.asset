@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Public/Scenes/Beta/Level Clear.unity
     guid: afb89bcc4e91d074487aea460c7c23a7
+  - enabled: 1
+    path: Assets/Public/Scenes/Beta/DressingRoom.unity
+    guid: 75200af685428e847924fd07bf378dfa
   m_configObjects: {}
