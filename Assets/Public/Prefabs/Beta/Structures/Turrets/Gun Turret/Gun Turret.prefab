@@ -163,7 +163,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ea028d17cfc810469259dd9a310263b, type: 2}
   - {fileID: 11400000, guid: 9cf3a6357190fda44938a1805869a24e, type: 2}
   - {fileID: 11400000, guid: 3dc62fa269f3f1b488bf42d6fe9a0213, type: 2}
-  duckPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
   constructionVFX: {fileID: 7882147207014830099}
   turretModels:
   - {fileID: 554601728353918052}

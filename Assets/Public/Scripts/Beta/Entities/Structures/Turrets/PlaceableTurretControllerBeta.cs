@@ -23,8 +23,6 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     private int turretColor = 0;
 
-    public GameObject duckPrefab;
-
     public VFXController constructionVFX;
 
     [SerializeField]
@@ -287,23 +285,17 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
 
     //removes a duckling from this turret
-    public DucklingControllerBeta RemoveDuckling()
+    public bool RemoveDuckling()
     {
         //can't de-upgrade
         if(upgradeLevel == 0 || isUnderConstruction)
         {
-            return null;
+            return false;
         }
 
         StartConstruction(ConstructionType.Downgrade);
 
-        //generate new duck
-        Vector3 offset = UnityEngine.Random.onUnitSphere;                       // Random direction
-        offset = new Vector3(offset.x, 0f, offset.z).normalized;    // Flatten and make the offset 1 unit long
-        float spawnRadius = 5;
-        float spawnHeight = 1;
-        Vector3 spawnPosition = transform.position + (offset * spawnRadius) + (Vector3.up * spawnHeight);       // Make sure they don't spawn in the ground
-        return Instantiate(duckPrefab, spawnPosition, transform.rotation).GetComponent<DucklingControllerBeta>();
+        return true;
     }
 
     protected virtual void DowngradeTurret()
