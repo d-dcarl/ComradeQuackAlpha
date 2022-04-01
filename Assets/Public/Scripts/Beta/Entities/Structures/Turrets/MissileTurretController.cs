@@ -7,6 +7,9 @@ public class MissileTurretController : PlaceableTurretControllerBeta
 {
     public float splashRadius;
     public float retargetDistance;
+
+    [SerializeField]
+    private ParticleSystem smokePoof;
     
     public override void Start()
     {
@@ -15,6 +18,8 @@ public class MissileTurretController : PlaceableTurretControllerBeta
 
     public override void Fire()
     {
+        smokePoof.Play();
+        
         MissileControllerBeta missile = Instantiate(Projectile).GetComponent<MissileControllerBeta>();
         missile.damage = damage;
         missile.knockback = knockback;
