@@ -19,7 +19,7 @@ MonoBehaviour:
   spawnRadius: 5
   spawnHeight: 1
   duckPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
-  spawnCap: 5
+  spawnCap: 3
   spawnDelay: 1
   turnOffAutoSpawn: 0
   curSpawns: 0

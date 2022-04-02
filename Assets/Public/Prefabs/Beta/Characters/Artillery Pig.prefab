@@ -56,7 +56,7 @@ MonoBehaviour:
   healthBarSlider: {fileID: 8137534064912883752}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 2
+  maxSpeed: 6
   targetHitbox: {fileID: 7566149668356354951}
   canAttack:
   - Turret
@@ -65,10 +65,11 @@ MonoBehaviour:
   - Nest
   followDistance: 0.1
   attackHitBox: {fileID: 7566149668356354951}
-  attackDamage: 10
-  attackDelay: 3
+  attackDamage: 15
+  attackDelay: 2
   targetUpdateTime: 1
   updateRadius: 5
+  isTutorial: 0
   progressSlider: {fileID: 4654299904889227014}
   maxWaitTime: 5
   projectile: {fileID: 6061287910832345258, guid: 9f71189e391cb2c4daa2a4a94baced2b, type: 3}
