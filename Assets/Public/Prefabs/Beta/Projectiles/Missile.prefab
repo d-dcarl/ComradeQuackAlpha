@@ -149,6 +149,7 @@ MonoBehaviour:
   splashRange: {fileID: 8705638303165872077}
   retargetDistance: 5
   smoke: {fileID: 6428486485135855938}
+  explosion: {fileID: 4456239186901117668, guid: f54720ed47f271b44b11f00abb77196e, type: 3}
   target: {fileID: 0}
 --- !u!136 &8192299990608135377
 CapsuleCollider:

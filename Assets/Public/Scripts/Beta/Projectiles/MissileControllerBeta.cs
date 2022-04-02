@@ -24,6 +24,9 @@ namespace Public.Scripts.Beta.Projectiles
         [SerializeField]
         private ParticleSystem smoke;
 
+        [SerializeField]
+        private ParticleSystem explosion;
+
         [HideInInspector]
         public GameObject target;
         
@@ -91,6 +94,9 @@ namespace Public.Scripts.Beta.Projectiles
 
         private void Explode()
         {
+            ParticleSystem exp = Instantiate(explosion, transform.position, Quaternion.identity);
+            exp.Play();
+            
             foreach (GameObject o in splashRange.tracked)
             {
                 if (canHit.Contains(o.tag))
