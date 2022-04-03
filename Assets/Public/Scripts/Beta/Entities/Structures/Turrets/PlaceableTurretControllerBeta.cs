@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.TerrainAPI;
 using UnityEngine;
 
 public class PlaceableTurretControllerBeta : TurretControllerBeta
 {
     protected bool placed;
+
+    [SerializeField]
+    protected HitboxControllerBeta placementCollider;
+    
     protected int upgradeLevel = 0;
     protected int upgradeCap;
     
@@ -63,8 +68,6 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             d.SetActive(false);
     }
 
-
-
     public override void Update()
     {
         if(!placed)
@@ -109,7 +112,20 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     public bool ValidPlacementLocation()
     {
+        foreach (var o in placementCollider.tracked)
+        {
+            if (ComparePlacementTags(o))
+            {
+                return false;
+            }
+        }
+        
         return true;
+    }
+
+    private bool ComparePlacementTags(GameObject obj)
+    {
+        return obj.CompareTag("Turret") || obj.CompareTag("Flying Turret") || obj.CompareTag("Player Structure") || obj.CompareTag("Enemy Structure") || obj.CompareTag("Environment");
     }
 
     public void PlaceTurret()
