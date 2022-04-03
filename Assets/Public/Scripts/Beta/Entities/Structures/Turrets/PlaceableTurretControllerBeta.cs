@@ -90,15 +90,15 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         if(GameManagerBeta.Instance != null)
         {
             PlayerControllerBeta player = GameManagerBeta.Instance.player;
-            Vector3 playerPos = player.transform.position;
-            RaycastHit hit;
-            if (Physics.Raycast(playerPos, -transform.up, out hit, 100f, LayerMask.GetMask("Ground")))
+            Vector3 placementPos = player.transform.position + player.transform.forward * player.placementDistance;
+
+            if (Physics.Raycast(new Vector3(placementPos.x, 10f, placementPos.z), Vector3.down, out var hit, 100f, LayerMask.GetMask("Ground")))
             {
-                transform.position = new Vector3(playerPos.x, hit.point.y, playerPos.z) + player.transform.forward * player.placementDistance;
+                transform.position = new Vector3(placementPos.x, hit.point.y, placementPos.z);
             }
             else
             {
-                transform.position = new Vector3(playerPos.x, 0f, playerPos.z) + player.transform.forward * player.placementDistance;
+                transform.position = new Vector3(placementPos.x, 0f, placementPos.z);
             }
 
             transform.rotation = player.transform.rotation;
