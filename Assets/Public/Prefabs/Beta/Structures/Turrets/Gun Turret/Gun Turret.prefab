@@ -186,7 +186,7 @@ MonoBehaviour:
   - {fileID: 8556765121888178575}
   gunTurretAnimator: {fileID: 0}
   muzzleFlash: {fileID: 0}
-  impactParticles: {fileID: 0}
+  impactParticles: {fileID: 726779500846431696, guid: a08de3b81d194234da7c65a66669818a, type: 3}
   bulletTrail: {fileID: 7019818373328254747, guid: 52009fbe2a17a974aa58bf8dc5142b7b, type: 3}
   turretBase: {fileID: 5854973896450364645}
 --- !u!65 &554601727569707403

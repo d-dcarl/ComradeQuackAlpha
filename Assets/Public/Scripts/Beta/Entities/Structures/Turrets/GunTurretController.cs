@@ -62,7 +62,7 @@ public class GunTurretController : PlaceableTurretControllerBeta
         }
 
         trail.transform.position = hitPoint;
-        // Instantiate(impactParticles, hit.point, Quaternion.LookRotation(hit.normal));
+        Instantiate(impactParticles, hitPoint, Quaternion.LookRotation(hitNormal));
 
         if (!hitCollider.IsDestroyed())
         {
