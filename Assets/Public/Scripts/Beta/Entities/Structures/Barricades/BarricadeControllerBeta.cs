@@ -30,7 +30,7 @@ public class BarricadeControllerBeta : StructureControllerBeta
             Debug.LogError("Error: Turrets need a box collider");
         }
 
-        hitBox.enabled = false;
+        hitBox.isTrigger = true;
     }
 
     // Update is called once per frame
@@ -90,13 +90,13 @@ public class BarricadeControllerBeta : StructureControllerBeta
 
     private bool ComparePlacementTags(GameObject obj)
     {
-        return obj.CompareTag("Turret") || obj.CompareTag("Flying Turret") || obj.CompareTag("Player Structure") || obj.CompareTag("Enemy Structure") || obj.CompareTag("Environment");
+        return obj.CompareTag("Turret") || obj.CompareTag("Flying Turret") || obj.CompareTag("Player Structure") || obj.CompareTag("Enemy Structure") || obj.CompareTag("Environment") || obj.CompareTag("Nest");
     }
 
     public void PlaceBarricade()
     {
         placed = true;
-        hitBox.enabled = true;
+        hitBox.isTrigger = false;
         currentHealth = 0;
         //healthBarSlider.value = 0;
         ActivateBarricade();

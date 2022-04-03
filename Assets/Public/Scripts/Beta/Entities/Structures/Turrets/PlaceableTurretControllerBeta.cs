@@ -128,7 +128,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     private bool ComparePlacementTags(GameObject obj)
     {
-        return obj.CompareTag("Turret") || obj.CompareTag("Flying Turret") || obj.CompareTag("Player Structure") || obj.CompareTag("Enemy Structure") || obj.CompareTag("Environment");
+        return obj.CompareTag("Turret") || obj.CompareTag("Flying Turret") || obj.CompareTag("Player Structure") || obj.CompareTag("Enemy Structure") || obj.CompareTag("Environment") || obj.CompareTag("Nest");
     }
 
     public void PlaceTurret()
