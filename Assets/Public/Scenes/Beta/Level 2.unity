@@ -1431,7 +1431,7 @@ PrefabInstance:
       objectReference: {fileID: 1103080289}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: timeBetweenWaves
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: enemiesRemainingText
@@ -1443,7 +1443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.size
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: mainPigsties.Array.data[0]
@@ -1477,6 +1477,22 @@ PrefabInstance:
       propertyPath: wavesToSpawn.Array.data[6]
       value: 
       objectReference: {fileID: 11400000, guid: f13fbc1ea63bd174380c495d9a2b8ab7, type: 2}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: wavesToSpawn.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 873c378111b245a40b1eedbf2f31021a, type: 2}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: wavesToSpawn.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fa6c6cce72ff88468cd816c032c220a, type: 2}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: wavesToSpawn.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a77c9cf2ce75b64bbaae12a6479f01b, type: 2}
+    - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
+      propertyPath: wavesToSpawn.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 575bb174b91f5e34d88bae955c8bbe01, type: 2}
     - target: {fileID: 2155184217897867240, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: m_Name
       value: Wave Manager
@@ -17969,6 +17985,14 @@ PrefabInstance:
     - target: {fileID: 4290270637358859332, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: m_Name
       value: Main Pond
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718133338975872947, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
+      propertyPath: spawnCap
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718133338975872947, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
+      propertyPath: upgradeLevel
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7114062268320755170, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: m_AnchorMax.x
