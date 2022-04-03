@@ -14,6 +14,9 @@ public class BarricadeControllerBeta : StructureControllerBeta
     protected bool placed;
     protected BoxCollider hitBox;
 
+    [SerializeField]
+    protected HitboxControllerBeta placementCollider;
+
     public override void Start()
     {
         base.Start();
@@ -67,6 +70,27 @@ public class BarricadeControllerBeta : StructureControllerBeta
             transform.Rotate(0, 90, 0);
             //transform.localScale = new Vector3(1, 5, 5);
         }
+    }
+    
+    public bool IsValidPlacementLocation
+    {
+        get 
+        {
+            foreach (var o in placementCollider.tracked)
+            {
+                if (ComparePlacementTags(o))
+                {
+                    return false;
+                }
+            }
+        
+            return true;
+        }
+    }
+
+    private bool ComparePlacementTags(GameObject obj)
+    {
+        return obj.CompareTag("Turret") || obj.CompareTag("Flying Turret") || obj.CompareTag("Player Structure") || obj.CompareTag("Enemy Structure") || obj.CompareTag("Environment");
     }
 
     public void PlaceBarricade()

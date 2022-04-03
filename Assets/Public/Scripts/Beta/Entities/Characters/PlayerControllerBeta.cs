@@ -310,7 +310,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 placing = true;
                 numTurrets++;
             }
-            else if (placing && beingPlaced.ValidPlacementLocation())
+            else if (placing && beingPlaced.IsValidPlacementLocation)
             {
                 beingPlaced.PlaceTurret();
                 placing = false;
@@ -375,7 +375,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 barricadeBeingPlaced = Instantiate(barricadePrefab).GetComponent<BarricadeControllerBeta>();
                 placingBarricade = true;
             }
-            else if (placingBarricade)
+            else if (placingBarricade && barricadeBeingPlaced.IsValidPlacementLocation)
             {
                 barricadeBeingPlaced.PlaceBarricade();
                 placingBarricade = false;

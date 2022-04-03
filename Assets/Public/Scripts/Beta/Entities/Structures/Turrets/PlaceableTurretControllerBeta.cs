@@ -110,17 +110,20 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         }
     }
 
-    public bool ValidPlacementLocation()
+    public bool IsValidPlacementLocation
     {
-        foreach (var o in placementCollider.tracked)
+        get 
         {
-            if (ComparePlacementTags(o))
+            foreach (var o in placementCollider.tracked)
             {
-                return false;
+                if (ComparePlacementTags(o))
+                {
+                    return false;
+                }
             }
-        }
         
-        return true;
+            return true;
+        }
     }
 
     private bool ComparePlacementTags(GameObject obj)
