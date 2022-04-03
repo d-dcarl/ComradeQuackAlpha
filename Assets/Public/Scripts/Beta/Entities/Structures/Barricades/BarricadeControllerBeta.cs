@@ -49,7 +49,15 @@ public class BarricadeControllerBeta : StructureControllerBeta
         {
             PlayerControllerBeta player = GameManagerBeta.Instance.player;
             Vector3 playerPos = player.transform.position;
-            transform.position = new Vector3(playerPos.x, 0f, playerPos.z) + player.transform.forward * player.placementDistance;
+
+            if (Physics.Raycast(playerPos, -transform.up, out var hit, 100f, LayerMask.GetMask("Ground")))
+            {
+                transform.position = new Vector3(playerPos.x, hit.point.y, playerPos.z) + player.transform.forward * player.placementDistance;
+            }
+            else
+            {
+                transform.position = new Vector3(playerPos.x, 0f, playerPos.z) + player.transform.forward * player.placementDistance;
+            }
             
             // Fix rotation
             Quaternion rotationAdjust = Quaternion.Euler(0, 90, 0);
