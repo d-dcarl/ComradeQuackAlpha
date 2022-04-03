@@ -310,7 +310,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 placing = true;
                 numTurrets++;
             }
-            else if (placing)
+            else if (placing && beingPlaced.ValidPlacementLocation())
             {
                 beingPlaced.PlaceTurret();
                 placing = false;

@@ -27,7 +27,7 @@ public class BarricadeControllerBeta : StructureControllerBeta
             Debug.LogError("Error: Turrets need a box collider");
         }
 
-        hitBox.isTrigger = true;
+        hitBox.enabled = false;
     }
 
     // Update is called once per frame
@@ -52,7 +52,7 @@ public class BarricadeControllerBeta : StructureControllerBeta
             PlayerControllerBeta player = GameManagerBeta.Instance.player;
             Vector3 placementPos = player.transform.position + player.transform.forward * player.placementDistance;
 
-            if (Physics.Raycast(new Vector3(placementPos.x, 10f, placementPos.z), Vector3.down, out var hit, 100f, LayerMask.GetMask("Ground")))
+            if (Physics.Raycast(new Vector3(placementPos.x, 50f, placementPos.z), Vector3.down, out var hit, 100f, LayerMask.GetMask("Ground")))
             {
                 transform.position = new Vector3(placementPos.x, hit.point.y, placementPos.z);
             }
@@ -72,7 +72,7 @@ public class BarricadeControllerBeta : StructureControllerBeta
     public void PlaceBarricade()
     {
         placed = true;
-        hitBox.isTrigger = false;
+        hitBox.enabled = true;
         currentHealth = 0;
         //healthBarSlider.value = 0;
         ActivateBarricade();

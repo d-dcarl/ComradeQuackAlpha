@@ -39,7 +39,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         base.Start();
         placed = false;
         alive = false;
-        hitBox.enabled = false;
+        // hitBox.enabled = false;
+        hitBox.isTrigger = true;
         SetTransparent();
 
         // turret upgrade stuff
@@ -92,15 +93,16 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             PlayerControllerBeta player = GameManagerBeta.Instance.player;
             Vector3 placementPos = player.transform.position + player.transform.forward * player.placementDistance;
 
-            if (Physics.Raycast(new Vector3(placementPos.x, 10f, placementPos.z), Vector3.down, out var hit, 100f, LayerMask.GetMask("Ground")))
+            if (Physics.Raycast(new Vector3(placementPos.x, 50f, placementPos.z), Vector3.down, out var hit, 100f, LayerMask.GetMask("Ground")))
             {
-                transform.position = new Vector3(placementPos.x, hit.point.y, placementPos.z);
+                placementPos.y = hit.point.y;
             }
             else
             {
-                transform.position = new Vector3(placementPos.x, 0f, placementPos.z);
+                placementPos.y = 0;
             }
 
+            transform.position = placementPos;
             transform.rotation = player.transform.rotation;
         }
     }
@@ -113,7 +115,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public void PlaceTurret()
     {
         placed = true;
-        hitBox.enabled = true;
+        // hitBox.enabled = true;
+        hitBox.isTrigger = false;
         currentHealth = 0;
         healthBarSlider.value = 0;
         //ActivateTurret();       // For now
