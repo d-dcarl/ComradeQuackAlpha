@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 554601727569707397}
   - component: {fileID: 1223139497464152794}
   - component: {fileID: 554601727569707403}
+  - component: {fileID: 5048853580962481093}
   m_Layer: 11
   m_Name: Flying Turret
   m_TagString: Flying Turret
@@ -252,6 +253,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2.8, z: 1.5}
   m_Center: {x: 0, y: 1.4, z: 0}
+--- !u!54 &5048853580962481093
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554601727569707398}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &554601727593962582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,8 +1047,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Placement Collider
       objectReference: {fileID: 0}
+    - target: {fileID: 9020693367411250140, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
+      propertyPath: m_TagString
+      value: Flying Turret
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
+--- !u!4 &1661185038804898591 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4131898928437924035, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
+  m_PrefabInstance: {fileID: 3340196284428764124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6168546541120491572 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8917644819820925928, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
@@ -1043,11 +1069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47ef64fd0e8dbc4db539e5ccea97b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1661185038804898591 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4131898928437924035, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
-  m_PrefabInstance: {fileID: 3340196284428764124}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3779515387495446019
 PrefabInstance:
   m_ObjectHideFlags: 0

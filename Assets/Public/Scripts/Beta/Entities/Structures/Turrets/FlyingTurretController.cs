@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.TerrainAPI;
 
 public class FlyingTurretController : PlaceableTurretControllerBeta
 {
@@ -29,11 +30,10 @@ public class FlyingTurretController : PlaceableTurretControllerBeta
         // gunTurretAnimator.Play("FeedShooter_BaseAnimation");
         //gunTurretMuzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range))
+        if (Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range, LayerMask.GetMask("Enemy")))
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                
                 TrailRenderer trail = Instantiate(bulletTrail, gun.transform.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, hit.collider));
             }

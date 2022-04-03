@@ -34,7 +34,9 @@ public class GunTurretController : PlaceableTurretControllerBeta
         // gunTurretAnimator.Play("FeedShooter_BaseAnimation");
         //gunTurretMuzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range))
+        bool didHit = Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range, LayerMask.GetMask("Enemy"));
+        
+        if (didHit)
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {

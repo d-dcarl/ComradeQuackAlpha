@@ -44,8 +44,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         base.Start();
         placed = false;
         alive = false;
-        // hitBox.enabled = false;
-        hitBox.isTrigger = true;
+        hitBox.enabled = false;
         SetTransparent();
 
         // turret upgrade stuff
@@ -134,8 +133,11 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public void PlaceTurret()
     {
         placed = true;
-        // hitBox.enabled = true;
-        hitBox.isTrigger = false;
+        hitBox.enabled = true;
+
+        var placementHitbox = placementCollider.GetComponent<BoxCollider>();
+        placementHitbox.enabled = false;
+
         currentHealth = 0;
         healthBarSlider.value = 0;
         //ActivateTurret();       // For now

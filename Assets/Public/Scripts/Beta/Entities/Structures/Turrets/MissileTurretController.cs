@@ -14,6 +14,8 @@ public class MissileTurretController : PlaceableTurretControllerBeta
     public override void Start()
     {
         base.Start();
+        
+        
     }
 
     public override void Fire()
