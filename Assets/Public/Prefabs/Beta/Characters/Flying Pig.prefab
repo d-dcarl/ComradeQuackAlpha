@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracked: []
-  range: 25
+  range: 45
 --- !u!135 &6112132404518622753
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -429,7 +429,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 25
+  m_Radius: 45
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1742100068496134973
 PrefabInstance:

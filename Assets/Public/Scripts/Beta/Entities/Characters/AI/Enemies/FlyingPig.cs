@@ -66,7 +66,8 @@ public class FlyingPig : EnemyControllerBeta
     //}
     public override void WalkInDirection(Vector3 direction)
     {
-        if (Vector3.Distance(transform.position, direction) > 20)
+        var flatDirection = new Vector3(direction.x, 0, direction.z);
+        if (flatDirection.magnitude > 30)
         {
             base.WalkInDirection(direction);
             PointInDirectionXZ(direction);
