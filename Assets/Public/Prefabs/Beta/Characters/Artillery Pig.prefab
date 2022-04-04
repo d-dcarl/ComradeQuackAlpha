@@ -67,7 +67,7 @@ MonoBehaviour:
   followDistance: 0.1
   attackHitBox: {fileID: 7566149668356354951}
   attackDamage: 15
-  attackDelay: 2
+  attackDelay: 4
   targetUpdateTime: 1
   updateRadius: 5
   isTutorial: 0
