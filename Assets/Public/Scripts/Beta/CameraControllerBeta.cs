@@ -39,6 +39,9 @@ public class CameraControllerBeta : MonoBehaviour
         // set zoom rotation boundaries
         zoomHighBound = 360f - zoomXRotationLimit;
         zoomLowBound = 0f + zoomXRotationLimit;
+
+        // adjust zoomCam position
+        //zoomCam.position = zoomCam.position + new Vector3(1, 0, 1);
     }
 
     // Update is called once per frame
@@ -52,7 +55,7 @@ public class CameraControllerBeta : MonoBehaviour
             //--------------------------ZOOM CAM BEHAVIOR-----------------------------------------------------------
             Camera mycam = GetComponent<Camera>();
 
-            float sensitivity = 0.01f; // changed from 0.05 to 0.01
+            float sensitivity = 0.05f; // changed from 0.05 to 0.01
             Vector3 vp = mycam.ScreenToViewportPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, mycam.nearClipPlane));
             vp.x -= 0.5f;
             vp.y -= 0.5f;
