@@ -316,11 +316,24 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public bool RemoveDuckling()
     {
         //can't de-upgrade
-        if(upgradeLevel == 0 || isUnderConstruction)
+        if(isUnderConstruction)
         {
             return false;
         }
-
+        if(upgradeLevel == 0)
+        {
+            if(alive)
+            {
+                //kill the turret
+                alive = false;
+                currentHealth = 0;
+                healthBarSlider.value = 0;
+            }
+            else
+            {
+                return false;
+            }
+        }
         StartConstruction(ConstructionType.Downgrade);
 
         return true;
@@ -354,7 +367,10 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             newDuck.transform.rotation = duck.transform.rotation;
             duck = newDuck;
         }
-        duck.SetActive(true);
+        if(alive)
+        {
+            duck.SetActive(true);
+        }
 
         SetUpgrade(upgrades[upgradeLevel]);
     }

@@ -189,10 +189,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
     protected void CheckInput()
     {
 
-        // Free cursor and end game on escape
+        // Free cursor and pause game on escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //TODO CHANGE FROM EXIT GAME
             if (paused)
             {
                 paused = false;
