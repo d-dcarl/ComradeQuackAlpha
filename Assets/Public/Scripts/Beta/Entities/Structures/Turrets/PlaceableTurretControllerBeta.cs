@@ -164,7 +164,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         int i = 0;
         foreach(Renderer r in GetComponentsInChildren<Renderer>())
         {
-            r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
+            if (!r.gameObject.CompareTag("VFX"))
+                r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
             Color oldColor = r.material.color;
             r.material.color = new Color(oldColor.r, oldColor.g, oldColor.b, 0.5f);
             i++;
@@ -176,7 +177,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
         {
-            r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
+            if (!r.gameObject.CompareTag("VFX"))
+                r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
         }
         gameObject.layer = LayerMask.NameToLayer("Player Structure");
     }

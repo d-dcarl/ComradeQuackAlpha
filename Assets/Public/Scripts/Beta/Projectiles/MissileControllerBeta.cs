@@ -34,8 +34,6 @@ namespace Public.Scripts.Beta.Projectiles
         {
             base.Start();
             splashRange.range = splashRadius;
-            
-            smoke.Play();
         }
 
         protected override void Die()
@@ -94,8 +92,7 @@ namespace Public.Scripts.Beta.Projectiles
 
         private void Explode()
         {
-            ParticleSystem exp = Instantiate(explosion, transform.position, Quaternion.identity);
-            exp.Play();
+            Instantiate(explosion, transform.position, Quaternion.identity);
             
             foreach (GameObject o in splashRange.tracked)
             {

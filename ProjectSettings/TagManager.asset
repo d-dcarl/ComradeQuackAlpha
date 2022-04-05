@@ -20,6 +20,7 @@ TagManager:
   - Environment
   - Nest
   - Flying Turret
+  - VFX
   layers:
   - Default
   - TransparentFX

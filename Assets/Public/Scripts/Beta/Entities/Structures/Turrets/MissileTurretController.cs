@@ -20,7 +20,7 @@ public class MissileTurretController : PlaceableTurretControllerBeta
 
     public override void Fire()
     {
-        Instantiate(smokePoof, gun.transform.position, gun.transform.rotation);
+        smokePoof.Play();
         
         MissileControllerBeta missile = Instantiate(Projectile).GetComponent<MissileControllerBeta>();
         missile.damage = damage;

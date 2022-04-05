@@ -962,30 +962,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Construction VFX
       objectReference: {fileID: 0}
-    - target: {fileID: 7029669505327905186, guid: 3d9c8b44ef675854eaa861a3b25978f4, type: 3}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 7029669505642127522, guid: 3d9c8b44ef675854eaa861a3b25978f4, type: 3}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 7029669506541724603, guid: 3d9c8b44ef675854eaa861a3b25978f4, type: 3}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
-    - target: {fileID: 7029669506794432528, guid: 3d9c8b44ef675854eaa861a3b25978f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7029669506794432528, guid: 3d9c8b44ef675854eaa861a3b25978f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7029669506794432529, guid: 3d9c8b44ef675854eaa861a3b25978f4, type: 3}
-      propertyPath: m_TagString
-      value: Turret
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d9c8b44ef675854eaa861a3b25978f4, type: 3}
 --- !u!114 &7882147207014830099 stripped
