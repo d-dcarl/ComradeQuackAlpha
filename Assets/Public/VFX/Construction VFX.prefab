@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 7029669505642127520}
   m_Layer: 11
   m_Name: Stars
-  m_TagString: Untagged
+  m_TagString: VFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4871,7 +4871,7 @@ GameObject:
   - component: {fileID: 7029669506541724601}
   m_Layer: 11
   m_Name: Hammers
-  m_TagString: Untagged
+  m_TagString: VFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9677,7 +9677,7 @@ GameObject:
   - component: {fileID: 7029669506794432535}
   m_Layer: 11
   m_Name: Dust
-  m_TagString: Untagged
+  m_TagString: VFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
