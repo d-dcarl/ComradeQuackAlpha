@@ -55,7 +55,6 @@ public class FlyingTurretController : PlaceableTurretControllerBeta
         }
 
         trail.transform.position = hitPoint;
-        // Instantiate(impactParticles, hit.point, Quaternion.LookRotation(hit.normal));
 
         if (!hitCollider.IsDestroyed())
         {
@@ -65,6 +64,7 @@ public class FlyingTurretController : PlaceableTurretControllerBeta
             {
                 target.TakeDamage(damage);
                 target.KnockBack(hitPoint, knockback);
+                Instantiate(impactParticles, hitPoint, Quaternion.LookRotation(hitNormal));
             }
         }
         
