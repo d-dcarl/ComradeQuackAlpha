@@ -95,9 +95,12 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             PlayerControllerBeta player = GameManagerBeta.Instance.player;
             Vector3 placementPos = player.transform.position + player.transform.forward * player.placementDistance;
 
+            Vector3 hitNormal = Vector3.up;
+
             if (Physics.Raycast(new Vector3(placementPos.x, 50f, placementPos.z), Vector3.down, out var hit, 100f, LayerMask.GetMask("Ground")))
             {
                 placementPos.y = hit.point.y;
+                hitNormal = hit.normal;
             }
             else
             {
@@ -105,7 +108,9 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             }
 
             transform.position = placementPos;
-            transform.rotation = player.transform.rotation;
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, hitNormal) * player.transform.rotation;
+
+            hitBox.transform.rotation = transform.rotation;
         }
     }
 

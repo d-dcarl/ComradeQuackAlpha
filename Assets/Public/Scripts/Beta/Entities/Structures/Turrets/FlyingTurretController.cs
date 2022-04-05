@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Experimental.TerrainAPI;
 
@@ -23,6 +24,9 @@ public class FlyingTurretController : PlaceableTurretControllerBeta
         base.GoToPlacementPos();
         startPos = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
         transform.position = startPos;
+
+        transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);
+        hitBox.transform.rotation = transform.rotation;
     }
     
     public override void Fire()
