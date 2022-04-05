@@ -159,6 +159,13 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         SetUpgrade(upgrades[upgradeLevel]);
     }
 
+    private void DeactivateTurret()
+    {
+        alive = false;
+        SetTransparent();
+        duck.SetActive(false);
+    }
+
     public void SetTransparent()
     {
         int i = 0;
@@ -185,10 +192,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     public override void Die()
     {
-        alive = false;
-        duck.SetActive(false);
-        //tell a nestController with a comrad manning a turret that it can spawn a comrad
-        SetTransparent();
+        DeactivateTurret();
     }
 
     public void lookedAt(bool isLookedAt)
@@ -325,13 +329,11 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             if(alive)
             {
                 //kill the turret
-                alive = false;
-                currentHealth = 0;
-                healthBarSlider.value = 0;
+                StartConstruction(ConstructionType.Deactivate);
             }
             else
             {
-                return false;
+                return false; 
             }
         }
         StartConstruction(ConstructionType.Downgrade);
@@ -392,6 +394,9 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         {
             case ConstructionType.Activate:
                 ActivateTurret();
+                break;
+            case ConstructionType.Deactivate:
+                DeactivateTurret();
                 break;
             case ConstructionType.Downgrade:
                 DowngradeTurret();
@@ -457,6 +462,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     private enum ConstructionType
     {
         Activate,
+        Deactivate,
         Upgrade,
         Downgrade
     }
