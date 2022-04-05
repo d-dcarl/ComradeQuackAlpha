@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011317629952359607, guid: ec9be7bad2c7a9147b7397321977661b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: WhiteBox1Beta
+      value: Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 4011317630576229926, guid: ec9be7bad2c7a9147b7397321977661b, type: 3}
       propertyPath: m_Pivot.x
