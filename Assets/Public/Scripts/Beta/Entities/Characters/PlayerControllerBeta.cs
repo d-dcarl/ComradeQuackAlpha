@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -39,6 +40,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     public float placementDistance;
     private int turretPrefabIndex;
     private PlaceableTurretControllerBeta lookedTurret;
+    [SerializeField] private GameObject ducklingPrefab;
 
     [Header("Barricade Placement")]
     public GameObject barricadePrefab;
@@ -308,7 +310,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 placing = true;
                 numTurrets++;
             }
-            else if (placing)
+            else if (placing && beingPlaced.IsValidPlacementLocation)
             {
                 beingPlaced.PlaceTurret();
                 placing = false;
@@ -373,7 +375,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 barricadeBeingPlaced = Instantiate(barricadePrefab).GetComponent<BarricadeControllerBeta>();
                 placingBarricade = true;
             }
-            else if (placingBarricade)
+            else if (placingBarricade && barricadeBeingPlaced.IsValidPlacementLocation)
             {
                 barricadeBeingPlaced.PlaceBarricade();
                 placingBarricade = false;
@@ -585,15 +587,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
                     }
                     //or take one out
-                    else if(removeDuckling && ducklingsList.Count < maxDucklings)
+                    else if(removeDuckling && ducklingsList.Count < maxDucklings && turret.RemoveDuckling())
                     {
-                        DucklingControllerBeta newDuck = turret.RemoveDuckling();
-                        if(newDuck != null)
-                        {
-                            newDuck.animator = newDuck.gameObject.GetComponentInChildren<Animator>();
-                            newDuck.SetLeader(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerBeta>());
-                            ducklingsList.Add(newDuck);
-                        }
+                        //generate new duck
+                        StartCoroutine(SpawnDuckling(turret.constructionDelay, turret.transform.position));
                     }
                 }
                 return;
@@ -765,6 +762,24 @@ public class PlayerControllerBeta : CharacterControllerBeta
                 duckling_controller.PlayQuack();
             }
 
+        }
+    }
+
+    private IEnumerator SpawnDuckling(float delay, Vector3 turretPos)
+    {
+        yield return new WaitForSeconds(delay);
+        
+        Vector3 offset = UnityEngine.Random.onUnitSphere;                       // Random direction
+        offset = new Vector3(offset.x, 0f, offset.z).normalized;    // Flatten and make the offset 1 unit long
+        float spawnRadius = 5;
+        float spawnHeight = 1;
+        Vector3 spawnPosition = turretPos + (offset * spawnRadius) + (Vector3.up * spawnHeight);       // Make sure they don't spawn in the ground
+        DucklingControllerBeta newDuck = Instantiate(ducklingPrefab, spawnPosition, Quaternion.identity).GetComponent<DucklingControllerBeta>();
+        if(newDuck != null)
+        {
+            newDuck.animator = newDuck.gameObject.GetComponentInChildren<Animator>();
+            newDuck.SetLeader(this);
+            ducklingsList.Add(newDuck);
         }
     }
 }

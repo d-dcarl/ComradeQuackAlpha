@@ -21,14 +21,18 @@ public class MainMenu : MonoBehaviour
         Cursor.visible = true;
     }
 
-    //private void Update()
-    //{
-    //    if (!videoPlayer.activeSelf)
-    //    {
-    //        Debug.Log("no mute");
-    //        backgroundMusic.mute = false;
-    //    }
-    //}
+    private void Update()
+    {
+        //if (!videoPlayer.activeSelf)
+        //{
+        //    Debug.Log("no mute");
+        //    backgroundMusic.mute = false;
+        //}
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SceneManager.LoadScene("DressingRoom");
+        }
+    }
 
     public void PlayGame()
     {

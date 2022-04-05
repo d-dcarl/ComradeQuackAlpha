@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.TerrainAPI;
 using UnityEngine;
 
 public class PlaceableTurretControllerBeta : TurretControllerBeta
 {
     protected bool placed;
+
+    [SerializeField]
+    protected HitboxControllerBeta placementCollider;
+    
     protected int upgradeLevel = 0;
     protected int upgradeCap;
     
@@ -22,8 +27,6 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     public List<TowerUpgrade> upgrades;
 
     private int turretColor = 0;
-
-    public GameObject duckPrefab;
 
     public VFXController constructionVFX;
 
@@ -64,8 +67,6 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             d.SetActive(false);
     }
 
-
-
     public override void Update()
     {
         if(!placed)
@@ -92,30 +93,51 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         if(GameManagerBeta.Instance != null)
         {
             PlayerControllerBeta player = GameManagerBeta.Instance.player;
-            Vector3 playerPos = player.transform.position;
-            RaycastHit hit;
-            if (Physics.Raycast(playerPos, -transform.up, out hit, 100f, LayerMask.GetMask("Ground")))
+            Vector3 placementPos = player.transform.position + player.transform.forward * player.placementDistance;
+
+            if (Physics.Raycast(new Vector3(placementPos.x, 50f, placementPos.z), Vector3.down, out var hit, 100f, LayerMask.GetMask("Ground")))
             {
-                transform.position = new Vector3(playerPos.x, hit.transform.position.y, playerPos.z) + player.transform.forward * player.placementDistance;
+                placementPos.y = hit.point.y;
             }
             else
             {
-                transform.position = new Vector3(playerPos.x, 0f, playerPos.z) + player.transform.forward * player.placementDistance;
+                placementPos.y = 0;
             }
 
+            transform.position = placementPos;
             transform.rotation = player.transform.rotation;
         }
     }
 
-    public bool ValidPlacementLocation()
+    public bool IsValidPlacementLocation
     {
-        return true;
+        get 
+        {
+            foreach (var o in placementCollider.tracked)
+            {
+                if (ComparePlacementTags(o))
+                {
+                    return false;
+                }
+            }
+        
+            return true;
+        }
+    }
+
+    private bool ComparePlacementTags(GameObject obj)
+    {
+        return obj.CompareTag("Turret") || obj.CompareTag("Flying Turret") || obj.CompareTag("Player Structure") || obj.CompareTag("Enemy Structure") || obj.CompareTag("Environment") || obj.CompareTag("Nest");
     }
 
     public void PlaceTurret()
     {
         placed = true;
         hitBox.enabled = true;
+
+        var placementHitbox = placementCollider.GetComponent<BoxCollider>();
+        placementHitbox.enabled = false;
+
         currentHealth = 0;
         healthBarSlider.value = 0;
         //ActivateTurret();       // For now
@@ -142,7 +164,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         int i = 0;
         foreach(Renderer r in GetComponentsInChildren<Renderer>())
         {
-            r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
+            if (!r.gameObject.CompareTag("VFX"))
+                r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
             Color oldColor = r.material.color;
             r.material.color = new Color(oldColor.r, oldColor.g, oldColor.b, 0.5f);
             i++;
@@ -154,7 +177,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
         {
-            r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
+            if (!r.gameObject.CompareTag("VFX"))
+                r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
         }
         gameObject.layer = LayerMask.NameToLayer("Player Structure");
     }
@@ -246,7 +270,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         {
             foreach (Renderer r in GetComponentsInChildren<Renderer>())
             {
-                r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                if (!r.gameObject.CompareTag("VFX"))
+                    r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 Color oldColor = r.material.color;
                 r.material.color = new Color(oldColor.r, oldColor.g, oldColor.b, oldColor.a);
             }
@@ -256,7 +281,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         {
             foreach (Renderer r in GetComponentsInChildren<Renderer>())
             {
-                r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
+                if (!r.gameObject.CompareTag("VFX"))
+                    r.material.shader = Shader.Find("Universal Render Pipeline/Lit");
                 Color oldColor = r.material.color;
                 r.material.color = new Color(oldColor.r, oldColor.g, oldColor.b, oldColor.a);
             }
@@ -271,13 +297,13 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         //activate turret if inactive
         if (!this.alive && !isUnderConstruction)
         {
-            StartConstruction(false);
+            StartConstruction(ConstructionType.Activate);
             return true;
         }
         //otherwise upgrade if we can still upgrade, and the cooldown has passed
         else if (upgradeLevel < upgradeCap && !isUnderConstruction)
         {
-            StartConstruction(true);
+            StartConstruction(ConstructionType.Upgrade);
             return true;
         }
         //lookedAt(false);
@@ -287,32 +313,23 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
 
     //removes a duckling from this turret
-    public DucklingControllerBeta RemoveDuckling()
+    public bool RemoveDuckling()
     {
         //can't de-upgrade
         if(upgradeLevel == 0 || isUnderConstruction)
         {
-            return null;
+            return false;
         }
 
-        //if can un-upgrade do it
-        upgradeLevel--;
+        StartConstruction(ConstructionType.Downgrade);
 
-        isUnderConstruction = true;
-        constructionVFX.StartVFX();
-        StartCoroutine(UnUpgradeConstruction());
-
-        //generate new duck
-        Vector3 offset = UnityEngine.Random.onUnitSphere;                       // Random direction
-        offset = new Vector3(offset.x, 0f, offset.z).normalized;    // Flatten and make the offset 1 unit long
-        float spawnRadius = 5;
-        float spawnHeight = 1;
-        Vector3 spawnPosition = transform.position + (offset * spawnRadius) + (Vector3.up * spawnHeight);       // Make sure they don't spawn in the ground
-        return Instantiate(duckPrefab, spawnPosition, transform.rotation).GetComponent<DucklingControllerBeta>();
+        return true;
     }
 
-    protected virtual void unUpgrade()
+    protected virtual void DowngradeTurret()
     {
+        //if can un-upgrade do it
+        upgradeLevel = upgradeLevel > 0 ? upgradeLevel - 1 : 0;
 
         this.transform.localScale = new Vector3(this.transform.localScale.x - 0.05f, this.transform.localScale.y - 0.05f, this.transform.localScale.z - 0.05f);
 
@@ -342,32 +359,34 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         SetUpgrade(upgrades[upgradeLevel]);
     }
 
-    IEnumerator UnUpgradeConstruction()
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        isUnderConstruction = false;
-        constructionVFX.StopVFX();
-        unUpgrade();
-    }
-
-    private void StartConstruction(bool isUpgrade)
+    private void StartConstruction(ConstructionType type)
     {
         isUnderConstruction = true;
         constructionVFX.StartVFX();
-        StartCoroutine(EndConstruction(isUpgrade));
+        StartCoroutine(EndConstruction(type));
     }
 
-    IEnumerator EndConstruction(bool isUpgrade)
+    private IEnumerator EndConstruction(ConstructionType type)
     {
         yield return new WaitForSeconds(constructionDelay);
 
         isUnderConstruction = false;
         constructionVFX.StopVFX();
-        if (isUpgrade)
-            UpgradeTurret();
-        else
-            ActivateTurret();
+        switch (type)
+        {
+            case ConstructionType.Activate:
+                ActivateTurret();
+                break;
+            case ConstructionType.Downgrade:
+                DowngradeTurret();
+                break;
+            case ConstructionType.Upgrade:
+                UpgradeTurret();
+                break;
+            default:
+                Debug.Log("Must specify what kind of construction is taking place on the turret. This shouldn't ever happen.");
+                break;
+        }
     }
 
     protected virtual void UpgradeTurret()
@@ -417,5 +436,12 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
         hitBox.center = upgrade.hitboxCenter;
         hitBox.size = upgrade.hitboxSize;
+    }
+
+    private enum ConstructionType
+    {
+        Activate,
+        Upgrade,
+        Downgrade
     }
 }

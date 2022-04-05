@@ -212,7 +212,8 @@ public class EnemyControllerBeta : AIControllerBeta
                 if (canAttack.Contains(g.tag))
                 {
                     EntityControllerBeta ecb = g.GetComponent<EntityControllerBeta>();
-                    ecb.TakeDamage(attackDamage);
+                    if (ecb != null)
+                        ecb.TakeDamage(attackDamage);
                 }
             }
         }

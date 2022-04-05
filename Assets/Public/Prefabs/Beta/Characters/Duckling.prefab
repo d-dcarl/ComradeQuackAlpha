@@ -276,6 +276,7 @@ MonoBehaviour:
   wanderRadius: 20
   wanderTime: 3
   animator: {fileID: 0}
+  hats: {fileID: 7835657637926761405}
 --- !u!136 &3862869299531508474
 CapsuleCollider:
   m_ObjectHideFlags: 0

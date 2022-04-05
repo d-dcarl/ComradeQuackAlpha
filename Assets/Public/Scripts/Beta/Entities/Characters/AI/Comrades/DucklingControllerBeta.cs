@@ -31,6 +31,17 @@ public class DucklingControllerBeta : ComradeControllerBeta
         turret = null;
         isManning = false;
         animator.Play("Quackling Idle");
+
+        if (PlayerPrefs.GetInt("quackling_hat") > 0 && FindObjectOfType<CosmeticHandler>())
+        {
+            Debug.Log("Change hat");
+            ChangeHat(FindObjectOfType<CosmeticHandler>().quacklingFittedHats[PlayerPrefs.GetInt("quackling_hat")]);
+        }
+        else
+        {
+            Debug.Log("no hat remove");
+            RemoveHat();
+        }
     }
 
     public virtual void InitializeDuckling(NestControllerBeta nest)
@@ -191,5 +202,11 @@ public class DucklingControllerBeta : ComradeControllerBeta
         if (hats.transform.childCount > 0)
             Destroy(hats.transform.GetChild(0).gameObject);
         Instantiate(newHat, hats.transform);
+    }
+
+    public void RemoveHat()
+    {
+        if (hats.transform.childCount > 0)
+            Destroy(hats.transform.GetChild(0).gameObject);
     }
 }

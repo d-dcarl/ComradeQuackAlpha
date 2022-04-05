@@ -34,7 +34,9 @@ public class GunTurretController : PlaceableTurretControllerBeta
         // gunTurretAnimator.Play("FeedShooter_BaseAnimation");
         //gunTurretMuzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range))
+        bool didHit = Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range, LayerMask.GetMask("Enemy"));
+        
+        if (didHit)
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
@@ -60,7 +62,7 @@ public class GunTurretController : PlaceableTurretControllerBeta
         }
 
         trail.transform.position = hitPoint;
-        // Instantiate(impactParticles, hit.point, Quaternion.LookRotation(hit.normal));
+        Instantiate(impactParticles, hitPoint, Quaternion.LookRotation(hitNormal));
 
         if (!hitCollider.IsDestroyed())
         {
@@ -83,9 +85,9 @@ public class GunTurretController : PlaceableTurretControllerBeta
         turretBase.SetActive(false);
     }
 
-    protected override void unUpgrade()
+    protected override void DowngradeTurret()
     {
-        base.unUpgrade();
+        base.DowngradeTurret();
 
         if(upgradeLevel == 0)
         {

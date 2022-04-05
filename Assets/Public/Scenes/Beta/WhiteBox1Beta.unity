@@ -4100,7 +4100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone
+      value: 3A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
@@ -4109,6 +4109,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 346529408}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &346529410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 346529408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &346529411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346529410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 1398910410}
+  - {fileID: 1136872560}
+  isGoal: 0
 --- !u!1 &353043110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5768209408335990329, guid: 8a0772a5155671749aa021de956e73e8, type: 3}
@@ -4595,11 +4616,11 @@ PrefabInstance:
     - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 980483952}
+      objectReference: {fileID: 1294115449}
     - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: neighbors.Array.data[1]
       value: 
-      objectReference: {fileID: 1398910410}
+      objectReference: {fileID: 1670412835}
     - target: {fileID: 1111074059893348309, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5210,11 +5231,11 @@ PrefabInstance:
     - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 1155096331}
+      objectReference: {fileID: 1139047620}
     - target: {fileID: 223338992836441811, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: neighbors.Array.data[1]
       value: 
-      objectReference: {fileID: 2080123519}
+      objectReference: {fileID: 1664712896}
     - target: {fileID: 1111074059893348309, guid: e83b461e89723aa49900b1b216926754, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8135,7 +8156,7 @@ PrefabInstance:
     - target: {fileID: 5923826172001103433, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 980483952}
+      objectReference: {fileID: 1451638319}
     - target: {fileID: 6376084278352394227, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: cantDie
       value: 1
@@ -10864,7 +10885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.99
+      value: 16.7
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10872,7 +10893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.49
+      value: -9.6
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10904,7 +10925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (2)
+      value: 1C
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
@@ -10913,6 +10934,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1013248163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1013248165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1013248163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1013248166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013248165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 1993461020}
+  - {fileID: 1780505281}
+  isGoal: 0
 --- !u!1001 &1014462503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12497,7 +12539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.4
+      value: 28.7
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12505,7 +12547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.8
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12537,7 +12579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (1)
+      value: 3B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
@@ -12546,6 +12588,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1136872557}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1136872559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1136872557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1136872560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136872559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 346529411}
+  - {fileID: 2138498017}
+  isGoal: 0
 --- !u!1001 &1139047617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12559,7 +12622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.65
+      value: 35.1
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12567,7 +12630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.68
+      value: -17.8
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12599,7 +12662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone
+      value: 1A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
@@ -12608,6 +12671,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1139047617}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1139047619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1139047617}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1139047620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139047619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 1993461020}
+  - {fileID: 980483952}
+  isGoal: 0
 --- !u!1001 &1144111836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13297,15 +13381,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (1)
+      value: 2B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+--- !u!1 &1193434842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1193434841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1193434843 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1193434841}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1193434844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193434842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 1664712896}
+  - {fileID: 1451638319}
+  isGoal: 0
 --- !u!1 &1194265747 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8679450568649515087, guid: 526d1b8752e2e4a4cbb95ca8794d1413, type: 3}
@@ -13893,7 +13998,7 @@ PrefabInstance:
     - target: {fileID: 223338992836441811, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 2080123519}
+      objectReference: {fileID: 346529411}
     - target: {fileID: 223338992836441811, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: neighbors.Array.data[1]
       value: 
@@ -14738,7 +14843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.2
+      value: 15.2
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14746,7 +14851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.2
+      value: -8.6
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14778,10 +14883,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (4)
+      value: 3D
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+--- !u!1 &1294115448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1294115447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1294115449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294115448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 2138498017}
+  - {fileID: 2080123519}
+  isGoal: 0
 --- !u!1 &1297904489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3213520564932780519, guid: 20076fd47cbf7014db2cc8aac8cc30ab, type: 3}
@@ -16286,15 +16412,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (2)
+      value: 2C
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+--- !u!1 &1451638317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1451638316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1451638318 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1451638316}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1451638319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451638317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 1193434844}
+  - {fileID: 1155096331}
+  isGoal: 0
 --- !u!1 &1455088685 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 63457573387120999, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
@@ -18883,15 +19030,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone
+      value: 2A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+--- !u!1 &1664712894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1664712893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1664712895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1664712893}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1664712896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664712894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 980483952}
+  - {fileID: 1193434844}
+  isGoal: 0
 --- !u!1 &1664922400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8679450568649515087, guid: 526d1b8752e2e4a4cbb95ca8794d1413, type: 3}
@@ -18997,7 +19165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (3)
+      value: 1E
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
@@ -19006,6 +19174,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1670412832}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1670412834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1670412832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1670412835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670412834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 2080123519}
+  - {fileID: 1780505281}
+  isGoal: 0
 --- !u!1 &1679774555 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8679450568649515087, guid: 526d1b8752e2e4a4cbb95ca8794d1413, type: 3}
@@ -20081,7 +20270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.1
+      value: 7.9
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20089,7 +20278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.58
+      value: -14.3
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20121,10 +20310,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (3)
+      value: 1D
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+--- !u!1 &1780505280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1780505279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1780505281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780505280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 1013248166}
+  - {fileID: 1670412835}
+  isGoal: 0
 --- !u!1 &1780915062
 GameObject:
   m_ObjectHideFlags: 0
@@ -22335,7 +22545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (1)
+      value: 1B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
@@ -22344,6 +22554,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 1993461017}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1993461019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 1993461017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1993461020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993461019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 1139047620}
+  - {fileID: 1013248166}
+  isGoal: 0
 --- !u!1001 &2004820575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23861,7 +24092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.3
+      value: 23.3
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23869,7 +24100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.2
+      value: -7.4
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23901,7 +24132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
       propertyPath: m_Name
-      value: Stepping Stone (2)
+      value: 3C
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
@@ -23910,6 +24141,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 935618503198713288, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
   m_PrefabInstance: {fileID: 2138498014}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2138498016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 935618503198713289, guid: 189e3a3c78d883d4e9071e35efdb4827, type: 3}
+  m_PrefabInstance: {fileID: 2138498014}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2138498017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138498016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce31fcfc424646347ae758b595d8ae1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbors:
+  - {fileID: 1136872560}
+  - {fileID: 1294115449}
+  isGoal: 0
 --- !u!1001 &2140734301
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011317629952359607, guid: ec9be7bad2c7a9147b7397321977661b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: WhiteBox1Beta
+      value: Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 4011317630576229926, guid: ec9be7bad2c7a9147b7397321977661b, type: 3}
       propertyPath: m_Pivot.x
@@ -265,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &206351750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2910,6 +2910,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543551555}
   m_CullTransparentMesh: 1
+--- !u!1001 &1554845161
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.130228
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 61.450634
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -110.1002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498564, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2110246498746498570, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
+      propertyPath: m_Name
+      value: Cosmetic Controller
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1374b1ae982b774ea3c8aa99b273592, type: 3}
 --- !u!1 &1672359489
 GameObject:
   m_ObjectHideFlags: 0

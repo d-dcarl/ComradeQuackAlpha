@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace Public.Scripts.Beta.Projectiles
 {
@@ -20,6 +21,12 @@ namespace Public.Scripts.Beta.Projectiles
         public RangeHitboxControllerBeta splashRange;
         public float retargetDistance;
 
+        [SerializeField]
+        private ParticleSystem smoke;
+
+        [SerializeField]
+        private ParticleSystem explosion;
+
         [HideInInspector]
         public GameObject target;
         
@@ -29,14 +36,11 @@ namespace Public.Scripts.Beta.Projectiles
             splashRange.range = splashRadius;
         }
 
-        public override void Update()
-        {
-            base.Update();
-        }
-
         protected override void Die()
         {
             Explode();
+            smoke.transform.parent = null;
+            smoke.Stop();
             base.Die();
         }
 
@@ -88,6 +92,8 @@ namespace Public.Scripts.Beta.Projectiles
 
         private void Explode()
         {
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            
             foreach (GameObject o in splashRange.tracked)
             {
                 if (canHit.Contains(o.tag))
@@ -96,7 +102,7 @@ namespace Public.Scripts.Beta.Projectiles
                     if (ccb != null)
                     {
                         float distanceModifier = (splashRadius - Vector3.Distance(o.transform.position, transform.position)) / splashRadius;
-                        Debug.Log(distanceModifier);
+                        Debug.Log($"Distance Modifier: {distanceModifier}");
                         distanceModifier = Mathf.Clamp(distanceModifier, 0f, 1f);
 
                         ccb.TakeDamage(damage * distanceModifier);

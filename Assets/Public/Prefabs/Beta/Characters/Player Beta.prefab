@@ -221,6 +221,7 @@ MonoBehaviour:
   maxTurrets: 3
   placementDelay: 1
   placementDistance: 3
+  ducklingPrefab: {fileID: 3862869299531508473, guid: 3e7c95072037cdf4b8962bb7951c471a, type: 3}
   barricadePrefab: {fileID: 0}
   maxBarricades: 0
   currBarricades: []

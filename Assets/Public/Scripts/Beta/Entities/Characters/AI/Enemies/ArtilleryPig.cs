@@ -20,6 +20,9 @@ public class ArtilleryPig : EnemyControllerBeta
     public bool isFiring = false;
     public bool isPackingUp = false;
 
+    [SerializeField]
+    private ParticleSystem smokePoof;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -95,7 +98,9 @@ public class ArtilleryPig : EnemyControllerBeta
                 // Maybe implement a CanDamage list at some point
                 if (canAttack.Contains(g.tag))
                 {
-                    if (g.GetComponent<EntityControllerBeta>().alive)
+                    var ecb = g.GetComponent<EntityControllerBeta>();
+                    
+                    if (ecb != null && ecb.alive)
                     {
                         canHit = true;
                         isProgressing = true;
@@ -115,6 +120,7 @@ public class ArtilleryPig : EnemyControllerBeta
 
         if (isFiring)
         {
+            smokePoof.Play();
             foreach (GameObject g in attackHitBox.tracked)
             {
                 if (g != null)
@@ -122,7 +128,9 @@ public class ArtilleryPig : EnemyControllerBeta
                     // Maybe implement a CanDamage list at some point
                     if (canAttack.Contains(g.tag))
                     {
-                        if (g.GetComponent<EntityControllerBeta>().alive)
+                        var ecb = g.GetComponent<EntityControllerBeta>();
+                        
+                        if (ecb != null && ecb.alive)
                         {
                             Debug.Log("Fire at " + g.name);
                             transform.LookAt(g.transform);

@@ -138,7 +138,7 @@ MonoBehaviour:
   healthBarSlider: {fileID: 7146052556525862182}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 3
+  maxSpeed: 5
   targetHitbox: {fileID: 7178468474892821247}
   canAttack:
   - Player
@@ -152,6 +152,7 @@ MonoBehaviour:
   attackDelay: 1.25
   targetUpdateTime: 1
   updateRadius: 5
+  isTutorial: 0
   turret: {fileID: 2280958540908658108}
   projectile: {fileID: 6445303830105601911, guid: 260ff3b95a77b0f4dbea579d172b01f3, type: 3}
   startHeight: 13
@@ -416,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracked: []
-  range: 25
+  range: 45
 --- !u!135 &6112132404518622753
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -428,7 +429,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 25
+  m_Radius: 45
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1742100068496134973
 PrefabInstance:
