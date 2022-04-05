@@ -99,7 +99,6 @@ GameObject:
   m_Component:
   - component: {fileID: 554601727569707397}
   - component: {fileID: 1154439759841681948}
-  - component: {fileID: 554601727569707403}
   - component: {fileID: 7649491309741949594}
   m_Layer: 11
   m_Name: Gun Turret
@@ -124,6 +123,7 @@ Transform:
   - {fileID: 554601727527761218}
   - {fileID: 8747741879704666662}
   - {fileID: 2022128375423517298}
+  - {fileID: 2835581943478213959}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,6 +154,7 @@ MonoBehaviour:
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 6445303830105601911, guid: 75bc9860ec10d3f468127d7c324a8a8f, type: 3}
   fireRate: 0.7
+  hitboxObject: {fileID: 9164121879274786625}
   placementCollider: {fileID: 6811317937157177689}
   damage: 4
   knockback: 10
@@ -189,19 +190,6 @@ MonoBehaviour:
   impactParticles: {fileID: 726779500846431696, guid: a08de3b81d194234da7c65a66669818a, type: 3}
   bulletTrail: {fileID: 7019818373328254747, guid: 52009fbe2a17a974aa58bf8dc5142b7b, type: 3}
   turretBase: {fileID: 5854973896450364645}
---- !u!65 &554601727569707403
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554601727569707398}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 4.5}
-  m_Center: {x: 0, y: 1, z: 0.3}
 --- !u!54 &7649491309741949594
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -734,6 +722,50 @@ Transform:
   m_Father: {fileID: 4367416390468569454}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9164121879274786625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2835581943478213959}
+  - component: {fileID: 6884182533557007791}
+  m_Layer: 11
+  m_Name: Hitbox
+  m_TagString: Turret
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2835581943478213959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9164121879274786625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 554601727569707397}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6884182533557007791
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9164121879274786625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 4.5}
+  m_Center: {x: 0, y: 1, z: 0.3}
 --- !u!1001 &368447959278838908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -891,6 +923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+--- !u!224 &8747741879704666662 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8969698846730004058, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
+  m_PrefabInstance: {fileID: 368447959278838908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &440019105985176517 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 218352547434973113, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
@@ -902,11 +939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &8747741879704666662 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8969698846730004058, guid: 390ab398dda1b774caef0d85b0121d6b, type: 3}
-  m_PrefabInstance: {fileID: 368447959278838908}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &931510872638220723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1172,6 +1204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
+--- !u!4 &2022128375423517298 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4131898928437924035, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
+  m_PrefabInstance: {fileID: 2686255496251790001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6811317937157177689 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8917644819820925928, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
@@ -1183,11 +1220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47ef64fd0e8dbc4db539e5ccea97b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2022128375423517298 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4131898928437924035, guid: d2b3f1bfeaa60234894d61a3da42ed3f, type: 3}
-  m_PrefabInstance: {fileID: 2686255496251790001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2832255441078909441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2673,14 +2705,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f9091f16980d543b6c6fd2f12446f1, type: 3}
---- !u!1 &7805470118537182466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9f9091f16980d543b6c6fd2f12446f1, type: 3}
-  m_PrefabInstance: {fileID: 6959170171644182611}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7429049441222780856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9f9091f16980d543b6c6fd2f12446f1, type: 3}
+  m_PrefabInstance: {fileID: 6959170171644182611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7805470118537182466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a9f9091f16980d543b6c6fd2f12446f1, type: 3}
   m_PrefabInstance: {fileID: 6959170171644182611}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7793706956694156632

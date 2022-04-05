@@ -571,8 +571,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
             //Debug.Log(selectedObject.tag);
             if((selectedObject.CompareTag("Turret") || selectedObject.CompareTag("Flying Turret")))
             {
+                PlaceableTurretControllerBeta turret = selectedObject.GetComponentInParent<PlaceableTurretControllerBeta>();
                 //get the turret controller
-                if (selectedObject.TryGetComponent<PlaceableTurretControllerBeta>(out PlaceableTurretControllerBeta turret))
+                if (turret != null)
                 {
                     //tell turret its being looked at
                     //turret.lookedAt(true);

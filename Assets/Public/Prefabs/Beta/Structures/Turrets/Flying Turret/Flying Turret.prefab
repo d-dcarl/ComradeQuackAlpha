@@ -165,7 +165,6 @@ GameObject:
   m_Component:
   - component: {fileID: 554601727569707397}
   - component: {fileID: 1223139497464152794}
-  - component: {fileID: 554601727569707403}
   - component: {fileID: 5048853580962481093}
   m_Layer: 11
   m_Name: Flying Turret
@@ -191,6 +190,7 @@ Transform:
   - {fileID: 3119308670804445312}
   - {fileID: 1912660997092144520}
   - {fileID: 1661185038804898591}
+  - {fileID: 7208982878675601933}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -221,6 +221,7 @@ MonoBehaviour:
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 6445303830105601911, guid: 75bc9860ec10d3f468127d7c324a8a8f, type: 3}
   fireRate: 1
+  hitboxObject: {fileID: 2021056923613338933}
   placementCollider: {fileID: 6168546541120491572}
   damage: 0
   knockback: 0
@@ -237,22 +238,9 @@ MonoBehaviour:
   bulletSpawnPoints: []
   duckPositions: []
   muzzleFlash: {fileID: 0}
-  impactParticles: {fileID: 0}
+  impactParticles: {fileID: 726779500846431696, guid: a08de3b81d194234da7c65a66669818a, type: 3}
   bulletTrail: {fileID: 7019818373328254747, guid: 79d27033e7dc1894191ce7348710214c, type: 3}
   height: 5
---- !u!65 &554601727569707403
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554601727569707398}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.8, z: 1.5}
-  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!54 &5048853580962481093
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -446,6 +434,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2021056923613338933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7208982878675601933}
+  - component: {fileID: 649692734070350281}
+  m_Layer: 11
+  m_Name: Hitbox
+  m_TagString: Flying Turret
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7208982878675601933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021056923613338933}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 554601727569707397}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &649692734070350281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021056923613338933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2.8, z: 1.5}
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!1 &2358552119898084443
 GameObject:
   m_ObjectHideFlags: 0

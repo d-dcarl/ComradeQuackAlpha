@@ -78,6 +78,11 @@ public class AIControllerBeta : CharacterControllerBeta
             {
                 // Only target living entities even if they don't get destroyed when they die
                 EntityControllerBeta ecb = g.GetComponent<EntityControllerBeta>();
+
+                // Turrets got their hitboxes moved to a child object, so to target them we need to get the hitbox's parent
+                if (ecb == null)
+                    ecb = g.GetComponentInParent<EntityControllerBeta>();
+                
                 if(ecb != null && ecb.alive)
                 {
                     float dist = Vector3.Distance(transform.position, g.transform.position);

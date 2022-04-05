@@ -212,6 +212,11 @@ public class EnemyControllerBeta : AIControllerBeta
                 if (canAttack.Contains(g.tag))
                 {
                     EntityControllerBeta ecb = g.GetComponent<EntityControllerBeta>();
+
+                    // turrets have their hitbox in a child, so we have to get the entitycontroller from the parent
+                    if (ecb == null)
+                        ecb = g.GetComponentInParent<EntityControllerBeta>();
+                    
                     if (ecb != null)
                         ecb.TakeDamage(attackDamage);
                 }

@@ -62,7 +62,6 @@ public class GunTurretController : PlaceableTurretControllerBeta
         }
 
         trail.transform.position = hitPoint;
-        Instantiate(impactParticles, hitPoint, Quaternion.LookRotation(hitNormal));
 
         if (!hitCollider.IsDestroyed())
         {
@@ -72,6 +71,7 @@ public class GunTurretController : PlaceableTurretControllerBeta
             {
                 target.TakeDamage(damage);
                 target.KnockBack(hitPoint, knockback);
+                Instantiate(impactParticles, hitPoint, Quaternion.LookRotation(hitNormal));
             }
         }
         
@@ -82,7 +82,8 @@ public class GunTurretController : PlaceableTurretControllerBeta
     {
         base.UpgradeTurret();
         
-        turretBase.SetActive(false);
+        if (upgradeLevel > 0) 
+            turretBase.SetActive(false);
     }
 
     protected override void DowngradeTurret()
