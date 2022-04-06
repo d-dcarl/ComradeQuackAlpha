@@ -1074,6 +1074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoke Poof
       objectReference: {fileID: 0}
+    - target: {fileID: 3765200699903487731, guid: c5cac17701ccb9140812fa5b833393a1, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5cac17701ccb9140812fa5b833393a1, type: 3}
 --- !u!4 &642701182596802130 stripped
