@@ -99,6 +99,10 @@ public class ArtilleryPig : EnemyControllerBeta
                 if (canAttack.Contains(g.tag))
                 {
                     var ecb = g.GetComponent<EntityControllerBeta>();
+
+                    //turret hitboxes are in a child object
+                    if (ecb == null)
+                        ecb = g.GetComponentInParent<EntityControllerBeta>();
                     
                     if (ecb != null && ecb.alive)
                     {
@@ -129,6 +133,10 @@ public class ArtilleryPig : EnemyControllerBeta
                     if (canAttack.Contains(g.tag))
                     {
                         var ecb = g.GetComponent<EntityControllerBeta>();
+
+                        //turret hitboxes are in a child object
+                        if (ecb == null)
+                            ecb = g.GetComponentInParent<EntityControllerBeta>();
                         
                         if (ecb != null && ecb.alive)
                         {

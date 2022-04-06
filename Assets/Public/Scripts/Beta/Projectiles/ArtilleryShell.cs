@@ -40,6 +40,28 @@ public class ArtilleryShell : BulletControllerBeta
         }
     }
 
+    public override void Hit(GameObject other)
+    {
+        if (canHit.Contains(other.tag))
+        {
+            EntityControllerBeta ecb = other.gameObject.GetComponent<EntityControllerBeta>();
+            if (ecb == null)
+                ecb = other.gameObject.GetComponentInParent<EntityControllerBeta>();
+            if (ecb != null)
+            {
+                ecb.TakeDamage(damage);
+            }
+            CharacterControllerBeta ccb = other.gameObject.GetComponent<CharacterControllerBeta>();
+            if (ccb == null)
+                ccb = other.gameObject.GetComponentInParent<CharacterControllerBeta>();
+            if (ccb != null)
+            {
+                ccb.KnockBack(transform.position, knockback);
+            }
+            Destroy(gameObject);
+        }
+    }
+
     private void OnDestroy()
     {
         Debug.Log("I destroyed");
