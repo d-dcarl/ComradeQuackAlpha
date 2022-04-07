@@ -32,6 +32,9 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     [SerializeField]
     private List<GameObject> turretModels;
+
+    [SerializeField]
+    private List<GameObject> baseModels;
     
     [SerializeField]
     private List<GameObject> bulletSpawnPoints;
@@ -62,6 +65,10 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         foreach (var model in turretModels)
             model.SetActive(false);
         head.SetActive(true);
+        
+        foreach (var b in baseModels)
+            b.SetActive(false);
+        turretBase.SetActive(true);
 
         foreach (var d in duckPositions)
             d.SetActive(false);
@@ -362,6 +369,11 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         }
         head.SetActive(true);
 
+        turretBase.SetActive(false);
+        if (upgradeLevel < baseModels.Count)
+            turretBase = baseModels[upgradeLevel];
+        turretBase.SetActive(true);
+
         gun.SetActive(false);
         if (upgradeLevel < bulletSpawnPoints.Count)
             gun = bulletSpawnPoints[upgradeLevel];
@@ -435,6 +447,11 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             head = newHead;
         }
         head.SetActive(true);
+
+        turretBase.SetActive(false);
+        if (upgradeLevel < baseModels.Count)
+            turretBase = baseModels[upgradeLevel];
+        turretBase.SetActive(true);
         
         gun.SetActive(false);
         if (upgradeLevel < bulletSpawnPoints.Count)

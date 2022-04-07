@@ -212,6 +212,7 @@ MonoBehaviour:
   cantDie: 0
   head: {fileID: 554601728353918052}
   gun: {fileID: 554601727985244049}
+  turretBase: {fileID: 2763445800656122845}
   duck: {fileID: 1279290195205402418}
   targetRange: {fileID: 554601727527761216}
   canShoot:
@@ -235,6 +236,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26a863ab17e6a064f89acc2e26eac2b5, type: 2}
   constructionVFX: {fileID: 3119308670804445313}
   turretModels: []
+  baseModels: []
   bulletSpawnPoints: []
   duckPositions: []
   muzzleFlash: {fileID: 0}

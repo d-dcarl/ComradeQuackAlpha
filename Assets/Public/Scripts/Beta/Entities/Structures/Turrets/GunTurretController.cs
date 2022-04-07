@@ -17,9 +17,6 @@ public class GunTurretController : PlaceableTurretControllerBeta
     [SerializeField]
     private TrailRenderer bulletTrail;
 
-    [SerializeField]
-    private GameObject turretBase;
-
     //public VisualEffect gunTurretMuzzleFlash;
     // Start is called before the first frame update
     public override void Start()
@@ -76,23 +73,5 @@ public class GunTurretController : PlaceableTurretControllerBeta
         }
         
         Destroy(trail.gameObject, trail.time);
-    }
-
-    protected override void UpgradeTurret()
-    {
-        base.UpgradeTurret();
-        
-        if (upgradeLevel > 0) 
-            turretBase.SetActive(false);
-    }
-
-    protected override void DowngradeTurret()
-    {
-        base.DowngradeTurret();
-
-        if(upgradeLevel == 0)
-        {
-            turretBase.SetActive(true);
-        }
     }
 }

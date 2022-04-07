@@ -6,6 +6,7 @@ public class TurretControllerBeta : StructureControllerBeta
 {
     public GameObject head;
     public GameObject gun;
+    public GameObject turretBase;
     
     [SerializeField]
     protected GameObject duck;

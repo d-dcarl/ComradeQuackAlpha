@@ -575,6 +575,7 @@ MonoBehaviour:
   cantDie: 0
   head: {fileID: 7968797002326475673}
   gun: {fileID: 7968797001957804140}
+  turretBase: {fileID: 6140349858473981900}
   duck: {fileID: 8653058267376717181}
   targetRange: {fileID: 7968797003110443709}
   canShoot:
@@ -598,6 +599,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 41105519c17c4f8489c48cb2d917d2b3, type: 2}
   constructionVFX: {fileID: 5679717574074067488}
   turretModels: []
+  baseModels: []
   bulletSpawnPoints: []
   duckPositions: []
   splashRadius: 0
@@ -887,6 +889,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bdd0de9f6d2c9849abcc1219c0accc0, type: 3}
+--- !u!1 &6140349858473981900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bdd0de9f6d2c9849abcc1219c0accc0, type: 3}
+  m_PrefabInstance: {fileID: 6482806835391433373}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6808658707682323830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1bdd0de9f6d2c9849abcc1219c0accc0, type: 3}
