@@ -587,10 +587,20 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
                     }
                     //or take one out
-                    else if(removeDuckling && ducklingsList.Count < maxDucklings && turret.RemoveDuckling())
+                    else if(removeDuckling && ducklingsList.Count < maxDucklings)
                     {
-                        //generate new duck
-                        StartCoroutine(SpawnDuckling(turret.constructionDelay, turret.transform.position));
+                        int removedDuckling = turret.RemoveDuckling();
+                        if(removedDuckling == 0)
+                        {
+                            //generate new duck
+                            StartCoroutine(SpawnDuckling(turret.constructionDelay, turret.transform.position));
+                        }
+                        else if(removedDuckling == 1)
+                        {
+                            //destroyed turret is removed from turrets, can place a new one
+                            numTurrets--;
+                        }
+                        
                     }
                 }
                 return;
