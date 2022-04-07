@@ -278,6 +278,50 @@ Transform:
   m_Father: {fileID: 6742140175469336829}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5013433701952848774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8006360919529146847}
+  - component: {fileID: 4286151463739263527}
+  m_Layer: 11
+  m_Name: Hitbox
+  m_TagString: Turret
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8006360919529146847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013433701952848774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6742140175469336829}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4286151463739263527
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013433701952848774}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 2.5, z: 1.5}
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!1 &6604111146298074388
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +495,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6742140175469336829}
-  - component: {fileID: 2507313273080115706}
   - component: {fileID: 6742140175469336827}
   - component: {fileID: 3313738797824331868}
   m_Layer: 11
@@ -475,22 +518,10 @@ Transform:
   - {fileID: 6742140176482012694}
   - {fileID: 1635292435746380872}
   - {fileID: 1908206401872602015}
+  - {fileID: 8006360919529146847}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2507313273080115706
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6742140175469336828}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 2.5, z: 1.5}
-  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!114 &6742140175469336827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +540,7 @@ MonoBehaviour:
   cantDie: 0
   head: {fileID: 6742140175867365867}
   gun: {fileID: 6742140176814222810}
+  turretBase: {fileID: 7693225901096936497}
   duck: {fileID: 1238664927628917029}
   targetRange: {fileID: 8081171478941763717}
   canShoot:
@@ -519,6 +551,7 @@ MonoBehaviour:
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 6445303830105601911, guid: 75bc9860ec10d3f468127d7c324a8a8f, type: 3}
   fireRate: 0.5
+  hitboxObject: {fileID: 5013433701952848774}
 --- !u!54 &3313738797824331868
 Rigidbody:
   m_ObjectHideFlags: 0

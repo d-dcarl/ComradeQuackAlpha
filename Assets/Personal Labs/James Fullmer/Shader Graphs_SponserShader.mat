@@ -40,5 +40,5 @@ Material:
     - ScrollSpeed: 0.005
     m_Colors:
     - AlphaC: {r: 0, g: 28.5, b: 211.35, a: 0}
-    - _Color: {r: 0, g: 2.37, b: 0, a: 0}
+    - _Color: {r: 0, g: 1.81, b: 0, a: 0}
   m_BuildTextureStacks: []

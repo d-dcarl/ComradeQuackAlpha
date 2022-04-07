@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerBeta : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GameManagerBeta : MonoBehaviour
     [HideInInspector]
     public static GameManagerBeta Instance;
 
+    int numOfPonds = 0;
+
     public void Start()
     {
         EnsureUnique();
@@ -25,6 +28,16 @@ public class GameManagerBeta : MonoBehaviour
 
         gravity = -1 * Mathf.Abs(gravity);      // Just in case someone puts a positive gravity value by accident
         Physics.gravity = new Vector3(0f, gravity, 0f);
+
+        numOfPonds = FindObjectsOfType<PondControllerBeta>().Length;
+    }
+
+    private void Update()
+    {
+        if (numOfPonds > 0)
+        {
+            GetNumOfPonds();
+        }
     }
 
     void EnsureUnique()
@@ -47,5 +60,26 @@ public class GameManagerBeta : MonoBehaviour
     public void EndGame()
     {
         player.Die();
+    }
+
+    private void GetNumOfPonds()
+    {
+        numOfPonds = 0;
+        foreach(PondControllerBeta pond in FindObjectsOfType<PondControllerBeta>())
+        {
+            if (!pond.isSty)
+                numOfPonds++;
+        }
+        if (numOfPonds < 1)
+        {
+           StartCoroutine(WaitToGameOver());
+        }
+    }
+
+    IEnumerator WaitToGameOver()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("GameOver");
     }
 }

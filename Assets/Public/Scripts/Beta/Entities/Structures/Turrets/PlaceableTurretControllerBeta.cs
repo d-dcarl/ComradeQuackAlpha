@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.TerrainAPI;
 using UnityEngine;
 
 public class PlaceableTurretControllerBeta : TurretControllerBeta
@@ -329,12 +328,13 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
 
     //removes a duckling from this turret
-    public bool RemoveDuckling()
+    public int RemoveDuckling()
     {
+        int removed = 0;
         //can't de-upgrade
         if(isUnderConstruction)
         {
-            return false;
+            return -1;
         }
         if(upgradeLevel == 0)
         {
@@ -345,12 +345,14 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             }
             else
             {
-                return false; 
+                //destroy the turret
+                Destroy(this.gameObject, constructionDelay + .5f);
+                removed = 1; 
             }
         }
         StartConstruction(ConstructionType.Downgrade);
 
-        return true;
+        return removed;
     }
 
     protected virtual void DowngradeTurret()
