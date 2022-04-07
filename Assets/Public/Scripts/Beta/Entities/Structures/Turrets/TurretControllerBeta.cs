@@ -90,20 +90,20 @@ public class TurretControllerBeta : StructureControllerBeta
         targetRotation = Quaternion.LookRotation(projectedPos - transform.position);
 
         head.transform.rotation = Quaternion.Lerp(head.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime * 60f);
-        head.transform.localEulerAngles = new Vector3(0f, head.transform.localEulerAngles.y, 0f);
+        head.transform.localEulerAngles = new Vector3(head.transform.localEulerAngles.x, head.transform.localEulerAngles.y, 0f);
         if (target != null)
             gun.transform.LookAt(target.transform);
         gun.transform.localEulerAngles = new Vector3(gun.transform.localEulerAngles.x, 0f, 0f);
         
         if (target != null)
             hitBox.transform.LookAt(target.transform);
-        hitBox.transform.localEulerAngles = new Vector3(0f, hitBox.transform.localEulerAngles.y, 0f);
+        hitBox.transform.localEulerAngles = new Vector3(hitBox.transform.localEulerAngles.x, hitBox.transform.localEulerAngles.y, 0f);
 
         if (duck != null)
         {
             if (target != null)
                 duck.transform.LookAt(target.transform);
-            duck.transform.localEulerAngles = new Vector3(0f, duck.transform.localEulerAngles.y, 0f);
+            duck.transform.localEulerAngles = new Vector3(duck.transform.localEulerAngles.x, duck.transform.localEulerAngles.y, 0f);
         }
     }
 
