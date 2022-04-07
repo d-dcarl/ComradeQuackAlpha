@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7537054769507926686, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8480673cdf668244a9a061633a8b2e2f, type: 2}
     - target: {fileID: 8393010493706824881, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: m_Name
       value: Player Beta
@@ -3495,6 +3499,7 @@ MonoBehaviour:
   cantDie: 0
   head: {fileID: 8845553057916665671}
   gun: {fileID: 8845553057543795890}
+  turretBase: {fileID: 0}
   duck: {fileID: 0}
   targetRange: {fileID: 8845553056553129571}
   canShoot:
@@ -3504,6 +3509,7 @@ MonoBehaviour:
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 6445303830105601911, guid: 75bc9860ec10d3f468127d7c324a8a8f, type: 3}
   fireRate: 0.7
+  hitboxObject: {fileID: 0}
   placementCollider: {fileID: 0}
   damage: 4
   knockback: 10
@@ -3512,13 +3518,13 @@ MonoBehaviour:
   upgrades: []
   constructionVFX: {fileID: 0}
   turretModels: []
+  baseModels: []
   bulletSpawnPoints: []
   duckPositions: []
   gunTurretAnimator: {fileID: 0}
   muzzleFlash: {fileID: 0}
   impactParticles: {fileID: 0}
   bulletTrail: {fileID: 0}
-  turretBase: {fileID: 0}
 --- !u!224 &7913861719710912962
 RectTransform:
   m_ObjectHideFlags: 0

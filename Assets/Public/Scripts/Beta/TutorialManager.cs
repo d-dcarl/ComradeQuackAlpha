@@ -56,7 +56,7 @@ public class TutorialManager : MonoBehaviour
         }
 
         //these turret stuff is sooooo hacky lol
-        if (activeList == 6 && FindObjectOfType<PlaceableTurretControllerBeta>().gameObject.GetComponent<BoxCollider>().enabled)
+        if (activeList == 6 && FindObjectOfType<HitboxControllerBeta>().gameObject.GetComponent<BoxCollider>().enabled)
         {
             tutorialTriggers[activeList].GetComponent<TutorialTriggers>().TriggerEvent();
         }
