@@ -403,7 +403,7 @@ MonoBehaviour:
     Comrade Quack Project.fspro
   sourceBankPath: Assets/Public/FMOD Studio Comrade Quack Project/Build
   SourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
