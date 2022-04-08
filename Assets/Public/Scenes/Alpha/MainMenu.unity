@@ -2340,11 +2340,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -2020247490
-      Data2: 1158674223
-      Data3: -1979472725
-      Data4: 97604210
-    Path: event:/music/temp/for the motherpond
+      Data1: -1295527536
+      Data2: 1258615829
+      Data3: -540320078
+      Data4: 2070018599
+    Path: event:/music/main menu/main_menu
   Event: 
   PlayEvent: 1
   StopEvent: 2

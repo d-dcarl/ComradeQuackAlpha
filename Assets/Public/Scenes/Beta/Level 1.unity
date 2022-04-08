@@ -1003,11 +1003,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1399488955
-      Data2: 1097555094
-      Data3: 89493402
-      Data4: 573844367
-    Path: event:/music/temp/out of the sty
+      Data1: -1098917331
+      Data2: 1324749719
+      Data3: -696235373
+      Data4: 2102572275
+    Path: event:/music/01_level_1/level_01
   Event: 
   PlayEvent: 1
   StopEvent: 2
