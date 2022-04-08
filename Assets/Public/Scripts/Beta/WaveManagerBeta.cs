@@ -141,7 +141,7 @@ public class WaveManagerBeta : MonoBehaviour
             Debug.Log("YOU WIN!");
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("Level Clear");
-            
+            StyControllerBeta.allStys = null;
         }
     }
 }
