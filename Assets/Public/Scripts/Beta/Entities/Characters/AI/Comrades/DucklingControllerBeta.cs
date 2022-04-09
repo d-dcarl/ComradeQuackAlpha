@@ -24,6 +24,8 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
     public GameObject hats;
 
+    public Canvas followingCanvas;
+
     public override void Start()
     {
         wasKilled = true;
@@ -42,6 +44,9 @@ public class DucklingControllerBeta : ComradeControllerBeta
             Debug.Log("no hat remove");
             RemoveHat();
         }
+
+        //the following canvas
+        followingCanvas.enabled = false;
     }
 
     public virtual void InitializeDuckling(NestControllerBeta nest)
@@ -64,6 +69,7 @@ public class DucklingControllerBeta : ComradeControllerBeta
     public virtual void SetLeader(PlayerControllerBeta newLeader)
     {
         leader = newLeader;
+        followingCanvas.enabled = true;
         animator.SetTrigger("Saluting");
     }
 
