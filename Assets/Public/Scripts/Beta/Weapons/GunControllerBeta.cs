@@ -62,7 +62,8 @@ public class GunControllerBeta : MonoBehaviour
             {
                 shootTimer = shootDelay;
 
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(crosshair.transform.position);
                 BulletControllerBeta bcb = Instantiate(bulletPrefab).GetComponent<BulletControllerBeta>();
                 if (bcb == null)
                 {
@@ -71,6 +72,7 @@ public class GunControllerBeta : MonoBehaviour
 
                 bcb.transform.position = transform.position;
                 bcb.direction = GetDirection();
+                bcb.speed = bcb.speed + 5;     // quicken CQ's bullet speed
             }
             else
             {
@@ -93,7 +95,8 @@ public class GunControllerBeta : MonoBehaviour
         if (crosshair != null)
         {
             crosshair.SetActive(true);
-            crosshair.transform.position = Input.mousePosition;
+            //crosshair.transform.position = Input.mousePosition;
+            crosshair.transform.position = new Vector2(Screen.width / 2, Screen.height / 2);     // lock crosshair to centerscreen
         }
         else
         {
@@ -104,7 +107,8 @@ public class GunControllerBeta : MonoBehaviour
 
     private Vector3 GetDirection()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(crosshair.transform.position);
         RaycastHit hit;
         Vector3 result = ray.direction;
 
@@ -122,6 +126,7 @@ public class GunControllerBeta : MonoBehaviour
         if (bad != null)
             Debug.Log("hitting player"); */
         
+        // BUG: 4/10/22 - random shooting bug again, hitting layer 0? 15ish feet from first pigsty
         // -------------------------------------------------------------------------------
 
         return result;

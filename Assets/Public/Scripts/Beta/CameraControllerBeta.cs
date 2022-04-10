@@ -19,7 +19,7 @@ public class CameraControllerBeta : MonoBehaviour
 
     public Transform zoomCam;
     public float zoomSpeed = .5f;
-    public float zoomXRotationLimit = 45f;
+    public float zoomXRotationLimit = 30f;  // 45
 
     private float zoomHighBound;
     private float zoomLowBound;
@@ -42,6 +42,9 @@ public class CameraControllerBeta : MonoBehaviour
 
         // adjust zoomCam position
         //zoomCam.position = zoomCam.position + new Vector3(1, 0, 1);
+        //zoomCam.position = zoomCam.position + new Vector3(2, 0, 2);
+        zoomCam.position = zoomCam.position + new Vector3(2, 0, 1);
+        //zoomCam.position = GetComponent<Camera>().transform.position;
     }
 
     // Update is called once per frame
@@ -55,7 +58,7 @@ public class CameraControllerBeta : MonoBehaviour
             //--------------------------ZOOM CAM BEHAVIOR-----------------------------------------------------------
             Camera mycam = GetComponent<Camera>();
 
-            float sensitivity = 0.05f; // changed from 0.05 to 0.01
+            float sensitivity = 0.075f; // changed from 0.05 to 0.01
             Vector3 vp = mycam.ScreenToViewportPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, mycam.nearClipPlane));
             vp.x -= 0.5f;
             vp.y -= 0.5f;
