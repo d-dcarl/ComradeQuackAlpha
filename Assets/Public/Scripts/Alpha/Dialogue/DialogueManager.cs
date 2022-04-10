@@ -77,9 +77,9 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text += letter;
             if (letter == '.' || letter == '!' || letter == '?' || letter == ',')
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.1f);
             else
-                yield return new WaitForSeconds(0.02f);
+                yield return new WaitForSeconds(0.005f);
         }
     }
 

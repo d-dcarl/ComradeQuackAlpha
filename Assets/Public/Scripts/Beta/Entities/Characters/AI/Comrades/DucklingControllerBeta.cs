@@ -24,6 +24,8 @@ public class DucklingControllerBeta : ComradeControllerBeta
 
     public GameObject hats;
 
+    public UnityEngine.UI.Image followingImage;
+
     public override void Start()
     {
         wasKilled = true;
@@ -42,6 +44,10 @@ public class DucklingControllerBeta : ComradeControllerBeta
             Debug.Log("no hat remove");
             RemoveHat();
         }
+
+        //the following canvas
+        followingImage.enabled = false;
+        
     }
 
     public virtual void InitializeDuckling(NestControllerBeta nest)
@@ -64,6 +70,7 @@ public class DucklingControllerBeta : ComradeControllerBeta
     public virtual void SetLeader(PlayerControllerBeta newLeader)
     {
         leader = newLeader;
+        followingImage.enabled = true;
         animator.SetTrigger("Saluting");
     }
 

@@ -41,6 +41,9 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
     [SerializeField]
     private List<GameObject> duckPositions;
 
+
+    private bool wasKilled = false;
+
     public override void Start()
     {
         base.Start();
@@ -82,6 +85,23 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         else if(alive && !isUnderConstruction)
         {
             base.Update();
+        }
+    }
+
+    public override void TakeDamage(float amount)
+    {
+        if (!cantDie)
+        {
+            currentHealth -= amount;
+            if (healthBarSlider)
+            {
+                healthBarSlider.value = currentHealth;
+            }
+            if (currentHealth <= 0)
+            {
+                wasKilled = true;
+                Die();
+            }
         }
     }
 
@@ -203,7 +223,14 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     public override void Die()
     {
-        DeactivateTurret();
+        if(!wasKilled)
+        {
+            DeactivateTurret();
+        }
+        else
+        {
+            base.Die();
+        }
     }
 
     public void lookedAt(bool isLookedAt)

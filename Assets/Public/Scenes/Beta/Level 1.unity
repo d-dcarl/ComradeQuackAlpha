@@ -997,11 +997,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 79587108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
-  ListenerNumber: -1
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1098917331
+      Data2: 1324749719
+      Data3: -696235373
+      Data4: 2102572275
+    Path: event:/music/01_level_1/level_01
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &82310700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3213520564932780519, guid: 20076fd47cbf7014db2cc8aac8cc30ab, type: 3}
@@ -17077,7 +17093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f7cc081d7f3c33241822f5cc7ede5a0f, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7cc081d7f3c33241822f5cc7ede5a0f, type: 3}
       propertyPath: m_LocalScale.x
@@ -28196,7 +28212,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 91c25c58544825443abd1070b29e0b33, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91c25c58544825443abd1070b29e0b33, type: 3}
       propertyPath: m_LocalScale.x
