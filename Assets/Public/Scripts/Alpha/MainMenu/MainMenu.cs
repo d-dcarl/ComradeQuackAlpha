@@ -24,13 +24,14 @@ public class MainMenu : MonoBehaviour
     [Header("Navigation")]
     [SerializeField] private bool start = true;
     [SerializeField] private bool end = false;
-    [SerializeField] private bool anyKey = true;
+    [SerializeField] private bool anyKey = true; //add delay to press any key
     [SerializeField] private bool mainChange = false;
+    [SerializeField] private bool levelsChange = false;
 
     public void Start()
     {
-        StartCoroutine(FadeInTime());
-        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void Update()
@@ -38,13 +39,11 @@ public class MainMenu : MonoBehaviour
         if(start)
         {
             StartCoroutine(FadeInTime());
-            FadeIn();
         }
 
         if (end)
         {
             StartCoroutine(FadeOutTime());
-            FadeOut();
         }
 
         if (anyKey)
@@ -61,127 +60,106 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator FadeInTime()
     {
-        yield return new WaitForSeconds(3f);
-        fadeIn = true;
+        yield return new WaitForSecondsRealtime(0.5f);
+        FadeIn();
     }
 
     public void FadeIn()
     {
-        if (fadeIn)
+        Fade_Alpha.alpha -= Time.deltaTime;
+        if (Fade_Alpha.alpha <= 0)
         {
-            Fade_Alpha.alpha -= Time.deltaTime;
-            if (Fade_Alpha.alpha == 0)
-            {
-                fadeIn = false;
-                start = false;
-            }
+            start = false;
         }
     }
 
     IEnumerator FadeOutTime()
     {
-        yield return new WaitForSeconds(3f);
-        fadeOut = true;
+        yield return new WaitForSecondsRealtime(0.5f);
+        FadeOut();
     }
 
     public void FadeOut()
     {
-        if (fadeOut)
+        Fade_Alpha.alpha += Time.deltaTime;
+        if (Fade_Alpha.alpha >= 1)
         {
-            Fade_Alpha.alpha += Time.deltaTime;
-            if (Fade_Alpha.alpha == 1)
+            if (mainChange == true)
             {
-                if (mainChange == true)
-                {
-                    switchToMain();
-                    mainChange = false;
-                }
-                fadeOut = false;
-                start = true;
-                end = false;
+                switchToMain();
+                mainChange = false;
             }
+            if (levelsChange == true)
+            {
+                switchToLevelSelect();
+                levelsChange = false;
+            }
+            start = true;
+            end = false;
         }
+    }
+
+  
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void goToLevel()
+    {
+        levelsChange = true;
+        end = true;
+    }
+
+    public void switchToLevelSelect()
+    {
+        Level_Select.active = true;
+        Main_Menu.active = false;
+        Ukraine_Message.active = false;
+        Settings.active = false;
+        Credits.active = false;
+    }
+
+    public void goToMain()
+    {
+        mainChange = true;
+        end = true;
     }
 
     public void switchToMain()
     {
         Main_Menu.active = true;
         Ukraine_Message.active = false;
-        //Level_Select.active = false;
-        //Settings.active = false;
-        //Credits.active = false;
+        Level_Select.active = false;
+        Settings.active = false;
+        Credits.active = false;
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
 
+    /*private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SceneManager.LoadScene("DressingRoom");
+        }
+    }*/
+
+    // public void PlayGame()
+    //{
+    
+    //levelSelect.SetActive(true);
+    //foreach (GameObject uiElement in mainMenu)
+    //{
+    //   uiElement.SetActive(false);
+    //}
+    //}
 
 
-
-
-
-
-    /*  public GameObject creditsImage;
-      public GameObject videoPlayer;
-      public AudioSource backgroundMusic;
-      public GameObject levelSelect;
-      public GameObject[] mainMenu;
-
-      public void Start()
-      {
-          Cursor.lockState = CursorLockMode.None;
-          Cursor.visible = true;
-      }
-
-      private void Update()
-      {
-          //if (!videoPlayer.activeSelf)
-          //{
-          //    Debug.Log("no mute");
-          //    backgroundMusic.mute = false;
-          //}
-          if (Input.GetKeyDown(KeyCode.D))
-          {
-              SceneManager.LoadScene("DressingRoom");
-          }
-      }
-
-      public void PlayGame()
-      {
-          //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-          levelSelect.SetActive(true);
-          foreach (GameObject uiElement in mainMenu)
-          {
-              uiElement.SetActive(false);
-          }
-      }
-
-      public void FullScreen(bool isFull)
-      {
-
-          Screen.fullScreen = isFull;
-          if (isFull)
-          {
-              small.SetActive(true);
-              full.SetActive(false);
-          }
-          if(!isFull)
-          {
-              small.SetActive(false);
-              full.SetActive(true);
-          }
-
-
-      }
-
-      public void PlayCredits()
-      {
-          videoPlayer.SetActive(true);
-          creditsImage.SetActive(true);
-          //backgroundMusic.mute = true;
-      }
-
-      public void ExitGame()
-      {
-          Application.Quit();
-      }*/
 
 }
