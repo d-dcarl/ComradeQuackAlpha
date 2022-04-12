@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     [Header("Menus")]
     public GameObject Ukraine_Message;
+    public GameObject Title_Screen;
     public GameObject Main_Menu;
     //public GameObject Outfit_Select;
     public GameObject Level_Select;
@@ -24,7 +25,9 @@ public class MainMenu : MonoBehaviour
     [Header("Navigation")]
     [SerializeField] private bool start = true;
     [SerializeField] private bool end = false;
-    [SerializeField] private bool anyKey = true; //add delay to press any key
+    [SerializeField] private bool anyKeys = false;
+    [SerializeField] int counter = 0;
+    [SerializeField] private bool titleChange = false;
     [SerializeField] private bool mainChange = false;
     [SerializeField] private bool levelsChange = false;
 
@@ -39,6 +42,10 @@ public class MainMenu : MonoBehaviour
         if(start)
         {
             StartCoroutine(FadeInTime());
+            if (counter == 0)
+            {
+                StartCoroutine(ButtonDelay());
+            }
         }
 
         if (end)
@@ -46,16 +53,36 @@ public class MainMenu : MonoBehaviour
             StartCoroutine(FadeOutTime());
         }
 
-        if (anyKey)
+        if (anyKeys)
         {
-            if(Input.anyKey)
+            if(Input.anyKeyDown)
             {
                 end = true;
-                mainChange = true;
-                anyKey = false;
+                counter++; 
+                anyKeys = false;
+                if (counter == 1)
+                {
+                    titleChange = true;
+                    StartCoroutine(ButtonDelay());
+                }
+                else if (counter == 2)
+                {
+                   mainChange = true;
+                }
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SceneManager.LoadScene("DressingRoom");
+        }
+
+    }
+
+    IEnumerator ButtonDelay()
+    {
+        yield return new WaitForSecondsRealtime(2.5f);
+        anyKeys = true;
     }
 
     IEnumerator FadeInTime()
@@ -69,7 +96,7 @@ public class MainMenu : MonoBehaviour
         Fade_Alpha.alpha -= Time.deltaTime;
         if (Fade_Alpha.alpha <= 0)
         {
-            start = false;
+            start = false; 
         }
     }
 
@@ -89,6 +116,11 @@ public class MainMenu : MonoBehaviour
                 switchToMain();
                 mainChange = false;
             }
+            if (titleChange == true)
+            {
+                switchToTitle();
+                titleChange = false;
+            }
             if (levelsChange == true)
             {
                 switchToLevelSelect();
@@ -98,8 +130,6 @@ public class MainMenu : MonoBehaviour
             end = false;
         }
     }
-
-  
 
     public void PlayGame()
     {
@@ -116,7 +146,23 @@ public class MainMenu : MonoBehaviour
     {
         Level_Select.active = true;
         Main_Menu.active = false;
+        Title_Screen.active = false;
         Ukraine_Message.active = false;
+        Settings.active = false;
+        Credits.active = false;
+    }
+
+    public void goToTitle()
+    {
+        titleChange = true;
+        end = true;
+    }
+    public void switchToTitle()
+    {
+        Title_Screen.active = true;
+        Main_Menu.active = false;
+        Ukraine_Message.active = false;
+        Level_Select.active = false;
         Settings.active = false;
         Credits.active = false;
     }
@@ -131,6 +177,7 @@ public class MainMenu : MonoBehaviour
     {
         Main_Menu.active = true;
         Ukraine_Message.active = false;
+        Title_Screen.active = false;
         Level_Select.active = false;
         Settings.active = false;
         Credits.active = false;
@@ -140,26 +187,5 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
-
-    /*private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            SceneManager.LoadScene("DressingRoom");
-        }
-    }*/
-
-    // public void PlayGame()
-    //{
-    
-    //levelSelect.SetActive(true);
-    //foreach (GameObject uiElement in mainMenu)
-    //{
-    //   uiElement.SetActive(false);
-    //}
-    //}
-
-
 
 }
