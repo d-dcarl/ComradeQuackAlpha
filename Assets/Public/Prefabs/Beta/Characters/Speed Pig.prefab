@@ -115,7 +115,7 @@ MonoBehaviour:
   healthBarSlider: {fileID: 3492876883054497400}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 9
+  maxSpeed: 10
   targetHitbox: {fileID: 2996925734376119767}
   canAttack:
   - Player
@@ -125,7 +125,7 @@ MonoBehaviour:
   - Nest
   followDistance: 0.1
   attackHitBox: {fileID: 6924727160141618297}
-  attackDamage: 1
+  attackDamage: 2
   attackDelay: 1
   targetUpdateTime: 1
   updateRadius: 5
