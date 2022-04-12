@@ -8,13 +8,16 @@ public class NodeControllerBeta : MonoBehaviour
 
     [HideInInspector]
     public bool isGoal;
+    private float cost;
 
+    [HideInInspector]
+    public NodeControllerBeta bestNeighbor;
     protected bool registered;
 
     public virtual void Start()
     {
         isGoal = false;
-
+        cost = -1;
         RegisterNode();
     }
 
@@ -30,6 +33,42 @@ public class NodeControllerBeta : MonoBehaviour
         if(pcb != null)
         {
             isGoal = !pcb.isSty;        // Decide which nodes in the network the enemies pathfind towards
+        }
+
+        CalculateBestNeighbor();
+    }
+
+    public void CalculateBestNeighbor()
+    {
+        if(isGoal)
+        {
+            return;
+        }
+
+        foreach(NodeControllerBeta n in neighbors)
+        {
+            if (n.isGoal) {
+                float nDist = Vector3.Distance(transform.position, n.transform.position);
+                if (bestNeighbor == null || cost > nDist)
+                {
+                    bestNeighbor = n;
+                    cost = nDist;
+                }
+
+            }
+
+            else
+            {
+                if (n.cost > 0)
+                {
+                    float newCost = n.cost + Vector3.Distance(transform.position, n.transform.position);
+                    if(bestNeighbor == null || cost > newCost)
+                    {
+                        bestNeighbor = n;
+                        cost = newCost;
+                    }
+                }
+            }
         }
     }
 
