@@ -14591,7 +14591,7 @@ PrefabInstance:
     - target: {fileID: 5923826172001103433, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 1398910410}
+      objectReference: {fileID: 751677074}
     - target: {fileID: 6376084278352394227, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: cantDie
       value: 1
@@ -23658,7 +23658,7 @@ PrefabInstance:
     - target: {fileID: 223338992836441811, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: neighbors.Array.data[0]
       value: 
-      objectReference: {fileID: 1155096331}
+      objectReference: {fileID: 299792092}
     - target: {fileID: 223338992836441811, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: neighbors.Array.data[1]
       value: 
