@@ -19,4 +19,4 @@ MonoBehaviour:
     spawnTimeSinceStart: 0
   - enemy: {fileID: 6446803332376336247, guid: 8926c3a888d6e794cbd41f5c5609909c, type: 3}
     amountToSpawn: 1
-    spawnTimeSinceStart: 11
+    spawnTimeSinceStart: 15

@@ -125,7 +125,7 @@ MonoBehaviour:
   - Nest
   followDistance: 0.1
   attackHitBox: {fileID: 6924727160141618297}
-  attackDamage: 2
+  attackDamage: 1
   attackDelay: 1
   targetUpdateTime: 1
   updateRadius: 5
