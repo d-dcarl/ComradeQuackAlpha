@@ -34,14 +34,14 @@ public class NodeControllerBeta : MonoBehaviour
         {
             isGoal = !pcb.isSty;        // Decide which nodes in the network the enemies pathfind towards
         }
-
-        CalculateBestNeighbor();
     }
 
     public void CalculateBestNeighbor()
     {
         if(isGoal)
         {
+            bestNeighbor = this;
+            cost = 0f;
             return;
         }
 
@@ -70,6 +70,12 @@ public class NodeControllerBeta : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ResetCost()
+    {
+        bestNeighbor = null;
+        cost = -1;
     }
 
     public void RegisterNode()

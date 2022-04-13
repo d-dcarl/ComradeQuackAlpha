@@ -109,37 +109,6 @@ public class EnemyControllerBeta : AIControllerBeta
         NodeControllerBeta checking = source;
         NodeControllerBeta dest = source.bestNeighbor;
 
-        // If any neighbors are goals
-        //foreach (NodeControllerBeta n in checking.neighbors)
-        //{
-        //    if(n.isGoal)
-        //    {
-        //        float nDist = Vector3.Distance(n.transform.position, transform.position);
-        //        if (dest == null || nDist < Vector3.Distance(dest.transform.position, transform.position))
-        //        {
-        //            dest = n;
-        //        }
-        //    }
-        //}
-
-        // Otherwise pick the best non-goal neighbor
-        //if (dest == null)
-        //{
-        //    NodeControllerBeta goal = FindClosestGoal();
-        //    float bestDist = -1f;
-        //    foreach (NodeControllerBeta n in checking.neighbors)
-        //    {
-        //        float nDist = Vector3.Distance(n.transform.position, transform.position);
-        //        float gDist = Vector3.Distance(n.transform.position, goal.transform.position);
-
-        //        if(bestDist < 0f || nDist + gDist < bestDist)
-        //        {
-        //            bestDist = nDist + gDist;
-        //            dest = n;
-        //        }
-        //    }
-        //}
-
         return dest;
     }
 

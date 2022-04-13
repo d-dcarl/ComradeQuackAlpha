@@ -38,6 +38,19 @@ public class GameManagerBeta : MonoBehaviour
         {
             GetNumOfPonds();
         }
+
+        foreach (NodeControllerBeta n in allNodes)
+        {
+            n.ResetCost();
+        }
+
+        for (int i = 0; i < allNodes.Count; i++)
+        {
+            foreach (NodeControllerBeta n in allNodes)
+            {
+                n.CalculateBestNeighbor();
+            }
+        }
     }
 
     void EnsureUnique()
