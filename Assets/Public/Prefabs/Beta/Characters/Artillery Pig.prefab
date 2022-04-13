@@ -52,12 +52,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0930d9f8b287904291a8f966c5d459d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 40
   alive: 0
   healthBarSlider: {fileID: 8137534064912883752}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 6
+  maxSpeed: 8
   targetHitbox: {fileID: 7566149668356354951}
   canAttack:
   - Turret
@@ -66,7 +66,7 @@ MonoBehaviour:
   - Nest
   followDistance: 0.1
   attackHitBox: {fileID: 7566149668356354951}
-  attackDamage: 20
+  attackDamage: 30
   attackDelay: 4
   targetUpdateTime: 1
   updateRadius: 5

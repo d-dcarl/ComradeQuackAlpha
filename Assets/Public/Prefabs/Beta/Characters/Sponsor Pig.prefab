@@ -348,12 +348,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1391c2071c86d44bb8287c37e799fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 25
   alive: 0
   healthBarSlider: {fileID: 3257231767441074159}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 8
+  maxSpeed: 6
   targetHitbox: {fileID: 3839914055753987471}
   canAttack:
   - Comrade

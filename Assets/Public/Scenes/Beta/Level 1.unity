@@ -2468,7 +2468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: currentWave
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: isWaitActive
@@ -4107,6 +4107,10 @@ PrefabInstance:
       propertyPath: cantDie
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -121358836446144510, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
+      propertyPath: spawnCap
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5142882221832298537, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4806,11 +4810,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: maxHealth
-      value: 40
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: maxTurrets
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: maxBarricades
@@ -23808,7 +23812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5718133338975872947, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: spawnCap
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5718133338975872947, guid: 5da00585a1febe145b0cc09dc45e7046, type: 3}
       propertyPath: upgradeLevel
@@ -33719,6 +33723,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -121358836446144510, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
+      propertyPath: spawnCap
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5142882221832298537, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
       propertyPath: m_RootOrder
       value: 12
