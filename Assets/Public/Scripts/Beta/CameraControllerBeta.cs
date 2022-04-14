@@ -25,6 +25,10 @@ public class CameraControllerBeta : MonoBehaviour
     private float zoomLowBound;
     private float zoomMidpoint = 180f;
 
+    private float rotationSpeed = 2.0f;
+    private float pitch;
+    private float yaw;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,37 +54,29 @@ public class CameraControllerBeta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         CheckInput();
         Vector3 cameraDirection, cameraOffset;
         float camBack, camUp;
         if (Input.GetMouseButton(1) || Input.GetAxis("Zoom") != 0f)    // zoomed in
         {
-            //--------------------------ZOOM CAM BEHAVIOR-----------------------------------------------------------
-            Camera mycam = GetComponent<Camera>();
+            pitch += rotationSpeed * Input.GetAxis("Mouse Y");
+            yaw += rotationSpeed * Input.GetAxis("Mouse X");
 
-            float sensitivity = 0.02f; // changed from 0.05 to 0.01
-            Vector3 vp = mycam.ScreenToViewportPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, mycam.nearClipPlane));
-            vp.x -= 0.5f;
-            vp.y -= 0.5f;
-            vp.x *= sensitivity;
-            vp.y *= sensitivity;
-            vp.x += 0.5f;
-            vp.y += 0.5f;
-            Vector3 sp = mycam.ViewportToScreenPoint(vp);
-            Vector3 v = mycam.ScreenToWorldPoint(sp);
+            // Clamp pitch:
+            pitch = Mathf.Clamp(pitch, -90f, 90f);
 
-            // Limit camera X rotation
-            transform.LookAt(v, Vector3.up);
-            Vector3 rot = transform.rotation.eulerAngles;
-            if (rot.x < zoomHighBound && rot.x > zoomMidpoint)
+            // Wrap yaw:
+            while (yaw < 0f)
             {
-                rot.x = zoomHighBound;
+                yaw += 360f;
             }
-            else if (rot.x > zoomLowBound && rot.x < zoomMidpoint)
+            while (yaw >= 360f)
             {
-                rot.x = zoomLowBound;
+                yaw -= 360f;
             }
-            transform.rotation = Quaternion.Euler(rot); 
+
+            transform.eulerAngles = new Vector3(-pitch, yaw, 0f);
 
             // Apply position and rotation to camera and player
             transform.position = Vector3.Slerp(transform.position, zoomCam.position, zoomSpeed * Time.time);
@@ -99,6 +95,10 @@ public class CameraControllerBeta : MonoBehaviour
 
             transform.position = player.transform.position + cameraOffset;
             transform.LookAt(player.transform);
+
+            // set zoom angle
+            pitch = player.transform.eulerAngles.x;
+            yaw = player.transform.eulerAngles.y;
         }
 
         //Debug.Log("Camera Angle: " + cameraAngle);
