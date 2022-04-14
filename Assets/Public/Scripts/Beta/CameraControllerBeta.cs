@@ -53,12 +53,12 @@ public class CameraControllerBeta : MonoBehaviour
         CheckInput();
         Vector3 cameraDirection, cameraOffset;
         float camBack, camUp;
-        if (Input.GetMouseButton(1) || Input.GetAxis("Zoom") > 0f)        // zoomed in
+        if (Input.GetMouseButton(1) || Input.GetAxis("Zoom") != 0f)    // zoomed in
         {
             //--------------------------ZOOM CAM BEHAVIOR-----------------------------------------------------------
             Camera mycam = GetComponent<Camera>();
 
-            float sensitivity = 0.075f; // changed from 0.05 to 0.01
+            float sensitivity = 0.02f; // changed from 0.05 to 0.01
             Vector3 vp = mycam.ScreenToViewportPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, mycam.nearClipPlane));
             vp.x -= 0.5f;
             vp.y -= 0.5f;
