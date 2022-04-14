@@ -123,36 +123,14 @@ public class EnemyControllerBeta : AIControllerBeta
         {
             foreach(NodeControllerBeta node in GameManagerBeta.Instance.allNodes)
             {
-                float dist = Vector3.Distance(transform.position, node.transform.position);
-                if (closest == null || dist < closestDist)
+                Vector3 flatPos = new Vector3(transform.position.x, 0f, transform.position.z);
+                Vector3 flatNodePos = new Vector3(node.transform.position.x, 0f, node.transform.position.z);
+                float flatDist = Vector3.Distance(flatPos, flatNodePos);
+                
+                if (closest == null || flatDist < closestDist)
                 {
-                    closestDist = dist;
+                    closestDist = flatDist;
                     closest = node;
-                }
-            }
-        }
-
-        return closest;
-    }
-
-    public NodeControllerBeta FindClosestGoal()
-    {
-        NodeControllerBeta closest = null;
-        float closestDist = -1;
-
-        // If the nodes are set up
-        if (GameManagerBeta.Instance != null && GameManagerBeta.Instance.allNodes != null)
-        {
-            foreach (NodeControllerBeta node in GameManagerBeta.Instance.allNodes)
-            {
-                if(node.isGoal)
-                {
-                    float dist = Vector3.Distance(transform.position, node.transform.position);
-                    if (closest == null || dist < closestDist)
-                    {
-                        closestDist = dist;
-                        closest = node;
-                    }
                 }
             }
         }
