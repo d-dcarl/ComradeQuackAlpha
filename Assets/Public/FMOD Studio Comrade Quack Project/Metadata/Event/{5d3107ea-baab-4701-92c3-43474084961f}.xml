@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{5d3107ea-baab-4701-92c3-43474084961f}">
 		<property name="name">
-			<value>volume_increase</value>
+			<value>ui_volume_slider_increase</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>

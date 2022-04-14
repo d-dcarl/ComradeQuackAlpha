@@ -273,7 +273,7 @@ MonoBehaviour:
   shotDelay: 2
   recruitRangeCollider: {fileID: 22304813751531827}
   recruitCircleCollider: {fileID: 3339720288529412069}
-  wanderRadius: 20
+  wanderRadius: 10
   wanderTime: 3
   animator: {fileID: 0}
   hats: {fileID: 7835657637926761405}

@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 5019965575117504303}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 4764871537331894583}
   - {fileID: 545101888209558765}
@@ -115,7 +115,7 @@ MonoBehaviour:
   healthBarSlider: {fileID: 3492876883054497400}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 3
+  maxSpeed: 5
   targetHitbox: {fileID: 2996925734376119767}
   canAttack:
   - Player
@@ -125,7 +125,7 @@ MonoBehaviour:
   - Nest
   followDistance: 0.1
   attackHitBox: {fileID: 6924727160141618297}
-  attackDamage: 10
+  attackDamage: 15
   attackDelay: 3
   targetUpdateTime: 1
   updateRadius: 5
