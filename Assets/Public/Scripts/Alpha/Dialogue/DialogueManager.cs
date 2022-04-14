@@ -48,7 +48,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        //manager.GetComponent<AudioSource>().Play();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/characters/dialogue/player", GetComponent<Transform>().position);
         if (sentences.Count == 0)
         {
             EndDialogue();

@@ -1237,6 +1237,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8393010493706824881, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
   m_PrefabInstance: {fileID: 240161072}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &102318354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102318352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2104616005
+      Data2: 1340554601
+      Data3: -1585022789
+      Data4: 1819052363
+    Path: event:/characters/player/waddle
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &102318356 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
@@ -4130,6 +4160,7 @@ MonoBehaviour:
   - {fileID: 1398910410}
   - {fileID: 1136872560}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1 &353043110 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5768209408335990329, guid: 8a0772a5155671749aa021de956e73e8, type: 3}
@@ -11011,6 +11042,7 @@ MonoBehaviour:
   - {fileID: 1993461020}
   - {fileID: 1780505281}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1001 &1014462503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12665,6 +12697,7 @@ MonoBehaviour:
   - {fileID: 346529411}
   - {fileID: 2138498017}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1001 &1139047617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12748,6 +12781,7 @@ MonoBehaviour:
   - {fileID: 1993461020}
   - {fileID: 980483952}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1001 &1144111836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13467,6 +13501,7 @@ MonoBehaviour:
   - {fileID: 1664712896}
   - {fileID: 1451638319}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1 &1194265747 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8679450568649515087, guid: 526d1b8752e2e4a4cbb95ca8794d1413, type: 3}
@@ -14964,6 +14999,7 @@ MonoBehaviour:
   - {fileID: 2138498017}
   - {fileID: 2080123519}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1 &1297904489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3213520564932780519, guid: 20076fd47cbf7014db2cc8aac8cc30ab, type: 3}
@@ -15897,7 +15933,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 241128202}
     m_RemovedComponents:
-    - {fileID: 892480568564768650, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
+    - {fileID: 0}
+    - {fileID: 7336456195744321484, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
 --- !u!1 &1392875533 stripped
 GameObject:
@@ -16498,6 +16535,7 @@ MonoBehaviour:
   - {fileID: 1193434844}
   - {fileID: 1155096331}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1 &1455088685 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 63457573387120999, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
@@ -19116,6 +19154,7 @@ MonoBehaviour:
   - {fileID: 980483952}
   - {fileID: 1193434844}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1 &1664922400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8679450568649515087, guid: 526d1b8752e2e4a4cbb95ca8794d1413, type: 3}
@@ -19251,6 +19290,7 @@ MonoBehaviour:
   - {fileID: 2080123519}
   - {fileID: 1780505281}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1 &1679774555 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8679450568649515087, guid: 526d1b8752e2e4a4cbb95ca8794d1413, type: 3}
@@ -20391,6 +20431,7 @@ MonoBehaviour:
   - {fileID: 1013248166}
   - {fileID: 1670412835}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1 &1780915062
 GameObject:
   m_ObjectHideFlags: 0
@@ -22631,6 +22672,7 @@ MonoBehaviour:
   - {fileID: 1139047620}
   - {fileID: 1013248166}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1001 &2004820575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24218,6 +24260,7 @@ MonoBehaviour:
   - {fileID: 1136872560}
   - {fileID: 1294115449}
   isGoal: 0
+  bestNeighbor: {fileID: 0}
 --- !u!1001 &2140734301
 PrefabInstance:
   m_ObjectHideFlags: 0
