@@ -16,8 +16,8 @@ public class PressAnyKey : MonoBehaviour
         {
 
             //animation.Play();
-            Ukraine.active = false;
-            MainMenu.active = true;
+            Ukraine.SetActive(false);
+            MainMenu.SetActive(true);
             Click.Play();
             
             Destroy(this);
