@@ -75,7 +75,7 @@ public class TurretControllerBeta : StructureControllerBeta
         }
     }
 
-    protected void RotateGun(GameObject target)
+    protected virtual void RotateGun(GameObject target)
     {
         Vector3 projectedPos;
         if (predictiveAiming)

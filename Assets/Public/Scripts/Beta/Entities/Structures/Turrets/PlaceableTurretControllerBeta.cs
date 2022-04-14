@@ -389,36 +389,9 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
         this.transform.localScale = new Vector3(this.transform.localScale.x - 0.05f, this.transform.localScale.y - 0.05f, this.transform.localScale.z - 0.05f);
 
-        head.SetActive(false);
-        if (upgradeLevel < turretModels.Count)
-        {
-            var newHead = turretModels[upgradeLevel];
-            newHead.transform.rotation = head.transform.rotation;
-            head = newHead;
-        }
-        head.SetActive(true);
-
-        turretBase.SetActive(false);
-        if (upgradeLevel < baseModels.Count)
-            turretBase = baseModels[upgradeLevel];
-        turretBase.SetActive(true);
-
-        gun.SetActive(false);
-        if (upgradeLevel < bulletSpawnPoints.Count)
-            gun = bulletSpawnPoints[upgradeLevel];
-        gun.SetActive(true);
-
-        duck.SetActive(false);
-        if (upgradeLevel < duckPositions.Count)
-        {
-            var newDuck = duckPositions[upgradeLevel];
-            newDuck.transform.rotation = duck.transform.rotation;
-            duck = newDuck;
-        }
-        if(alive)
-        {
-            duck.SetActive(true);
-        }
+        SetModels();
+        
+        duck.SetActive(alive);
 
         SetUpgrade(upgrades[upgradeLevel]);
     }
@@ -468,34 +441,8 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
         healthBarSlider.value = maxHealth;
         upgradeLevel++;
         
-        head.SetActive(false);
-        if (upgradeLevel < turretModels.Count)
-        {
-            var newHead = turretModels[upgradeLevel];
-            newHead.transform.rotation = head.transform.rotation;
-            head = newHead;
-        }
-        head.SetActive(true);
+        SetModels();
 
-        turretBase.SetActive(false);
-        if (upgradeLevel < baseModels.Count)
-            turretBase = baseModels[upgradeLevel];
-        turretBase.SetActive(true);
-        
-        gun.SetActive(false);
-        if (upgradeLevel < bulletSpawnPoints.Count)
-            gun = bulletSpawnPoints[upgradeLevel];
-        gun.SetActive(true);
-        
-        duck.SetActive(false);
-        if (upgradeLevel < duckPositions.Count)
-        {
-            var newDuck = duckPositions[upgradeLevel];
-            newDuck.transform.rotation = duck.transform.rotation;
-            duck = newDuck;
-        }
-        duck.SetActive(true);
-        
         SetUpgrade(upgrades[upgradeLevel]);
     }
 
@@ -508,6 +455,39 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
         hitBox.center = upgrade.hitboxCenter;
         hitBox.size = upgrade.hitboxSize;
+    }
+
+    protected virtual void SetModels()
+    {
+        head.SetActive(false);
+        if (upgradeLevel < turretModels.Count)
+        {
+            var newHead = turretModels[upgradeLevel];
+            newHead.transform.rotation = head.transform.rotation;
+            head = newHead;
+        }
+
+        head.SetActive(true);
+
+        turretBase.SetActive(false);
+        if (upgradeLevel < baseModels.Count)
+            turretBase = baseModels[upgradeLevel];
+        turretBase.SetActive(true);
+
+        gun.SetActive(false);
+        if (upgradeLevel < bulletSpawnPoints.Count)
+            gun = bulletSpawnPoints[upgradeLevel];
+        gun.SetActive(true);
+
+        duck.SetActive(false);
+        if (upgradeLevel < duckPositions.Count)
+        {
+            var newDuck = duckPositions[upgradeLevel];
+            newDuck.transform.rotation = duck.transform.rotation;
+            duck = newDuck;
+        }
+
+        duck.SetActive(true);
     }
 
     private enum ConstructionType

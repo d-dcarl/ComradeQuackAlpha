@@ -18,6 +18,19 @@ public class MissileTurretController : PlaceableTurretControllerBeta
         
     }
 
+    protected override void SetModels()
+    {
+        base.SetModels();
+        smokePoof.transform.parent = head.transform;
+        smokePoof.transform.position = gun.transform.position;
+        smokePoof.transform.rotation = gun.transform.rotation;
+        
+        if (upgradeLevel >=1)
+            turretBase.SetActive(false);
+        else
+            turretBase.SetActive(true);
+    }
+
     public override void Fire()
     {
         smokePoof.Play();
@@ -41,5 +54,13 @@ public class MissileTurretController : PlaceableTurretControllerBeta
             splashRadius = missileTurretUpgrade.splashRadius;
             retargetDistance = missileTurretUpgrade.retargetDistance;
         }
+    }
+
+    protected override void RotateGun(GameObject target)
+    {
+        base.RotateGun(target);
+        head.transform.localEulerAngles = new Vector3(0f, head.transform.localEulerAngles.y, 0f);
+        hitBox.transform.localEulerAngles = new Vector3(0f, hitBox.transform.localEulerAngles.y, 0f);
+        duck.transform.localEulerAngles = new Vector3(0f, duck.transform.localEulerAngles.y, 0f);
     }
 }
