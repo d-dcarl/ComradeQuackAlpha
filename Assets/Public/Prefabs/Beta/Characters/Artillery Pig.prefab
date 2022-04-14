@@ -57,7 +57,7 @@ MonoBehaviour:
   healthBarSlider: {fileID: 8137534064912883752}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 8
+  maxSpeed: 10
   targetHitbox: {fileID: 7566149668356354951}
   canAttack:
   - Turret

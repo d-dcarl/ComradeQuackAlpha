@@ -2500,7 +2500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: spawnRate
-      value: 0.8
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: mainPigsty
@@ -2536,7 +2536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.size
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: mainPigsties.Array.data[0]
@@ -2565,23 +2565,23 @@ PrefabInstance:
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: da38bd826cf382e4bb706ffd5bbdfdef, type: 2}
+      objectReference: {fileID: 11400000, guid: f13fbc1ea63bd174380c495d9a2b8ab7, type: 2}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: f13fbc1ea63bd174380c495d9a2b8ab7, type: 2}
+      objectReference: {fileID: 11400000, guid: 873c378111b245a40b1eedbf2f31021a, type: 2}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 873c378111b245a40b1eedbf2f31021a, type: 2}
+      objectReference: {fileID: 11400000, guid: 3a77c9cf2ce75b64bbaae12a6479f01b, type: 2}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[8]
       value: 
-      objectReference: {fileID: 11400000, guid: 5fa6c6cce72ff88468cd816c032c220a, type: 2}
+      objectReference: {fileID: 11400000, guid: 575bb174b91f5e34d88bae955c8bbe01, type: 2}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: 3a77c9cf2ce75b64bbaae12a6479f01b, type: 2}
+      objectReference: {fileID: 11400000, guid: 575bb174b91f5e34d88bae955c8bbe01, type: 2}
     - target: {fileID: 2155184217897867239, guid: 26961f2737fc9fb44a29aa6b91a199ba, type: 3}
       propertyPath: wavesToSpawn.Array.data[10]
       value: 
@@ -3933,67 +3933,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8253072800915915815, guid: 835c3f479010543bf9d97f51c114e5e3, type: 3}
---- !u!1 &179314919
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 179314921}
-  - component: {fileID: 179314920}
-  m_Layer: 0
-  m_Name: LevelMusic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &179314920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179314919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1098917331
-      Data2: 1324749719
-      Data3: -696235373
-      Data4: 2102572275
-    Path: event:/music/01_level_1/level_01
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!4 &179314921
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179314919}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.67222, y: 26.951143, z: -65.07896}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &179741277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4238,6 +4177,10 @@ PrefabInstance:
     - target: {fileID: 5142882221832298542, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
       propertyPath: m_Layer
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5142882221832298542, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
+      propertyPath: m_TagString
+      value: Nest
       objectReference: {fileID: 0}
     - target: {fileID: 7692124149635967609, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4891,6 +4834,10 @@ PrefabInstance:
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: maxNests
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: maxSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: maxHealth
@@ -27728,7 +27675,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 241128202}
     m_RemovedComponents:
-    - {fileID: 892480568564768650, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
+    - {fileID: 0}
+    - {fileID: 7336456195744321484, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3d4a22bccbcbaf8409a842cc3b86534c, type: 3}
 --- !u!1001 &1385732841
 PrefabInstance:
@@ -34643,6 +34591,10 @@ PrefabInstance:
     - target: {fileID: 5142882221832298542, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
       propertyPath: m_Layer
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5142882221832298542, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
+      propertyPath: m_TagString
+      value: Nest
       objectReference: {fileID: 0}
     - target: {fileID: 7692124149635967609, guid: 7484eb37194b12b4ea7487756e2bdce8, type: 3}
       propertyPath: m_AnchorMax.x

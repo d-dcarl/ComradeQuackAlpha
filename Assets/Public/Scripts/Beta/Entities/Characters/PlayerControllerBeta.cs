@@ -87,6 +87,15 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public GameObject deathOverlay;
 
+    //sound instance needed for playing audio
+    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance glideInstance;
+    private FMOD.Studio.EventInstance walkInstance;
+    private bool glide_playing;
+    private float shoot_sound_timer;
+    private bool recruitingSound = false;
+    private bool walkPlaying = false;
+
     //pause the game
     private bool paused = false;
 
@@ -98,7 +107,6 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
         mesh = transform.Find("Mesh").gameObject;
         recruitCircle.SetActive(false);
-        audioData = GetComponent<AudioSource>();
 
         InitializeStamina();
         InitializeFlying();
@@ -144,6 +152,10 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if(anim_shoot_timer > 0f)
         {
             anim_shoot_timer -= Time.deltaTime;
+        }
+        if(shoot_sound_timer > 0f)
+        {
+            shoot_sound_timer -= Time.deltaTime;
         }
         CheckInput();
         EnforceMaxHeight();
@@ -213,12 +225,26 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
         if (Input.GetButtonDown("Jump") && flapTimer <= 0f && alive)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/characters/player/jump", GetComponent<Transform>().position);
             Flap();
         }
 
         if (Input.GetButton("Jump") && stamina > 0f && alive)
         {
+            if(!glide_playing)
+            {
+                glideInstance = FMODUnity.RuntimeManager.CreateInstance("event:/characters/player/gliding");
+                FMODUnity.RuntimeManager.AttachInstanceToGameObject(glideInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
+                glideInstance.start();
+                glide_playing = true;
+            }
             Glide();
+        }
+
+        if(Input.GetButtonUp("Jump") || stamina <= 0f ||  !alive)
+        {
+            glideInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            glide_playing = false;
         }
 
         /* Trap cursor when you click the screen
@@ -235,7 +261,6 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (Input.GetKeyDown(KeyCode.V) || Input.GetButtonDown("Recruit"))
         {
             recruitActive = true;
-            audioData.Play();
         }
         if (Input.GetKeyUp(KeyCode.V) || Input.GetButtonUp("Recruit"))
         {
@@ -273,7 +298,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
             // TODO: Add more gun types, and use scrolling to switch guns
             if (Input.GetMouseButton(0) || Input.GetAxis("Shoot") > 0f)
-            { 
+            {
+                if(shoot_sound_timer <= 0)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/pistol/shoot", GetComponent<Transform>().position);
+                    shoot_sound_timer = gunInHand.shootDelay;
+                }
                 Shoot();
             }
         }
@@ -522,12 +552,21 @@ public class PlayerControllerBeta : CharacterControllerBeta
         Vector3 animdir = new Vector3(direction.x, 0f, direction.z);      // Make sure you're not pointing up or down
         if (animdir.magnitude > 0.01f && isGrounded && !anim_isLanding)
         {
+            if (!walkPlaying)
+            {
+                walkInstance = FMODUnity.RuntimeManager.CreateInstance("event:/characters/player/waddle");
+                FMODUnity.RuntimeManager.AttachInstanceToGameObject(walkInstance, GetComponent<Transform>(), GetComponent<Rigidbody>());
+                walkInstance.start();
+                walkPlaying = true;
+            }
             animator.SetBool("IsWalking", true);
             animator.Play("Duck Walkcycle (handgun)");     // If there is movement, play the walk animation
         }
         else if (isGrounded && !anim_isLanding)
         {
             animator.SetBool("IsWalking", false);
+            walkInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            walkPlaying = false;
             //animator.Play("Duck Idle (handgun)");
         }
 
@@ -686,6 +725,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
         float maxSize = 10.0f;
         animator.SetTrigger("Recruiting");
         animator.Play("Duck Recruiting (handgun)");
+        if(!recruitingSound)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/characters/player/recruit_quackling", GetComponent<Transform>().position);
+            recruitingSound = true;
+        }
         if (!recruitCircle.activeInHierarchy && ducklingsList.Count < maxDucklings)
         {
             recruitCircle.SetActive(true);
@@ -705,11 +749,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             recruitCircle.SetActive(false);
         }
+        recruitingSound = false;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/characters/player/land_from_glide", GetComponent<Transform>().position);
         animator.SetBool("IsGrounded", isGrounded);
         animator.Play("Land (Handgun)");
         anim_isLanding = true;

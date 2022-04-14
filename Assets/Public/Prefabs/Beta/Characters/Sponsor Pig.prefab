@@ -353,7 +353,7 @@ MonoBehaviour:
   healthBarSlider: {fileID: 3257231767441074159}
   cantDie: 0
   acceleration: 100
-  maxSpeed: 6
+  maxSpeed: 8
   targetHitbox: {fileID: 3839914055753987471}
   canAttack:
   - Comrade

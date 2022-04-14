@@ -57,6 +57,7 @@ public class MainMenu : MonoBehaviour
         {
             if(Input.anyKeyDown)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/ui/main/button_click", GetComponent<Transform>().position);
                 end = true;
                 counter++; 
                 anyKeys = false;
@@ -74,6 +75,7 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/ui/main/button_click", GetComponent<Transform>().position);
             SceneManager.LoadScene("DressingRoom");
         }
 
@@ -133,6 +135,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/ui/main/start_game", GetComponent<Transform>().position);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
