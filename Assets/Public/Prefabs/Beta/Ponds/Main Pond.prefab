@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbors: []
   isGoal: 0
+  bestNeighbor: {fileID: 0}
   spawner: {fileID: 5718133338975872947}
   structure: {fileID: 7463468025995264699}
   nestPrefab: {fileID: 2853327197391258103, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}

@@ -295,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbors: []
   isGoal: 0
+  bestNeighbor: {fileID: 0}
   spawner: {fileID: 5718133338975872947}
   structure: {fileID: 7463468025995264699}
   nestPrefab: {fileID: 2853327197391258103, guid: cb9c8e2d95787bc4fb0681eb4419cb51, type: 3}
@@ -804,6 +805,8 @@ MonoBehaviour:
   cantDie: 0
   head: {fileID: 7463468024505602987}
   gun: {fileID: 7463468025186154394}
+  turretBase: {fileID: 0}
+  duck: {fileID: 0}
   targetRange: {fileID: 5342785110289011397}
   canShoot:
   - Enemy
@@ -813,6 +816,7 @@ MonoBehaviour:
   initialRotation: {x: 0, y: 0, z: 0, w: 0}
   Projectile: {fileID: 6445303830105601911, guid: 75bc9860ec10d3f468127d7c324a8a8f, type: 3}
   fireRate: 0.5
+  hitboxObject: {fileID: 0}
 --- !u!54 &1729302568018741788
 Rigidbody:
   m_ObjectHideFlags: 0

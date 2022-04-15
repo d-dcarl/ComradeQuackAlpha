@@ -33,9 +33,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - RippleSpeed: 1
-    - Ripple_Density: 9
-    - Slimmness: 9
+    - RippleSpeed: 2
+    - Ripple_Density: 20
+    - Slimmness: 10
     - WaveSpeed: 0.1
     m_Colors:
     - BaseColor: {r: 0, g: 0.6745098, b: 1, a: 0}
