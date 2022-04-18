@@ -97,7 +97,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     private bool walkPlaying = false;
 
     //pause the game
-    private bool paused = false;
+    public bool paused = false;
 
     GameObject mesh;
 
@@ -198,23 +198,28 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
     }
 
+    public void pauseGame()
+    {
+        if (paused)
+        {
+            paused = false;
+            Time.timeScale = 1;
+        }
+        else
+        {
+            paused = true;
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
     protected void CheckInput()
     {
 
         // Free cursor and pause game on escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (paused)
-            {
-                paused = false;
-                Time.timeScale = 1;
-            }
-            else
-            {
-                paused = true;
-                Time.timeScale = 0;
-                Cursor.lockState = CursorLockMode.None;
-            }
+            pauseGame();
             //Application.Quit();
         }
         //if the game is paused don't check for other inputs

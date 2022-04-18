@@ -30,6 +30,10 @@ public class CameraControllerBeta : MonoBehaviour
     private float pitch;
     private float yaw;
 
+    //pause game stuff
+    private PlayerControllerBeta playerController;
+    private Canvas pauseCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,12 +50,30 @@ public class CameraControllerBeta : MonoBehaviour
         zoomLowBound = 0f + zoomXRotationLimit;
 
         PlaceZoomCam();
+
+        //pausegamestuff
+        playerController = player.GetComponent<PlayerControllerBeta>();
+        pauseCanvas = gameObject.GetComponentInChildren<Canvas>();
+        pauseCanvas.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //pause game stuff
+        if(playerController.paused)
+        {
+            pauseCanvas.enabled = true;
+            if(Input.GetKeyDown("`"))
+            {
+                goToMainMenu();
+            }
+        }
+        else
+        {
+            pauseCanvas.enabled = false;
+        }
+
         CheckInput();
         Vector3 cameraDirection, cameraOffset;
         float camBack, camUp;
@@ -100,6 +122,17 @@ public class CameraControllerBeta : MonoBehaviour
 
         //Debug.Log("Camera Angle: " + cameraAngle);
         
+    }
+
+    public void resumeGame()
+    {
+        playerController.pauseGame();
+    }
+
+    public void goToMainMenu()
+    {
+        //Change later to main menu scene
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void CheckInput()
