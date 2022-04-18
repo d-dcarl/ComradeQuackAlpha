@@ -95,7 +95,8 @@ public class CameraControllerBeta : MonoBehaviour
                 yaw -= 360f;
             }
 
-            transform.eulerAngles = new Vector3(-pitch, yaw, 0f);
+            //transform.eulerAngles = new Vector3(-pitch, yaw, 0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(-pitch, yaw, 0f)), 0.1f);
 
             // Apply position and rotation to camera and player
             transform.position = Vector3.Slerp(transform.position, zoomCam.position, zoomSpeed * Time.time);
