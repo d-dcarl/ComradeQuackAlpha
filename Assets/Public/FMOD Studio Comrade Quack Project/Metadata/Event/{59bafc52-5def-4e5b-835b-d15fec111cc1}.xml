@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{59bafc52-5def-4e5b-835b-d15fec111cc1}">
 		<property name="name">
 			<value>taking_damage</value>
@@ -42,6 +42,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{6976b2df-3384-44dc-bc0f-72bfd642f06c}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{45f1017f-95fc-42df-ae48-c372e52162b2}</destination>
 		</relationship>
@@ -58,8 +61,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{f38643a5-4470-43a5-8a45-c5c366b23f87}" />
-	<object class="MarkerTrack" id="{a1eb2269-82e2-4e2e-97a9-9e8203956dc3}" />
+	<object class="MarkerTrack" id="{a1eb2269-82e2-4e2e-97a9-9e8203956dc3}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{7df008b0-bbf0-446f-bf07-07e8e4e742e9}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="modules">
 			<destination>{2c14454a-2659-448b-97c4-d91a0d8de59c}</destination>
 		</relationship>

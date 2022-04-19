@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="MixerGroup" id="{56ae97ff-7a87-4a28-b9d1-20d1fa18b326}">
 		<property name="name">
 			<value>dialogue</value>

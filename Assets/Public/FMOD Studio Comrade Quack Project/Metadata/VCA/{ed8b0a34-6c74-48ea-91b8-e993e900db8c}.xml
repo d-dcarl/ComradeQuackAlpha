@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="MixerVCA" id="{ed8b0a34-6c74-48ea-91b8-e993e900db8c}">
 		<property name="name">
 			<value>Music</value>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{5df392d6-d3ac-479d-a6a5-3421a37345cb}">
 		<property name="name">
 			<value>quacklude</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{10756695-6884-4ee9-87b1-97b5ead441b8}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{4756909b-bb29-4313-a4f4-31e2c9d5d547}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{77fafa7e-862b-4c3d-b7f6-7e7c67a8dc5f}" />
-	<object class="MarkerTrack" id="{67194796-670e-4ced-97da-328ebb8bf63c}" />
+	<object class="MarkerTrack" id="{67194796-670e-4ced-97da-328ebb8bf63c}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{79abd288-e2b7-4501-914b-8da6b4c273d7}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="modules">
 			<destination>{6f619234-b53a-4501-be52-1a1eb42509f9}</destination>
 		</relationship>

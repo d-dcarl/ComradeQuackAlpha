@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{7e630606-8570-4ff8-b003-2204ef3bcee1}">
 		<property name="name">
 			<value>quackling_enters_turret</value>
@@ -42,6 +42,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{fce45a52-5b09-45f2-bc82-a61f0f863694}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{b37d707b-d3ee-446e-8b43-4dc75ea823b8}</destination>
 		</relationship>
@@ -58,8 +61,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{e891d22d-1632-4fc9-9e45-6091e9b15738}" />
-	<object class="MarkerTrack" id="{91e46b34-3fa6-4df5-a6a6-124605541232}" />
+	<object class="MarkerTrack" id="{91e46b34-3fa6-4df5-a6a6-124605541232}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{691aceaa-05a6-4f3c-bee4-f730ca65c3d0}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="modules">
 			<destination>{54899367-2a02-4c3e-a02e-42ba74ccc80b}</destination>
 		</relationship>

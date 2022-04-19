@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{ee238c05-b6b4-459c-800b-c40dd4cda1b1}">
 		<property name="name">
 			<value>recruit_quackling</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{23e6e692-64c1-444f-a486-c42d8c8fd8d7}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{ccd82954-1013-4f97-912a-b6f46ee85e6c}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{5836ad11-8790-4e3f-8310-87de09fb7a20}" />
-	<object class="MarkerTrack" id="{8876cb9b-c484-4771-860c-acb960c44ff5}" />
+	<object class="MarkerTrack" id="{8876cb9b-c484-4771-860c-acb960c44ff5}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{74066a87-7b79-4576-93dd-1cbdd4064797}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="modules">
 			<destination>{1b14140f-5e60-45b7-b1d4-db608704f5d8}</destination>
 		</relationship>

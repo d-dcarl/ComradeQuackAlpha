@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="MixerVCA" id="{188a85bc-4176-4d02-97d4-c481c39f8e60}">
 		<property name="name">
 			<value>gameeplay_sfx</value>

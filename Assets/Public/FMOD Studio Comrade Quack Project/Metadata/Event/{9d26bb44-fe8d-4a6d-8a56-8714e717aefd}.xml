@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{9d26bb44-fe8d-4a6d-8a56-8714e717aefd}">
-		<property name="name">
-			<value>gliding</value>
-		</property>
 		<property name="note">
 			<value>loops</value>
+		</property>
+		<property name="name">
+			<value>gliding</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -44,6 +44,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{4a240e89-0e5a-4975-8344-167b54051a20}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{68374f55-11be-4c50-bfed-aa9bbdf62432}</destination>
 		</relationship>
@@ -60,8 +63,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{c21f6f2b-dcdc-439d-b893-7f44ffefdcb2}" />
-	<object class="MarkerTrack" id="{3c2a10e6-fbcd-4e4f-8b7c-5e9ad596fee2}" />
+	<object class="MarkerTrack" id="{3c2a10e6-fbcd-4e4f-8b7c-5e9ad596fee2}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{9cccbddc-e9fc-4923-8fa1-4a7bfcafcf13}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="modules">
 			<destination>{e2764458-8eeb-4a98-b6a8-26bf9c3aedbd}</destination>
 		</relationship>

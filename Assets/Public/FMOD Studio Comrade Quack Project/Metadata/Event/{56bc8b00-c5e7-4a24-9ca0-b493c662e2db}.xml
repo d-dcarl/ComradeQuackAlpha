@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{56bc8b00-c5e7-4a24-9ca0-b493c662e2db}">
 		<property name="name">
 			<value>quackling spirit</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{058545ca-74eb-4052-9913-b4a6603f4158}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{7045d669-e539-469f-9c99-cbf1755c01ed}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{649e3b9f-d550-4c65-8b0a-ea132ef7a333}" />
-	<object class="MarkerTrack" id="{70b9a1ed-b8ae-4180-b731-d1874d2807af}" />
+	<object class="MarkerTrack" id="{70b9a1ed-b8ae-4180-b731-d1874d2807af}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{1d9efb9a-6e9b-42d9-9716-5ab1261d9f0c}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="modules">
 			<destination>{eeff2a7a-ba2d-4a20-8e4c-9508fbba4cbc}</destination>
 		</relationship>

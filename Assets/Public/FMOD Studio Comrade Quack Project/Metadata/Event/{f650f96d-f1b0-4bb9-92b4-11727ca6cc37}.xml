@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{f650f96d-f1b0-4bb9-92b4-11727ca6cc37}">
 		<property name="name">
 			<value>sfx_volume_slider_increase</value>

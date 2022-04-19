@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{c01c853c-983b-4e7b-a30c-bfe16dfec716}">
 		<property name="name">
 			<value>land_from_glide</value>
@@ -41,6 +41,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{87ae38a1-a49e-4879-893d-7d4833dbf693}">
+		<property name="uiTrackHeight">
+			<value>28</value>
+		</property>
 		<relationship name="mixerGroup">
 			<destination>{ce9309bf-a551-465e-a0f2-b017f9bb016d}</destination>
 		</relationship>
@@ -57,8 +60,15 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{cdd95207-3b92-42a6-b70a-6aa5bb0bbbf2}" />
-	<object class="MarkerTrack" id="{773b6e0e-c27d-4466-9088-b91d095d3d40}" />
+	<object class="MarkerTrack" id="{773b6e0e-c27d-4466-9088-b91d095d3d40}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="GroupTrack" id="{f607deb7-5e88-4e8c-8380-5e3b9de16d9f}">
+		<property name="uiTrackHeight">
+			<value>100</value>
+		</property>
 		<relationship name="modules">
 			<destination>{b5e159c1-f08f-4bb0-99b1-6177272a1132}</destination>
 		</relationship>

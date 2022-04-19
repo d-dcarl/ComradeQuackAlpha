@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.00.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{0234dab2-7fe4-4997-8a49-ee26c8cf3013}">
-		<property name="name">
-			<value>music_slider_increase</value>
-		</property>
 		<property name="note">
 			<value>routes to music group despite placement in events ui folder</value>
+		</property>
+		<property name="name">
+			<value>music_slider_increase</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
