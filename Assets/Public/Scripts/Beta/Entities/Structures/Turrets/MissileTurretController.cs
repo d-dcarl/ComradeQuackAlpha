@@ -10,6 +10,10 @@ public class MissileTurretController : PlaceableTurretControllerBeta
 
     [SerializeField]
     private ParticleSystem smokePoof;
+
+    private int gunCount;
+    private int gunIndex;
+    private GameObject topGun;
     
     public override void Start()
     {
@@ -21,10 +25,15 @@ public class MissileTurretController : PlaceableTurretControllerBeta
     protected override void SetModels()
     {
         base.SetModels();
-        smokePoof.transform.parent = head.transform;
-        smokePoof.transform.position = gun.transform.position;
-        smokePoof.transform.rotation = gun.transform.rotation;
-        
+
+        topGun = gun;
+        gunCount = topGun.transform.childCount;
+        if (gunCount > 0)
+        {
+            gunIndex = 0;
+            gun = topGun.transform.GetChild(0).gameObject;
+        }
+
         if (upgradeLevel >=1)
             turretBase.SetActive(false);
         else
@@ -33,6 +42,9 @@ public class MissileTurretController : PlaceableTurretControllerBeta
 
     public override void Fire()
     {
+        smokePoof.transform.parent = head.transform;
+        smokePoof.transform.position = gun.transform.position;
+        smokePoof.transform.rotation = gun.transform.rotation;
         smokePoof.Play();
         
         MissileControllerBeta missile = Instantiate(Projectile).GetComponent<MissileControllerBeta>();
@@ -43,6 +55,12 @@ public class MissileTurretController : PlaceableTurretControllerBeta
         missile.transform.position = gun.transform.position;
         missile.target = ClosestInRange();
         missile.transform.LookAt(missile.target.transform);
+
+        if (gunCount > 0)
+        {
+            gunIndex = (gunIndex + 1) % gunCount;
+            gun = topGun.transform.GetChild(gunIndex).gameObject;
+        }
     }
 
     protected override void SetUpgrade(TowerUpgrade upgrade)
