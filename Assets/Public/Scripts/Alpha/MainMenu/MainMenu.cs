@@ -147,12 +147,12 @@ public class MainMenu : MonoBehaviour
 
     public void switchToLevelSelect()
     {
-        Level_Select.active = true;
-        Main_Menu.active = false;
-        Title_Screen.active = false;
-        Ukraine_Message.active = false;
-        Settings.active = false;
-        Credits.active = false;
+        Level_Select.SetActive(true);
+        Main_Menu.SetActive(false);
+        Title_Screen.SetActive(false);
+        Ukraine_Message.SetActive(false);
+        Settings.SetActive(false);
+        Credits.SetActive(false);
     }
 
     public void goToTitle()
@@ -162,12 +162,12 @@ public class MainMenu : MonoBehaviour
     }
     public void switchToTitle()
     {
-        Title_Screen.active = true;
-        Main_Menu.active = false;
-        Ukraine_Message.active = false;
-        Level_Select.active = false;
-        Settings.active = false;
-        Credits.active = false;
+        Title_Screen.SetActive(true);
+        Main_Menu.SetActive(false);
+        Ukraine_Message.SetActive(false);
+        Level_Select.SetActive(false);
+        Settings.SetActive(false);
+        Credits.SetActive(false);
     }
 
     public void goToMain()
@@ -178,12 +178,12 @@ public class MainMenu : MonoBehaviour
 
     public void switchToMain()
     {
-        Main_Menu.active = true;
-        Ukraine_Message.active = false;
-        Title_Screen.active = false;
-        Level_Select.active = false;
-        Settings.active = false;
-        Credits.active = false;
+        Main_Menu.SetActive(true);
+        Ukraine_Message.SetActive(false);
+        Title_Screen.SetActive(false);
+        Level_Select.SetActive(false);
+        Settings.SetActive(false);
+        Credits.SetActive(false);
     }
 
     public void ExitGame()

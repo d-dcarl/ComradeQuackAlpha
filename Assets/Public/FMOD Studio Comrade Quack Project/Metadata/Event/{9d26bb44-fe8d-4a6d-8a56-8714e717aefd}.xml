@@ -95,17 +95,35 @@
 	</object>
 	<object class="MixerBusPanner" id="{37e6c2c9-daea-4cc5-a378-a840e0da69ee}" />
 	<object class="SingleSound" id="{e2764458-8eeb-4a98-b6a8-26bf9c3aedbd}">
+		<property name="isAsync">
+			<value>true</value>
+		</property>
 		<property name="length">
 			<value>11.269104166666667</value>
 		</property>
+		<property name="startOffset">
+			<value>16</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{3801099d-57e2-4b0a-9cba-b68fe03a1f89}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{ab0bf857-094a-4132-a4cc-11c4df846a19}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{c5f0c31f-de84-4961-a843-d58228e653d6}">
+		<property name="volume">
+			<value>-7</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{5f1b5f7a-d014-433c-ae06-ab9b8f954115}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{08e6ad5c-9b95-4596-a60a-4531391e5698}</destination>
 		</relationship>
@@ -138,6 +156,40 @@
 	</object>
 	<object class="MixerBusPanner" id="{28995b51-ca50-4fe3-a023-f236de16016e}" />
 	<object class="MixerBusFader" id="{02fa955c-107f-42b9-87d2-65fc08285040}" />
+	<object class="RandomizerModulator" id="{3801099d-57e2-4b0a-9cba-b68fe03a1f89}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>startOffset</value>
+		</property>
+		<property name="amount">
+			<value>100</value>
+		</property>
+	</object>
+	<object class="ADSRModulator" id="{5f1b5f7a-d014-433c-ae06-ab9b8f954115}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>940</value>
+		</property>
+		<property name="holdTime">
+			<value>4200</value>
+		</property>
+		<property name="decayTime">
+			<value>5600</value>
+		</property>
+		<property name="sustainValue">
+			<value>-8.5</value>
+		</property>
+		<property name="releaseTime">
+			<value>320</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{08e6ad5c-9b95-4596-a60a-4531391e5698}">
 		<relationship name="effects">
 			<destination>{9ec739a9-b978-4722-bfb8-d86fa952376a}</destination>

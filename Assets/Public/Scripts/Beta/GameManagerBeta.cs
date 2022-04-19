@@ -30,6 +30,7 @@ public class GameManagerBeta : MonoBehaviour
         Physics.gravity = new Vector3(0f, gravity, 0f);
 
         numOfPonds = FindObjectsOfType<PondControllerBeta>().Length;
+        
     }
 
     private void Update()
@@ -37,6 +38,7 @@ public class GameManagerBeta : MonoBehaviour
         if (numOfPonds > 0)
         {
             GetNumOfPonds();
+            //Debug.Log("Num of ponds " + numOfPonds);
         }
 
         foreach (NodeControllerBeta n in allNodes)
@@ -85,7 +87,8 @@ public class GameManagerBeta : MonoBehaviour
         }
         if (numOfPonds < 1)
         {
-           StartCoroutine(WaitToGameOver());
+            Debug.Log("GAME OVER");
+            StartCoroutine(WaitToGameOver());
         }
     }
 

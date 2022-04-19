@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraControllerBeta : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class CameraControllerBeta : MonoBehaviour
     private float pitch;
     private float yaw;
 
+    //pause game stuff
+    private PlayerControllerBeta playerController;
+    private Canvas pauseCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,17 +49,31 @@ public class CameraControllerBeta : MonoBehaviour
         zoomHighBound = 360f - zoomXRotationLimit;
         zoomLowBound = 0f + zoomXRotationLimit;
 
-        // adjust zoomCam position
-        //zoomCam.position = zoomCam.position + new Vector3(1, 0, 1);
-        //zoomCam.position = zoomCam.position + new Vector3(2, 0, 2);
-        zoomCam.position = zoomCam.position + new Vector3(2, 0, 1);
-        //zoomCam.position = GetComponent<Camera>().transform.position;
+        PlaceZoomCam();
+
+        //pausegamestuff
+        playerController = player.GetComponent<PlayerControllerBeta>();
+        pauseCanvas = gameObject.GetComponentInChildren<Canvas>();
+        pauseCanvas.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //pause game stuff
+        if(playerController.paused)
+        {
+            pauseCanvas.enabled = true;
+            if(Input.GetKeyDown("`"))
+            {
+                goToMainMenu();
+            }
+        }
+        else
+        {
+            pauseCanvas.enabled = false;
+        }
+
         CheckInput();
         Vector3 cameraDirection, cameraOffset;
         float camBack, camUp;
@@ -64,7 +83,7 @@ public class CameraControllerBeta : MonoBehaviour
             yaw += rotationSpeed * Input.GetAxis("Mouse X");
 
             // Clamp pitch:
-            pitch = Mathf.Clamp(pitch, -90f, 90f);
+            pitch = Mathf.Clamp(pitch, -30f, 30f);
 
             // Wrap yaw:
             while (yaw < 0f)
@@ -76,7 +95,8 @@ public class CameraControllerBeta : MonoBehaviour
                 yaw -= 360f;
             }
 
-            transform.eulerAngles = new Vector3(-pitch, yaw, 0f);
+            //transform.eulerAngles = new Vector3(-pitch, yaw, 0f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(-pitch, yaw, 0f)), 0.1f);
 
             // Apply position and rotation to camera and player
             transform.position = Vector3.Slerp(transform.position, zoomCam.position, zoomSpeed * Time.time);
@@ -105,6 +125,18 @@ public class CameraControllerBeta : MonoBehaviour
         
     }
 
+    public void resumeGame()
+    {
+        playerController.pauseGame();
+    }
+
+    public void goToMainMenu()
+    {
+        //Change later to main menu scene
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void CheckInput()
     {
         // Don't move camera unless window has focus
@@ -115,6 +147,28 @@ public class CameraControllerBeta : MonoBehaviour
 
             targetAngle -= mouseVelY * cameraSpeed * Time.deltaTime * 60f;        // Moving mouse up should move camera offset angle down so it points further up
             targetAngle = Mathf.Clamp(targetAngle, minCamAngle, maxCamAngle);
+        }
+    }
+
+    private void PlaceZoomCam()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        //Debug.Log("Current Scene: " + scene);
+        // Whiteboxbeta1 = 0
+        if (scene.Equals("Tutorial2"))
+        {
+            zoomCam.position = player.transform.position + new Vector3(-3, 1, -1); // back, up, right
+            //Debug.Log("Got into " + scene);
+        }
+        else if (scene.Equals("Level 1"))
+        {
+            zoomCam.position = player.transform.position + new Vector3(-2.5f, 1, 3); // right, up, back
+            //Debug.Log("Got into " + scene);
+        }
+        else if (scene.Equals("WhiteBox1Beta"))
+        {
+            zoomCam.position = zoomCam.position + new Vector3(2, 0, 1); // 
+            //Debug.Log("Got into " + scene);
         }
     }
 }

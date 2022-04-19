@@ -118,7 +118,7 @@ public class GunControllerBeta : MonoBehaviour
             var distance = heading.magnitude;
             result = heading / distance; // This is now the normalized direction.
 
-            Debug.Log(hit.collider.gameObject.layer);
+            //Debug.Log(hit.collider.gameObject.layer);
         }
 
         // TESTING CODE ------------------------------------------------------------------

@@ -13,6 +13,7 @@ public class PigControllerBeta : EnemyControllerBeta
 
     public override void Start()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/characters/enemies/basic_pig/spawn", GetComponent<Transform>().position);
         base.Start();
         jumpTimer = Random.Range(lowerJumpDelay, upperJumpDelay);
     }
@@ -38,5 +39,11 @@ public class PigControllerBeta : EnemyControllerBeta
     {
         rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         jumpTimer = Random.Range(lowerJumpDelay, upperJumpDelay);
+    }
+
+    public override void Attack()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/characters/enemies/basic_pig/melee_attack", GetComponent<Transform>().position);
+        base.Attack();
     }
 }

@@ -140,7 +140,10 @@ public class DucklingControllerBeta : ComradeControllerBeta
     public virtual void SetWanderPos()
     {
         Vector2 randomPos = Random.insideUnitCircle * wanderRadius;
-        wanderPos = homeNest.transform.position + new Vector3(randomPos.x, 0f, randomPos.y);
+        if(homeNest != null)
+        {
+            wanderPos = homeNest.transform.position + new Vector3(randomPos.x, 0f, randomPos.y);
+        }
         wanderTimer = wanderTime;
     }
 
