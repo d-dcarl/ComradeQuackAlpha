@@ -30,6 +30,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private bool titleChange = false;
     [SerializeField] private bool mainChange = false;
     [SerializeField] private bool levelsChange = false;
+    [SerializeField] private bool settingsChange = false;
+    [SerializeField] private bool creditsChange = false;
 
     public void Start()
     {
@@ -128,6 +130,16 @@ public class MainMenu : MonoBehaviour
                 switchToLevelSelect();
                 levelsChange = false;
             }
+            if (settingsChange == true)
+            {
+                switchToSettings();
+                settingsChange = false;
+            }
+            if (creditsChange == true)
+            {
+                switchToCredits();
+                creditsChange = false;
+            }
             start = true;
             end = false;
         }
@@ -160,6 +172,7 @@ public class MainMenu : MonoBehaviour
         titleChange = true;
         end = true;
     }
+
     public void switchToTitle()
     {
         Title_Screen.SetActive(true);
@@ -184,6 +197,38 @@ public class MainMenu : MonoBehaviour
         Level_Select.SetActive(false);
         Settings.SetActive(false);
         Credits.SetActive(false);
+    }
+
+    public void goToSettings()
+    {
+        settingsChange = true;
+        end = true;
+    }
+
+    public void switchToSettings()
+    {
+        Settings.SetActive(true);
+        Main_Menu.SetActive(false);
+        Ukraine_Message.SetActive(false);
+        Title_Screen.SetActive(false);
+        Level_Select.SetActive(false);
+        Credits.SetActive(false);
+    }
+
+    public void goToCredits()
+    {
+        creditsChange = true;
+        end = true;
+    }
+
+    public void switchToCredits()
+    {
+        Credits.SetActive(true);
+        Settings.SetActive(false);
+        Main_Menu.SetActive(false);
+        Ukraine_Message.SetActive(false);
+        Title_Screen.SetActive(false);
+        Level_Select.SetActive(false);
     }
 
     public void ExitGame()
