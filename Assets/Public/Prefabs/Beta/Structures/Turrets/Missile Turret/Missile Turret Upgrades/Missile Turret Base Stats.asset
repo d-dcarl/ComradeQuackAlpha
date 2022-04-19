@@ -16,7 +16,7 @@ MonoBehaviour:
   knockback: 45
   range: 20
   fireRate: 3
-  hitboxCenter: {x: 0, y: 1.4, z: 0}
-  hitboxSize: {x: 1.5, y: 2.8, z: 1.5}
+  hitboxCenter: {x: 0, y: 1, z: 0.3}
+  hitboxSize: {x: 2, y: 2, z: 3}
   splashRadius: 3
   retargetDistance: 5
