@@ -133,6 +133,7 @@ public class CameraControllerBeta : MonoBehaviour
     public void goToMainMenu()
     {
         //Change later to main menu scene
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
