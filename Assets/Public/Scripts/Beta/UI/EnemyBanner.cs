@@ -26,6 +26,11 @@ public class EnemyBanner : MonoBehaviour
             banner.sprite = banners[0];
             StartCoroutine(HideBanner());
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            banner.color = new Color(0, 0, 0, 0);
+        }
     }
 
     IEnumerator HideBanner()

@@ -136,6 +136,8 @@ public class WaveManagerBeta : MonoBehaviour
         canSpawnMore = true;
         waveCount = 0;
         waveTime = 0;
+        if (FindObjectOfType<FlashingText>())
+            FindObjectOfType<FlashingText>().NewMessage("Next Wave Coming", 5);
         if (currentWave >= wavesToSpawn.Length)
         {
             Debug.Log("YOU WIN!");

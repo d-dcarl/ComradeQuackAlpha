@@ -91,4 +91,4 @@ MonoBehaviour:
   banner: {fileID: 2808797425133784387}
   banners:
   - {fileID: 21300000, guid: 7ed2f8726145e3c428596bd10ab76a27, type: 3}
-  waitTime: 5
+  waitTime: 2
