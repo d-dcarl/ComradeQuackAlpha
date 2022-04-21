@@ -204,12 +204,15 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             paused = false;
             Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         else
         {
             paused = true;
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 

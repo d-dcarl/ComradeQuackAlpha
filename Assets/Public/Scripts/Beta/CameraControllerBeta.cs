@@ -64,10 +64,6 @@ public class CameraControllerBeta : MonoBehaviour
         if(playerController.paused)
         {
             pauseCanvas.enabled = true;
-            if(Input.GetKeyDown("`"))
-            {
-                goToMainMenu();
-            }
         }
         else
         {

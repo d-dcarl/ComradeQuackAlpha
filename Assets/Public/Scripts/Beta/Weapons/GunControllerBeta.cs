@@ -14,6 +14,7 @@ public class GunControllerBeta : MonoBehaviour
     public LayerMask PlayerLayerMask;
     private VisualEffect gunMuzzleFlash;
     private Animator gunAnimator;
+    private PlayerControllerBeta playerController;
 
     public virtual void Start()
     {
@@ -24,10 +25,19 @@ public class GunControllerBeta : MonoBehaviour
         crosshair.SetActive(false);
         zoomedIn = false;
         PlayerLayerMask = LayerMask.GetMask("Player", "UI", "Ignore Raycast");
+
+        //get the player controller so we stop when paused
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerControllerBeta>();
     }
 
     public virtual void Update()
     {
+        //if the game is paused do none of this
+        if(playerController.paused)
+        {
+            return;
+        }
+
         if (Input.GetMouseButton(1))
         {
             ShowCrosshair();
