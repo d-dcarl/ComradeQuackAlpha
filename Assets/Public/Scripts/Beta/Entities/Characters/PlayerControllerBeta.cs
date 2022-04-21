@@ -198,16 +198,18 @@ public class PlayerControllerBeta : CharacterControllerBeta
         }
     }
 
-    public void pauseGame()
+    //unpause the game if true, pause if false
+    public void pauseGame(bool pause)
     {
-        if (paused)
+        //paused prevents double pausing or unpausing the game
+        if (pause && paused)
         {
             paused = false;
             Time.timeScale = 1;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        else
+        else if (!paused)
         {
             paused = true;
             Time.timeScale = 0;
@@ -222,7 +224,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         // Free cursor and pause game on escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseGame();
+            pauseGame(paused);
             //Application.Quit();
         }
         //if the game is paused don't check for other inputs

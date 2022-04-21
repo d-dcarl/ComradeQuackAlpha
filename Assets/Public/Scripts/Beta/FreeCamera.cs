@@ -48,8 +48,16 @@ public class FreeCamera : MonoBehaviour
     /// </summary>
     private bool looking = false;
 
+    //the player controller so that we know wether the game is paused or not
+    private PlayerControllerBeta playerController = GameObject.FindWithTag("Player").GetComponent<PlayerControllerBeta>();
+
     void Update()
     {
+        //if game is paused
+        if(playerController.paused)
+        {
+            return;
+        }
         var fastMode = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         var movementSpeed = fastMode ? this.fastMovementSpeed : this.movementSpeed;
 

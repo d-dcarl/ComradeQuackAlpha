@@ -63,11 +63,16 @@ public class CameraControllerBeta : MonoBehaviour
         //pause game stuff
         if(playerController.paused)
         {
+            //if paused stop doing things
             pauseCanvas.enabled = true;
+            return;
         }
         else
         {
-            pauseCanvas.enabled = false;
+            if(pauseCanvas.enabled == true)
+            {
+                pauseCanvas.enabled = false;
+            }
         }
 
         CheckInput();
@@ -123,7 +128,7 @@ public class CameraControllerBeta : MonoBehaviour
 
     public void resumeGame()
     {
-        playerController.pauseGame();
+        playerController.pauseGame(true);
     }
 
     public void goToMainMenu()
