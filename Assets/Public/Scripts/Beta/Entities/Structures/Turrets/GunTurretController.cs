@@ -17,6 +17,8 @@ public class GunTurretController : PlaceableTurretControllerBeta
     [SerializeField]
     private TrailRenderer bulletTrail;
 
+    private float bulletSpeed = 100f;
+
     //public VisualEffect gunTurretMuzzleFlash;
     // Start is called before the first frame update
     public override void Start()
@@ -47,13 +49,14 @@ public class GunTurretController : PlaceableTurretControllerBeta
 
     private IEnumerator SpawnTrail(TrailRenderer trail, Vector3 hitPoint, Vector3 hitNormal, Collider hitCollider)
     {
-        float time = 0;
         Vector3 startPosition = trail.transform.position;
+        float distance = Vector3.Distance(trail.transform.position, hitPoint);
+        float startingDistance = distance;
 
-        while (time < 1)
+        while (distance > 0)
         {
-            trail.transform.position = Vector3.Lerp(startPosition, hitPoint, time);
-            time += Time.deltaTime / trail.time;
+            trail.transform.position = Vector3.LerpUnclamped(startPosition, hitPoint, 1 - (distance / startingDistance));
+            distance -= Time.deltaTime * bulletSpeed;
 
             yield return null;
         }

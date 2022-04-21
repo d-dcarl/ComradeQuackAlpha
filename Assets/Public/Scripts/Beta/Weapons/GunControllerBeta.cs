@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.VFX;
 
 public class GunControllerBeta : MonoBehaviour
@@ -15,6 +17,27 @@ public class GunControllerBeta : MonoBehaviour
     private VisualEffect gunMuzzleFlash;
     private Animator gunAnimator;
     private PlayerControllerBeta playerController;
+
+    [SerializeField]
+    private Transform bulletSpawn;
+    
+    [SerializeField]
+    private ParticleSystem impactParticles;
+
+    [SerializeField]
+    private TrailRenderer bulletTrail;
+
+    [SerializeField]
+    private float bulletSpeed = 100f;
+
+    [SerializeField]
+    private LayerMask bulletRayCastMask;
+
+    [SerializeField]
+    private float damage = 5;
+
+    [SerializeField]
+    private float knockback = 5;
 
     public virtual void Start()
     {
@@ -66,38 +89,62 @@ public class GunControllerBeta : MonoBehaviour
     {
         if(shootTimer <= 0f)
         {
+            shootTimer = shootDelay;
+            
             gunAnimator.Play("PistolAnimation");
             gunMuzzleFlash.Play();
-            if (zoomedIn)
+
+            Vector3 direction = zoomedIn ? GetDirection() : transform.forward;
+            TrailRenderer trail = Instantiate(bulletTrail, bulletSpawn.position, Quaternion.identity);
+
+            if (Physics.Raycast(bulletSpawn.position, direction, out RaycastHit hit, float.MaxValue, bulletRayCastMask))
             {
-                shootTimer = shootDelay;
-
-                //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Ray ray = Camera.main.ScreenPointToRay(crosshair.transform.position);
-                BulletControllerBeta bcb = Instantiate(bulletPrefab).GetComponent<BulletControllerBeta>();
-                if (bcb == null)
-                {
-                    Debug.LogError("Error: Bullet prefab must have a bullet controller beta script");
-                }
-
-                bcb.transform.position = transform.position;
-                bcb.direction = GetDirection();
-                bcb.speed = bcb.speed + 5;     // quicken CQ's bullet speed
+                StartCoroutine(SpawnTrail(trail, hit.point, hit.normal, hit.collider, true));
             }
             else
             {
-                shootTimer = shootDelay;
-
-                BulletControllerBeta bcb = Instantiate(bulletPrefab).GetComponent<BulletControllerBeta>();
-                if (bcb == null)
-                {
-                    Debug.LogError("Error: Bullet prefab must have a bullet controller beta script");
-                }
-
-                bcb.transform.position = transform.position;
-                bcb.direction = transform.forward;
+                StartCoroutine(SpawnTrail(trail, direction * 100, Vector3.zero, null, false));
             }
         }
+    }
+
+    private IEnumerator SpawnTrail(TrailRenderer trail, Vector3 hitPoint, Vector3 hitNormal, Collider hitCollider, bool madeImpact)
+    {
+        Vector3 startPosition = trail.transform.position;
+        float distance = Vector3.Distance(trail.transform.position, hitPoint);
+        float startingDistance = distance;
+
+        while (distance > 0)
+        {
+            trail.transform.position = Vector3.LerpUnclamped(startPosition, hitPoint, 1 - (distance / startingDistance));
+            distance -= Time.deltaTime * bulletSpeed;
+
+            yield return null;
+        }
+
+        trail.transform.position = hitPoint;
+
+        if (madeImpact)
+        {
+            Instantiate(impactParticles, hitPoint, Quaternion.LookRotation(hitNormal));
+            
+            if (!hitCollider.IsDestroyed())
+            {
+                if (hitCollider.gameObject.CompareTag("Enemy") || hitCollider.gameObject.CompareTag("Enemy Structure"))
+                {
+                    EnemyControllerBeta target = hitCollider.GetComponent<EnemyControllerBeta>();
+
+                    if (target != null)
+                    {
+                        target.TakeDamage(damage);
+                        target.KnockBack(hitPoint, knockback);
+                        Instantiate(impactParticles, hitPoint, Quaternion.LookRotation(hitNormal));
+                    }
+                }
+            }
+        }
+        
+        Destroy(trail.gameObject, trail.time);
     }
 
     void ShowCrosshair()
