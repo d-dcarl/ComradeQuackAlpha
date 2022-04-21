@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class WaveManagerBeta : MonoBehaviour
 {
@@ -19,9 +20,9 @@ public class WaveManagerBeta : MonoBehaviour
     public int currentWave;
     public bool isWaitActive;
 
-    public Text waveNumberText;
-    public Text timeBetweenText;
-    public Text enemiesRemainingText;
+    public TextMeshProUGUI waveNumberText;
+    public TextMeshProUGUI timeBetweenText;
+    public TextMeshProUGUI enemiesRemainingText;
 
     public bool isTutorial;
 
