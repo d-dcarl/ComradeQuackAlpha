@@ -41,9 +41,6 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{23e6e692-64c1-444f-a486-c42d8c8fd8d7}">
-		<property name="uiTrackHeight">
-			<value>28</value>
-		</property>
 		<relationship name="mixerGroup">
 			<destination>{ccd82954-1013-4f97-912a-b6f46ee85e6c}</destination>
 		</relationship>
@@ -60,15 +57,8 @@
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{5836ad11-8790-4e3f-8310-87de09fb7a20}" />
-	<object class="MarkerTrack" id="{8876cb9b-c484-4771-860c-acb960c44ff5}">
-		<property name="uiTrackHeight">
-			<value>100</value>
-		</property>
-	</object>
+	<object class="MarkerTrack" id="{8876cb9b-c484-4771-860c-acb960c44ff5}" />
 	<object class="GroupTrack" id="{74066a87-7b79-4576-93dd-1cbdd4064797}">
-		<property name="uiTrackHeight">
-			<value>100</value>
-		</property>
 		<relationship name="modules">
 			<destination>{1b14140f-5e60-45b7-b1d4-db608704f5d8}</destination>
 		</relationship>
@@ -107,7 +97,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{0ddb600e-e9ea-498b-a7d7-0f9ec2d45b46}">
 		<property name="volume">
-			<value>-6.5</value>
+			<value>-14.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -148,10 +138,19 @@
 	<object class="MixerBusEffectChain" id="{4ec9e855-3f23-4630-b7d5-bc42616971c2}">
 		<relationship name="effects">
 			<destination>{4cdd76df-8102-427f-a2da-17d8ca27decc}</destination>
+			<destination>{ced85c4f-946e-4b51-99a8-c5d3e6861f25}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{aa3604ca-2edd-465f-a11e-d5d88f582603}" />
 	<object class="MixerBusFader" id="{3f6bfa84-58f5-43de-a4a2-e3f402a0cfc4}" />
 	<object class="SpatialiserEffect" id="{de0097a9-6fe7-45e4-8788-7a1a85adc6eb}" />
 	<object class="MixerBusFader" id="{4cdd76df-8102-427f-a2da-17d8ca27decc}" />
+	<object class="ThreeEQEffect" id="{ced85c4f-946e-4b51-99a8-c5d3e6861f25}">
+		<property name="highGain">
+			<value>-6.5</value>
+		</property>
+		<property name="highCrossover">
+			<value>8500</value>
+		</property>
+	</object>
 </objects>
