@@ -49,12 +49,12 @@ public class FreeCamera : MonoBehaviour
     private bool looking = false;
 
     //the player controller so that we know wether the game is paused or not
-    private PlayerControllerBeta playerController = GameObject.FindWithTag("Player").GetComponent<PlayerControllerBeta>();
+    public PlayerControllerBeta playerController;
 
     void Update()
     {
         //if game is paused
-        if(playerController.paused)
+        if (playerController.paused)
         {
             return;
         }

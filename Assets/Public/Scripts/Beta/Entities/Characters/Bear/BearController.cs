@@ -66,7 +66,7 @@ public class BearController : MonoBehaviour
             go = false;
             animator.SetBool("isAttacking", true);
             animator.Play("Bear Stomp");
-            Debug.Log("Stop moving and stomp");
+            StartCoroutine(StompAttack());
             StartCoroutine(BackToWalk());
         }
     }
@@ -82,13 +82,27 @@ public class BearController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void AOEAttack()
+    {
+        List<GameObject> enemies = FindObjectOfType<BearHitbox>().enemiesInRange;
+        foreach(GameObject pig in enemies)
+        {
+            if (pig)
+                Attack(pig);
+        }
+    }
+
+    IEnumerator StompAttack()
+    {
+        yield return new WaitForSeconds(2f);
+        AOEAttack();
+    }
     IEnumerator BackToWalk()
     {
         yield return new WaitForSeconds(3f);
         go = true;
         animator.Play("Bear_Walk");
         animator.SetBool("isAttacking", false);
-        Debug.Log("Stop stomp and go");
     }
 
 }
