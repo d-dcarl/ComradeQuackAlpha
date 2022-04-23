@@ -22,7 +22,7 @@ public class TurretControllerBeta : StructureControllerBeta
     private Quaternion targetRotation;
 
     [SerializeField] protected GameObject Projectile;
-    private float bulletSpeed;
+    private float bulletVelocity;
     [SerializeField] public float fireRate = 1;
     private float firingTimer;
 
@@ -39,7 +39,7 @@ public class TurretControllerBeta : StructureControllerBeta
         BulletControllerBeta bc = Projectile.GetComponent<BulletControllerBeta>();
         if (bc != null)
         {
-            bulletSpeed = bc.speed;
+            bulletVelocity = bc.speed;
         } else
         {
             Debug.LogError("Error: Projectile does not have a BulletControllerBeta component");
@@ -118,7 +118,7 @@ public class TurretControllerBeta : StructureControllerBeta
         {
 
             // Update how long it would take to get to your current guess
-            timeExpected = Vector3.Distance(projectedPos, gun.transform.position) / bulletSpeed;
+            timeExpected = Vector3.Distance(projectedPos, gun.transform.position) / bulletVelocity;
 
             // See how far they would have moved by then
             projectedPos = target.transform.position + target.GetComponent<Rigidbody>().velocity * timeExpected;
