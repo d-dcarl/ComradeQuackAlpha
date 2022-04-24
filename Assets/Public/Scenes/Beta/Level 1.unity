@@ -49144,6 +49144,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6691194326269064312, guid: 5b3a886ca83a8c148ba45e028547b9b6, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691194326269064312, guid: 5b3a886ca83a8c148ba45e028547b9b6, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691194326269064312, guid: 5b3a886ca83a8c148ba45e028547b9b6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7217000849762981573, guid: 5b3a886ca83a8c148ba45e028547b9b6, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
