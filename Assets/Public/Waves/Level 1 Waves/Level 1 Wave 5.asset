@@ -21,14 +21,11 @@ MonoBehaviour:
     amountToSpawn: 1
     spawnTimeSinceStart: 11
   - enemy: {fileID: 377709788000653695, guid: f44770140fac83c40a81b81035a17bbe, type: 3}
-    amountToSpawn: 4
+    amountToSpawn: 3
     spawnTimeSinceStart: 11
   - enemy: {fileID: 5019965575117504303, guid: 5479d1bea7f2f3140b4b1bcaa16f25de, type: 3}
-    amountToSpawn: 40
+    amountToSpawn: 30
     spawnTimeSinceStart: 20
   - enemy: {fileID: 6446803332376336247, guid: 8926c3a888d6e794cbd41f5c5609909c, type: 3}
-    amountToSpawn: 5
+    amountToSpawn: 3
     spawnTimeSinceStart: 20
-  - enemy: {fileID: 5019965575117504303, guid: 4055753cc50f21a4096baf6a0cb280c6, type: 3}
-    amountToSpawn: 2
-    spawnTimeSinceStart: 26

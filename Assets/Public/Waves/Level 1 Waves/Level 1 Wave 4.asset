@@ -23,15 +23,12 @@ MonoBehaviour:
   - enemy: {fileID: 1126659734799499271, guid: d56a86ac9bfbd64478a517fbceb5a156, type: 3}
     amountToSpawn: 1
     spawnTimeSinceStart: 6
-  - enemy: {fileID: 1126659734799499271, guid: d56a86ac9bfbd64478a517fbceb5a156, type: 3}
-    amountToSpawn: 1
-    spawnTimeSinceStart: 9
   - enemy: {fileID: 5019965575117504303, guid: 4055753cc50f21a4096baf6a0cb280c6, type: 3}
     amountToSpawn: 1
     spawnTimeSinceStart: 11
   - enemy: {fileID: 5019965575117504303, guid: 5479d1bea7f2f3140b4b1bcaa16f25de, type: 3}
-    amountToSpawn: 15
+    amountToSpawn: 10
     spawnTimeSinceStart: 22
   - enemy: {fileID: 377709788000653695, guid: f44770140fac83c40a81b81035a17bbe, type: 3}
-    amountToSpawn: 4
+    amountToSpawn: 2
     spawnTimeSinceStart: 22
