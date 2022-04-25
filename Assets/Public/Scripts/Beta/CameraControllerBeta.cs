@@ -30,6 +30,8 @@ public class CameraControllerBeta : MonoBehaviour
     private float pitch;
     private float yaw;
 
+    private bool canZoom = true;
+
     //pause game stuff
     private PlayerControllerBeta playerController;
     private Canvas pauseCanvas;
@@ -78,7 +80,7 @@ public class CameraControllerBeta : MonoBehaviour
         CheckInput();
         Vector3 cameraDirection, cameraOffset;
         float camBack, camUp;
-        if (Input.GetMouseButton(1) || Input.GetAxis("Zoom") != 0f)    // zoomed in
+        if ((Input.GetMouseButton(1) || Input.GetAxis("Zoom") != 0f) && canZoom)    // zoomed in
         {
             pitch += rotationSpeed * Input.GetAxis("Mouse Y");
             yaw += rotationSpeed * Input.GetAxis("Mouse X");
@@ -149,6 +151,13 @@ public class CameraControllerBeta : MonoBehaviour
             targetAngle -= mouseVelY * cameraSpeed * Time.deltaTime * 60f;        // Moving mouse up should move camera offset angle down so it points further up
             targetAngle = Mathf.Clamp(targetAngle, minCamAngle, maxCamAngle);
         }
+    }
+
+    public void SetCanZoom(bool zoom)
+    {
+        Debug.Log(this.canZoom);
+        this.canZoom = zoom;
+        Debug.Log(this.canZoom);
     }
 
     private void PlaceZoomCam()

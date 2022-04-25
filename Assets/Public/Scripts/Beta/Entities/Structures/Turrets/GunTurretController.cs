@@ -32,6 +32,9 @@ public class GunTurretController : PlaceableTurretControllerBeta
     {
         // gunTurretAnimator.Play("FeedShooter_BaseAnimation");
         //gunTurretMuzzleFlash.Play();
+        //this should be the turret shoot sound but for now that sound it not implemeted
+        FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/pistol/shoot", GetComponent<Transform>().position);
+        Debug.Log(GetComponent<Transform>().position);
         RaycastHit hit;
         bool didHit = Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, targetRange.range, LayerMask.GetMask("Enemy"));
         

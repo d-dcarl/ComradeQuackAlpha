@@ -87,6 +87,9 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     public GameObject deathOverlay;
 
+    //reference to camera for adjusting aim down sights
+    public GameObject gamecam;
+
     //sound instance needed for playing audio
     private FMOD.Studio.EventInstance instance;
     private FMOD.Studio.EventInstance glideInstance;
@@ -107,6 +110,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
         mesh = transform.Find("Mesh").gameObject;
         recruitCircle.SetActive(false);
+
+        gamecam = GameObject.Find("Main Camera");
 
         InitializeStamina();
         InitializeFlying();
@@ -278,12 +283,13 @@ public class PlayerControllerBeta : CharacterControllerBeta
             EndRecruit();
         }
 
-        if (Input.GetKeyDown(KeyCode.C) || Input.GetButtonDown("DucklingTurret"))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("DucklingTurret"))
         {
             ducklingToTurret = true;
+
         }
 
-        if (Input.GetKeyUp(KeyCode.C) || Input.GetButtonUp("DucklingTurret"))
+        if (Input.GetKeyUp(KeyCode.E) || Input.GetButtonUp("DucklingTurret"))
         {
             ducklingToTurret = false;
         }
@@ -305,9 +311,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
             TurretPlacement();
             BarricadePlacement();
             //NestPlacement();
-
             // TODO: Add more gun types, and use scrolling to switch guns
-            if (Input.GetMouseButton(0) || Input.GetAxis("Shoot") > 0f)
+            if ((Input.GetMouseButton(0) || Input.GetAxis("Shoot") > 0f) && !placing)
             {
                 if(shoot_sound_timer <= 0)
                 {
@@ -341,18 +346,24 @@ public class PlayerControllerBeta : CharacterControllerBeta
         {
             placementTimer -= Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("PlaceTurret"))
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("PlaceTurret"))
         {
             if (!placing && !placingBarricade && !placingNest && numTurrets < maxTurrets && placementTimer <= 0f) // added check for placingBarricade - SJ
             {
                 beingPlaced = Instantiate(placeableTurretPrefabs[turretPrefabIndex]).GetComponent<PlaceableTurretControllerBeta>();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/select_type", GetComponent<Transform>().position);
                 placing = true;
+                var camScript = gamecam.GetComponent<CameraControllerBeta>();
+                camScript.SetCanZoom(!placing);
                 numTurrets++;
             }
             else if (placing && beingPlaced.IsValidPlacementLocation)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/valid_placement", GetComponent<Transform>().position);
                 beingPlaced.PlaceTurret();
                 placing = false;
+                var camScript = gamecam.GetComponent<CameraControllerBeta>();
+                camScript.SetCanZoom(!placing);
                 placementTimer = placementDelay;
             }
         }
@@ -360,14 +371,17 @@ public class PlayerControllerBeta : CharacterControllerBeta
         if (placing)
         {
             //cancel the turret placement
-            if (Input.GetKeyDown(KeyCode.G) || Input.GetButtonDown("Cancel"))
+            if (Input.GetMouseButton(1) || Input.GetButtonDown("Cancel"))
             {
                 placing = false;
+                var camScript = gamecam.GetComponent<CameraControllerBeta>();
+                camScript.SetCanZoom(!placing);
                 Destroy(beingPlaced.gameObject);
             }
 
             if (Input.mouseScrollDelta.y > 0 || Input.GetButtonDown("NextBumper"))
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/cycle_type", GetComponent<Transform>().position);
                 turretPrefabIndex--;
                 if (turretPrefabIndex < 0)
                 {
@@ -379,6 +393,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             } 
             else if (Input.mouseScrollDelta.y < 0 || Input.GetButtonDown("PrevBumper"))
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/cycle_type", GetComponent<Transform>().position);
                 turretPrefabIndex++;
                 if (turretPrefabIndex >= placeableTurretPrefabs.Count)
                 {
@@ -407,15 +422,17 @@ public class PlayerControllerBeta : CharacterControllerBeta
             currBarricades.RemoveAt(remove[i]);
 
         // Place barricades
-        if (Input.GetKeyDown(KeyCode.R)) // || Input.GetButtonDown("PlaceBarricade")) -- not yet implemented
+        if (Input.GetKeyDown(KeyCode.Q)) // || Input.GetButtonDown("PlaceBarricade")) -- not yet implemented
         {
             if (!placingBarricade && !placing && !placingNest && numBarricades < maxBarricades)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/select_type", GetComponent<Transform>().position);
                 barricadeBeingPlaced = Instantiate(barricadePrefab).GetComponent<BarricadeControllerBeta>();
                 placingBarricade = true;
             }
             else if (placingBarricade && barricadeBeingPlaced.IsValidPlacementLocation)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/valid_placement", GetComponent<Transform>().position);
                 barricadeBeingPlaced.PlaceBarricade();
                 placingBarricade = false;
                 //placementTimer = placementDelay;
@@ -631,6 +648,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                     if (ducklingToTurret &&  ducklingsList.Count > 0 && turret.AddDuckling())
                     {
                         //ducklingsList[0].ManTurret(turret);
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/constructing", GetComponent<Transform>().position);
                         ducklingsList[0].Die();
                         //ducklingsList.RemoveAt(0);
 

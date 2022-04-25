@@ -90,6 +90,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
 
     public override void TakeDamage(float amount)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/taking_damage", GetComponent<Transform>().position);
         if (!cantDie)
         {
             currentHealth -= amount;
@@ -99,6 +100,7 @@ public class PlaceableTurretControllerBeta : TurretControllerBeta
             }
             if (currentHealth <= 0)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/turret/destroyed", GetComponent<Transform>().position);
                 wasKilled = true;
                 Die();
             }
