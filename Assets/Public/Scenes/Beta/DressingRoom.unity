@@ -433,6 +433,7 @@ MonoBehaviour:
   quackHats:
   - {fileID: 891016096306036980, guid: 5a13b849b1c35224ba931e2f770f7c73, type: 3}
   - {fileID: 891016096306036980, guid: 5a13b849b1c35224ba931e2f770f7c73, type: 3}
+  - {fileID: 3299999375600460476, guid: 37a1810097db9a945bc262b720b7a29f, type: 3}
   quackHatHolder: {fileID: 1379631195}
 --- !u!4 &195460580 stripped
 Transform:

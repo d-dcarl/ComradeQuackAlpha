@@ -60,6 +60,8 @@ public class DressingRoomController : MonoBehaviour
         }
         if (quackHatIndex > 0)
         {
+            if (quackHatHolder.transform.childCount > 0)
+                Destroy(quackHatHolder.transform.GetChild(0).gameObject);
             Instantiate(quackHats[quackHatIndex], quackHatHolder.transform);
         }
     }
