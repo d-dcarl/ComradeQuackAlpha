@@ -46,7 +46,8 @@ public class MissileTurretController : PlaceableTurretControllerBeta
         smokePoof.transform.position = gun.transform.position;
         smokePoof.transform.rotation = gun.transform.rotation;
         smokePoof.Play();
-        
+        FMODUnity.RuntimeManager.PlayOneShot("event:/weapons/pistol/shoot", GetComponent<Transform>().position);
+
         MissileControllerBeta missile = Instantiate(Projectile).GetComponent<MissileControllerBeta>();
         missile.damage = damage;
         missile.knockback = knockback;

@@ -273,11 +273,11 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
 
         //input for player quackling recruitment ring
-        if (Input.GetKeyDown(KeyCode.V) || Input.GetButtonDown("Recruit"))
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetButtonDown("Recruit"))
         {
             recruitActive = true;
         }
-        if (Input.GetKeyUp(KeyCode.V) || Input.GetButtonUp("Recruit"))
+        if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetButtonUp("Recruit"))
         {
             recruitActive = false;
             EndRecruit();
