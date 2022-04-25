@@ -20,11 +20,7 @@ public class CameraControllerBeta : MonoBehaviour
 
     public Transform zoomCam;
     public float zoomSpeed = .5f;
-    public float zoomXRotationLimit = 30f;  // 45
-
-    private float zoomHighBound;
-    private float zoomLowBound;
-    private float zoomMidpoint = 180f;
+    public float sensitivityFactor = 1.0f;
 
     private float rotationSpeed = 2.0f;
     private float pitch;
@@ -47,16 +43,15 @@ public class CameraControllerBeta : MonoBehaviour
         cameraAngle = targetAngle;
         degToRads = Mathf.PI / 180f;
 
-        // set zoom rotation boundaries
-        zoomHighBound = 360f - zoomXRotationLimit;
-        zoomLowBound = 0f + zoomXRotationLimit;
-
         PlaceZoomCam();
 
         //pausegamestuff
         playerController = player.GetComponent<PlayerControllerBeta>();
         pauseCanvas = gameObject.GetComponentInChildren<Canvas>();
         pauseCanvas.enabled = false;
+
+        // test
+        //cameraSpeed = cameraSpeed * 0.0001f;
     }
 
     // Update is called once per frame
@@ -82,8 +77,8 @@ public class CameraControllerBeta : MonoBehaviour
         float camBack, camUp;
         if ((Input.GetMouseButton(1) || Input.GetAxis("Zoom") != 0f) && canZoom)    // zoomed in
         {
-            pitch += rotationSpeed * Input.GetAxis("Mouse Y");
-            yaw += rotationSpeed * Input.GetAxis("Mouse X");
+            pitch += rotationSpeed * Input.GetAxis("Mouse Y") * sensitivityFactor;
+            yaw += rotationSpeed * Input.GetAxis("Mouse X") * sensitivityFactor;
 
             // Clamp pitch:
             pitch = Mathf.Clamp(pitch, -30f, 30f);
@@ -123,9 +118,6 @@ public class CameraControllerBeta : MonoBehaviour
             pitch = player.transform.eulerAngles.x;
             yaw = player.transform.eulerAngles.y;
         }
-
-        //Debug.Log("Camera Angle: " + cameraAngle);
-        
     }
 
     public void resumeGame()
@@ -163,22 +155,17 @@ public class CameraControllerBeta : MonoBehaviour
     private void PlaceZoomCam()
     {
         string scene = SceneManager.GetActiveScene().name;
-        //Debug.Log("Current Scene: " + scene);
-        // Whiteboxbeta1 = 0
         if (scene.Equals("Tutorial2"))
         {
             zoomCam.position = player.transform.position + new Vector3(-3, 1, -1); // back, up, right
-            //Debug.Log("Got into " + scene);
         }
         else if (scene.Equals("Level 1"))
         {
             zoomCam.position = player.transform.position + new Vector3(-2.5f, 1, 3); // right, up, back
-            //Debug.Log("Got into " + scene);
         }
         else if (scene.Equals("WhiteBox1Beta"))
         {
             zoomCam.position = zoomCam.position + new Vector3(2, 0, 1); // 
-            //Debug.Log("Got into " + scene);
         }
     }
 }

@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
+using UnityEngine.SceneManagement;
 
 public class GunControllerBeta : MonoBehaviour
 {
@@ -40,8 +41,7 @@ public class GunControllerBeta : MonoBehaviour
     private float knockback = 5;
 
     // UI references
-    private GameObject flashingText;
-    private GameObject tutorialText;
+    public bool textPlaying;
 
     public virtual void Start()
     {
@@ -56,9 +56,15 @@ public class GunControllerBeta : MonoBehaviour
         //get the player controller so we stop when paused
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerControllerBeta>();
 
-        // get UI objects
-        flashingText = GameObject.Find("Flashing Text");
-        tutorialText = GameObject.Find("Text Box");
+        // disable crosshair if tutorial 
+        string scene = SceneManager.GetActiveScene().name;
+        if (scene.Equals("Tutorial2"))
+        {
+            textPlaying = true;
+        }
+        else
+            textPlaying = false;
+        
     }
 
     public virtual void Update()
@@ -157,7 +163,7 @@ public class GunControllerBeta : MonoBehaviour
 
     void ShowCrosshair()
     {
-        if (crosshair != null)
+        if (crosshair != null && !textPlaying)
         {
             crosshair.SetActive(true);
             crosshair.transform.position = new Vector2(Screen.width / 2, Screen.height / 2);     // lock crosshair to centerscreen

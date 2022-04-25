@@ -84,20 +84,24 @@ public class TutorialManager : MonoBehaviour
         {
             tt.keepPlayer = true;
             instructionsPanel.SetActive(false);
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().gunInHand.GetComponent<GunControllerBeta>().textPlaying = true;
         }
         if (id == "dialogue 4")
         {
             nest.turnOffAutoSpawn = false;
             nestTurret.canShoot.Add("Enemy");
             nest.spawnCap = 3;
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().gunInHand.GetComponent<GunControllerBeta>().textPlaying = true;
         }
         if (id == "dialogue 6")
         {
             GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().maxTurrets = 1;
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().gunInHand.GetComponent<GunControllerBeta>().textPlaying = true;
         }
         if (id == "dialogue 9")//wave starts
         {
             GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().maxTurrets = 10;
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().gunInHand.GetComponent<GunControllerBeta>().textPlaying = true;
             //waveManager.SetActive(true);
         }
         //if (id == "dialogue 3")
@@ -123,6 +127,9 @@ public class TutorialManager : MonoBehaviour
         tutorialTriggers[activeList - 1].SetActive(false);
         if (activeList < tutorialTriggers.Length)
             tutorialTriggers[activeList].SetActive(true);
+
+        // allow crosshair
+        GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().gunInHand.GetComponent<GunControllerBeta>().textPlaying = false;
     }
 
     public void ChatUpdateCommand(string command)

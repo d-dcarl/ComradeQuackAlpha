@@ -78,7 +78,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
     [Header("Shooting")]
     public List<GameObject> gunTypes;
     public Transform gunTransform;
-    protected GunControllerBeta gunInHand;
+    public GunControllerBeta gunInHand;
 
     [Header("Animation")]
     private Animator animator;
