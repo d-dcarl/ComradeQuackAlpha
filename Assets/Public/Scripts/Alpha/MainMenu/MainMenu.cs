@@ -33,10 +33,20 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private bool settingsChange = false;
     [SerializeField] private bool creditsChange = false;
 
+    [Header("Display Toggles")]
+    [SerializeField] public Toggle fullScreen;
+    [SerializeField] public Toggle boarderless;
+    [SerializeField] public Toggle windowed;
+
+    [Header("Mouse Sensitivity")]
+    [SerializeField] private Slider slider;
+    [SerializeField] public float mouseSense;
+
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        slider = GetComponent<Slider>();
     }
 
     public void Update()
@@ -236,4 +246,60 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Set4K ()
+    {
+        if (fullScreen.isOn)
+        {
+            Screen.SetResolution(3840, 2160, FullScreenMode.ExclusiveFullScreen);
+        }
+        if(boarderless.isOn)
+        {
+            Screen.SetResolution(3840, 2160, FullScreenMode.FullScreenWindow);
+        }
+        if (boarderless.isOn)
+        {
+            Screen.SetResolution(3840, 2160, FullScreenMode.MaximizedWindow);
+        }
+    }
+
+    public void fullScreenToggle()
+    {
+        boarderless.isOn = false;
+        boarderless.interactable = true;
+        windowed.isOn = false;
+        windowed.interactable = true;
+        fullScreen.isOn = true;
+        fullScreen.interactable = false;
+    }
+    public void boarderlessToggle()
+    {
+        fullScreen.isOn = false;
+        fullScreen.interactable = true;
+        windowed.isOn = false;
+        windowed.interactable = true;
+        boarderless.isOn = true;
+        boarderless.interactable = false;  
+    }
+    public void windowedToggle()
+    {
+        fullScreen.isOn = false;
+        fullScreen.interactable = true;
+        boarderless.isOn = false;
+        boarderless.interactable = true;
+        windowed.isOn = true;
+        windowed.interactable = false;
+    }
+
+    public void mouseSensitivity(float sensitive)
+    {
+        mouseSense = sensitive;
+    }
+    public void SetBoarderless(bool ispBoarderless)
+    {
+
+    }
+    //Screen.SetResolution(2560, 1440, FullScreenMode.ExclusiveFullScreen); //1440p
+       // Screen.SetResolution(1920, 1080, FullScreenMode.ExclusiveFullScreen); //1080p
+        //Screen.SetResolution(1280, 720, FullScreenMode.ExclusiveFullScreen); //720p
+       // Screen.SetResolution(640, 480, FullScreenMode.ExclusiveFullScreen); //480p
 }
