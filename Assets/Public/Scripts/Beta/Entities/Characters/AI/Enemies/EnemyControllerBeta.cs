@@ -165,7 +165,11 @@ public class EnemyControllerBeta : AIControllerBeta
                         ecb = g.GetComponentInParent<EntityControllerBeta>();
                     
                     if (ecb != null)
+                    {
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/characters/enemies/basic_pig/melee_attack", GetComponent<Transform>().position);
                         ecb.TakeDamage(attackDamage);
+                    }
+      
                 }
             }
         }
