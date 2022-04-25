@@ -796,6 +796,12 @@ public class PlayerControllerBeta : CharacterControllerBeta
         TurnSideways();
     }
 
+    public override void TakeDamage(float amount)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/characters/dialogue/player", GetComponent<Transform>().position);
+        base.TakeDamage(amount);
+    }
+
     // Placeholder
     void TurnSideways()
     {
