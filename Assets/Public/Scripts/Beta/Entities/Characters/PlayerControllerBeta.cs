@@ -755,7 +755,6 @@ public class PlayerControllerBeta : CharacterControllerBeta
         animator.Play("Duck Recruiting (handgun)");
         if(!recruitingSound)
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/characters/player/recruit_quackling", GetComponent<Transform>().position);
             recruitingSound = true;
         }
         if (!recruitCircle.activeInHierarchy && ducklingsList.Count < maxDucklings)
@@ -841,6 +840,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
             Debug.Log(duckling_controller);
             if (duckling_controller.GetLeader() == null)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/characters/player/recruit_quackling", GetComponent<Transform>().position);
                 duckling_controller.SetLeader(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControllerBeta>());
                 ducklingsList.Add(duckling_controller);
                 duckling_controller.PlayQuack();
