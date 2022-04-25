@@ -39,10 +39,14 @@ public class GunControllerBeta : MonoBehaviour
     [SerializeField]
     private float knockback = 5;
 
+    // UI references
+    private GameObject flashingText;
+    private GameObject tutorialText;
+
     public virtual void Start()
     {
         shootTimer = shootDelay;
-        crosshair = GameObject.Find("Crosshair");
+        crosshair = GameObject.Find("Crosshair2");
         gunAnimator = GetComponentInChildren<Animator>();
         gunMuzzleFlash = GetComponentInChildren<VisualEffect>();
         crosshair.SetActive(false);
@@ -51,6 +55,10 @@ public class GunControllerBeta : MonoBehaviour
 
         //get the player controller so we stop when paused
         playerController = GameObject.FindWithTag("Player").GetComponent<PlayerControllerBeta>();
+
+        // get UI objects
+        flashingText = GameObject.Find("Flashing Text");
+        tutorialText = GameObject.Find("Text Box");
     }
 
     public virtual void Update()
@@ -152,7 +160,6 @@ public class GunControllerBeta : MonoBehaviour
         if (crosshair != null)
         {
             crosshair.SetActive(true);
-            //crosshair.transform.position = Input.mousePosition;
             crosshair.transform.position = new Vector2(Screen.width / 2, Screen.height / 2);     // lock crosshair to centerscreen
         }
         else

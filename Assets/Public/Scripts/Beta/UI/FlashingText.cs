@@ -10,7 +10,7 @@ public class FlashingText : MonoBehaviour
 
     TextMeshProUGUI textUI;
     string currentMessage = "";
-    bool isFlashing = false;
+    public bool isFlashing = false;
 
     // Start is called before the first frame update
     void Start()
