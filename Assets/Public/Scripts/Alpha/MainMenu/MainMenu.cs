@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -33,12 +34,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private bool settingsChange = false;
     [SerializeField] private bool creditsChange = false;
 
-    [Header("Display Toggles")]
-    [SerializeField] public Toggle fullScreen;
-    [SerializeField] public Toggle boarderless;
-    [SerializeField] public Toggle windowed;
+    [Header("Display Dropdowns")]
+    [SerializeField] public TMP_Dropdown displayType;
+    [SerializeField] public TMP_Dropdown resolutionType;
 
     [Header("Mouse Sensitivity")]
+    [SerializeField] public TMP_Text sensitivity;
     [SerializeField] private Slider slider;
     [SerializeField] public float mouseSense;
 
@@ -246,60 +247,74 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void Set4K ()
+    public void SetResolutionAndDisplay()
     {
-        if (fullScreen.isOn)
-        {
-            Screen.SetResolution(3840, 2160, FullScreenMode.ExclusiveFullScreen);
-        }
-        if(boarderless.isOn)
+        if (displayType.value == 0 && resolutionType.value == 0)
         {
             Screen.SetResolution(3840, 2160, FullScreenMode.FullScreenWindow);
         }
-        if (boarderless.isOn)
+        if(displayType.value == 1 && resolutionType.value == 0)
         {
             Screen.SetResolution(3840, 2160, FullScreenMode.MaximizedWindow);
         }
+        if (displayType.value == 2 && resolutionType.value == 0)
+        {
+            Screen.SetResolution(3840, 2160, FullScreenMode.Windowed);
+        }
+        if (displayType.value == 0 && resolutionType.value == 1)
+        {
+            Screen.SetResolution(2560, 1440, FullScreenMode.FullScreenWindow);
+        }
+        if (displayType.value == 1 && resolutionType.value == 1)
+        {
+            Screen.SetResolution(2560, 1440, FullScreenMode.MaximizedWindow);
+        }
+        if (displayType.value == 2 && resolutionType.value == 1)
+        {
+            Screen.SetResolution(2560, 1440, FullScreenMode.Windowed);
+        }
+        if (displayType.value == 0 && resolutionType.value == 2)
+        {
+            Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+        }
+        if (displayType.value == 1 && resolutionType.value == 2)
+        {
+            Screen.SetResolution(1920, 1080, FullScreenMode.MaximizedWindow);
+        }
+        if (displayType.value == 2 && resolutionType.value == 2)
+        {
+            Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
+        }
+        if (displayType.value == 0 && resolutionType.value == 3)
+        {
+            Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow);
+        }
+        if (displayType.value == 1 && resolutionType.value == 3)
+        {
+            Screen.SetResolution(1280, 720, FullScreenMode.MaximizedWindow);
+        }
+        if (displayType.value ==2 && resolutionType.value == 3)
+        {
+            Screen.SetResolution(1280, 720, FullScreenMode.Windowed);
+        }
+        if (displayType.value == 0 && resolutionType.value == 4)
+        {
+            Screen.SetResolution(640, 480, FullScreenMode.FullScreenWindow);
+        }
+        if (displayType.value == 1 && resolutionType.value == 4)
+        {
+            Screen.SetResolution(640, 480, FullScreenMode.MaximizedWindow);
+        }
+        if (displayType.value == 2 && resolutionType.value == 4)
+        {
+            Screen.SetResolution(640, 480, FullScreenMode.Windowed);
+        }
     }
 
-    public void fullScreenToggle()
+    public void mouseSensitivityText()
     {
-        boarderless.isOn = false;
-        boarderless.interactable = true;
-        windowed.isOn = false;
-        windowed.interactable = true;
-        fullScreen.isOn = true;
-        fullScreen.interactable = false;
-    }
-    public void boarderlessToggle()
-    {
-        fullScreen.isOn = false;
-        fullScreen.interactable = true;
-        windowed.isOn = false;
-        windowed.interactable = true;
-        boarderless.isOn = true;
-        boarderless.interactable = false;  
-    }
-    public void windowedToggle()
-    {
-        fullScreen.isOn = false;
-        fullScreen.interactable = true;
-        boarderless.isOn = false;
-        boarderless.interactable = true;
-        windowed.isOn = true;
-        windowed.interactable = false;
+        mouseSense = slider.value;
+        sensitivity.SetText(mouseSense.ToString());
     }
 
-    public void mouseSensitivity(float sensitive)
-    {
-        mouseSense = sensitive;
-    }
-    public void SetBoarderless(bool ispBoarderless)
-    {
-
-    }
-    //Screen.SetResolution(2560, 1440, FullScreenMode.ExclusiveFullScreen); //1440p
-       // Screen.SetResolution(1920, 1080, FullScreenMode.ExclusiveFullScreen); //1080p
-        //Screen.SetResolution(1280, 720, FullScreenMode.ExclusiveFullScreen); //720p
-       // Screen.SetResolution(640, 480, FullScreenMode.ExclusiveFullScreen); //480p
 }
