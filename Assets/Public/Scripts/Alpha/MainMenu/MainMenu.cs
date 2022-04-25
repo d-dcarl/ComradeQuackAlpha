@@ -251,61 +251,61 @@ public class MainMenu : MonoBehaviour
     {
         if (displayType.value == 0 && resolutionType.value == 0)
         {
-            Screen.SetResolution(3840, 2160, FullScreenMode.ExclusiveFullScreen);
+            Screen.SetResolution(3840, 2160, FullScreenMode.FullScreenWindow);
         }
         if(displayType.value == 1 && resolutionType.value == 0)
         {
-            Screen.SetResolution(3840, 2160, FullScreenMode.FullScreenWindow);
+            Screen.SetResolution(3840, 2160, FullScreenMode.MaximizedWindow);
         }
-        if (displayType.value == 3 && resolutionType.value == 0)
+        if (displayType.value == 2 && resolutionType.value == 0)
         {
             Screen.SetResolution(3840, 2160, FullScreenMode.Windowed);
         }
         if (displayType.value == 0 && resolutionType.value == 1)
         {
-            Screen.SetResolution(2560, 1440, FullScreenMode.ExclusiveFullScreen);
+            Screen.SetResolution(2560, 1440, FullScreenMode.FullScreenWindow);
         }
         if (displayType.value == 1 && resolutionType.value == 1)
         {
-            Screen.SetResolution(2560, 1440, FullScreenMode.FullScreenWindow);
+            Screen.SetResolution(2560, 1440, FullScreenMode.MaximizedWindow);
         }
-        if (displayType.value == 3 && resolutionType.value == 1)
+        if (displayType.value == 2 && resolutionType.value == 1)
         {
             Screen.SetResolution(2560, 1440, FullScreenMode.Windowed);
         }
         if (displayType.value == 0 && resolutionType.value == 2)
         {
-            Screen.SetResolution(1920, 1080, FullScreenMode.ExclusiveFullScreen);
+            Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
         }
         if (displayType.value == 1 && resolutionType.value == 2)
         {
-            Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
+            Screen.SetResolution(1920, 1080, FullScreenMode.MaximizedWindow);
         }
-        if (displayType.value == 3 && resolutionType.value == 2)
+        if (displayType.value == 2 && resolutionType.value == 2)
         {
             Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
         }
         if (displayType.value == 0 && resolutionType.value == 3)
         {
-            Screen.SetResolution(1280, 720, FullScreenMode.ExclusiveFullScreen);
+            Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow);
         }
         if (displayType.value == 1 && resolutionType.value == 3)
         {
-            Screen.SetResolution(1280, 720, FullScreenMode.FullScreenWindow);
+            Screen.SetResolution(1280, 720, FullScreenMode.MaximizedWindow);
         }
-        if (displayType.value == 3 && resolutionType.value == 3)
+        if (displayType.value ==2 && resolutionType.value == 3)
         {
             Screen.SetResolution(1280, 720, FullScreenMode.Windowed);
         }
         if (displayType.value == 0 && resolutionType.value == 4)
         {
-            Screen.SetResolution(640, 480, FullScreenMode.ExclusiveFullScreen);
+            Screen.SetResolution(640, 480, FullScreenMode.FullScreenWindow);
         }
         if (displayType.value == 1 && resolutionType.value == 4)
         {
-            Screen.SetResolution(640, 480, FullScreenMode.FullScreenWindow);
+            Screen.SetResolution(640, 480, FullScreenMode.MaximizedWindow);
         }
-        if (displayType.value == 3 && resolutionType.value == 4)
+        if (displayType.value == 2 && resolutionType.value == 4)
         {
             Screen.SetResolution(640, 480, FullScreenMode.Windowed);
         }
