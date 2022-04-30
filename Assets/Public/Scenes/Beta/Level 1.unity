@@ -5350,6 +5350,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3894492492017658692}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: staminaUsedPerJump
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: circleExpansionRate
       value: 0.25
       objectReference: {fileID: 0}
@@ -5365,6 +5369,10 @@ PrefabInstance:
       propertyPath: currNests.Array.data[1]
       value: 
       objectReference: {fileID: 546010272}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: staminaUsedPerGlideSecond
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: placeableTurretPrefabs.Array.size
       value: 3
@@ -17216,7 +17224,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 47213106887077424, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: -0.193
       objectReference: {fileID: 0}
     - target: {fileID: 429327118958843338, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_TagString
@@ -17257,6 +17265,10 @@ PrefabInstance:
     - target: {fileID: 1998033078695426532, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_TagString
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998675542215534650, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.08660787
       objectReference: {fileID: 0}
     - target: {fileID: 2076412164263019951, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_TagString
@@ -17486,6 +17498,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
+    - target: {fileID: 3358150844788857699, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2129416
+      objectReference: {fileID: 0}
     - target: {fileID: 3568592556518019759, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_TagString
       value: Environment
@@ -17518,6 +17534,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Environment
       objectReference: {fileID: 0}
+    - target: {fileID: 4668387410570083407, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.397
+      objectReference: {fileID: 0}
     - target: {fileID: 4925182965870492124, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_TagString
       value: Environment
@@ -17537,6 +17557,10 @@ PrefabInstance:
     - target: {fileID: 5440775281459965625, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_TagString
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876746054090560644, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.8257155
       objectReference: {fileID: 0}
     - target: {fileID: 5923826172001103433, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: neighbors.Array.size
@@ -17677,6 +17701,10 @@ PrefabInstance:
     - target: {fileID: 8638810427604417739, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_TagString
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731996446792403354, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5499697
       objectReference: {fileID: 0}
     - target: {fileID: 9121595570583629701, guid: fca5a388952fc6f4facf8d98dfd649ff, type: 3}
       propertyPath: m_TagString
