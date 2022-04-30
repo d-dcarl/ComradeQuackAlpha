@@ -5350,10 +5350,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3894492492017658692}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
-      propertyPath: staminaUsedPerJump
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: circleExpansionRate
       value: 0.25
       objectReference: {fileID: 0}
@@ -5369,10 +5365,6 @@ PrefabInstance:
       propertyPath: currNests.Array.data[1]
       value: 
       objectReference: {fileID: 546010272}
-    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
-      propertyPath: staminaUsedPerGlideSecond
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: placeableTurretPrefabs.Array.size
       value: 3
