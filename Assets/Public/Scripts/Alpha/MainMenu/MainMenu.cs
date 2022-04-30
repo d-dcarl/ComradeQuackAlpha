@@ -51,7 +51,13 @@ public class MainMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        if (Time.realtimeSinceStartup > 5)
+        {
+            switchToTitle();
+            currentMenuItem = MenuItem.TitleScreen;
+            StartCoroutine(StartFadeIn());
+            return;
+        }
         StartCoroutine(StartFadeIn());
     }
 
