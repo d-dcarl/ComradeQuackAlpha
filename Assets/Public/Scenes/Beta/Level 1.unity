@@ -5318,6 +5318,10 @@ PrefabInstance:
       value: Gun Transform
       objectReference: {fileID: 0}
     - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
+      propertyPath: gamecam
+      value: 
+      objectReference: {fileID: 79587108}
+    - target: {fileID: 4008175262777489836, guid: 650d940071b0f484ab9fed24066ed7ea, type: 3}
       propertyPath: maxNests
       value: 2
       objectReference: {fileID: 0}

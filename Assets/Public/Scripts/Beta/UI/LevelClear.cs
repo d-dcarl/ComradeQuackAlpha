@@ -20,6 +20,7 @@ public class LevelClear : MonoBehaviour
         timer += Time.deltaTime;
         if (!player.isPlaying && timer >= 1)
         {
+            StyControllerBeta.allStys = null;
             SceneManager.LoadScene("MainMenu");
         }
     }

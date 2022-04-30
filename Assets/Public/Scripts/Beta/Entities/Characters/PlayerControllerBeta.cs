@@ -112,7 +112,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
         mesh = transform.Find("Mesh").gameObject;
         recruitCircle.SetActive(false);
 
-        gamecam = GameObject.Find("Main Camera");
+        //gamecam = GameObject.Find("Main Camera");
 
         InitializeStamina();
         InitializeFlying();
@@ -671,6 +671,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
                         else if(removedDuckling == 1)
                         {
                             //destroyed turret is removed from turrets, can place a new one
+                            
                             numTurrets--;
                         }
                         
