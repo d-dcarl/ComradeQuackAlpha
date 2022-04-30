@@ -43,11 +43,14 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] public float mouseSense;
 
+    private bool toFadeOut;
+
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         slider = GetComponent<Slider>();
+        toFadeOut = false;
     }
 
     public void Update()
@@ -61,10 +64,15 @@ public class MainMenu : MonoBehaviour
             }
         }
 
-        if (end)
+        if (end && !toFadeOut)
         {
             StartCoroutine(FadeOutTime());
         }
+
+        //if (toFadeOut)
+        //{
+        //    FadeOut();
+        //}
 
         if (anyKeys)
         {
@@ -118,6 +126,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator FadeOutTime()
     {
         yield return new WaitForSecondsRealtime(0.5f);
+        //toFadeOut = true;
         FadeOut();
     }
 
@@ -153,6 +162,7 @@ public class MainMenu : MonoBehaviour
             }
             start = true;
             end = false;
+            toFadeOut = false;
         }
     }
 
