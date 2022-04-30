@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
     public GameObject Settings;
     public GameObject Credits;
     public GameObject FadeMenu;
+    public GameObject SensitivitySlider;
 
     [Header("Fade In & Out Values")]
     [SerializeField] private CanvasGroup Fade_Alpha;
@@ -50,7 +51,6 @@ public class MainMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        slider = GetComponent<Slider>();
 
         StartCoroutine(StartFadeIn());
     }
@@ -280,8 +280,11 @@ public class MainMenu : MonoBehaviour
 
     public void mouseSensitivityText()
     {
+        slider = SensitivitySlider.GetComponent<Slider>();
         mouseSense = slider.value;
         sensitivity.SetText(mouseSense.ToString());
+        PlayerPrefs.SetFloat("sensitivity", slider.value);
+        //Debug.Log(slider.value);
     }
 
     private enum MenuItem

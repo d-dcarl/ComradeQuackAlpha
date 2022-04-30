@@ -20,7 +20,7 @@ public class CameraControllerBeta : MonoBehaviour
 
     public Transform zoomCam;
     public float zoomSpeed = .5f;
-    public float sensitivityFactor = 1.0f;
+    public float sensitivityFactor;
 
     private float rotationSpeed = 2.0f;
     private float pitch;
@@ -50,8 +50,10 @@ public class CameraControllerBeta : MonoBehaviour
         pauseCanvas = gameObject.GetComponentInChildren<Canvas>();
         pauseCanvas.enabled = false;
 
-        // test
-        //cameraSpeed = cameraSpeed * 0.0001f;
+        // Get sensitivity
+        sensitivityFactor = PlayerPrefs.GetFloat("sensitivity");
+        //Debug.Log("Here it is: " + sensitivityFactor);
+        
     }
 
     // Update is called once per frame
@@ -119,6 +121,10 @@ public class CameraControllerBeta : MonoBehaviour
             yaw = player.transform.eulerAngles.y;
         }
     }
+
+    //PlayerPrefs.setflow. set mouse sensitivity
+        // Player
+
 
     public void resumeGame()
     {
