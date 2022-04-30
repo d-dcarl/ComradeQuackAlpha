@@ -50,10 +50,9 @@ public class CameraControllerBeta : MonoBehaviour
         pauseCanvas = gameObject.GetComponentInChildren<Canvas>();
         pauseCanvas.enabled = false;
 
-        // Get sensitivity
+        // Get sensitivity and adjust accordingly
         sensitivityFactor = PlayerPrefs.GetFloat("sensitivity");
-        //Debug.Log("Here it is: " + sensitivityFactor);
-        
+        cameraSpeed = cameraSpeed * sensitivityFactor;
     }
 
     // Update is called once per frame
@@ -121,10 +120,6 @@ public class CameraControllerBeta : MonoBehaviour
             yaw = player.transform.eulerAngles.y;
         }
     }
-
-    //PlayerPrefs.setflow. set mouse sensitivity
-        // Player
-
 
     public void resumeGame()
     {

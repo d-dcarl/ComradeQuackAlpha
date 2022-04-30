@@ -566,7 +566,8 @@ public class PlayerControllerBeta : CharacterControllerBeta
             {
                 if (!Input.GetMouseButton(1) || Input.GetAxis("Zoom") > 0f)       // added zoom-in check to allow smooth rotations for zoom-in shooting - SJ
                 {
-                    float rotationDelta = (mouseVelX) * rotationSpeed * Time.deltaTime * 60f;
+                    float sFactor = PlayerPrefs.GetFloat("sensitivity");          // adjust sensitivity accordingly
+                    float rotationDelta = (mouseVelX) * rotationSpeed * sFactor * Time.deltaTime * 60f;
                     transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y + rotationDelta, 0f);
                 }
             }
