@@ -769,7 +769,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 778700064}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: goToLevel
+        m_MethodName: goToDressingRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

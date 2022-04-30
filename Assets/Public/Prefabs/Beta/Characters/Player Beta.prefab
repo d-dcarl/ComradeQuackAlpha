@@ -228,10 +228,10 @@ MonoBehaviour:
   glideMoveSpeed: 10
   glideFallSpeed: -5
   rotationSpeed: 5
-  maxStamina: 200
+  maxStamina: 500
   staminaRecovery: 40
-  staminaUsedPerJump: 20
-  staminaUsedPerGlideSecond: 5
+  staminaUsedPerJump: 5
+  staminaUsedPerGlideSecond: 2
   foodStaminaRegen: 30
   staminaSlider: {fileID: 0}
   placeableTurretPrefabs:
@@ -256,9 +256,11 @@ MonoBehaviour:
   gunTypes:
   - {fileID: 7376874870213945803, guid: 5bb30e5e26b8e3e4a9caf64d5e7e09b9, type: 3}
   gunTransform: {fileID: 2451214499158473852}
+  gunInHand: {fileID: 0}
   deathOverlay: {fileID: 0}
   gamecam: {fileID: 0}
   paused: 0
+  inDialogue: 0
 --- !u!136 &8393010493706824882
 CapsuleCollider:
   m_ObjectHideFlags: 0

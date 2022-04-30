@@ -135,6 +135,7 @@ public class CameraControllerBeta : MonoBehaviour
     {
         //Change later to main menu scene
         Time.timeScale = 1;
+        StyControllerBeta.allStys = null;
         SceneManager.LoadScene("MainMenu");
     }
 
