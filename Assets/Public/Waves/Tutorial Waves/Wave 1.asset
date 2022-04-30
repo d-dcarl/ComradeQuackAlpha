@@ -15,11 +15,11 @@ MonoBehaviour:
   pigstyToSpawn: 0
   enemyWaves:
   - enemy: {fileID: 5019965575117504303, guid: 5479d1bea7f2f3140b4b1bcaa16f25de, type: 3}
-    amountToSpawn: 4
+    amountToSpawn: 2
     spawnTimeSinceStart: 0
   - enemy: {fileID: 5019965575117504303, guid: 5479d1bea7f2f3140b4b1bcaa16f25de, type: 3}
-    amountToSpawn: 4
+    amountToSpawn: 2
     spawnTimeSinceStart: 5
   - enemy: {fileID: 5019965575117504303, guid: 5479d1bea7f2f3140b4b1bcaa16f25de, type: 3}
-    amountToSpawn: 4
+    amountToSpawn: 2
     spawnTimeSinceStart: 15
