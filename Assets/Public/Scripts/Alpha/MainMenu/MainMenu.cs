@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
+using UnityEditor;
 
 public class MainMenu : MonoBehaviour
 {
@@ -43,127 +44,87 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Slider slider;
     [SerializeField] public float mouseSense;
 
-    private bool toFadeOut;
+    private MenuItem currentMenuItem = MenuItem.UkraineMessage;
 
     public void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         slider = GetComponent<Slider>();
-        toFadeOut = false;
+
+        StartCoroutine(StartFadeIn());
     }
 
     public void Update()
     {
-        if(start)
-        {
-            StartCoroutine(FadeInTime());
-            if (counter == 0)
-            {
-                StartCoroutine(ButtonDelay());
-            }
-        }
-
-        if (end && !toFadeOut)
-        {
-            StartCoroutine(FadeOutTime());
-        }
-
-        //if (toFadeOut)
-        //{
-        //    FadeOut();
-        //}
-
-        if (anyKeys)
-        {
-            if(Input.anyKeyDown)
-            {
-                FMODUnity.RuntimeManager.PlayOneShot("event:/ui/main/button_click", GetComponent<Transform>().position);
-                end = true;
-                counter++; 
-                anyKeys = false;
-                if (counter == 1)
-                {
-                    titleChange = true;
-                    StartCoroutine(ButtonDelay());
-                }
-                else if (counter == 2)
-                {
-                   mainChange = true;
-                }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
+        if (anyKeys && Input.anyKeyDown)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/ui/main/button_click", GetComponent<Transform>().position);
-            SceneManager.LoadScene("DressingRoom");
+            anyKeys = false;
+            
+            if (currentMenuItem == MenuItem.UkraineMessage)
+                StartCoroutine(FadeOut(MenuItem.TitleScreen));
+            else if (currentMenuItem == MenuItem.TitleScreen)
+                StartCoroutine(FadeOut(MenuItem.MainMenu));
         }
 
     }
 
-    IEnumerator ButtonDelay()
+    private IEnumerator StartFadeIn()
     {
-        yield return new WaitForSecondsRealtime(2.5f);
+        anyKeys = false;
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FadeIn());
+    }
+
+    private IEnumerator FadeIn()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Fade_Alpha.alpha -= 0.1f;
+        }
+
+        Fade_Alpha.alpha = 0f;
+
         anyKeys = true;
     }
 
-    IEnumerator FadeInTime()
+    private IEnumerator FadeOut(MenuItem fadeTo)
     {
-        yield return new WaitForSecondsRealtime(0.5f);
-        FadeIn();
-    }
-
-    public void FadeIn()
-    {
-        Fade_Alpha.alpha -= Time.deltaTime;
-        if (Fade_Alpha.alpha <= 0)
+        for (int i = 0; i < 10; i++)
         {
-            start = false; 
+            yield return new WaitForSeconds(0.1f);
+            Fade_Alpha.alpha += 0.1f;
         }
-    }
 
-    IEnumerator FadeOutTime()
-    {
-        yield return new WaitForSecondsRealtime(0.5f);
-        //toFadeOut = true;
-        FadeOut();
-    }
+        Fade_Alpha.alpha = 1f;
 
-    public void FadeOut()
-    {
-        Fade_Alpha.alpha += Time.deltaTime;
-        if (Fade_Alpha.alpha >= 1)
+        switch (fadeTo)
         {
-            if (mainChange == true)
-            {
+            case MenuItem.MainMenu:
                 switchToMain();
-                mainChange = false;
-            }
-            if (titleChange == true)
-            {
+                break;
+            case MenuItem.TitleScreen:
                 switchToTitle();
-                titleChange = false;
-            }
-            if (levelsChange == true)
-            {
+                break;
+            case MenuItem.LevelSelect:
                 switchToLevelSelect();
-                levelsChange = false;
-            }
-            if (settingsChange == true)
-            {
+                break;
+            case MenuItem.Settings:
                 switchToSettings();
-                settingsChange = false;
-            }
-            if (creditsChange == true)
-            {
+                break;
+            case MenuItem.Credits:
                 switchToCredits();
-                creditsChange = false;
-            }
-            start = true;
-            end = false;
-            toFadeOut = false;
+                break;
+            default:
+                Debug.Log("Invalid menu item, this should never happen");
+                break;
         }
+
+        currentMenuItem = fadeTo;
+
+        StartCoroutine(StartFadeIn());
     }
 
     public void PlayGame()
@@ -174,8 +135,7 @@ public class MainMenu : MonoBehaviour
 
     public void goToLevel()
     {
-        levelsChange = true;
-        end = true;
+        StartCoroutine(FadeOut(MenuItem.LevelSelect));
     }
 
     public void switchToLevelSelect()
@@ -186,12 +146,6 @@ public class MainMenu : MonoBehaviour
         Ukraine_Message.SetActive(false);
         Settings.SetActive(false);
         Credits.SetActive(false);
-    }
-
-    public void goToTitle()
-    {
-        titleChange = true;
-        end = true;
     }
 
     public void switchToTitle()
@@ -206,8 +160,7 @@ public class MainMenu : MonoBehaviour
 
     public void goToMain()
     {
-        mainChange = true;
-        end = true;
+        StartCoroutine(FadeOut(MenuItem.MainMenu));
     }
 
     public void switchToMain()
@@ -222,8 +175,7 @@ public class MainMenu : MonoBehaviour
 
     public void goToSettings()
     {
-        settingsChange = true;
-        end = true;
+        StartCoroutine(FadeOut(MenuItem.Settings));
     }
 
     public void switchToSettings()
@@ -238,8 +190,7 @@ public class MainMenu : MonoBehaviour
 
     public void goToCredits()
     {
-        creditsChange = true;
-        end = true;
+        StartCoroutine(FadeOut(MenuItem.Credits));
     }
 
     public void switchToCredits()
@@ -250,6 +201,12 @@ public class MainMenu : MonoBehaviour
         Ukraine_Message.SetActive(false);
         Title_Screen.SetActive(false);
         Level_Select.SetActive(false);
+    }
+
+    public void goToDressingRoom()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/ui/main/button_click", GetComponent<Transform>().position);
+        SceneManager.LoadScene("DressingRoom");
     }
 
     public void ExitGame()
@@ -325,6 +282,16 @@ public class MainMenu : MonoBehaviour
     {
         mouseSense = slider.value;
         sensitivity.SetText(mouseSense.ToString());
+    }
+
+    private enum MenuItem
+    {
+        Credits,
+        Settings,
+        MainMenu,
+        UkraineMessage,
+        TitleScreen,
+        LevelSelect
     }
 
 }
