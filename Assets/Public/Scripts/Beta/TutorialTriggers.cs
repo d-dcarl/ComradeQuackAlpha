@@ -14,6 +14,7 @@ public class TutorialTriggers : MonoBehaviour
             //GameObject.Find("Player Beta").transform.position = transform.position;
             GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().maxSpeed = 0;
             GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().flapSpeed = 0;
+            GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().inDialogue = true;
         }
     }
 

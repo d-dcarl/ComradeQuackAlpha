@@ -101,6 +101,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
     //pause the game
     public bool paused = false;
+    public bool inDialogue = false;
 
     GameObject mesh;
 
@@ -238,6 +239,20 @@ public class PlayerControllerBeta : CharacterControllerBeta
             return;
         }
 
+        //input for player quackling recruitment ring
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetButtonDown("Recruit"))
+        {
+            recruitActive = true;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetButtonUp("Recruit"))
+        {
+            recruitActive = false;
+            EndRecruit();
+        }
+
+        if (inDialogue)
+            return;
+
         if (Input.GetButtonDown("Jump") && flapTimer <= 0f && alive)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/characters/player/jump", GetComponent<Transform>().position);
@@ -272,16 +287,7 @@ public class PlayerControllerBeta : CharacterControllerBeta
 
 
 
-        //input for player quackling recruitment ring
-        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetButtonDown("Recruit"))
-        {
-            recruitActive = true;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetButtonUp("Recruit"))
-        {
-            recruitActive = false;
-            EndRecruit();
-        }
+        
 
         if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("DucklingTurret"))
         {

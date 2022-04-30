@@ -119,6 +119,7 @@ public class TutorialManager : MonoBehaviour
         }
         GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().maxSpeed = 10;
         GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().flapSpeed = 15;
+        GameObject.Find("Player Beta").GetComponent<PlayerControllerBeta>().inDialogue = false;
         foreach (GameObject go in cameras)
         {
             go.SetActive(false);
