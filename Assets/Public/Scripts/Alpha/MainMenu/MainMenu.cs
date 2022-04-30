@@ -51,7 +51,14 @@ public class MainMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        PlayerPrefs.SetFloat("sensitivity", slider.value);
+        if (Time.realtimeSinceStartup > 5)
+        {
+            switchToTitle();
+            currentMenuItem = MenuItem.TitleScreen;
+            StartCoroutine(StartFadeIn());
+            return;
+        }
         StartCoroutine(StartFadeIn());
     }
 

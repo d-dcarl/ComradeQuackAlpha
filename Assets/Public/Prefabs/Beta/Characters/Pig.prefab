@@ -126,8 +126,8 @@ MonoBehaviour:
   - Nest
   followDistance: 0.1
   attackHitBox: {fileID: 6924727160141618297}
-  attackDamage: 3
-  attackDelay: 1
+  attackDamage: 2
+  attackDelay: 1.5
   targetUpdateTime: 1
   updateRadius: 5
   isTutorial: 0
@@ -235,25 +235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracked: []
---- !u!95 &563662928274014546
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6945634668256613780}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ffc97167350ee704caec5c446ede9a78, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!23 &2967960511769477719
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -296,6 +277,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &563662928274014546
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6945634668256613780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ffc97167350ee704caec5c446ede9a78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2835337644106159049
 PrefabInstance:
   m_ObjectHideFlags: 0
